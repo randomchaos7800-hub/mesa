@@ -9,8 +9,8 @@
     "properties": {
       "id": {
         "type": "string",
-        "pattern": "^mesa-[a-z]+-[0-9]{4}$",
-        "description": "Unique item ID, e.g. mesa-recall-0001"
+        "pattern": "^mesa-[a-z][a-z-]*-[0-9]{4}$",
+        "description": "Unique item ID, e.g. mesa-recall-single-0001"
       },
       "type": {
         "type": "string",

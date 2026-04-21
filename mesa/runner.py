@@ -105,6 +105,8 @@ def run_benchmark(
             logger.info(f"[{idx+1}/{len(dataset)}] {item_id} ({q_type})")
 
         # --- Run the adapter ---
+        is_multi = _is_multi_session(sessions)
+        session_count = len(sessions) if is_multi else 1
         adapter.reset()
         _inject(adapter, sessions)
         facts = adapter.stored_facts()
@@ -138,6 +140,8 @@ def run_benchmark(
         result = {
             "id": item_id,
             "type": q_type,
+            "session_format": "multi" if is_multi else "single",
+            "session_count": session_count,
             "question": question,
             "expected": expected,
             "predicted": predicted,
@@ -167,6 +171,18 @@ def run_benchmark(
         by_type.setdefault(r["type"], []).append(r["scores"]["composite"])
     type_scores = {t: round(sum(v) / len(v), 4) for t, v in by_type.items()}
 
+    by_fmt: dict[str, list[float]] = {}
+    for r in results:
+        by_fmt.setdefault(r["session_format"], []).append(r["scores"]["composite"])
+    fmt_summary = {
+        fmt: {
+            "n": len(v),
+            "avg_composite": round(sum(v) / len(v), 4),
+            "pass_rate": round(sum(1 for c in v if c >= 0.5) / len(v), 4),
+        }
+        for fmt, v in by_fmt.items()
+    }
+
     return {
         "run_id": datetime.now().strftime("%Y-%m-%d_%H-%M"),
         "dataset": str(dataset_path),
@@ -175,6 +191,7 @@ def run_benchmark(
         "avg_composite": avg_composite,
         "pass_rate_50pct": pass_rate,
         "by_type": type_scores,
+        "by_session_format": fmt_summary,
         "results": results,
     }
 
@@ -240,8 +257,12 @@ def main():
     print(f"  Items : {summary['n_items']}")
     print(f"  Avg   : {summary['avg_composite']:.4f}")
     print(f"  Pass  : {summary['pass_rate_50pct']:.1%}")
+    print(f"  By type:")
     for t, s in sorted(summary["by_type"].items()):
         print(f"    {t:<25} {s:.4f}")
+    print(f"  By session format:")
+    for fmt, s in sorted(summary["by_session_format"].items()):
+        print(f"    {fmt:<10} n={s['n']:3d}  avg={s['avg_composite']:.4f}  pass={s['pass_rate']:.1%}")
     print(f"{'='*60}")
     print(f"Results → {out_path}")
 
