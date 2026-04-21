@@ -1,4 +1,4 @@
-"""Unit tests for mmeb.scorer."""
+"""Unit tests for mesa.scorer."""
 
 import sys
 from pathlib import Path

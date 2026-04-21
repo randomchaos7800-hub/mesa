@@ -32,6 +32,9 @@ class EchoAdapter(MemoryAdapter):
     def ask(self, question: str) -> str:
         return self._context or "I don't know"
 
+    def stored_facts(self) -> list[str] | None:
+        return [self._context] if self._context else []
+
 
 class NullAdapter(MemoryAdapter):
     """Always refuses. Baseline for adversarial scoring.
@@ -86,3 +89,6 @@ class DictAdapter(MemoryAdapter):
         # Return all facts as context
         facts_str = "; ".join(f"{k}: {v}" for k, v in self._facts.items())
         return f"From memory: {facts_str}"
+
+    def stored_facts(self) -> list[str] | None:
+        return [f"{k}: {v}" for k, v in self._facts.items()]

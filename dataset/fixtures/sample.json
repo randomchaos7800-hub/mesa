@@ -191,5 +191,61 @@
       "difficulty": "hard",
       "notes": "Interference test. Similar-pattern serials added after the original. Tests that the original (XJ-99-B) is not corrupted or blurred by similar-looking newer entries (XJ-88-A, XJ-77-C)."
     }
+  },
+  {
+    "id": "mesa-synthesis-0001",
+    "type": "synthesis/multi",
+    "question": "What model is the user running and how fast is it?",
+    "expected_answer": "Gemma-4 26B, 70 tokens per second",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Loaded Gemma-4 26B on the GPU. It's hitting 70 tokens per second consistently."
+      },
+      {
+        "role": "assistant",
+        "content": "Gemma-4 26B at 70 tok/s — solid throughput for that model size."
+      },
+      {
+        "role": "user",
+        "content": "Yeah, good enough for interactive use. Latency is fine."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Synthesis test. Two facts (model name and speed) stated in the same turn but the question requires combining them into one answer."
+    }
+  },
+  {
+    "id": "mesa-causal-0001-fixture",
+    "type": "causal",
+    "question": "Why will the backup script trigger tonight?",
+    "expected_answer": "Because disk usage is at 85%, which exceeds the 80% threshold that triggers the backup script.",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "The backup script runs automatically whenever disk usage goes above 80%."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — automatic backup at 80% disk usage."
+      },
+      {
+        "role": "user",
+        "content": "Just checked — disk is at 85% and climbing."
+      },
+      {
+        "role": "assistant",
+        "content": "That's over the threshold. Backup should trigger soon."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Causal reasoning. Fact A (trigger threshold 80%) + fact B (current usage 85%) → conclusion C (backup will run). Neither fact alone implies the answer."
+    }
   }
 ]

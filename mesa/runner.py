@@ -93,6 +93,7 @@ def run_benchmark(
         # --- Run the adapter ---
         adapter.reset()
         adapter.inject(sessions)
+        facts = adapter.stored_facts()
 
         t0 = time.time()
         try:
@@ -126,6 +127,7 @@ def run_benchmark(
             "question": question,
             "expected": expected,
             "predicted": predicted,
+            "stored_facts": facts,
             "scores": {
                 "exact": em,
                 "rouge1": r1,

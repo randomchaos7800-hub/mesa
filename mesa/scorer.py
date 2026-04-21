@@ -3,7 +3,7 @@
 Three scoring dimensions:
   exact_match   — normalized substring/word-overlap (0.0–1.0)
   rouge1_f1     — ROUGE-1 F1 score (0.0–1.0)
-  llm_judge     — local model binary verdict (0.0 or 1.0)
+  llm_judge     — local model graded verdict (0–3 normalized to 0.0–1.0)
 
 Composite formula:
   With LLM judge:    0.4 * exact + 0.3 * llm_judge + 0.3 * rouge1
@@ -171,11 +171,13 @@ Question: {question}
 Expected answer: {expected}
 AI answer: {predicted}
 
-Does the AI answer correctly address the question based on the expected answer?
-Answer YES if the key information is present (exact wording not required).
-Answer NO if the answer is wrong, hallucinated, or refuses without cause.
+Rate the AI answer on this scale:
+3 — fully correct: all key information matches the expected answer
+2 — mostly correct: minor omission or imprecision, core answer is right
+1 — partially correct: some relevant information present but incomplete or imprecise
+0 — wrong: hallucinated, missing key facts, or refused without cause
 
-Respond with JSON only: {{"verdict": "YES" or "NO", "reason": "<one sentence>"}}"""
+Respond with JSON only: {{"grade": 0-3, "reason": "<one sentence>"}}"""
 
 
 def llm_judge(
@@ -187,8 +189,8 @@ def llm_judge(
 ) -> dict:
     """LLM-as-judge using the local inference tower.
 
-    Returns {"score": float, "verdict": str, "reason": str}.
-    score is 1.0 for YES, 0.0 for NO, None on error.
+    Returns {"score": float, "grade": int, "reason": str}.
+    score is grade/3 normalized to 0.0–1.0, None on error.
     """
     prompt = LLM_JUDGE_PROMPT.format(
         question=question,
@@ -209,12 +211,13 @@ def llm_judge(
         text = text.strip()
         text = re.sub(r",\s*([}\]])", r"\1", text)
         data = json.loads(text)
-        verdict = str(data.get("verdict", "NO")).strip().upper()
-        score = 1.0 if verdict == "YES" else 0.0
-        return {"score": score, "verdict": verdict, "reason": data.get("reason", "")}
+        grade = int(data.get("grade", 0))
+        grade = max(0, min(3, grade))
+        score = round(grade / 3.0, 4)
+        return {"score": score, "grade": grade, "reason": data.get("reason", "")}
     except Exception as e:
         logger.warning(f"LLM judge failed: {e}")
-        return {"score": None, "verdict": "ERROR", "reason": str(e)}
+        return {"score": None, "grade": None, "reason": str(e)}
 
 
 # ---------------------------------------------------------------------------

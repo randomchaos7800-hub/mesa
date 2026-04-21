@@ -341,5 +341,249 @@
       "date_added": "2026-04-21"
     },
     "id": "mesa-adversarial-0002"
+  },
+  {
+    "id": "mesa-temporal-0001",
+    "type": "temporal",
+    "question": "When did the user migrate to the new KV-based memory store?",
+    "expected_answer": "2026-01-15",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "[2026/01/15 (Thu) 14:30] Just finished migrating from the old vector store to the new KV-based memory setup. Finally done."
+      },
+      {
+        "role": "assistant",
+        "content": "Migration complete — KV store is live as of today."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Temporal recall. Date embedded in first user turn per LongMemEval convention."
+    }
+  },
+  {
+    "id": "mesa-temporal-0002",
+    "type": "temporal",
+    "question": "On what date did the user run the first benchmark comparison against the old system?",
+    "expected_answer": "2026-03-10",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "[2026/03/10 (Mon) 09:00] Running the first real benchmark comparison against the old RAG pipeline today. Should have results by end of day."
+      },
+      {
+        "role": "assistant",
+        "content": "First benchmark run underway — comparing new pipeline vs old RAG."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Temporal recall. Date embedded in first user turn."
+    }
+  },
+  {
+    "id": "mesa-synthesis-0001",
+    "type": "synthesis/multi",
+    "question": "What model is running on the inference server and how much VRAM does it consume?",
+    "expected_answer": "Mistral 7B, using about 4GB of VRAM",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Loaded Mistral 7B on the inference server. Works well for our use case."
+      },
+      {
+        "role": "assistant",
+        "content": "Mistral 7B is up — good choice for the workload."
+      },
+      {
+        "role": "user",
+        "content": "VRAM usage is sitting around 4GB which leaves plenty of headroom."
+      },
+      {
+        "role": "assistant",
+        "content": "4GB VRAM for Mistral 7B — comfortable margin on that GPU."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Synthesis. Two facts (model name, VRAM usage) stated in separate turns. Answer requires combining both."
+    }
+  },
+  {
+    "id": "mesa-synthesis-0002",
+    "type": "synthesis/multi",
+    "question": "What port does the local API run on and what authentication method does it require?",
+    "expected_answer": "Port 8080, Bearer token authentication",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "The local API endpoint is running on port 8080."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — local API on port 8080."
+      },
+      {
+        "role": "user",
+        "content": "Auth is Bearer token only. No API keys, no basic auth."
+      },
+      {
+        "role": "assistant",
+        "content": "Bearer token only — noted."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Synthesis. Port and auth method stated in separate turns. Both required for a complete answer."
+    }
+  },
+  {
+    "id": "mesa-constraint-0001",
+    "type": "recall/constraint",
+    "question": "What is the user's rule about tool call output — should it be summarized?",
+    "expected_answer": "Never summarize — always show the raw result",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Rule: never summarize tool output. Always show me the raw result. I'll read it myself."
+      },
+      {
+        "role": "assistant",
+        "content": "Understood — raw tool output only, no summarization."
+      },
+      {
+        "role": "user",
+        "content": "Run the disk check tool."
+      },
+      {
+        "role": "assistant",
+        "content": "Filesystem: /dev/sda1 — 847GB used of 1000GB (84.7%). Inodes: 2.1M used of 6.5M."
+      },
+      {
+        "role": "user",
+        "content": "Good. That's what I want every time."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Constraint retention. Hard rule stated, then exercised, then confirmed. Tests if relay stores it as an active constraint."
+    }
+  },
+  {
+    "id": "mesa-constraint-0002",
+    "type": "recall/constraint",
+    "question": "What format does the user require for all timestamps, and are there exceptions?",
+    "expected_answer": "UTC, no exceptions",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "All timestamps in this system must be UTC. No exceptions, no local time, no offsets."
+      },
+      {
+        "role": "assistant",
+        "content": "Hard rule: UTC for all timestamps, no exceptions."
+      },
+      {
+        "role": "user",
+        "content": "We're deploying to a server in Tokyo next week."
+      },
+      {
+        "role": "assistant",
+        "content": "Tokyo deployment noted. Timestamps stay UTC regardless."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Constraint retention. Noise (Tokyo deployment) introduces a plausible reason to use local time. Rule must persist."
+    }
+  },
+  {
+    "id": "mesa-interference-0001",
+    "type": "update/interference",
+    "question": "What was the name of the main configuration file the user mentioned first?",
+    "expected_answer": "config.json",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Main config lives in config.json. That's the canonical one."
+      },
+      {
+        "role": "assistant",
+        "content": "Canonical config: config.json."
+      },
+      {
+        "role": "user",
+        "content": "There's also config.backup.json for disaster recovery."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — config.backup.json for DR."
+      },
+      {
+        "role": "user",
+        "content": "And config.dev.json for local development overrides."
+      },
+      {
+        "role": "assistant",
+        "content": "config.dev.json for local dev overrides — noted."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "hard",
+      "notes": "Interference. Similar filenames added after original. Tests that config.json is not confused with config.backup.json or config.dev.json."
+    }
+  },
+  {
+    "id": "mesa-interference-0002",
+    "type": "update/interference",
+    "question": "What was the first API key prefix the user logged for the production service?",
+    "expected_answer": "sk-prod-alpha",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Production API key prefix is sk-prod-alpha. Log that."
+      },
+      {
+        "role": "assistant",
+        "content": "Logged — production key prefix: sk-prod-alpha."
+      },
+      {
+        "role": "user",
+        "content": "Added a failover key: sk-prod-beta."
+      },
+      {
+        "role": "assistant",
+        "content": "Failover key prefix: sk-prod-beta."
+      },
+      {
+        "role": "user",
+        "content": "Dev environment key is sk-dev-gamma."
+      },
+      {
+        "role": "assistant",
+        "content": "Dev key prefix: sk-dev-gamma."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "hard",
+      "notes": "Interference. Similar-pattern key prefixes added after original. Original (sk-prod-alpha) must not be confused with sk-prod-beta or sk-dev-gamma."
+    }
   }
 ]

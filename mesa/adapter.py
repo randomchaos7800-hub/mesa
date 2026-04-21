@@ -51,3 +51,15 @@ class MemoryAdapter(ABC):
             The system's answer string. For adversarial items (empty sessions),
             a correct system should return a refusal/uncertainty response.
         """
+
+    def stored_facts(self) -> list[str] | None:
+        """Return a list of facts/memories stored after inject().
+
+        Optional — override this to expose diagnostics. The runner will include
+        the result in each item's result dict under "stored_facts". Useful for
+        diagnosing whether low scores are caused by extraction failure (nothing
+        stored) vs retrieval failure (fact stored but not returned).
+
+        Returns None by default (diagnostics not available).
+        """
+        return None
