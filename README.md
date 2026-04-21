@@ -188,6 +188,9 @@ The runner calls `adapter.inject_session(turns, session_date)` once per session 
 |--------|---------|-------|-----------|-----------|-------|
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
+| Human (Dino Vitale) | mesa_v1 sample | 16 | 0.1531 | 13% | No LLM judge. Stratified 2-per-type sample, 2026-04-22 |
+
+*Human baseline scored 0.1531 no-judge. This is expected — human answers are correct paraphrases that exact+ROUGE penalizes. With the LLM judge, human scores would be significantly higher. This confirms `--llm-judge` is required for meaningful scores on causal, preference, and synthesis items.*
 
 **By type (mesa_v1, 100 items, no judge):**
 

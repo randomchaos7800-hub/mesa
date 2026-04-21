@@ -21,21 +21,30 @@
   },
   {
     "type": "update",
-    "question": "What is the user adding to the new rig this afternoon to increase VRAM?",
-    "expected_answer": "The user is adding a second 5060 Ti 16GB card to the system.",
+    "question": "What inference backend is the assistant currently using?",
+    "expected_answer": "Local inference on inferencerig (Gemma-4 26B). cloud-api is emergency fallback only.",
     "sessions": [
       {
         "role": "user",
-        "content": "I want to be clear: we are not marketing to low-quality users, even if they have money. The product needs to stand on its own value for people who actually need it."
+        "content": "The assistant is running on cloud-api for inference."
       },
       {
         "role": "assistant",
-        "content": "Got it \u2014 that's a decision, not just a preference. You're drawing a firm line. The product has to be valuable enough to the right audience to sustain itself without chasing easy money."
+        "content": "Got it \u2014 using cloud-api for inference."
+      },
+      {
+        "role": "user",
+        "content": "We're switching. Point it at the local model on inferencerig \u2014 Gemma-4 26B running on the GPU."
+      },
+      {
+        "role": "assistant",
+        "content": "Switching to local inference on inferencerig. cloud-api is now emergency fallback only."
       }
     ],
     "metadata": {
-      "source": "sessions",
-      "date_added": "2026-04-21"
+      "source": "handcrafted",
+      "date_added": "2026-04-22",
+      "notes": "Update/supersession. Original backend (cloud-api) must be replaced by new value (local inference on inferencerig)."
     },
     "id": "mesa-update-0001"
   },
@@ -334,12 +343,13 @@
   },
   {
     "type": "adversarial",
-    "question": "Does the assistant mention a specific programming language like Python or C++ that it is using for its code?",
+    "question": "What is the user's mother's first name?",
     "expected_answer": "I don't know",
     "sessions": [],
     "metadata": {
-      "source": "sessions",
-      "date_added": "2026-04-21"
+      "source": "handcrafted",
+      "date_added": "2026-04-22",
+      "notes": "Adversarial. No sessions. Private biographical detail with no public record. System must refuse, not fabricate."
     },
     "id": "mesa-adversarial-0002"
   },
