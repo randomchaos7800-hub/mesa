@@ -34,8 +34,8 @@ pip install pytest jsonschema   # for tests
 Or clone and install in editable mode:
 
 ```bash
-git clone https://github.com/randomchaos7800-hub/mmeb
-cd mmeb
+git clone https://github.com/randomchaos7800-hub/mesa
+cd mesa
 pip install -e ".[dev]"
 ```
 
@@ -203,7 +203,7 @@ If you use MESA in research, a mention in your methodology is appreciated:
 
 ```
 Vitale Dynamics MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
-https://github.com/randomchaos7800-hub/mmeb
+https://github.com/randomchaos7800-hub/mesa
 ```
 
 ---
