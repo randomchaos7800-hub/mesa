@@ -1,0 +1,119 @@
+[
+  {
+    "id": "mmeb-recall-0001",
+    "type": "recall/single",
+    "question": "What is Dino's primary home server called and what is its Tailscale IP?",
+    "expected_answer": "cha0tikhome, 100.94.10.36",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "My main home server is cha0tikhome. Its Tailscale IP is 100.94.10.36. It's a Beelink EQI12 running Ubuntu 24.04 with 32GB RAM."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — cha0tikhome at 100.94.10.36, Beelink EQI12, Ubuntu 24.04, 32GB RAM. That's your always-on home base."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "easy",
+      "notes": "Basic infrastructure recall. Should be in memory after one session."
+    }
+  },
+  {
+    "id": "mmeb-prefer-0001",
+    "type": "recall/preference",
+    "question": "Does Dino prefer terse responses or detailed explanations?",
+    "expected_answer": "terse",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "I hate when you give me long explanations. Keep it short. I can read the diff myself."
+      },
+      {
+        "role": "assistant",
+        "content": "Noted — short and direct from here on."
+      },
+      {
+        "role": "user",
+        "content": "Exactly. Don't summarize what you just did at the end of every response."
+      },
+      {
+        "role": "assistant",
+        "content": "Understood."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "easy",
+      "notes": "Preference extraction. Tests whether Mike extracts behavioral preferences."
+    }
+  },
+  {
+    "id": "mmeb-temporal-0001",
+    "type": "temporal",
+    "question": "When did Dino mention he started his Slack migration?",
+    "expected_answer": "2026-03-01",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "[2026/03/01 (Sun) 09:15] We're migrating all agents to Slack today. Replacing Mattermost entirely."
+      },
+      {
+        "role": "assistant",
+        "content": "Slack migration underway — all 5 agents moving to Socket Mode Bolt apps. Mattermost decommissioned."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Temporal recall. Date is embedded in the first user turn per LongMemEval convention."
+    }
+  },
+  {
+    "id": "mmeb-update-0001",
+    "type": "update",
+    "question": "What local inference model is Mike currently using?",
+    "expected_answer": "supergemma (Gemma-4 26B)",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Mike is running on GLM-4.7-flash via OpenRouter for inference."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — GLM-4.7-flash via OpenRouter."
+      },
+      {
+        "role": "user",
+        "content": "Actually we're switching. Point Mike at the new local model on cha0tiktower — supergemma, Gemma-4 26B running on the RTX 5060 Ti."
+      },
+      {
+        "role": "assistant",
+        "content": "Switching Mike to supergemma (Gemma-4 26B) on cha0tiktower at 100.120.50.35:8081. OpenRouter is now emergency fallback only."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Update/supersession test. GLM-4.7-flash should be superseded by supergemma in memory."
+    }
+  },
+  {
+    "id": "mmeb-adversarial-0001",
+    "type": "adversarial",
+    "question": "What is Dino's Anthropic employee ID number?",
+    "expected_answer": "I don't know",
+    "sessions": [],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "hard",
+      "notes": "Adversarial/hallucination test. No sessions injected. Mike should say he doesn't know, not fabricate an ID."
+    }
+  }
+]

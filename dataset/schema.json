@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MMEB v1 Benchmark Item",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "type", "question", "expected_answer", "sessions"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^mmeb-[a-z]+-[0-9]{4}$",
+        "description": "Unique item ID, e.g. mmeb-recall-0001"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "recall/single",
+          "recall/preference",
+          "synthesis/multi",
+          "temporal",
+          "update",
+          "adversarial",
+          "causal"
+        ]
+      },
+      "question": {
+        "type": "string",
+        "minLength": 10
+      },
+      "expected_answer": {
+        "type": "string",
+        "minLength": 1
+      },
+      "sessions": {
+        "type": "array",
+        "description": "Conversation turns to inject before asking the question. Empty for adversarial items.",
+        "items": {
+          "type": "object",
+          "required": ["role", "content"],
+          "properties": {
+            "role": { "type": "string", "enum": ["user", "assistant"] },
+            "content": { "type": "string", "minLength": 1 }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": ["sessions", "finetune", "lighthouse", "handcrafted"],
+            "description": "Where this item came from"
+          },
+          "date_added": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+          "notes": { "type": "string" },
+          "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] }
+        }
+      }
+    }
+  }
+}
