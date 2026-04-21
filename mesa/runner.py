@@ -1,21 +1,21 @@
-"""MMEB benchmark runner.
+"""MESA benchmark runner.
 
 Loops over a dataset, calls your MemoryAdapter for each item, scores responses,
 and writes results to a JSON file.
 
 Usage:
-    from mmeb.runner import run_benchmark
+    from mesa.runner import run_benchmark
     from my_adapter import MyAdapter
 
     results = run_benchmark(
-        dataset_path="dataset/mmeb_v1.json",
+        dataset_path="dataset/mesa_v1.json",
         adapter=MyAdapter(),
         no_llm_judge=True,
     )
 
 Or from the CLI:
-    python -m mmeb.runner --adapter examples.simple_adapter.EchoAdapter
-    python -m mmeb.runner --adapter my_package.MyAdapter --no-llm-judge
+    python -m mesa.runner --adapter examples.simple_adapter.EchoAdapter
+    python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
 """
 
 import argparse
@@ -28,12 +28,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
-from mmeb.adapter import MemoryAdapter
-from mmeb.scorer import exact_match, rouge1_f1, composite, is_refusal, llm_judge
+from mesa.adapter import MemoryAdapter
+from mesa.scorer import exact_match, rouge1_f1, composite, is_refusal, llm_judge
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_DATASET = Path(__file__).parent.parent / "dataset" / "mmeb_v1.json"
+DEFAULT_DATASET = Path(__file__).parent.parent / "dataset" / "mesa_v1.json"
 RESULTS_DIR = Path("results")
 
 
@@ -51,7 +51,7 @@ def run_benchmark(
 
     Args:
         adapter: Your MemoryAdapter implementation.
-        dataset_path: Path to the benchmark JSON (default: dataset/mmeb_v1.json).
+        dataset_path: Path to the benchmark JSON (default: dataset/mesa_v1.json).
         no_llm_judge: Skip LLM judge scoring (reweights composite to 0.55/0.45).
         judge_client: OpenAI-compatible client for LLM judge calls (required if not no_llm_judge).
         judge_model: Model name for LLM judge (default: "local").
@@ -181,7 +181,7 @@ def main():
         handlers=[logging.StreamHandler(sys.stdout)],
     )
 
-    parser = argparse.ArgumentParser(description="MMEB benchmark runner")
+    parser = argparse.ArgumentParser(description="MESA benchmark runner")
     parser.add_argument("--adapter", required=True, help="Dotted path to MemoryAdapter class, e.g. examples.simple_adapter.EchoAdapter")
     parser.add_argument("--dataset", default=str(DEFAULT_DATASET), help="Path to dataset JSON")
     parser.add_argument("--no-llm-judge", action="store_true", default=True, help="Skip LLM judge (default: on)")

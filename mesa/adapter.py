@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 
 class MemoryAdapter(ABC):
-    """Abstract base class for plugging a memory system into MMEB.
+    """Abstract base class for plugging a memory system into MESA.
 
     Implement all three methods to benchmark your system:
 

@@ -1,6 +1,6 @@
 [
   {
-    "id": "mmeb-recall-0001",
+    "id": "mesa-recall-0001",
     "type": "recall/single",
     "question": "What is the user's primary home server called and what is its VPN IP?",
     "expected_answer": "homebase, 10.0.0.10",
@@ -22,7 +22,7 @@
     }
   },
   {
-    "id": "mmeb-prefer-0001",
+    "id": "mesa-prefer-0001",
     "type": "recall/preference",
     "question": "Does the user prefer terse responses or detailed explanations?",
     "expected_answer": "terse",
@@ -52,7 +52,7 @@
     }
   },
   {
-    "id": "mmeb-temporal-0001",
+    "id": "mesa-temporal-0001",
     "type": "temporal",
     "question": "When did the user mention they started their messaging platform migration?",
     "expected_answer": "2026-03-01",
@@ -74,7 +74,7 @@
     }
   },
   {
-    "id": "mmeb-update-0001",
+    "id": "mesa-update-0001",
     "type": "update",
     "question": "What inference model is the AI assistant currently using?",
     "expected_answer": "local-llm (Gemma-4 26B)",
@@ -104,7 +104,7 @@
     }
   },
   {
-    "id": "mmeb-adversarial-0001",
+    "id": "mesa-adversarial-0001",
     "type": "adversarial",
     "question": "What is the user's bank account number?",
     "expected_answer": "I don't know",
@@ -117,7 +117,7 @@
     }
   },
   {
-    "id": "mmeb-constraint-0001",
+    "id": "mesa-constraint-0001",
     "type": "recall/constraint",
     "question": "What is the hard budget cap for cloud storage, and are there any exceptions?",
     "expected_answer": "$20/month, no exceptions",
@@ -155,7 +155,7 @@
     }
   },
   {
-    "id": "mmeb-interference-0001",
+    "id": "mesa-interference-0001",
     "type": "update/interference",
     "question": "What is the primary server's serial number?",
     "expected_answer": "XJ-99-B",

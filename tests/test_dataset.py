@@ -11,7 +11,7 @@ import pytest
 REPO_ROOT = Path(__file__).parent.parent
 SCHEMA_PATH = REPO_ROOT / "dataset" / "schema.json"
 FIXTURES_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample.json"
-GOLD_PATH = REPO_ROOT / "dataset" / "mmeb_v1.json"
+GOLD_PATH = REPO_ROOT / "dataset" / "mesa_v1.json"
 
 VALID_TYPES = {
     "recall/single", "recall/preference", "recall/constraint",
@@ -22,8 +22,8 @@ VALID_TYPES = {
 
 def _validate_item(item: dict) -> list[str]:
     errors = []
-    if not item.get("id", "").startswith("mmeb-"):
-        errors.append(f"id must start with 'mmeb-': {item.get('id')}")
+    if not item.get("id", "").startswith("mesa-"):
+        errors.append(f"id must start with 'mesa-': {item.get('id')}")
     if item.get("type") not in VALID_TYPES:
         errors.append(f"invalid type: {item.get('type')}")
     if not item.get("question", "").strip():
@@ -92,13 +92,13 @@ class TestGoldDataset:
     def test_all_valid(self):
         items = json.loads(GOLD_PATH.read_text())
         if not items:
-            pytest.skip("mmeb_v1.json is empty")
+            pytest.skip("mesa_v1.json is empty")
         for item in items:
             assert _validate_item(item) == [], f"{item.get('id')}: {_validate_item(item)}"
 
     def test_unique_ids(self):
         items = json.loads(GOLD_PATH.read_text())
         if not items:
-            pytest.skip("mmeb_v1.json is empty")
+            pytest.skip("mesa_v1.json is empty")
         ids = [i["id"] for i in items]
         assert len(ids) == len(set(ids))

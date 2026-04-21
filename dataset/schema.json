@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "MMEB v1 Benchmark Item",
+  "title": "MESA v1 Benchmark Item",
   "type": "array",
   "items": {
     "type": "object",
@@ -9,8 +9,8 @@
     "properties": {
       "id": {
         "type": "string",
-        "pattern": "^mmeb-[a-z]+-[0-9]{4}$",
-        "description": "Unique item ID, e.g. mmeb-recall-0001"
+        "pattern": "^mesa-[a-z]+-[0-9]{4}$",
+        "description": "Unique item ID, e.g. mesa-recall-0001"
       },
       "type": {
         "type": "string",

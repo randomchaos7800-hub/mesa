@@ -8,7 +8,7 @@ These are NOT good memory systems — they exist to show the interface and
 verify your scoring setup is working before plugging in a real backend.
 """
 
-from mmeb.adapter import MemoryAdapter
+from mesa.adapter import MemoryAdapter
 
 
 class EchoAdapter(MemoryAdapter):

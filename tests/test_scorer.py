@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
-from mmeb.scorer import (
+from mesa.scorer import (
     exact_match, rouge1_f1, composite, is_refusal,
     _normalize, _normalize_dates,
 )

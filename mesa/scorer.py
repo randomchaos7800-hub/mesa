@@ -1,4 +1,4 @@
-"""MMEB scoring functions.
+"""MESA scoring functions.
 
 Three scoring dimensions:
   exact_match   — normalized substring/word-overlap (0.0–1.0)

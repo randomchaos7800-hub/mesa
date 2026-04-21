@@ -1,8 +1,8 @@
-# MMEB — Memory Eval Benchmark
+# MESA — Memory Eval Benchmark
 
 A reproducible benchmark framework for **personal AI memory systems**.
 
-Most AI memory benchmarks test context-window retention or external RAG pipelines. MMEB tests the full loop: **inject → extract → store → retrieve → answer**. The question types are grounded in real failure modes observed in production AI companion systems.
+Most AI memory benchmarks test context-window retention or external RAG pipelines. MESA tests the full loop: **inject → extract → store → retrieve → answer**. The question types are grounded in real failure modes observed in production AI companion systems.
 
 ---
 
@@ -46,7 +46,7 @@ pip install -e ".[dev]"
 **1. Implement the adapter interface:**
 
 ```python
-from mmeb import MemoryAdapter
+from mesa import MemoryAdapter
 
 class MyAdapter(MemoryAdapter):
     def reset(self):
@@ -64,11 +64,11 @@ class MyAdapter(MemoryAdapter):
 **2. Run the benchmark:**
 
 ```python
-from mmeb.runner import run_benchmark
+from mesa.runner import run_benchmark
 
 results = run_benchmark(
     adapter=MyAdapter(),
-    dataset_path="dataset/mmeb_v1.json",
+    dataset_path="dataset/mesa_v1.json",
     no_llm_judge=True,
 )
 
@@ -78,20 +78,20 @@ print(f"Pass rate:     {results['pass_rate_50pct']:.1%}")
 
 Or from the CLI:
 ```bash
-python -m mmeb.runner --adapter my_package.MyAdapter --no-llm-judge
+python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
 ```
 
 **3. Try the example adapters first:**
 
 ```bash
 # EchoAdapter: returns the raw injected context (smoke test)
-python -m mmeb.runner \
+python -m mesa.runner \
     --adapter examples.simple_adapter.EchoAdapter \
     --dataset dataset/fixtures/sample.json \
     --no-llm-judge
 
 # NullAdapter: always refuses (adversarial baseline)
-python -m mmeb.runner \
+python -m mesa.runner \
     --adapter examples.simple_adapter.NullAdapter \
     --dataset dataset/fixtures/sample.json \
     --no-llm-judge
@@ -127,11 +127,11 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 
 ## Dataset
 
-`dataset/mmeb_v1.json` — 20 hand-curated items from real AI companion conversations. Covers all 7 question types. Each item:
+`dataset/mesa_v1.json` — 20 hand-curated items from real AI companion conversations. Covers all 7 question types. Each item:
 
 ```json
 {
-  "id": "mmeb-recall-single-0001",
+  "id": "mesa-recall-single-0001",
   "type": "recall/single",
   "question": "What speed in tokens per second was the new inference rig running at?",
   "expected_answer": "About 70 tokens per second",
@@ -151,10 +151,10 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 
 | System | Dataset | Items | Composite | Pass rate | Notes |
 |--------|---------|-------|-----------|-----------|-------|
-| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mmeb_v1 | 20 | 0.3444 | 30% | No LLM judge. Local inference rig, 2026-04-21 |
+| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 | 20 | 0.3444 | 30% | No LLM judge. Local inference rig, 2026-04-21 |
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 5 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
 
-**By type (mmeb_v1, no judge):**
+**By type (mesa_v1, no judge):**
 
 | Type | Score |
 |------|-------|
@@ -190,19 +190,19 @@ pytest tests/ -v
 
 The gold dataset and scorer are the most valuable parts to improve. Contributions welcome:
 
-- **New gold items**: Add items via `dataset/mmeb_v1.json` with the schema in `dataset/schema.json`. All 7 question types need more coverage, especially `synthesis/multi` and `temporal`.
+- **New gold items**: Add items via `dataset/mesa_v1.json` with the schema in `dataset/schema.json`. All 7 question types need more coverage, especially `synthesis/multi` and `temporal`.
 - **Scorer improvements**: The exact match scorer is conservative. PRs for better semantic equivalence detection (without requiring an LLM) are welcome.
 - **Adapter examples**: Real implementations (LangChain memory, MemGPT, custom vector stores) would be valuable references.
-- **Baselines**: If you run MMEB against a system, open a PR to add it to the baselines table.
+- **Baselines**: If you run MESA against a system, open a PR to add it to the baselines table.
 
 ---
 
 ## Citation
 
-If you use MMEB in research, a mention in your methodology is appreciated:
+If you use MESA in research, a mention in your methodology is appreciated:
 
 ```
-Vitale Dynamics MMEB v1 (2026). Memory Eval Benchmark for Personal AI Systems.
+Vitale Dynamics MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
 https://github.com/randomchaos7800-hub/mmeb
 ```
 
