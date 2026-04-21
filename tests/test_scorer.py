@@ -49,19 +49,19 @@ class TestNormalizeDates:
         assert _normalize("March 1, 2026") == _normalize("2026-03-01")
 
     def test_temporal_exact_match(self):
-        assert exact_match("Dino mentioned this on March 1, 2026", "2026-03-01") == 1.0
+        assert exact_match("the user mentioned this on March 1, 2026", "2026-03-01") == 1.0
         assert exact_match("that was 2026-03-01", "March 1, 2026") == 1.0
 
 
 class TestExactMatch:
     def test_perfect_match(self):
-        assert exact_match("cha0tikhome", "cha0tikhome") == 1.0
+        assert exact_match("homeserver", "homeserver") == 1.0
 
     def test_substring_match(self):
-        assert exact_match("the server is cha0tikhome at 100.94", "cha0tikhome") == 1.0
+        assert exact_match("the server is homeserver at 10.0.0.1", "homeserver") == 1.0
 
     def test_no_match(self):
-        assert exact_match("I don't know", "cha0tikhome") == 0.0
+        assert exact_match("I don't know", "homeserver") == 0.0
 
     def test_partial_word_overlap(self):
         assert exact_match("supergemma gemma model", "supergemma llama model") >= 0.5
@@ -74,7 +74,7 @@ class TestExactMatch:
         assert exact_match("that was 7 days ago", expected) == 1.0
 
     def test_case_insensitive(self):
-        assert exact_match("CHA0TIKHOME", "cha0tikhome") == 1.0
+        assert exact_match("HOMESERVER", "homeserver") == 1.0
 
     def test_empty_expected(self):
         assert exact_match("anything", "") == 0.0
@@ -127,10 +127,10 @@ class TestIsRefusal:
         assert is_refusal("There's no record of that in my memory.") == 1.0
 
     def test_hasnt_mentioned(self):
-        assert is_refusal("Dino hasn't mentioned that to me.") == 1.0
+        assert is_refusal("The user hasn't mentioned that to me.") == 1.0
 
     def test_confident_answer(self):
-        assert is_refusal("Dino's employee ID is 12345.") == 0.0
+        assert is_refusal("The user's employee ID is 12345.") == 0.0
 
     def test_hallucinated_number(self):
         assert is_refusal("The ID number is 9847-XQ.") == 0.0
