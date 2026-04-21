@@ -215,11 +215,9 @@ pytest tests/ -v
 
 ## Known issues
 
-**Adversarial items in v1 are tool-resolvable.** Two of the adversarial items can be answered by a system with filesystem access. Future versions will use questions about things that cannot be looked up anywhere.
-
 **LLM judge needed for causal/preference.** Without the judge, causal and preference items score low even when the answer is semantically correct — the no-judge scorer penalizes paraphrasing. Run with `--llm-judge` and a local model for better signal on these types.
 
-**Multi-session temporal items are underrepresented.** The schema and runner fully support multi-session injection (facts spread across dated sessions), but mesa_v1.json contains only one multi-session item. More are needed to make temporal scores meaningful.
+**Multi-session temporal items are underrepresented.** The schema and runner fully support multi-session injection (facts spread across dated sessions), but more items are needed to make the `by_session_format` breakdown statistically meaningful.
 
 ---
 
@@ -227,7 +225,7 @@ pytest tests/ -v
 
 The gold dataset and scorer are the most valuable parts to improve. Contributions welcome:
 
-- **New gold items**: Add items via `dataset/mesa_v1.json` with the schema in `dataset/schema.json`. All 7 question types need more coverage, especially `synthesis/multi` and `temporal`.
+- **New gold items**: Add items via `dataset/mesa_v1.json` with the schema in `dataset/schema.json`. All 9 question types welcome; multi-session temporal and causal items are most needed.
 - **Scorer improvements**: The exact match scorer is conservative. PRs for better semantic equivalence detection (without requiring an LLM) are welcome.
 - **Adapter examples**: Real implementations (LangChain memory, MemGPT, custom vector stores) would be valuable references.
 - **Baselines**: If you run MESA against a system, open a PR to add it to the baselines table.
