@@ -188,10 +188,8 @@ The runner calls `adapter.inject_session(turns, session_date)` once per session 
 |--------|---------|-------|-----------|-----------|-------|
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
-| Human (Dino Vitale) | mesa_v1 sample | 16 | 0.1531 | 13% | No LLM judge. Stratified 2-per-type sample, 2026-04-22 |
-| Human (Dino Vitale) | mesa_v1 sample | 16 | 0.1990 | 13% | With LLM judge (Gemma-4 26B). Same sample, 2026-04-22 |
 
-*Human baseline: 0.1531 no-judge, 0.1990 with judge (16 clean items, 2-per-type stratified sample). Low scores are expected — the benchmark tests session content, not general knowledge. The author frequently answered from real-world context rather than the injected sessions, which scores as wrong. A cold reader with no prior context would score higher. The update/interference type scored 0.87 (short exact-answer items). Adversarial, temporal, and update items scored near 0 due to out-of-session knowledge. This baseline anchors the scoring distribution and confirms that `--llm-judge` adds meaningful signal but does not dramatically change pass rates on this dataset.*
+**No human baseline is included.** A valid human baseline requires a cold reader — someone who has never seen the source conversations and answers only from the injected session text. The dataset is drawn from real conversations between the author and Mike, a personal AI companion. This material is deeply inside baseball: the author is the world's foremost expert on Mike's behavior, failure modes, and internal context. Any answer the author gives is contaminated by that knowledge, making the resulting score meaningless as a reference point. A human baseline will be added if and when a qualified cold reader is available to run the full sample blind.
 
 **By type (mesa_v1, 100 items, no judge):**
 
