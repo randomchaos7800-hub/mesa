@@ -39,6 +39,12 @@ cd mesa
 pip install -e ".[dev]"
 ```
 
+Optional adapter deps:
+```bash
+pip install -e ".[chroma]"   # ChromaAdapter
+pip install -e ".[mem0]"     # Mem0Adapter
+```
+
 ---
 
 ## Quickstart
@@ -81,7 +87,7 @@ Or from the CLI:
 python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
 ```
 
-**3. Try the example adapters first:**
+**3. Try the example or reference adapters:**
 
 ```bash
 # EchoAdapter: returns the raw injected context (smoke test)
@@ -95,7 +101,15 @@ python -m mesa.runner \
     --adapter examples.simple_adapter.NullAdapter \
     --dataset dataset/fixtures/sample.json \
     --no-llm-judge
+
+# KeywordAdapter: LLM extraction + TF-IDF retrieval (no vector DB required)
+python -m mesa.runner \
+    --adapter adapters.keyword_adapter.KeywordAdapter \
+    --dataset dataset/fixtures/sample.json \
+    --no-llm-judge
 ```
+
+See `adapters/` for `KeywordAdapter`, `Mem0Adapter`, and `ChromaAdapter` — each wraps a different memory architecture and can be used as a starting point for your own implementation.
 
 ---
 

@@ -16,10 +16,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "jsonschema>=4"]
+chroma = ["chromadb>=0.4"]
+mem0 = ["mem0ai>=0.1"]
 
 [project.scripts]
 mesa = "mesa.runner:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["mesa*"]
+include = ["mesa*", "adapters*"]
