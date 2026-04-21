@@ -165,22 +165,22 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 
 | System | Dataset | Items | Composite | Pass rate | Notes |
 |--------|---------|-------|-----------|-----------|-------|
-| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 v1 (20 items) | 20 | 0.3444 | 30% | No LLM judge. Local inference rig, 2026-04-21 |
+| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
 
-*mesa_v1 baseline was run on the original 20-item dataset. Re-run needed against v1 (100 items).*
-
-**By type (mesa_v1 v1 20-item run, no judge):**
+**By type (mesa_v1, 100 items, no judge):**
 
 | Type | Score |
 |------|-------|
-| update | 0.5938 |
-| recall/single | 0.4222 |
-| causal | 0.3162 |
-| recall/preference | 0.2829 |
-| adversarial | 0.0000 * |
-
-*adversarial 0.00: the two adversarial items were answerable via filesystem tools, not a hallucination failure. See [Known Issues](#known-issues).*
+| update/interference | 0.6153 |
+| temporal | 0.5967 |
+| recall/constraint | 0.4855 |
+| recall/preference | 0.4251 |
+| update | 0.4319 |
+| synthesis/multi | 0.4138 |
+| adversarial | 0.4000 |
+| recall/single | 0.3411 |
+| causal | 0.3278 |
 
 ---
 
