@@ -4,7 +4,7 @@ build-backend = "setuptools.backends.legacy:build"
 
 [project]
 name = "mesa"
-version = "0.1.0"
+version = "0.2.0"
 description = "Memory Eval Suite for Agents — a reproducible framework for personal AI memory systems"
 readme = "README.md"
 license = { text = "MIT" }
