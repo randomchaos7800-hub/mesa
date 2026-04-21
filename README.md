@@ -151,10 +151,12 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 
 | System | Dataset | Items | Composite | Pass rate | Notes |
 |--------|---------|-------|-----------|-----------|-------|
-| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 | 20 | 0.3444 | 30% | No LLM judge. Local inference rig, 2026-04-21 |
-| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 5 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
+| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 v1 (20 items) | 20 | 0.3444 | 30% | No LLM judge. Local inference rig, 2026-04-21 |
+| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
 
-**By type (mesa_v1, no judge):**
+*mesa_v1 baseline was run on the original 20-item dataset. Re-run needed against v1 (100 items).*
+
+**By type (mesa_v1 v1 20-item run, no judge):**
 
 | Type | Score |
 |------|-------|
