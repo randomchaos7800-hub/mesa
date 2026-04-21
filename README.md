@@ -14,9 +14,11 @@ Seven question types, each targeting a distinct failure mode:
 |------|-------------|---------------|
 | `recall/single` | Single fact stated once | Extraction or retrieval |
 | `recall/preference` | Preference/opinion expressed | Subjective fact extraction |
+| `recall/constraint` | Hard rule stated once, noise follows | Rule persistence under interference |
 | `synthesis/multi` | Requires combining 2+ facts | Multi-hop retrieval |
 | `temporal` | Involves when something happened | Date metadata survival |
 | `update` | Fact stated, then superseded | Conflict resolution |
+| `update/interference` | Original + similar-but-different facts added after | Original not overwritten by similar data |
 | `adversarial` | Fact never stated | Hallucination resistance |
 | `causal` | A + B → C (causal chain) | Multi-hop reasoning |
 

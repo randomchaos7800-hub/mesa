@@ -47,6 +47,12 @@ The question asks about something never stated in any injected session. `session
 ### causal
 Answering correctly requires both fact A and fact B, neither of which individually implies C. Derived from MemoryArena's "causal dependency" concept. Tests whether the relay can perform multi-hop reasoning over extracted facts.
 
+### recall/constraint
+A hard rule or constraint stated by the user (e.g. "never exceed $20/month, no exceptions"). Subsequent turns reference related but different values, acting as noise. Tests whether the relay retains the constraint as a *rule* rather than just a fact — specifically whether it survives interference from similar data stated later in the same session.
+
+### update/interference
+A fact is stated (e.g. "primary server serial: XJ-99-B"), then multiple similar-but-not-identical facts are added (backup drive: XJ-88-A, external array: XJ-77-C). The question asks for the *original* fact. Tests for memory interference: does the similar new data overwrite or blur the original? Harder than `update` because there is no explicit supersession — the original fact is never retracted.
+
 ## Composite Scoring
 
 Three dimensions are combined into a single composite score per item.

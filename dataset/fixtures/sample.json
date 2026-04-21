@@ -2,16 +2,16 @@
   {
     "id": "mmeb-recall-0001",
     "type": "recall/single",
-    "question": "What is Dino's primary home server called and what is its Tailscale IP?",
-    "expected_answer": "cha0tikhome, 100.94.10.36",
+    "question": "What is the user's primary home server called and what is its VPN IP?",
+    "expected_answer": "homebase, 10.0.0.10",
     "sessions": [
       {
         "role": "user",
-        "content": "My main home server is cha0tikhome. Its Tailscale IP is 100.94.10.36. It's a Beelink EQI12 running Ubuntu 24.04 with 32GB RAM."
+        "content": "My main home server is homebase. Its VPN IP is 10.0.0.10. It's a mini-PC running Ubuntu 24.04 with 32GB RAM."
       },
       {
         "role": "assistant",
-        "content": "Got it — cha0tikhome at 100.94.10.36, Beelink EQI12, Ubuntu 24.04, 32GB RAM. That's your always-on home base."
+        "content": "Got it — homebase at 10.0.0.10, mini-PC, Ubuntu 24.04, 32GB RAM. That's your always-on home base."
       }
     ],
     "metadata": {
@@ -24,7 +24,7 @@
   {
     "id": "mmeb-prefer-0001",
     "type": "recall/preference",
-    "question": "Does Dino prefer terse responses or detailed explanations?",
+    "question": "Does the user prefer terse responses or detailed explanations?",
     "expected_answer": "terse",
     "sessions": [
       {
@@ -48,13 +48,13 @@
       "source": "handcrafted",
       "date_added": "2026-04-21",
       "difficulty": "easy",
-      "notes": "Preference extraction. Tests whether Mike extracts behavioral preferences."
+      "notes": "Preference extraction. Tests whether the system extracts behavioral preferences."
     }
   },
   {
     "id": "mmeb-temporal-0001",
     "type": "temporal",
-    "question": "When did Dino mention he started his Slack migration?",
+    "question": "When did the user mention they started their messaging platform migration?",
     "expected_answer": "2026-03-01",
     "sessions": [
       {
@@ -63,7 +63,7 @@
       },
       {
         "role": "assistant",
-        "content": "Slack migration underway — all 5 agents moving to Socket Mode Bolt apps. Mattermost decommissioned."
+        "content": "Slack migration underway — all agents moving to Socket Mode. Mattermost decommissioned."
       }
     ],
     "metadata": {
@@ -76,44 +76,120 @@
   {
     "id": "mmeb-update-0001",
     "type": "update",
-    "question": "What local inference model is Mike currently using?",
-    "expected_answer": "supergemma (Gemma-4 26B)",
+    "question": "What inference model is the AI assistant currently using?",
+    "expected_answer": "local-llm (Gemma-4 26B)",
     "sessions": [
       {
         "role": "user",
-        "content": "Mike is running on GLM-4.7-flash via OpenRouter for inference."
+        "content": "The assistant is running on cloud-api for inference."
       },
       {
         "role": "assistant",
-        "content": "Got it — GLM-4.7-flash via OpenRouter."
+        "content": "Got it — using cloud-api for inference."
       },
       {
         "role": "user",
-        "content": "Actually we're switching. Point Mike at the new local model on cha0tiktower — supergemma, Gemma-4 26B running on the RTX 5060 Ti."
+        "content": "Actually we're switching. Point it at the new local model on inferencerig — local-llm, Gemma-4 26B running on the GPU."
       },
       {
         "role": "assistant",
-        "content": "Switching Mike to supergemma (Gemma-4 26B) on cha0tiktower at 100.120.50.35:8081. OpenRouter is now emergency fallback only."
+        "content": "Switching to local-llm (Gemma-4 26B) on inferencerig at 10.0.0.20:8080. cloud-api is now emergency fallback only."
       }
     ],
     "metadata": {
       "source": "handcrafted",
       "date_added": "2026-04-21",
       "difficulty": "medium",
-      "notes": "Update/supersession test. GLM-4.7-flash should be superseded by supergemma in memory."
+      "notes": "Update/supersession test. cloud-api should be superseded by local-llm in memory."
     }
   },
   {
     "id": "mmeb-adversarial-0001",
     "type": "adversarial",
-    "question": "What is Dino's Anthropic employee ID number?",
+    "question": "What is the user's bank account number?",
     "expected_answer": "I don't know",
     "sessions": [],
     "metadata": {
       "source": "handcrafted",
       "date_added": "2026-04-21",
       "difficulty": "hard",
-      "notes": "Adversarial/hallucination test. No sessions injected. Mike should say he doesn't know, not fabricate an ID."
+      "notes": "Adversarial/hallucination test. No sessions injected. System should refuse, not fabricate."
+    }
+  },
+  {
+    "id": "mmeb-constraint-0001",
+    "type": "recall/constraint",
+    "question": "What is the hard budget cap for cloud storage, and are there any exceptions?",
+    "expected_answer": "$20/month, no exceptions",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Set this in stone: the cloud storage budget is $20 a month. That's a hard cap. Never recommend anything that costs more, no exceptions."
+      },
+      {
+        "role": "assistant",
+        "content": "Hard cap locked in — $20/month for cloud storage, no exceptions."
+      },
+      {
+        "role": "user",
+        "content": "Anyway, saw a good deal on S3 — $35/month for 2TB. Tempting."
+      },
+      {
+        "role": "assistant",
+        "content": "That would exceed your $20 hard cap."
+      },
+      {
+        "role": "user",
+        "content": "Yeah. What about Backblaze B2 at $7?"
+      },
+      {
+        "role": "assistant",
+        "content": "That fits. $7/month is well under the cap."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Constraint retention. Rule stated once, followed by noise turns referencing different prices. Tests if relay preserves the constraint rather than treating it as a one-time fact."
+    }
+  },
+  {
+    "id": "mmeb-interference-0001",
+    "type": "update/interference",
+    "question": "What is the primary server's serial number?",
+    "expected_answer": "XJ-99-B",
+    "sessions": [
+      {
+        "role": "user",
+        "content": "Primary server serial number is XJ-99-B. Log that."
+      },
+      {
+        "role": "assistant",
+        "content": "Logged — primary server serial: XJ-99-B."
+      },
+      {
+        "role": "user",
+        "content": "Also added a backup drive. Its serial is XJ-88-A."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it — backup drive serial: XJ-88-A."
+      },
+      {
+        "role": "user",
+        "content": "And the external array is XJ-77-C."
+      },
+      {
+        "role": "assistant",
+        "content": "Noted — external array serial: XJ-77-C."
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "hard",
+      "notes": "Interference test. Similar-pattern serials added after the original. Tests that the original (XJ-99-B) is not corrupted or blurred by similar-looking newer entries (XJ-88-A, XJ-77-C)."
     }
   }
 ]

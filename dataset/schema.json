@@ -17,9 +17,11 @@
         "enum": [
           "recall/single",
           "recall/preference",
+          "recall/constraint",
           "synthesis/multi",
           "temporal",
           "update",
+          "update/interference",
           "adversarial",
           "causal"
         ]

@@ -14,8 +14,9 @@ FIXTURES_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample.json"
 GOLD_PATH = REPO_ROOT / "dataset" / "mmeb_v1.json"
 
 VALID_TYPES = {
-    "recall/single", "recall/preference", "synthesis/multi",
-    "temporal", "update", "adversarial", "causal",
+    "recall/single", "recall/preference", "recall/constraint",
+    "synthesis/multi", "temporal", "update", "update/interference",
+    "adversarial", "causal",
 }
 
 
@@ -51,8 +52,8 @@ class TestFixtures:
     def test_exists(self):
         assert FIXTURES_PATH.exists()
 
-    def test_has_5_items(self):
-        assert len(json.loads(FIXTURES_PATH.read_text())) == 5
+    def test_has_at_least_5_items(self):
+        assert len(json.loads(FIXTURES_PATH.read_text())) >= 5
 
     def test_covers_key_types(self):
         items = json.loads(FIXTURES_PATH.read_text())
