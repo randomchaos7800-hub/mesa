@@ -37,6 +37,20 @@ DEFAULT_DATASET = Path(__file__).parent.parent / "dataset" / "mesa_v1.json"
 RESULTS_DIR = Path("results")
 
 
+def _is_multi_session(sessions: list) -> bool:
+    """Return True if sessions is multi-session format (list of {date, turns})."""
+    return bool(sessions) and isinstance(sessions[0], dict) and "turns" in sessions[0]
+
+
+def _inject(adapter: "MemoryAdapter", sessions: list) -> None:
+    """Dispatch single-session or multi-session injection to the adapter."""
+    if _is_multi_session(sessions):
+        for session in sessions:
+            adapter.inject_session(session["turns"], session_date=session.get("date"))
+    else:
+        adapter.inject(sessions)
+
+
 def run_benchmark(
     adapter: MemoryAdapter,
     dataset_path: Optional[Path] = None,
@@ -92,7 +106,7 @@ def run_benchmark(
 
         # --- Run the adapter ---
         adapter.reset()
-        adapter.inject(sessions)
+        _inject(adapter, sessions)
         facts = adapter.stored_facts()
 
         t0 = time.time()

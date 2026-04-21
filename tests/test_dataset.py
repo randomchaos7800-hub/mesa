@@ -20,6 +20,10 @@ VALID_TYPES = {
 }
 
 
+def _is_multi_session(sessions: list) -> bool:
+    return bool(sessions) and isinstance(sessions[0], dict) and "turns" in sessions[0]
+
+
 def _validate_item(item: dict) -> list[str]:
     errors = []
     if not item.get("id", "").startswith("mesa-"):
@@ -34,6 +38,14 @@ def _validate_item(item: dict) -> list[str]:
         errors.append("sessions must be a list")
     if item.get("type") == "adversarial" and item.get("sessions"):
         errors.append("adversarial items must have empty sessions")
+    # validate multi-session structure
+    sessions = item.get("sessions", [])
+    if _is_multi_session(sessions):
+        for s in sessions:
+            if "date" not in s:
+                errors.append(f"multi-session item missing date in session: {s}")
+            if not isinstance(s.get("turns"), list) or not s["turns"]:
+                errors.append(f"multi-session session missing turns: {s}")
     return errors
 
 
@@ -79,7 +91,16 @@ class TestFixtures:
     def test_non_adversarial_has_sessions(self):
         for item in json.loads(FIXTURES_PATH.read_text()):
             if item["type"] != "adversarial":
-                assert len(item["sessions"]) > 0, f"{item['id']} has no sessions"
+                sessions = item["sessions"]
+                assert len(sessions) > 0, f"{item['id']} has no sessions"
+                if _is_multi_session(sessions):
+                    assert all(len(s["turns"]) > 0 for s in sessions), f"{item['id']} has empty turns"
+
+    def test_multi_session_fixture_has_dates(self):
+        for item in json.loads(FIXTURES_PATH.read_text()):
+            if _is_multi_session(item["sessions"]):
+                for s in item["sessions"]:
+                    assert "date" in s, f"{item['id']} multi-session missing date"
 
 
 class TestGoldDataset:

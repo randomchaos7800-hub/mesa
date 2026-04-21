@@ -141,7 +141,7 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 
 ## Dataset
 
-`dataset/mesa_v1.json` — 20 hand-curated items from real AI companion conversations. Covers all 7 question types. Each item:
+`dataset/mesa_v1.json` — 100 items covering all 9 question types. Each item:
 
 ```json
 {
@@ -157,7 +157,28 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 }
 ```
 
-`dataset/fixtures/sample.json` — 5 hand-crafted smoke-test items, one per primary type. If your system can't pass these, something is fundamentally broken.
+**Multi-session format** (for temporal items with facts spread across dates):
+
+```json
+{
+  "id": "mesa-temporal-0002",
+  "type": "temporal",
+  "sessions": [
+    {
+      "date": "2026-02-01",
+      "turns": [{"role": "user", "content": "I drink coffee every morning."}]
+    },
+    {
+      "date": "2026-02-14",
+      "turns": [{"role": "user", "content": "Switched to tea. Coffee is done."}]
+    }
+  ]
+}
+```
+
+The runner calls `adapter.inject_session(turns, session_date)` once per session in order. The default `MemoryAdapter.inject_session()` delegates to `inject()`, ignoring the date. Override it if your system stores per-session timestamps.
+
+`dataset/fixtures/sample.json` — 10 hand-crafted smoke-test items covering all 9 types plus one multi-session example. If your system can't pass these, something is fundamentally broken.
 
 ---
 
@@ -198,7 +219,7 @@ pytest tests/ -v
 
 **LLM judge needed for causal/preference.** Without the judge, causal and preference items score low even when the answer is semantically correct — the no-judge scorer penalizes paraphrasing. Run with `--llm-judge` and a local model for better signal on these types.
 
-**Single-session injection only.** v1 items inject one conversation window. Multi-session temporal reasoning (facts spread across days) is not yet represented.
+**Multi-session temporal items are underrepresented.** The schema and runner fully support multi-session injection (facts spread across dated sessions), but mesa_v1.json contains only one multi-session item. More are needed to make temporal scores meaningful.
 
 ---
 

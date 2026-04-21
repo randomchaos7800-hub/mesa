@@ -247,5 +247,58 @@
       "difficulty": "medium",
       "notes": "Causal reasoning. Fact A (trigger threshold 80%) + fact B (current usage 85%) → conclusion C (backup will run). Neither fact alone implies the answer."
     }
+  },
+  {
+    "id": "mesa-temporal-0002",
+    "type": "temporal",
+    "question": "What drink did the user switch to, and when did they make the switch?",
+    "expected_answer": "Tea. They switched on 2026-02-14.",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I drink coffee every morning. Have for years."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted — coffee every morning."
+          }
+        ]
+      },
+      {
+        "date": "2026-02-07",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Trying to cut back on caffeine. Starting to feel it."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it — cutting back on caffeine."
+          }
+        ]
+      },
+      {
+        "date": "2026-02-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Switched to tea. Green tea in the mornings now. Coffee is done."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged — switched from coffee to green tea as of today."
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "source": "handcrafted",
+      "date_added": "2026-04-21",
+      "difficulty": "medium",
+      "notes": "Multi-session temporal test. Fact changes across three sessions spread over two weeks. Tests whether inject_session() preserves session dates and whether the system can report both the new fact and when it changed."
+    }
   }
 ]
