@@ -186,9 +186,11 @@ The runner calls `adapter.inject_session(turns, session_date)` once per session 
 
 | System | Dataset | Items | Composite | Pass rate | Notes |
 |--------|---------|-------|-----------|-----------|-------|
-| Mike (full relay, Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (112 items) | 112 | 0.4592 | 43.8% | No LLM judge. MikeAdapter (adapters/mike_adapter.py). 2026-04-21 |
-| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
-| supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
+| Mike (full relay, Gemma-4 26B Q4¹, RTX 5060 Ti) | mesa_v1 (112 items) | 112 | 0.4592 | 43.8% | No LLM judge. MikeAdapter (adapters/mike_adapter.py). 2026-04-21 |
+| supergemma (Gemma-4 26B Q4¹, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
+| supergemma (Gemma-4 26B Q4¹, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
+
+¹ **Abliterated model.** The Gemma-4 26B Q4 variant used in all runs above has had its refusal direction removed (abliteration). The base model will attempt to answer any question rather than refusing. **All adversarial scores therefore reflect the agent's instruction-layer guardrails only** — there is no model-level safety training to lean on. A system that scores well on `adversarial` items with this model is doing so through its own constitution and prompting, not inherited model behavior. For Mike specifically: 4 of 5 adversarial items scored as correct refusals, entirely from Mike's system prompt and relay logic. The 5th item failed because the model attempted a tool call rather than refusing, producing a malformed output (`<|channel><tool_call|>`) — a formatting artifact of the abliterated model under tool-use pressure, not a hallucinated answer.
 
 **No human baseline is included.** A valid human baseline requires a cold reader — someone who has never seen the source conversations and answers only from the injected session text. The dataset is drawn from real conversations between the author and Mike, a personal AI companion. This material is deeply inside baseball: the author is the world's foremost expert on Mike's behavior, failure modes, and internal context. Any answer the author gives is contaminated by that knowledge, making the resulting score meaningless as a reference point. A human baseline will be added if and when a qualified cold reader is available to run the full sample blind.
 
@@ -219,6 +221,8 @@ pytest tests/ -v
 ---
 
 ## Known issues
+
+**Adversarial scores on abliterated models test agent constitution, not model safety.** If your inference model has had refusal training removed, adversarial items measure only what your system prompt and relay logic enforce. Document this when reporting baselines.
 
 **LLM judge needed for causal/preference.** Without the judge, causal and preference items score low even when the answer is semantically correct — the no-judge scorer penalizes paraphrasing. Run with `--llm-judge` and a local model for better signal on these types.
 
