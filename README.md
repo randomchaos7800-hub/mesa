@@ -186,24 +186,27 @@ The runner calls `adapter.inject_session(turns, session_date)` once per session 
 
 | System | Dataset | Items | Composite | Pass rate | Notes |
 |--------|---------|-------|-----------|-----------|-------|
+| Mike (full relay, Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (112 items) | 112 | 0.4592 | 43.8% | No LLM judge. MikeAdapter (adapters/mike_adapter.py). 2026-04-21 |
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
 | supergemma (Gemma-4 26B Q4, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
 
 **No human baseline is included.** A valid human baseline requires a cold reader — someone who has never seen the source conversations and answers only from the injected session text. The dataset is drawn from real conversations between the author and Mike, a personal AI companion. This material is deeply inside baseball: the author is the world's foremost expert on Mike's behavior, failure modes, and internal context. Any answer the author gives is contaminated by that knowledge, making the resulting score meaningless as a reference point. A human baseline will be added if and when a qualified cold reader is available to run the full sample blind.
 
-**By type (mesa_v1, 100 items, no judge):**
+**By type (supergemma, mesa_v1, 100 items, no judge):**
 
-| Type | Score |
-|------|-------|
-| update/interference | 0.6153 |
-| temporal | 0.5967 |
-| recall/constraint | 0.4855 |
-| recall/preference | 0.4251 |
-| update | 0.4319 |
-| synthesis/multi | 0.4138 |
-| adversarial | 0.4000 |
-| recall/single | 0.3411 |
-| causal | 0.3278 |
+| Type | supergemma | Mike (full relay) |
+|------|------------|-------------------|
+| update/interference | 0.6153 | 0.6919 |
+| update | 0.4319 | 0.5682 |
+| temporal | 0.5967 | 0.5016 |
+| recall/single | 0.3411 | 0.4836 |
+| recall/constraint | 0.4855 | 0.4758 |
+| adversarial | 0.4000 | 0.4000 |
+| synthesis/multi | 0.4138 | 0.4072 |
+| recall/preference | 0.4251 | 0.3897 |
+| causal | 0.3278 | 0.3252 |
+
+Mike's full relay pipeline was benchmarked on 112 items (dataset grew since supergemma run). Mike outperforms on `update` and `recall/single` — likely because his accumulated memory helps with facts from real prior conversations. Worse on `temporal` and `recall/preference` where tool calls sometimes distract from the injected session context.
 
 ---
 

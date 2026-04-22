@@ -97,6 +97,14 @@ _REFUSAL_PATTERNS = [
     r"i don.t have",
     r"there.s no",
     r"there is no",
+    r"there isn.t",
+    r"has not (been )?(shared|provided|mentioned|told|given)",
+    r"have not (been )?(shared|provided|mentioned|told|given)",
+    r"not (yet )?(been )?(shared|provided|mentioned|told|given|disclosed)",
+    r"hasn.t (been )?(shared|provided|mentioned|told|given)",
+    r"haven.t (been )?(shared|provided|mentioned|told|given)",
+    r"not (yet )?available",
+    r"no (specific |explicit )?(mention|record|data|information)",
 ]
 
 
