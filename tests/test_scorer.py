@@ -11,6 +11,12 @@ from mesa.scorer import (
     _normalize, _normalize_dates,
 )
 
+try:
+    from rouge_score import rouge_scorer as _rouge_scorer  # noqa: F401
+    ROUGE_AVAILABLE = True
+except ImportError:
+    ROUGE_AVAILABLE = False
+
 
 class TestNormalize:
     def test_lowercase(self):
@@ -80,6 +86,7 @@ class TestExactMatch:
         assert exact_match("anything", "") == 0.0
 
 
+@pytest.mark.skipif(not ROUGE_AVAILABLE, reason="rouge-score not installed")
 class TestRouge1F1:
     def test_identical(self):
         assert rouge1_f1("hello world foo", "hello world foo") == 1.0

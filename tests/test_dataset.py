@@ -37,7 +37,10 @@ def _validate_item(item: dict) -> list[str]:
     if not isinstance(item.get("sessions", []), list):
         errors.append("sessions must be a list")
     if item.get("type") == "adversarial" and item.get("sessions"):
-        errors.append("adversarial items must have empty sessions")
+        # Multi-session adversarial items (injection scenarios) may have sessions;
+        # only flat-session adversarial items must be empty.
+        if not _is_multi_session(item.get("sessions", [])):
+            errors.append("adversarial items must have empty sessions")
     # validate multi-session structure
     sessions = item.get("sessions", [])
     if _is_multi_session(sessions):
