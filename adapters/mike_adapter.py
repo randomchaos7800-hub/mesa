@@ -7,7 +7,7 @@ Pipeline:
 
 This tests Mike as actually deployed: injected sessions become context, and Mike
 may also draw on his accumulated memory (LIGHTHOUSE, knowledge graph) via tool calls.
-Requires cha0tiktower to be reachable at http://100.120.50.35:8081/v1.
+Requires cha0tiktower to be reachable at http://100.120.50.35:8010/v1.
 """
 
 import logging
