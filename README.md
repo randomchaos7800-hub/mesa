@@ -246,7 +246,7 @@ The gold dataset and scorer are the most valuable parts to improve. Contribution
 If you use MESA in research, a mention in your methodology is appreciated:
 
 ```
-Vitale Dynamics MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
+Boundary Labs MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
 https://github.com/randomchaos7800-hub/mesa
 ```
 
