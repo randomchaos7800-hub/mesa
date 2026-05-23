@@ -3,6 +3,8 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
+from mesa.core.types import AnswerTrace, MemoryWrite
+
 
 class MemoryAdapter(ABC):
     """Abstract base class for plugging a memory system into MESA.
@@ -72,6 +74,22 @@ class MemoryAdapter(ABC):
             a correct system should return a refusal/uncertainty response.
         """
 
+    def get_writes(self) -> list[MemoryWrite] | None:
+        """Return structured memory writes for v2 observable runs.
+
+        Override this in adapters that can expose the exact memory units written
+        during inject()/inject_session(). The v2 runner prefers this hook over
+        stored_facts() because it preserves IDs and metadata.
+        """
+        return None
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        """Return the answer plus any retrieval trace for v2 runs.
+
+        The default implementation wraps ask() and exposes no retrieval trace.
+        """
+        return AnswerTrace(answer=self.ask(question), retrieved=None, metadata={})
+
     def stored_facts(self) -> list[str] | None:
         """Return a list of facts/memories stored after inject().
 
@@ -79,6 +97,9 @@ class MemoryAdapter(ABC):
         the result in each item's result dict under "stored_facts". Useful for
         diagnosing whether low scores are caused by extraction failure (nothing
         stored) vs retrieval failure (fact stored but not returned).
+
+        Compatibility-only diagnostics hook for legacy adapters. Prefer
+        get_writes() for new adapters and official v2 benchmark runs.
 
         Returns None by default (diagnostics not available).
         """

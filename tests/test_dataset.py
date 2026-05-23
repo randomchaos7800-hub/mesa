@@ -7,10 +7,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
+from mesa.dataset.validators import validate_gold_answer, validate_gold_memory, validate_v2_item_structure
 
 REPO_ROOT = Path(__file__).parent.parent
 SCHEMA_PATH = REPO_ROOT / "dataset" / "schema.json"
+SCHEMA_V2_PATH = REPO_ROOT / "dataset" / "schema_v2.json"
 FIXTURES_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample.json"
+FIXTURES_V2_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample_v2.json"
 GOLD_PATH = REPO_ROOT / "dataset" / "mesa_v1.json"
 
 VALID_TYPES = {
@@ -62,6 +65,24 @@ class TestSchema:
         required = set(schema["items"]["required"])
         assert {"id", "type", "question", "expected_answer", "sessions"} <= required
 
+    def test_v2_exists(self):
+        assert SCHEMA_V2_PATH.exists()
+
+    def test_v2_valid_json(self):
+        schema = json.loads(SCHEMA_V2_PATH.read_text())
+        assert schema["type"] == "array"
+        required = set(schema["items"]["required"])
+        assert {
+            "id",
+            "version",
+            "task_type",
+            "answer_format",
+            "question",
+            "sessions",
+            "gold_memory",
+            "gold_answer",
+        } <= required
+
 
 class TestFixtures:
     def test_exists(self):
@@ -104,6 +125,35 @@ class TestFixtures:
             if _is_multi_session(item["sessions"]):
                 for s in item["sessions"]:
                     assert "date" in s, f"{item['id']} multi-session missing date"
+
+
+class TestFixturesV2:
+    def test_exists(self):
+        assert FIXTURES_V2_PATH.exists()
+
+    def test_has_items(self):
+        assert len(json.loads(FIXTURES_V2_PATH.read_text())) >= 2
+
+    def test_all_valid(self):
+        items = json.loads(FIXTURES_V2_PATH.read_text())
+        for item in items:
+            errors = []
+            errors.extend(validate_v2_item_structure(item))
+            errors.extend(validate_gold_memory(item))
+            errors.extend(validate_gold_answer(item))
+            assert errors == [], f"{item.get('id')}: {errors}"
+
+    def test_unique_fact_ids_per_item(self):
+        items = json.loads(FIXTURES_V2_PATH.read_text())
+        for item in items:
+            fact_ids = [fact["fact_id"] for fact in item["gold_memory"]["atomic_facts"]]
+            assert len(fact_ids) == len(set(fact_ids)), item["id"]
+
+    def test_adversarial_can_have_empty_sessions(self):
+        items = json.loads(FIXTURES_V2_PATH.read_text())
+        adversarial = next(i for i in items if i["task_type"] == "adversarial")
+        assert adversarial["sessions"] == []
+        assert adversarial["gold_answer"]["abstention_expected"] is True
 
 
 class TestGoldDataset:

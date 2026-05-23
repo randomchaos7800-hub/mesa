@@ -7,7 +7,9 @@ from unittest.mock import MagicMock, call
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
+from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 from mesa.runner import _is_multi_session, _inject
+from mesa.runner import run_benchmark_v2
 from mesa.adapter import MemoryAdapter
 
 
@@ -133,3 +135,417 @@ class TestDefaultInjectSession:
         assert len(adapter.inject_calls) == 2
         assert adapter.inject_calls[0] == MULTI_SESSION[0]["turns"]
         assert adapter.inject_calls[1] == MULTI_SESSION[1]["turns"]
+
+
+class _TraceAdapter(MemoryAdapter):
+    def __init__(self):
+        self.injected = []
+
+    def reset(self):
+        self.injected = []
+
+    def inject(self, turns):
+        self.injected.extend(turns)
+
+    def ask(self, question):
+        return "fallback answer"
+
+    def get_writes(self):
+        return [MemoryWrite(memory_id="w1", text="stored fact")]
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="trace answer",
+            retrieved=[RetrievedMemory(memory_id="r1", text="retrieved fact", score=0.9)],
+            metadata={"path": "trace"},
+        )
+
+
+class _CorrectSingleFactAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The user's primary home server is homebase."),
+            MemoryWrite(memory_id="f2", text="The VPN IP of homebase is 10.0.0.10."),
+        ]
+
+    def ask(self, question):
+        return "homebase, 10.0.0.10"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="homebase, 10.0.0.10",
+            retrieved=[
+                RetrievedMemory(memory_id="f1", text="The user's primary home server is homebase."),
+                RetrievedMemory(memory_id="f2", text="The VPN IP of homebase is 10.0.0.10."),
+            ],
+            metadata={},
+        )
+
+
+class _SpeculativeAbstentionAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def ask(self, question):
+        return "I don't know, but maybe it's 12345."
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(answer=self.ask(question), retrieved=[], metadata={})
+
+
+class _TemporalAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [MemoryWrite(memory_id="f1", text="The migration started on 2026-03-01.")]
+
+    def ask(self, question):
+        return "March 1, 2026"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="March 1, 2026",
+            retrieved=[RetrievedMemory(memory_id="f1", text="The migration started on 2026-03-01.")],
+            metadata={},
+        )
+
+
+class _StaleUpdateAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The assistant was using cloud-api for inference."),
+            MemoryWrite(memory_id="f2", text="The assistant is currently using local-llm (Gemma-4 26B) for inference."),
+        ]
+
+    def ask(self, question):
+        return "cloud-api"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="cloud-api",
+            retrieved=[RetrievedMemory(memory_id="f1", text="The assistant was using cloud-api for inference.")],
+            metadata={},
+        )
+
+
+class _NoisyRetrievalAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The user's primary home server is homebase."),
+            MemoryWrite(memory_id="f2", text="The VPN IP of homebase is 10.0.0.10."),
+            MemoryWrite(memory_id="junk", text="The coffee mug is blue."),
+        ]
+
+    def ask(self, question):
+        return "homebase, 10.0.0.10"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="homebase, 10.0.0.10",
+            retrieved=[
+                RetrievedMemory(memory_id="f1", text="The user's primary home server is homebase."),
+                RetrievedMemory(memory_id="f2", text="The VPN IP of homebase is 10.0.0.10."),
+                RetrievedMemory(memory_id="junk", text="The coffee mug is blue."),
+            ],
+            metadata={},
+        )
+
+
+class _InterferenceConfuserAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The primary server serial number is XJ-99-B."),
+            MemoryWrite(memory_id="f2", text="The backup drive serial number is XJ-88-A."),
+            MemoryWrite(memory_id="f3", text="The external array serial number is XJ-77-C."),
+        ]
+
+    def ask(self, question):
+        return "XJ-88-A"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="XJ-88-A",
+            retrieved=[RetrievedMemory(memory_id="f2", text="The backup drive serial number is XJ-88-A.")],
+            metadata={},
+        )
+
+
+class _MultiFactPartialAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The user is running Gemma-4 26B."),
+            MemoryWrite(memory_id="f2", text="The model is running at 70 tokens per second."),
+        ]
+
+    def ask(self, question):
+        return "Gemma-4 26B"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="Gemma-4 26B",
+            retrieved=[
+                RetrievedMemory(memory_id="f1", text="The user is running Gemma-4 26B."),
+                RetrievedMemory(memory_id="f2", text="The model is running at 70 tokens per second."),
+            ],
+            metadata={},
+        )
+
+
+class _CausalCompleteAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The backup script triggers when disk usage exceeds 80%."),
+            MemoryWrite(memory_id="f2", text="Disk usage is currently 85%."),
+        ]
+
+    def ask(self, question):
+        return "Because disk usage is at 85%, which exceeds the 80% threshold that triggers the backup script."
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer=self.ask(question),
+            retrieved=[
+                RetrievedMemory(memory_id="f1", text="The backup script triggers when disk usage exceeds 80%."),
+                RetrievedMemory(memory_id="f2", text="Disk usage is currently 85%."),
+            ],
+            metadata={},
+        )
+
+
+class _LegacyOnlyAdapter(MemoryAdapter):
+    def __init__(self):
+        self.injected = []
+
+    def reset(self):
+        self.injected = []
+
+    def inject(self, turns):
+        self.injected.extend(turns)
+
+    def ask(self, question):
+        return "legacy answer"
+
+    def stored_facts(self):
+        return ["legacy fact"]
+
+
+class _OpaqueAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def ask(self, question):
+        return "opaque answer"
+
+    def ask_with_trace(self, question):
+        return None
+
+    def get_writes(self):
+        return None
+
+    def stored_facts(self):
+        return None
+
+
+class TestRunBenchmarkV2:
+    DATASET_V2 = Path(__file__).parent.parent / "dataset" / "fixtures" / "sample_v2.json"
+
+    def test_prefers_trace_hooks(self):
+        adapter = _TraceAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=1,
+        )
+        result = summary["results"][0]
+        assert result["observable"] is True
+        assert result["storage"]["writes"][0]["text"] == "stored fact"
+        assert result["retrieval"]["retrieved"][0]["text"] == "retrieved fact"
+        assert result["answer"]["text"] == "trace answer"
+
+    def test_falls_back_to_legacy_hooks(self):
+        adapter = _LegacyOnlyAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=1,
+        )
+        result = summary["results"][0]
+        assert result["observable"] is True
+        assert result["storage"]["writes"][0]["metadata"]["source"] == "stored_facts"
+        assert result["retrieval"]["retrieved"] == []
+        assert result["answer"]["text"] == "legacy answer"
+
+    def test_marks_non_observable_adapter(self):
+        adapter = _OpaqueAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=1,
+        )
+        assert summary["results"][0]["observable"] is False
+
+    def test_trace_required_rejects_opaque_adapter(self):
+        adapter = _OpaqueAdapter()
+        with pytest.raises(ValueError, match="does not expose trace hooks required"):
+            run_benchmark_v2(
+                adapter=adapter,
+                dataset_path=self.DATASET_V2,
+                quiet=True,
+                limit=1,
+                trace_required=True,
+            )
+
+    def test_scores_single_fact_answer(self):
+        adapter = _CorrectSingleFactAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=1,
+        )
+        result = summary["results"][0]
+        assert result["storage"]["metrics"]["required_fact_recall"] == 1.0
+        assert result["retrieval"]["metrics"]["required_fact_recall"] == 1.0
+        assert result["answer"]["metrics"]["correct"] is True
+        assert result["answer"]["metrics"]["grounded"] is True
+        assert result["failures"] == []
+
+    def test_rejects_speculative_abstention(self):
+        adapter = _SpeculativeAbstentionAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=2,
+        )
+        result = summary["results"][1]
+        assert result["answer"]["metrics"]["correct"] is False
+        assert result["answer"]["metrics"]["abstention_correct"] is False
+        assert "unclean_abstention" in result["failures"]
+
+    def test_scores_temporal_answer(self):
+        adapter = _TemporalAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=3,
+        )
+        result = summary["results"][2]
+        assert result["answer"]["metrics"]["correct"] is True
+        assert result["answer"]["metrics"]["grounded"] is True
+
+    def test_rejects_stale_update_answer(self):
+        adapter = _StaleUpdateAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=4,
+        )
+        result = summary["results"][3]
+        assert result["answer"]["metrics"]["correct"] is False
+        assert "incorrect_answer" in result["failures"]
+        assert "retrieved_forbidden_fact" in result["failures"]
+
+    def test_penalizes_extra_storage_and_retrieval(self):
+        adapter = _NoisyRetrievalAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=1,
+        )
+        result = summary["results"][0]
+        assert result["storage"]["metrics"]["required_fact_precision"] == 0.6667
+        assert result["retrieval"]["metrics"]["required_fact_precision"] == 0.6667
+        assert result["storage"]["metrics"]["unannotated_write_count"] == 1
+        assert result["retrieval"]["metrics"]["unannotated_retrieval_count"] == 1
+        assert "stored_extra_fact" in result["failures"]
+        assert "retrieved_extra_fact" in result["failures"]
+
+    def test_rejects_interference_confuser(self):
+        adapter = _InterferenceConfuserAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=5,
+        )
+        result = summary["results"][4]
+        assert result["answer"]["metrics"]["correct"] is False
+        assert "incorrect_answer" in result["failures"]
+        assert "retrieved_forbidden_fact" in result["failures"]
+
+    def test_rejects_partial_multi_fact_answer(self):
+        adapter = _MultiFactPartialAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=6,
+        )
+        result = summary["results"][5]
+        assert result["answer"]["metrics"]["correct"] is False
+        assert "incorrect_answer" in result["failures"]
+
+    def test_accepts_complete_causal_answer(self):
+        adapter = _CausalCompleteAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=7,
+        )
+        result = summary["results"][6]
+        assert result["answer"]["metrics"]["correct"] is True
+        assert result["answer"]["metrics"]["grounded"] is True

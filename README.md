@@ -8,7 +8,7 @@ Most AI memory benchmarks test context-window retention or external RAG pipeline
 
 ## What it tests
 
-Seven question types, each targeting a distinct failure mode:
+Nine question types, each targeting a distinct failure mode:
 
 | Type | Description | What can fail |
 |------|-------------|---------------|
@@ -49,6 +49,11 @@ pip install -e ".[mem0]"     # Mem0Adapter
 
 ## Quickstart
 
+MESA currently exposes two benchmark paths:
+
+- `schema v1`: legacy composite-scoring runner (`run_benchmark`)
+- `schema v2`: observable diagnostic runner (`run_benchmark_v2`) with per-stage metrics for storage, retrieval, and answering
+
 **1. Implement the adapter interface:**
 
 ```python
@@ -82,9 +87,34 @@ print(f"Avg composite: {results['avg_composite']:.4f}")
 print(f"Pass rate:     {results['pass_rate_50pct']:.1%}")
 ```
 
+Or run the v2 diagnostic path:
+
+```python
+from mesa.runner import run_benchmark_v2
+
+results = run_benchmark_v2(
+    adapter=MyAdapter(),
+    dataset_path="dataset/fixtures/sample_v2.json",
+    trace_required=False,
+)
+
+first = results["results"][0]
+print(first["storage"]["metrics"])
+print(first["retrieval"]["metrics"])
+print(first["answer"]["metrics"])
+```
+
 Or from the CLI:
 ```bash
 python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
+```
+
+V2 CLI:
+```bash
+python -m mesa.runner \
+  --adapter examples.simple_adapter.EchoAdapter \
+  --dataset dataset/fixtures/sample_v2.json \
+  --schema-version 2
 ```
 
 **3. Try the example or reference adapters:**
@@ -114,6 +144,26 @@ See `adapters/` for `KeywordAdapter`, `Mem0Adapter`, and `ChromaAdapter` — eac
 ---
 
 ## Scoring
+
+### v2 diagnostic scoring
+
+The v2 runner reports per-item metrics in three stages:
+
+- `storage`: required fact recall/precision, forbidden hits, extra or unannotated writes
+- `retrieval`: required fact recall/precision, forbidden hits, extra or unannotated retrieved facts
+- `answer`: correctness, grounding, unsupported claims, and abstention correctness
+
+Supported typed answer scorers in v2:
+
+- `single_fact`
+- `abstention`
+- `temporal`
+- `update_current`
+- `update/interference`
+- `multi_fact`
+- `causal`
+
+V2 is the preferred path for new benchmark work because it is much harder to game than the legacy composite scorer.
 
 Three dimensions, combined into a single composite score per item:
 
@@ -179,6 +229,8 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 The runner calls `adapter.inject_session(turns, session_date)` once per session in order. The default `MemoryAdapter.inject_session()` delegates to `inject()`, ignoring the date. Override it if your system stores per-session timestamps.
 
 `dataset/fixtures/sample.json` — 10 hand-crafted smoke-test items covering all 9 types plus one multi-session example. If your system can't pass these, something is fundamentally broken.
+
+`dataset/fixtures/sample_v2.json` — annotated v2 fixture set used by the observable diagnostic runner. Each item includes `gold_memory` and `gold_answer` metadata.
 
 ---
 
@@ -246,7 +298,7 @@ The gold dataset and scorer are the most valuable parts to improve. Contribution
 If you use MESA in research, a mention in your methodology is appreciated:
 
 ```
-Boundary Labs MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
+Vitale Dynamics MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
 https://github.com/randomchaos7800-hub/mesa
 ```
 

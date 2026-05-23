@@ -32,6 +32,7 @@ import re
 from typing import Optional
 
 from mesa.adapter import MemoryAdapter
+from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 
 _EXTRACT_PROMPT = """Extract all discrete facts from this conversation as a bullet-point list.
 Each bullet should be one self-contained fact. Be specific. Do not invent.
@@ -95,6 +96,7 @@ class ChromaAdapter(MemoryAdapter):
         self._chroma_client = None
         self._collection = None
         self._facts: list[str] = []
+        self._last_retrieved: list[str] = []
         self._init_collection()
 
     def _init_collection(self) -> None:
@@ -107,6 +109,7 @@ class ChromaAdapter(MemoryAdapter):
             **kwargs,
         )
         self._facts = []
+        self._last_retrieved = []
 
     def reset(self) -> None:
         # Drop the old collection and create a fresh one
@@ -154,6 +157,7 @@ class ChromaAdapter(MemoryAdapter):
 
     def ask(self, question: str) -> str:
         if not self._facts:
+            self._last_retrieved = []
             return "I don't have any information about that."
 
         try:
@@ -167,6 +171,7 @@ class ChromaAdapter(MemoryAdapter):
             import logging
             logging.getLogger(__name__).warning(f"Chroma query failed: {e}")
             retrieved = self._facts[: self._top_k]
+        self._last_retrieved = list(retrieved)
 
         if not retrieved:
             return "I don't have any information about that."
@@ -184,6 +189,23 @@ class ChromaAdapter(MemoryAdapter):
             import logging
             logging.getLogger(__name__).warning(f"Answer generation failed: {e}")
             return "I don't have that information."
+
+    def get_writes(self) -> list[MemoryWrite] | None:
+        return [
+            MemoryWrite(memory_id=f"fact_{idx}", text=fact)
+            for idx, fact in enumerate(self._facts)
+        ]
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        answer = self.ask(question)
+        retrieved = [
+            RetrievedMemory(
+                memory_id=f"fact_{self._facts.index(fact)}" if fact in self._facts else None,
+                text=fact,
+            )
+            for fact in self._last_retrieved
+        ]
+        return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
 
     def stored_facts(self) -> list[str] | None:
         return list(self._facts)

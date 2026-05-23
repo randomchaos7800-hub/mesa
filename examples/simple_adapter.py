@@ -9,6 +9,7 @@ verify your scoring setup is working before plugging in a real backend.
 """
 
 from mesa.adapter import MemoryAdapter
+from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 
 
 class EchoAdapter(MemoryAdapter):
@@ -32,6 +33,18 @@ class EchoAdapter(MemoryAdapter):
     def ask(self, question: str) -> str:
         return self._context or "I don't know"
 
+    def get_writes(self) -> list[MemoryWrite] | None:
+        if not self._context:
+            return []
+        return [MemoryWrite(memory_id="echo-context", text=self._context)]
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        answer = self.ask(question)
+        retrieved = []
+        if self._context:
+            retrieved.append(RetrievedMemory(memory_id="echo-context", text=self._context))
+        return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
+
     def stored_facts(self) -> list[str] | None:
         return [self._context] if self._context else []
 
@@ -51,6 +64,12 @@ class NullAdapter(MemoryAdapter):
 
     def ask(self, question: str) -> str:
         return "I don't have any information about that."
+
+    def get_writes(self) -> list[MemoryWrite] | None:
+        return []
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        return AnswerTrace(answer=self.ask(question), retrieved=[], metadata={})
 
 
 class DictAdapter(MemoryAdapter):
@@ -89,6 +108,21 @@ class DictAdapter(MemoryAdapter):
         # Return all facts as context
         facts_str = "; ".join(f"{k}: {v}" for k, v in self._facts.items())
         return f"From memory: {facts_str}"
+
+    def get_writes(self) -> list[MemoryWrite] | None:
+        return [
+            MemoryWrite(memory_id=key, text=f"{k}: {v}")
+            for key, value in self._facts.items()
+            for k, v in [(key, value)]
+        ]
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        answer = self.ask(question)
+        retrieved = [
+            RetrievedMemory(memory_id=key, text=f"{key}: {value}")
+            for key, value in self._facts.items()
+        ]
+        return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
 
     def stored_facts(self) -> list[str] | None:
         return [f"{k}: {v}" for k, v in self._facts.items()]

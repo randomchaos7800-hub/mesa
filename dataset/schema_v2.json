@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MESA v2 Benchmark Item",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "version",
+      "task_type",
+      "answer_format",
+      "question",
+      "sessions",
+      "gold_memory",
+      "gold_answer"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^mesa-[a-z][a-z-]*-[0-9]{4}$"
+      },
+      "version": {
+        "type": "string",
+        "enum": ["2"]
+      },
+      "task_type": {
+        "type": "string",
+        "enum": [
+          "recall/single",
+          "recall/preference",
+          "recall/constraint",
+          "synthesis/multi",
+          "temporal",
+          "update",
+          "update/interference",
+          "adversarial",
+          "causal"
+        ]
+      },
+      "answer_format": {
+        "type": "string",
+        "enum": [
+          "single_fact",
+          "multi_fact",
+          "temporal",
+          "update_current",
+          "abstention",
+          "preference",
+          "constraint"
+        ]
+      },
+      "question": {
+        "type": "string",
+        "minLength": 3
+      },
+      "sessions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["session_id", "turns"],
+          "properties": {
+            "session_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "date": {
+              "type": ["string", "null"],
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "turns": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["role", "content"],
+                "properties": {
+                  "role": {
+                    "type": "string",
+                    "enum": ["user", "assistant"]
+                  },
+                  "content": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "gold_memory": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["atomic_facts", "required_fact_ids", "forbidden_fact_ids"],
+        "properties": {
+          "atomic_facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["fact_id", "text", "status", "source_sessions"],
+              "properties": {
+                "fact_id": {
+                  "type": "string",
+                  "pattern": "^f[0-9]+$"
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["active", "superseded", "distractor", "unsupported"]
+                },
+                "source_sessions": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "slots": {
+                  "type": "object"
+                },
+                "aliases": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required_fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^f[0-9]+$"
+            }
+          },
+          "forbidden_fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^f[0-9]+$"
+            }
+          }
+        }
+      },
+      "gold_answer": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "canonical_answers",
+          "must_include",
+          "must_not_include",
+          "abstention_expected"
+        ],
+        "properties": {
+          "canonical_answers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "must_include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "must_not_include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "abstention_expected": {
+            "type": "boolean"
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "difficulty": {
+            "type": "string",
+            "enum": ["easy", "medium", "hard"]
+          },
+          "domain": {
+            "type": "string"
+          },
+          "distractor_density": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
+          "temporal_gap_days": {
+            "type": ["integer", "null"],
+            "minimum": 0
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

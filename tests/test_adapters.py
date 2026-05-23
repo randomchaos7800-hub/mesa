@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
 from adapters.keyword_adapter import KeywordAdapter, _tokenize, _tfidf_score, _build_idf
+from mesa.core.types import AnswerTrace
 
 
 # ---------------------------------------------------------------------------
@@ -91,6 +92,25 @@ class TestKeywordAdapter:
         answer = adapter.ask("anything")
         assert isinstance(answer, str)
 
+    def test_get_writes_returns_structured_facts(self):
+        client = _make_mock_client()
+        adapter = KeywordAdapter(client=client)
+        adapter.inject(SAMPLE_SESSIONS)
+        writes = adapter.get_writes()
+        assert writes is not None
+        assert len(writes) > 0
+        assert writes[0].memory_id == "fact_0"
+
+    def test_ask_with_trace_returns_retrievals(self):
+        client = _make_mock_client(answer_text="homeserver")
+        adapter = KeywordAdapter(client=client)
+        adapter.inject(SAMPLE_SESSIONS)
+        trace = adapter.ask_with_trace("What is the server name?")
+        assert isinstance(trace, AnswerTrace)
+        assert trace.answer == "homeserver"
+        assert trace.retrieved is not None
+        assert len(trace.retrieved) > 0
+
 
 # ---------------------------------------------------------------------------
 # TF-IDF internals
@@ -151,6 +171,18 @@ class TestChromaAdapter:
         assert len(adapter.stored_facts()) > 0
         answer = adapter.ask("What is the server name?")
         assert isinstance(answer, str)
+
+    def test_trace_hooks(self):
+        from adapters.chroma_adapter import ChromaAdapter
+        client = _make_mock_client(answer_text="homeserver")
+        adapter = ChromaAdapter(client=client)
+        adapter.inject(SAMPLE_SESSIONS)
+        writes = adapter.get_writes()
+        trace = adapter.ask_with_trace("What is the server name?")
+        assert writes is not None
+        assert len(writes) > 0
+        assert isinstance(trace, AnswerTrace)
+        assert trace.retrieved is not None
 
 
 # ---------------------------------------------------------------------------

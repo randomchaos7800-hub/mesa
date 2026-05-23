@@ -26,6 +26,7 @@ from math import log
 from typing import Optional
 
 from mesa.adapter import MemoryAdapter
+from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 
 _EXTRACT_PROMPT = """Extract all discrete facts from this conversation as a bullet-point list.
 Each bullet should be one self-contained fact (entity, value, preference, rule, or event).
@@ -94,9 +95,11 @@ class KeywordAdapter(MemoryAdapter):
         self._max_extract = max_extract_tokens
         self._max_answer = max_answer_tokens
         self._facts: list[str] = []
+        self._last_retrieved: list[tuple[float | None, str]] = []
 
     def reset(self) -> None:
         self._facts = []
+        self._last_retrieved = []
 
     def inject(self, sessions: list[dict]) -> None:
         if not sessions:
@@ -123,6 +126,7 @@ class KeywordAdapter(MemoryAdapter):
 
     def ask(self, question: str) -> str:
         if not self._facts:
+            self._last_retrieved = []
             return "I don't have any information about that."
 
         # TF-IDF retrieval
@@ -135,9 +139,11 @@ class KeywordAdapter(MemoryAdapter):
         ]
         scores.sort(reverse=True)
         top_facts = [fact for _, fact in scores[: self._top_k] if _ > 0]
+        self._last_retrieved = [(score, fact) for score, fact in scores[: self._top_k] if score > 0]
 
         if not top_facts:
             top_facts = self._facts[: self._top_k]
+            self._last_retrieved = [(None, fact) for fact in top_facts]
 
         facts_block = "\n".join(f"- {f}" for f in top_facts)
         prompt = _ANSWER_PROMPT.format(facts=facts_block, question=question)
@@ -152,6 +158,20 @@ class KeywordAdapter(MemoryAdapter):
             import logging
             logging.getLogger(__name__).warning(f"Answer generation failed: {e}")
             return "I don't have that information."
+
+    def get_writes(self) -> list[MemoryWrite] | None:
+        return [
+            MemoryWrite(memory_id=f"fact_{idx}", text=fact)
+            for idx, fact in enumerate(self._facts)
+        ]
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        answer = self.ask(question)
+        retrieved = [
+            RetrievedMemory(memory_id=f"fact_{self._facts.index(fact)}" if fact in self._facts else None, text=fact, score=score)
+            for score, fact in self._last_retrieved
+        ]
+        return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
 
     def stored_facts(self) -> list[str] | None:
         return list(self._facts)
