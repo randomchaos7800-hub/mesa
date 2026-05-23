@@ -33,7 +33,9 @@ from mesa.dataset.migrators import upgrade_v1_item
 from mesa.scoring.answer_types import (
     score_abstention_answer,
     score_causal_answer,
+    score_constraint_answer,
     score_multi_fact_answer,
+    score_preference_answer,
     score_single_fact_answer,
     score_temporal_answer,
     score_update_interference_answer,
@@ -176,6 +178,10 @@ def _score_item_v2(item: dict, writes: list[dict] | None, answer_trace: dict) ->
     answer_format = item["answer_format"]
     if answer_format == "abstention":
         answer_metrics = score_abstention_answer(answer_trace["answer"], item["gold_answer"], evidence_texts)
+    elif answer_format == "preference":
+        answer_metrics = score_preference_answer(answer_trace["answer"], item["gold_answer"], evidence_texts)
+    elif answer_format == "constraint":
+        answer_metrics = score_constraint_answer(answer_trace["answer"], item["gold_answer"], evidence_texts)
     elif answer_format == "single_fact":
         answer_metrics = score_single_fact_answer(answer_trace["answer"], item["gold_answer"], evidence_texts)
     elif answer_format == "temporal":
@@ -220,6 +226,61 @@ def _score_item_v2(item: dict, writes: list[dict] | None, answer_trace: dict) ->
         failures.append("unclean_abstention")
 
     return storage_metrics, retrieval_metrics, answer_metrics, failures
+
+
+def _average_metric(values: list[float | bool | None]) -> float | None:
+    """Average numeric and boolean metrics, skipping missing values."""
+    normalized = []
+    for value in values:
+        if value is None:
+            continue
+        if isinstance(value, bool):
+            normalized.append(1.0 if value else 0.0)
+        else:
+            normalized.append(float(value))
+    if not normalized:
+        return None
+    return round(sum(normalized) / len(normalized), 4)
+
+
+def _summarize_v2_results(results: list[dict]) -> dict:
+    """Build run-level v2 metric summaries."""
+    storage = {
+        "required_fact_recall": _average_metric([r["storage"]["metrics"]["required_fact_recall"] for r in results]),
+        "required_fact_precision": _average_metric([r["storage"]["metrics"]["required_fact_precision"] for r in results]),
+        "forbidden_fact_hits": round(sum(r["storage"]["metrics"]["forbidden_fact_hits"] for r in results) / len(results), 4),
+        "non_required_fact_hits": round(sum(r["storage"]["metrics"]["non_required_fact_hits"] for r in results) / len(results), 4),
+        "unannotated_write_count": round(sum(r["storage"]["metrics"]["unannotated_write_count"] for r in results) / len(results), 4),
+    }
+    retrieval = {
+        "required_fact_recall": _average_metric([r["retrieval"]["metrics"]["required_fact_recall"] for r in results]),
+        "required_fact_precision": _average_metric([r["retrieval"]["metrics"]["required_fact_precision"] for r in results]),
+        "forbidden_fact_hits": round(sum(r["retrieval"]["metrics"]["forbidden_fact_hits"] for r in results) / len(results), 4),
+        "non_required_fact_hits": round(sum(r["retrieval"]["metrics"]["non_required_fact_hits"] for r in results) / len(results), 4),
+        "unannotated_retrieval_count": round(sum(r["retrieval"]["metrics"]["unannotated_retrieval_count"] for r in results) / len(results), 4),
+    }
+    answer = {
+        "correct_rate": _average_metric([r["answer"]["metrics"]["correct"] for r in results]),
+        "grounded_rate": _average_metric([r["answer"]["metrics"]["grounded"] for r in results]),
+        "abstention_correct_rate": _average_metric([r["answer"]["metrics"]["abstention_correct"] for r in results]),
+        "unsupported_claim_items": round(sum(1 for r in results if r["answer"]["metrics"]["unsupported_claims"]) / len(results), 4),
+    }
+    by_type = {}
+    for result in results:
+        by_type.setdefault(result["task_type"], []).append(result)
+    by_type_summary = {}
+    for task_type, items in by_type.items():
+        by_type_summary[task_type] = {
+            "n": len(items),
+            "correct_rate": _average_metric([r["answer"]["metrics"]["correct"] for r in items]),
+            "grounded_rate": _average_metric([r["answer"]["metrics"]["grounded"] for r in items]),
+        }
+    return {
+        "storage": storage,
+        "retrieval": retrieval,
+        "answer": answer,
+        "by_type": by_type_summary,
+    }
 
 
 def run_benchmark_v2(
@@ -308,6 +369,7 @@ def run_benchmark_v2(
         "schema_version": "2",
         "n_items": len(results),
         "trace_required": trace_required,
+        "summary": _summarize_v2_results(results),
         "results": results,
     }
 
@@ -513,6 +575,8 @@ def main():
         print(f"  Schema: v2")
         print(f"  Items : {summary['n_items']}")
         print(f"  Trace : {'required' if summary['trace_required'] else 'preferred'}")
+        print(f"  Answer correct : {summary['summary']['answer']['correct_rate']}")
+        print(f"  Answer grounded: {summary['summary']['answer']['grounded_rate']}")
         print(f"{'='*60}")
         print(f"Results → {out_path}")
         return

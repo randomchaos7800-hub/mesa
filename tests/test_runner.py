@@ -355,6 +355,51 @@ class _CausalCompleteAdapter(MemoryAdapter):
         )
 
 
+class _PreferenceAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [MemoryWrite(memory_id="f1", text="The user prefers terse responses.")]
+
+    def ask(self, question):
+        return "terse"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="terse",
+            retrieved=[RetrievedMemory(memory_id="f1", text="The user prefers terse responses.")],
+            metadata={},
+        )
+
+
+class _ConstraintDistractorAdapter(MemoryAdapter):
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def get_writes(self):
+        return [
+            MemoryWrite(memory_id="f1", text="The cloud storage budget cap is $20/month with no exceptions."),
+            MemoryWrite(memory_id="f2", text="S3 costs $35/month for 2TB."),
+        ]
+
+    def ask(self, question):
+        return "$35/month"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="$35/month",
+            retrieved=[RetrievedMemory(memory_id="f2", text="S3 costs $35/month for 2TB.")],
+            metadata={},
+        )
+
+
 class _LegacyOnlyAdapter(MemoryAdapter):
     def __init__(self):
         self.injected = []
@@ -549,3 +594,38 @@ class TestRunBenchmarkV2:
         result = summary["results"][6]
         assert result["answer"]["metrics"]["correct"] is True
         assert result["answer"]["metrics"]["grounded"] is True
+
+    def test_accepts_preference_answer(self):
+        adapter = _PreferenceAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=8,
+        )
+        result = summary["results"][7]
+        assert result["answer"]["metrics"]["correct"] is True
+
+    def test_rejects_constraint_distractor(self):
+        adapter = _ConstraintDistractorAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=9,
+        )
+        result = summary["results"][8]
+        assert result["answer"]["metrics"]["correct"] is False
+        assert "incorrect_answer" in result["failures"]
+        assert "retrieved_forbidden_fact" in result["failures"]
+
+    def test_summary_is_populated(self):
+        adapter = _CorrectSingleFactAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            dataset_path=self.DATASET_V2,
+            quiet=True,
+            limit=1,
+        )
+        assert summary["summary"]["answer"]["correct_rate"] == 1.0
+        assert "recall/single" in summary["summary"]["by_type"]

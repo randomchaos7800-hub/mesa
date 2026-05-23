@@ -25,10 +25,11 @@ Note: Mem0 can be configured with its own LLM and embedder. By default this
 adapter uses the same OpenAI-compatible client for both Mem0's internals and
 the final answer generation. See Mem0 docs for custom config options.
 """
-
+import uuid
 from typing import Optional
 
 from mesa.adapter import MemoryAdapter
+from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 
 _ANSWER_PROMPT = """You are a memory-backed assistant. Answer the question using ONLY the provided memory.
 If the answer is not in the memory, say "I don't have that information."
@@ -62,7 +63,7 @@ class Mem0Adapter(MemoryAdapter):
         llm_client,
         model: str = "local",
         mem0_config: Optional[dict] = None,
-        user_id: str = "benchmark_user",
+        user_id: Optional[str] = None,
         top_k: int = 5,
         max_answer_tokens: int = 256,
     ):
@@ -76,10 +77,11 @@ class Mem0Adapter(MemoryAdapter):
         self._mem0_config = mem0_config
         self._llm_client = llm_client
         self._model = model
-        self._user_id = user_id
+        self._user_id = user_id or f"benchmark_user_{uuid.uuid4().hex[:8]}"
         self._top_k = top_k
         self._max_answer = max_answer_tokens
         self._memory = None
+        self._last_retrieved: list = []
         self._init_memory()
 
     def _init_memory(self) -> None:
@@ -87,6 +89,7 @@ class Mem0Adapter(MemoryAdapter):
             self._memory = self._Memory.from_config(self._mem0_config)
         else:
             self._memory = self._Memory()
+        self._last_retrieved = []
 
     def reset(self) -> None:
         # Delete all memories for this user then reinitialise
@@ -113,6 +116,7 @@ class Mem0Adapter(MemoryAdapter):
         try:
             results = self._memory.search(question, user_id=self._user_id, limit=self._top_k)
             memories = results.get("results", results) if isinstance(results, dict) else results
+            self._last_retrieved = list(memories or [])
             if not memories:
                 return "I don't have that information."
             mem_block = "\n".join(
@@ -122,6 +126,7 @@ class Mem0Adapter(MemoryAdapter):
         except Exception as e:
             import logging
             logging.getLogger(__name__).warning(f"Mem0 search failed: {e}")
+            self._last_retrieved = []
             return "I don't have that information."
 
         prompt = _ANSWER_PROMPT.format(memories=mem_block, question=question)
@@ -147,3 +152,23 @@ class Mem0Adapter(MemoryAdapter):
             ]
         except Exception:
             return []
+
+    def get_writes(self) -> list[MemoryWrite] | None:
+        facts = self.stored_facts() or []
+        return [
+            MemoryWrite(memory_id=f"fact_{idx}", text=fact)
+            for idx, fact in enumerate(facts)
+        ]
+
+    def ask_with_trace(self, question: str) -> AnswerTrace | None:
+        answer = self.ask(question)
+        retrieved = []
+        for idx, memory in enumerate(self._last_retrieved):
+            text = memory["memory"] if isinstance(memory, dict) else str(memory)
+            retrieved.append(
+                RetrievedMemory(
+                    memory_id=memory.get("id", f"fact_{idx}") if isinstance(memory, dict) else f"fact_{idx}",
+                    text=text,
+                )
+            )
+        return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})

@@ -8,7 +8,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from mesa.scoring.answer_types import (
     score_abstention_answer,
     score_causal_answer,
+    score_constraint_answer,
     score_multi_fact_answer,
+    score_preference_answer,
     score_single_fact_answer,
     score_temporal_answer,
     score_update_interference_answer,
@@ -157,3 +159,28 @@ class TestAnswerTypeScoringV2:
         )
         assert result["correct"] is False
         assert "80%" in " ".join(result["missing_required"])
+
+    def test_preference_requires_preference_signal(self):
+        result = score_preference_answer(
+            "terse",
+            {
+                "canonical_answers": ["terse"],
+                "must_include": ["terse"],
+                "must_not_include": ["detailed explanations"],
+            },
+            ["The user prefers terse responses."],
+        )
+        assert result["correct"] is True
+
+    def test_constraint_rejects_distractor_price(self):
+        result = score_constraint_answer(
+            "$35/month",
+            {
+                "canonical_answers": ["$20/month, no exceptions"],
+                "must_include": ["$20", "no exceptions"],
+                "must_not_include": ["$35"],
+            },
+            ["The cloud storage budget cap is $20/month with no exceptions."],
+        )
+        assert result["correct"] is False
+        assert "$35" in result["forbidden_mentions"]

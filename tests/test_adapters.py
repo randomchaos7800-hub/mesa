@@ -214,3 +214,14 @@ class TestMem0Adapter:
         adapter.inject(SAMPLE_SESSIONS)
         answer = adapter.ask("What is the server name?")
         assert isinstance(answer, str)
+
+    def test_trace_hooks(self):
+        from adapters.mem0_adapter import Mem0Adapter
+        client = _make_mock_client(answer_text="homeserver")
+        adapter = Mem0Adapter(llm_client=client)
+        adapter.inject(SAMPLE_SESSIONS)
+        writes = adapter.get_writes()
+        trace = adapter.ask_with_trace("What is the server name?")
+        assert writes is not None
+        assert isinstance(trace, AnswerTrace)
+        assert trace.retrieved is not None

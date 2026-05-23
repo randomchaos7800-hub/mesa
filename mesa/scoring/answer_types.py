@@ -128,3 +128,43 @@ def score_multi_fact_answer(answer: str, gold_answer: dict, evidence_texts: list
 def score_causal_answer(answer: str, gold_answer: dict, evidence_texts: list[str]) -> dict:
     """Score a causal answer by requiring all causal components."""
     return score_multi_fact_answer(answer, gold_answer, evidence_texts)
+
+
+def score_preference_answer(answer: str, gold_answer: dict, evidence_texts: list[str]) -> dict:
+    """Score a preference answer by requiring the canonical preference signal."""
+    includes_ok, missing = contains_all_required(answer, gold_answer.get("must_include", []))
+    forbidden = contains_forbidden(answer, gold_answer.get("must_not_include", []))
+    correct = matches_expected(answer, gold_answer.get("canonical_answers", []))
+    if gold_answer.get("must_include"):
+        correct = correct or includes_ok
+
+    unsupported = find_unsupported_claims(answer, evidence_texts)
+    grounded = len(unsupported) == 0
+    return {
+        "correct": correct and includes_ok and not forbidden,
+        "grounded": grounded,
+        "unsupported_claims": unsupported,
+        "missing_required": missing,
+        "forbidden_mentions": forbidden,
+        "abstention_correct": None,
+    }
+
+
+def score_constraint_answer(answer: str, gold_answer: dict, evidence_texts: list[str]) -> dict:
+    """Score a constraint answer by requiring the rule and any no-exception clause."""
+    includes_ok, missing = contains_all_required(answer, gold_answer.get("must_include", []))
+    forbidden = contains_forbidden(answer, gold_answer.get("must_not_include", []))
+    correct = matches_expected(answer, gold_answer.get("canonical_answers", []))
+    if gold_answer.get("must_include"):
+        correct = correct or includes_ok
+
+    unsupported = find_unsupported_claims(answer, evidence_texts)
+    grounded = len(unsupported) == 0
+    return {
+        "correct": correct and includes_ok and not forbidden,
+        "grounded": grounded,
+        "unsupported_claims": unsupported,
+        "missing_required": missing,
+        "forbidden_mentions": forbidden,
+        "abstention_correct": None,
+    }

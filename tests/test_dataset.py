@@ -15,6 +15,8 @@ SCHEMA_V2_PATH = REPO_ROOT / "dataset" / "schema_v2.json"
 FIXTURES_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample.json"
 FIXTURES_V2_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample_v2.json"
 GOLD_PATH = REPO_ROOT / "dataset" / "mesa_v1.json"
+GOLD_V2_PATH = REPO_ROOT / "dataset" / "mesa_v2.json"
+VERSION_V2_PATH = REPO_ROOT / "dataset" / "version_v2.json"
 
 VALID_TYPES = {
     "recall/single", "recall/preference", "recall/constraint",
@@ -176,3 +178,45 @@ class TestGoldDataset:
             pytest.skip("mesa_v1.json is empty")
         ids = [i["id"] for i in items]
         assert len(ids) == len(set(ids))
+
+
+class TestGoldDatasetV2:
+    def test_exists(self):
+        assert GOLD_V2_PATH.exists()
+
+    def test_valid_json(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        assert isinstance(items, list)
+        assert len(items) >= 5
+
+    def test_all_valid(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        for item in items:
+            errors = []
+            errors.extend(validate_v2_item_structure(item))
+            errors.extend(validate_gold_memory(item))
+            errors.extend(validate_gold_answer(item))
+            assert errors == [], f"{item.get('id')}: {errors}"
+
+    def test_unique_ids(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        ids = [item["id"] for item in items]
+        assert len(ids) == len(set(ids))
+
+    def test_covers_core_types(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        types = {item["task_type"] for item in items}
+        assert {"recall/single", "recall/preference", "recall/constraint", "adversarial", "temporal", "update"} <= types
+
+
+class TestVersionManifestV2:
+    def test_exists(self):
+        assert VERSION_V2_PATH.exists()
+
+    def test_manifest_matches_dataset(self):
+        manifest = json.loads(VERSION_V2_PATH.read_text())
+        items = json.loads(GOLD_V2_PATH.read_text())
+        assert manifest["dataset_name"] == "mesa_v2"
+        assert manifest["schema_version"] == "2"
+        assert manifest["item_count"] == len(items)
+        assert set(manifest["task_types"]) == {item["task_type"] for item in items}

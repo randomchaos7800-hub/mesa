@@ -1,0 +1,17 @@
+{
+  "dataset_name": "mesa_v2",
+  "dataset_path": "dataset/mesa_v2.json",
+  "schema_version": "2",
+  "dataset_version": "0.1.0",
+  "item_count": 6,
+  "created_at": "2026-05-23",
+  "notes": "Initial curated v2 gold dataset seeded from validated fixture-quality items.",
+  "task_types": [
+    "recall/single",
+    "recall/preference",
+    "recall/constraint",
+    "adversarial",
+    "temporal",
+    "update"
+  ]
+}

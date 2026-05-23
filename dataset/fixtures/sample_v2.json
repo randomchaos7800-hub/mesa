@@ -428,5 +428,117 @@
       "temporal_gap_days": null,
       "notes": "Causal item requiring threshold plus current state."
     }
+  },
+  {
+    "id": "mesa-prefer-0001",
+    "version": "2",
+    "task_type": "recall/preference",
+    "answer_format": "preference",
+    "question": "Does the user prefer terse responses or detailed explanations?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "I hate when you give me long explanations. Keep it short. I can read the diff myself."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted — short and direct from here on."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The user prefers terse responses.",
+          "status": "active",
+          "source_sessions": ["s1"],
+          "slots": {"preference": "terse"},
+          "aliases": ["keep it short", "short and direct"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["terse"],
+      "must_include": ["terse"],
+      "must_not_include": ["detailed explanations"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "easy",
+      "domain": "interaction",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Preference item for terse response style."
+    }
+  },
+  {
+    "id": "mesa-constraint-0001",
+    "version": "2",
+    "task_type": "recall/constraint",
+    "answer_format": "constraint",
+    "question": "What is the hard budget cap for cloud storage, and are there any exceptions?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "Set this in stone: the cloud storage budget is $20 a month. That's a hard cap. Never recommend anything that costs more, no exceptions."
+          },
+          {
+            "role": "assistant",
+            "content": "Hard cap locked in — $20/month for cloud storage, no exceptions."
+          },
+          {
+            "role": "user",
+            "content": "Anyway, saw a good deal on S3 — $35/month for 2TB. Tempting."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The cloud storage budget cap is $20/month with no exceptions.",
+          "status": "active",
+          "source_sessions": ["s1"],
+          "slots": {"budget": "$20/month", "exceptions": "no exceptions"},
+          "aliases": ["hard cap", "$20 a month", "no exceptions"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "S3 costs $35/month for 2TB.",
+          "status": "distractor",
+          "source_sessions": ["s1"],
+          "slots": {"price": "$35/month"},
+          "aliases": ["$35/month"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": ["f2"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["$20/month, no exceptions"],
+      "must_include": ["$20", "no exceptions"],
+      "must_not_include": ["$35"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "budgeting",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Constraint item with a noisy higher-priced distractor."
+    }
   }
 ]
