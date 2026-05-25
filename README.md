@@ -94,7 +94,7 @@ from mesa.runner import run_benchmark_v2
 
 results = run_benchmark_v2(
     adapter=MyAdapter(),
-    dataset_path="dataset/fixtures/sample_v2.json",
+    dataset_path="dataset/mesa_v2.json",
     trace_required=False,
 )
 
@@ -113,7 +113,7 @@ V2 CLI:
 ```bash
 python -m mesa.runner \
   --adapter examples.simple_adapter.EchoAdapter \
-  --dataset dataset/fixtures/sample_v2.json \
+  --dataset dataset/mesa_v2.json \
   --schema-version 2
 ```
 
@@ -230,7 +230,9 @@ The runner calls `adapter.inject_session(turns, session_date)` once per session 
 
 `dataset/fixtures/sample.json` — 10 hand-crafted smoke-test items covering all 9 types plus one multi-session example. If your system can't pass these, something is fundamentally broken.
 
-`dataset/fixtures/sample_v2.json` — annotated v2 fixture set used by the observable diagnostic runner. Each item includes `gold_memory` and `gold_answer` metadata.
+`dataset/mesa_v2.json` — curated v2 gold dataset for observable diagnostic runs. Version metadata lives in `dataset/version_v2.json`.
+
+`dataset/fixtures/sample_v2.json` — small annotated v2 fixture set used for smoke tests and fast local checks.
 
 ---
 

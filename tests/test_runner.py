@@ -629,3 +629,13 @@ class TestRunBenchmarkV2:
         )
         assert summary["summary"]["answer"]["correct_rate"] == 1.0
         assert "recall/single" in summary["summary"]["by_type"]
+
+    def test_default_v2_dataset_uses_gold_manifest(self):
+        adapter = _OpaqueAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter,
+            quiet=True,
+            limit=1,
+        )
+        assert summary["dataset"].endswith("dataset/mesa_v2.json")
+        assert summary["dataset_version"] == "0.1.0"

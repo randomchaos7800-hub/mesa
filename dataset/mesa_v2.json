@@ -319,5 +319,525 @@
       "temporal_gap_days": null,
       "notes": "Initial v2 gold item: supersession and stale-fact rejection."
     }
+  },
+  {
+    "id": "mesa-update-interference-0006",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "What was the name of the main configuration file the user mentioned first?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "Main config lives in config.json. That's the canonical one."
+          },
+          {
+            "role": "assistant",
+            "content": "Canonical config: config.json."
+          },
+          {
+            "role": "user",
+            "content": "There's also config.backup.json for disaster recovery."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it — config.backup.json for DR."
+          },
+          {
+            "role": "user",
+            "content": "And config.dev.json for local development overrides."
+          },
+          {
+            "role": "assistant",
+            "content": "config.dev.json for local dev overrides — noted."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "config.json",
+          "status": "active",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "There's also config.backup.json for disaster recovery.",
+          "status": "distractor",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f3",
+          "text": "And config.dev.json for local development overrides.",
+          "status": "distractor",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": ["f2", "f3"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["config.json"],
+      "must_include": ["config.json"],
+      "must_not_include": ["config.backup.json", "config.dev.json"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "infrastructure",
+      "distractor_density": "high",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Similar filenames added after original."
+    }
+  },
+  {
+    "id": "mesa-synthesis-multi-0027",
+    "version": "2",
+    "task_type": "synthesis/multi",
+    "answer_format": "multi_fact",
+    "question": "What model is running on the inference server and how much VRAM does it consume?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "Loaded Mistral 7B on the inference server. Works well for our use case."
+          },
+          {
+            "role": "assistant",
+            "content": "Mistral 7B is up — good choice for the workload."
+          },
+          {
+            "role": "user",
+            "content": "VRAM usage is sitting around 4GB which leaves plenty of headroom."
+          },
+          {
+            "role": "assistant",
+            "content": "4GB VRAM for Mistral 7B — comfortable margin on that GPU."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Mistral 7B",
+          "status": "active",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "using about 4GB of VRAM",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1", "f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Mistral 7B, using about 4GB of VRAM"],
+      "must_include": ["Mistral 7B", "using about 4GB of VRAM"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Two facts stated in separate turns."
+    }
+  },
+  {
+    "id": "mesa-causal-0009",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "What caused the user's headache, and what medication were they prescribed?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been training for a marathon and haven't been drinking enough water. Got a terrible headache yesterday."
+          },
+          {
+            "role": "assistant",
+            "content": "That sounds like dehydration from the marathon training. Have you seen a doctor?"
+          },
+          {
+            "role": "user",
+            "content": "Yes, went to the clinic. They confirmed it was dehydration and prescribed ibuprofen for the headache."
+          },
+          {
+            "role": "assistant",
+            "content": "Good — make sure to stay hydrated during training."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The headache was caused by dehydration from the marathon training",
+          "status": "active",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "They were prescribed ibuprofen",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1", "f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["The headache was caused by dehydration from the marathon training. They were prescribed ibuprofen."],
+      "must_include": ["dehydration from the marathon training", "ibuprofen"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "medical",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Requires cause plus treatment."
+    }
+  },
+  {
+    "id": "mesa-temporal-0009",
+    "version": "2",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "When did the monitoring alert fire and wake the user up?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "Set the CPU alert threshold to 95%. Shouldn't trigger often."
+          },
+          {
+            "role": "assistant",
+            "content": "Threshold set at 95% CPU."
+          },
+          {
+            "role": "user",
+            "content": "Got paged at 2am. Server hit 97% CPU, alert fired. Had to restart the worker pool."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged — CPU alert triggered 2026-02-10, required worker pool restart."
+          },
+          {
+            "role": "user",
+            "content": "Lowered the threshold to 85% to get more warning time next time."
+          },
+          {
+            "role": "assistant",
+            "content": "Alert threshold updated to 85%."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "2026-02-10",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["2026-02-10"],
+      "must_include": ["2026-02-10"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Temporal event dating amid threshold-change noise."
+    }
+  },
+  {
+    "id": "mesa-update-0007",
+    "version": "2",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "What is the current API rate limit?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "The API rate limit is 100 requests per minute. That's the cap for all clients."
+          },
+          {
+            "role": "assistant",
+            "content": "Rate limit set at 100 req/min."
+          },
+          {
+            "role": "user",
+            "content": "Upgraded the infrastructure. Bumping the rate limit to 500 requests per minute."
+          },
+          {
+            "role": "assistant",
+            "content": "Rate limit updated to 500 req/min."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The API rate limit is 100 requests per minute. That's the cap for all clients.",
+          "status": "superseded",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "500 requests per minute",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f2"],
+      "forbidden_fact_ids": ["f1"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["500 requests per minute"],
+      "must_include": ["500 requests per minute"],
+      "must_not_include": ["100 requests per minute"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Simple supersession with a stale numeric confuser."
+    }
+  },
+  {
+    "id": "mesa-update-interference-0007",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "What was the first API key prefix the user logged for the production service?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "Production API key prefix is sk-prod-alpha. Log that."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged — production key prefix: sk-prod-alpha."
+          },
+          {
+            "role": "user",
+            "content": "Added a failover key: sk-prod-beta."
+          },
+          {
+            "role": "assistant",
+            "content": "Failover key prefix: sk-prod-beta."
+          },
+          {
+            "role": "user",
+            "content": "Dev environment key is sk-dev-gamma."
+          },
+          {
+            "role": "assistant",
+            "content": "Dev key prefix: sk-dev-gamma."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "sk-prod-alpha",
+          "status": "active",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "Added a failover key: sk-prod-beta.",
+          "status": "distractor",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f3",
+          "text": "Dev environment key is sk-dev-gamma.",
+          "status": "distractor",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": ["f2", "f3"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["sk-prod-alpha"],
+      "must_include": ["sk-prod-alpha"],
+      "must_not_include": ["sk-prod-beta", "sk-dev-gamma"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "infrastructure",
+      "distractor_density": "high",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Similar-pattern key prefixes create strong interference pressure."
+    }
+  },
+  {
+    "id": "mesa-synthesis-multi-0028",
+    "version": "2",
+    "task_type": "synthesis/multi",
+    "answer_format": "multi_fact",
+    "question": "What port does the local API run on and what authentication method does it require?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "The local API endpoint is running on port 8080."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it — local API on port 8080."
+          },
+          {
+            "role": "user",
+            "content": "Auth is Bearer token only. No API keys, no basic auth."
+          },
+          {
+            "role": "assistant",
+            "content": "Bearer token only — noted."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Port 8080",
+          "status": "active",
+          "source_sessions": ["s1"]
+        },
+        {
+          "fact_id": "f2",
+          "text": "Bearer token authentication",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1", "f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Port 8080, Bearer token authentication"],
+      "must_include": ["Port 8080", "Bearer token authentication"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Combines networking and auth requirements."
+    }
+  },
+  {
+    "id": "mesa-causal-0011",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why did the user switch from Linux to macOS?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been using Linux for years, it's my go-to OS."
+          },
+          {
+            "role": "assistant",
+            "content": "Great choice for a developer."
+          },
+          {
+            "role": "user",
+            "content": "I just bought a MacBook Air M4. I need to compile iOS apps for my side project, so I had to switch from Linux."
+          },
+          {
+            "role": "assistant",
+            "content": "Smart move for iOS development. The M4 is fast."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The user switched because they needed to compile iOS apps for their side project.",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["The user switched because they needed to compile iOS apps for their side project."],
+      "must_include": ["compile iOS apps", "side project"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "developer-workflow",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Straight causal rationale with a prior preference context."
+    }
   }
 ]

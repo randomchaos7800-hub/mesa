@@ -16,6 +16,7 @@ FIXTURES_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample.json"
 FIXTURES_V2_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample_v2.json"
 GOLD_PATH = REPO_ROOT / "dataset" / "mesa_v1.json"
 GOLD_V2_PATH = REPO_ROOT / "dataset" / "mesa_v2.json"
+ANNOTATED_V2_PATH = REPO_ROOT / "dataset" / "mesa_v2_annotated.json"
 VERSION_V2_PATH = REPO_ROOT / "dataset" / "version_v2.json"
 
 VALID_TYPES = {
@@ -187,7 +188,7 @@ class TestGoldDatasetV2:
     def test_valid_json(self):
         items = json.loads(GOLD_V2_PATH.read_text())
         assert isinstance(items, list)
-        assert len(items) >= 5
+        assert len(items) >= 9
 
     def test_all_valid(self):
         items = json.loads(GOLD_V2_PATH.read_text())
@@ -206,7 +207,17 @@ class TestGoldDatasetV2:
     def test_covers_core_types(self):
         items = json.loads(GOLD_V2_PATH.read_text())
         types = {item["task_type"] for item in items}
-        assert {"recall/single", "recall/preference", "recall/constraint", "adversarial", "temporal", "update"} <= types
+        assert {
+            "recall/single",
+            "recall/preference",
+            "recall/constraint",
+            "adversarial",
+            "temporal",
+            "update",
+            "update/interference",
+            "synthesis/multi",
+            "causal",
+        } <= types
 
 
 class TestVersionManifestV2:
@@ -220,3 +231,18 @@ class TestVersionManifestV2:
         assert manifest["schema_version"] == "2"
         assert manifest["item_count"] == len(items)
         assert set(manifest["task_types"]) == {item["task_type"] for item in items}
+
+
+class TestAnnotatedDatasetV2:
+    def test_exists(self):
+        assert ANNOTATED_V2_PATH.exists()
+
+    def test_all_valid(self):
+        items = json.loads(ANNOTATED_V2_PATH.read_text())
+        assert len(items) >= 100
+        for item in items:
+            errors = []
+            errors.extend(validate_v2_item_structure(item))
+            errors.extend(validate_gold_memory(item))
+            errors.extend(validate_gold_answer(item))
+            assert errors == [], f"{item.get('id')}: {errors}"

@@ -29,6 +29,7 @@ from pathlib import Path
 from typing import Optional
 
 from mesa.adapter import MemoryAdapter
+from mesa.dataset.manifest import load_dataset_manifest
 from mesa.dataset.migrators import upgrade_v1_item
 from mesa.scoring.answer_types import (
     score_abstention_answer,
@@ -47,7 +48,7 @@ from mesa.scorer import exact_match, rouge1_f1, composite, is_refusal, llm_judge
 logger = logging.getLogger(__name__)
 
 DEFAULT_DATASET = Path(__file__).parent.parent / "dataset" / "mesa_v1.json"
-DEFAULT_DATASET_V2 = Path(__file__).parent.parent / "dataset" / "fixtures" / "sample_v2.json"
+DEFAULT_DATASET_V2 = Path(__file__).parent.parent / "dataset" / "mesa_v2.json"
 RESULTS_DIR = Path("results")
 
 
@@ -298,6 +299,7 @@ def run_benchmark_v2(
     if dataset_path is None:
         dataset_path = DEFAULT_DATASET_V2
 
+    manifest = load_dataset_manifest(dataset_path)
     with open(dataset_path) as f:
         dataset = json.load(f)
 
@@ -367,6 +369,7 @@ def run_benchmark_v2(
         "run_id": datetime.now().strftime("%Y-%m-%d_%H-%M"),
         "dataset": str(dataset_path),
         "schema_version": "2",
+        "dataset_version": manifest.get("dataset_version") if manifest else None,
         "n_items": len(results),
         "trace_required": trace_required,
         "summary": _summarize_v2_results(results),
