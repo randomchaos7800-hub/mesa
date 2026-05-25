@@ -49,3 +49,9 @@ class TestSchemaV2Validators:
         errors.extend(validate_gold_memory(item))
         errors.extend(validate_gold_answer(item))
         assert errors == []
+
+    def test_missing_metadata_field_fails(self):
+        item = copy.deepcopy(_load_items()[0])
+        item["metadata"].pop("domain", None)
+        errors = validate_v2_item_structure(item)
+        assert "metadata missing required field: domain" in errors

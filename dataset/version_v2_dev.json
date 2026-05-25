@@ -1,11 +1,13 @@
 {
-  "dataset_name": "mesa_v2",
-  "dataset_path": "dataset/mesa_v2.json",
+  "dataset_name": "mesa_v2_dev",
+  "dataset_path": "dataset/mesa_v2_dev.json",
   "schema_version": "2",
-  "dataset_version": "0.3.0",
-  "item_count": 60,
+  "dataset_version": "0.3.0-dev",
+  "benchmark_release": "v0.9-prep",
+  "split": "dev_public",
+  "item_count": 27,
   "created_at": "2026-05-25",
-  "notes": "Curated v2 gold dataset expanded to 60 items with broader type coverage; remaining gap is multi-session and domain diversity, not raw count.",
+  "notes": "Public development split sampled from the curated v2 gold set with 3 items per task type.",
   "task_types": [
     "adversarial",
     "causal",
@@ -17,8 +19,6 @@
     "update",
     "update/interference"
   ],
-  "split": "full_gold_public",
-  "benchmark_release": "v0.9-prep",
   "domains": [
     "agent-architecture",
     "behavior",
@@ -28,8 +28,7 @@
     "interaction",
     "medical",
     "operations",
-    "personal",
-    "security"
+    "personal"
   ],
   "source_profiles": [
     "personal_ai_companion"

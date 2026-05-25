@@ -13,7 +13,8 @@
       "question",
       "sessions",
       "gold_memory",
-      "gold_answer"
+      "gold_answer",
+      "metadata"
     ],
     "properties": {
       "id": {
@@ -188,12 +189,25 @@
       "metadata": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "difficulty",
+          "domain",
+          "source_profile",
+          "distractor_density",
+          "temporal_gap_days",
+          "annotator_id",
+          "reviewer_id",
+          "review_status"
+        ],
         "properties": {
           "difficulty": {
             "type": "string",
             "enum": ["easy", "medium", "hard"]
           },
           "domain": {
+            "type": "string"
+          },
+          "source_profile": {
             "type": "string"
           },
           "distractor_density": {
@@ -203,6 +217,18 @@
           "temporal_gap_days": {
             "type": ["integer", "null"],
             "minimum": 0
+          },
+          "annotator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewer_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_status": {
+            "type": "string",
+            "enum": ["annotated", "reviewed", "adjudicated", "provisional"]
           },
           "notes": {
             "type": "string"

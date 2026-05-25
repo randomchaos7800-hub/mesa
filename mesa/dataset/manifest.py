@@ -9,6 +9,8 @@ def infer_manifest_path(dataset_path: Path) -> Path | None:
     name = dataset_path.name
     if name == "mesa_v2.json":
         return dataset_path.with_name("version_v2.json")
+    if name == "mesa_v2_dev.json":
+        return dataset_path.with_name("version_v2_dev.json")
     return None
 
 

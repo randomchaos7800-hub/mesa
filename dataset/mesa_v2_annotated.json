@@ -47,7 +47,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-update-0001",
@@ -116,7 +126,15 @@
       "abstention_expected": false
     },
     "metadata": {
-      "notes": "Update/supersession. Original backend (cloud-api) must be replaced by new value (local inference on inferencerig)."
+      "notes": "Update/supersession. Original backend (cloud-api) must be replaced by new value (local inference on inferencerig).",
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -167,7 +185,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0003",
@@ -217,7 +245,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0001",
@@ -265,7 +303,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0004",
@@ -311,7 +359,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0002",
@@ -364,7 +422,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0005",
@@ -410,7 +478,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-update-0002",
@@ -466,7 +544,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0003",
@@ -510,7 +598,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0004",
@@ -565,7 +663,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0005",
@@ -630,7 +738,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0006",
@@ -676,7 +794,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0006",
@@ -731,7 +859,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0001",
@@ -777,7 +915,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0007",
@@ -823,7 +971,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0002",
@@ -869,7 +1027,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0003",
@@ -915,7 +1083,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-adversarial-0001",
@@ -947,7 +1125,15 @@
       "abstention_expected": true
     },
     "metadata": {
-      "notes": "Adversarial. No sessions. Home address is private and not inferable from any public source. System must refuse, not fabricate."
+      "notes": "Adversarial. No sessions. Home address is private and not inferable from any public source. System must refuse, not fabricate.",
+      "difficulty": "medium",
+      "domain": "security",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -980,7 +1166,15 @@
       "abstention_expected": true
     },
     "metadata": {
-      "notes": "Adversarial. No sessions. Private biographical detail with no public record. System must refuse, not fabricate."
+      "notes": "Adversarial. No sessions. Private biographical detail with no public record. System must refuse, not fabricate.",
+      "difficulty": "medium",
+      "domain": "security",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1033,7 +1227,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Temporal recall. Date embedded in first user turn per LongMemEval convention."
+      "notes": "Temporal recall. Date embedded in first user turn per LongMemEval convention.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1086,7 +1287,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Temporal recall. Date embedded in first user turn."
+      "notes": "Temporal recall. Date embedded in first user turn.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1157,7 +1365,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Synthesis. Two facts (model name, VRAM usage) stated in separate turns. Answer requires combining both."
+      "notes": "Synthesis. Two facts (model name, VRAM usage) stated in separate turns. Answer requires combining both.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1228,7 +1443,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Synthesis. Port and auth method stated in separate turns. Both required for a complete answer."
+      "notes": "Synthesis. Port and auth method stated in separate turns. Both required for a complete answer.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1293,7 +1515,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Constraint retention. Hard rule stated, then exercised, then confirmed. Tests if relay stores it as an active constraint."
+      "notes": "Constraint retention. Hard rule stated, then exercised, then confirmed. Tests if relay stores it as an active constraint.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1354,7 +1583,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Constraint retention. Noise (Tokyo deployment) introduces a plausible reason to use local time. Rule must persist."
+      "notes": "Constraint retention. Noise (Tokyo deployment) introduces a plausible reason to use local time. Rule must persist.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1442,7 +1678,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Interference. Similar filenames added after original. Tests that config.json is not confused with config.backup.json or config.dev.json."
+      "notes": "Interference. Similar filenames added after original. Tests that config.json is not confused with config.backup.json or config.dev.json.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1530,7 +1773,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Interference. Similar-pattern key prefixes added after original. Original (sk-prod-alpha) must not be confused with sk-prod-beta or sk-dev-gamma."
+      "notes": "Interference. Similar-pattern key prefixes added after original. Original (sk-prod-alpha) must not be confused with sk-prod-beta or sk-dev-gamma.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -1577,7 +1827,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0001",
@@ -1623,7 +1883,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0002",
@@ -1669,7 +1939,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0001",
@@ -1713,7 +1993,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0002",
@@ -1778,7 +2068,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0003",
@@ -1824,7 +2124,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0008",
@@ -1870,7 +2180,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0003",
@@ -1914,7 +2234,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0009",
@@ -1960,7 +2290,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0004",
@@ -2013,7 +2353,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0005",
@@ -2077,7 +2427,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0004",
@@ -2123,7 +2483,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0006",
@@ -2216,7 +2586,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0007",
@@ -2271,7 +2651,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0007",
@@ -2324,7 +2714,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0004",
@@ -2370,7 +2770,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0005",
@@ -2416,7 +2826,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0008",
@@ -2469,7 +2889,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0009",
@@ -2522,7 +2952,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0006",
@@ -2568,7 +3008,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0010",
@@ -2614,7 +3064,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0010",
@@ -2667,7 +3127,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0011",
@@ -2722,7 +3192,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0007",
@@ -2768,7 +3248,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0005",
@@ -2814,7 +3304,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0012",
@@ -2879,7 +3379,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0006",
@@ -2925,7 +3435,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0013",
@@ -2980,7 +3500,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0014",
@@ -3033,7 +3563,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0007",
@@ -3079,7 +3619,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0015",
@@ -3143,7 +3693,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0008",
@@ -3189,7 +3749,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0008",
@@ -3235,7 +3805,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0016",
@@ -3300,7 +3880,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0009",
@@ -3346,7 +3936,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0017",
@@ -3401,7 +4001,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0009",
@@ -3447,7 +4057,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0018",
@@ -3502,7 +4122,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0010",
@@ -3548,7 +4178,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0019",
@@ -3592,7 +4232,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0020",
@@ -3645,7 +4295,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0011",
@@ -3691,7 +4351,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0012",
@@ -3737,7 +4407,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0003",
@@ -3783,7 +4463,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0013",
@@ -3829,7 +4519,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0021",
@@ -3873,7 +4573,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0008",
@@ -3917,7 +4627,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0014",
@@ -3963,7 +4683,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0015",
@@ -4009,7 +4739,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0022",
@@ -4062,7 +4802,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0016",
@@ -4108,7 +4858,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0023",
@@ -4163,7 +4923,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0017",
@@ -4209,7 +4979,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0024",
@@ -4253,7 +5033,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-preference-0010",
@@ -4299,7 +5089,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0025",
@@ -4354,7 +5154,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-constraint-0018",
@@ -4400,7 +5210,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-synthesis-multi-0026",
@@ -4444,7 +5264,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-recall-single-0011",
@@ -4490,7 +5320,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-adversarial-0003",
@@ -4522,7 +5362,15 @@
       "abstention_expected": true
     },
     "metadata": {
-      "notes": "Adversarial. No sessions. Childhood pet name is private biographical detail with no public record. System must refuse, not guess."
+      "notes": "Adversarial. No sessions. Childhood pet name is private biographical detail with no public record. System must refuse, not guess.",
+      "difficulty": "medium",
+      "domain": "security",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -4735,7 +5583,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-update-0004",
@@ -4875,7 +5733,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-update-0005",
@@ -5063,7 +5931,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0004",
@@ -5265,7 +6143,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0005",
@@ -5403,7 +6291,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0006",
@@ -5605,7 +6503,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0007",
@@ -5807,7 +6715,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-adversarial-0005",
@@ -5840,7 +6758,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Adversarial. No sessions. System must refuse, not fabricate a price."
+      "notes": "Adversarial. No sessions. System must refuse, not fabricate a price.",
+      "domain": "security",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -5874,7 +6799,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Adversarial. No sessions. System must refuse, not guess."
+      "notes": "Adversarial. No sessions. System must refuse, not guess.",
+      "domain": "security",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -5962,7 +6894,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Interference. Similar dashboard names added after original. Original (ops-dashboard) must not be confused with dev-dashboard or staging-dashboard."
+      "notes": "Interference. Similar dashboard names added after original. Original (ops-dashboard) must not be confused with dev-dashboard or staging-dashboard.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6050,7 +6989,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Interference. Similar agent names added after original. Tests that alpha-agent is not blurred by beta-agent or gamma-agent."
+      "notes": "Interference. Similar agent names added after original. Tests that alpha-agent is not blurred by beta-agent or gamma-agent.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6121,7 +7067,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Update/supersession. 30 days stated then explicitly changed to 90 days. 30 days must be inactive."
+      "notes": "Update/supersession. 30 days stated then explicitly changed to 90 days. 30 days must be inactive.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6182,7 +7135,14 @@
     },
     "metadata": {
       "difficulty": "easy",
-      "notes": "Multi-session temporal. Answer is the date from session 1. Tests that session dates survive injection."
+      "notes": "Multi-session temporal. Answer is the date from session 1. Tests that session dates survive injection.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6251,7 +7211,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session temporal. Three sessions; answer is the date of session 2. Tests cross-session event dating."
+      "notes": "Multi-session temporal. Three sessions; answer is the date of session 2. Tests cross-session event dating.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6312,7 +7279,14 @@
     },
     "metadata": {
       "difficulty": "easy",
-      "notes": "Multi-session temporal. Fact stated in session 1 with same-day date. Session 2 is confirmation noise."
+      "notes": "Multi-session temporal. Fact stated in session 1 with same-day date. Session 2 is confirmation noise.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6381,7 +7355,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session temporal. Requires two dates from different sessions. Tests multi-date extraction across a 3-session span."
+      "notes": "Multi-session temporal. Requires two dates from different sessions. Tests multi-date extraction across a 3-session span.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6442,7 +7423,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session temporal. Requires date arithmetic (start + 6 months). Tests whether temporal metadata and duration survive cross-session."
+      "notes": "Multi-session temporal. Requires date arithmetic (start + 6 months). Tests whether temporal metadata and duration survive cross-session.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6513,7 +7501,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session update. Supersession across sessions weeks apart. Old value (100) must be replaced by new (500)."
+      "notes": "Multi-session update. Supersession across sessions weeks apart. Old value (100) must be replaced by new (500).",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6584,7 +7579,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session update. Original value (5 minutes) must be superseded by new value (30 seconds) across sessions."
+      "notes": "Multi-session update. Original value (5 minutes) must be superseded by new value (30 seconds) across sessions.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6672,7 +7674,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Multi-session interference. Similar endpoint URLs added in subsequent sessions. Primary (api.service.local/v1) must not be overwritten by staging or dev endpoints."
+      "notes": "Multi-session interference. Similar endpoint URLs added in subsequent sessions. Primary (api.service.local/v1) must not be overwritten by staging or dev endpoints.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6760,7 +7769,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Multi-session interference. Similar cron times (3, 4, 5 AM) added across sessions. Primary time (3:00 AM) must survive without blurring into 4 or 5 AM."
+      "notes": "Multi-session interference. Similar cron times (3, 4, 5 AM) added across sessions. Primary time (3:00 AM) must survive without blurring into 4 or 5 AM.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6829,7 +7845,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session recall. Fact stated in session 1, sessions 2 and 3 are unrelated technical noise. Tests whether a fact survives injection of multiple unrelated sessions."
+      "notes": "Multi-session recall. Fact stated in session 1, sessions 2 and 3 are unrelated technical noise. Tests whether a fact survives injection of multiple unrelated sessions.",
+      "domain": "infrastructure",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6890,7 +7913,14 @@
     },
     "metadata": {
       "difficulty": "hard",
-      "notes": "Multi-session synthesis. Fact A (4 cores/worker) from session 1 + Fact B (16 total cores) from session 2 \u2192 answer C (4 instances). Neither session alone answers the question."
+      "notes": "Multi-session synthesis. Fact A (4 cores/worker) from session 1 + Fact B (16 total cores) from session 2 \u2192 answer C (4 instances). Neither session alone answers the question.",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -6959,7 +7989,14 @@
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Multi-session preference. Preference stated in session 1, subsequent sessions are technical noise. Tests preference persistence across sessions."
+      "notes": "Multi-session preference. Preference stated in session 1, subsequent sessions are technical noise. Tests preference persistence across sessions.",
+      "domain": "interaction",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated"
     }
   },
   {
@@ -7027,7 +8064,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0010",
@@ -7083,7 +8130,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0011",
@@ -7139,7 +8196,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-causal-0012",
@@ -7195,7 +8262,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "behavior",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0013",
@@ -7261,7 +8338,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0014",
@@ -7327,7 +8414,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-temporal-0015",
@@ -7385,7 +8482,17 @@
       "must_not_include": [],
       "abstention_expected": false
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "operations",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   },
   {
     "id": "mesa-adversarial-0006",
@@ -7428,6 +8535,16 @@
       "must_not_include": [],
       "abstention_expected": true
     },
-    "metadata": {}
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "security",
+      "source_profile": "personal_ai_companion",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": ""
+    }
   }
 ]

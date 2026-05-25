@@ -43,6 +43,7 @@ from mesa.scoring.answer_types import (
     score_update_current_answer,
 )
 from mesa.scoring.deterministic import match_fact_ids
+from mesa.scoring.stats import bootstrap_mean_ci
 from mesa.scorer import exact_match, rouge1_f1, composite, is_refusal, llm_judge
 
 logger = logging.getLogger(__name__)
@@ -276,11 +277,40 @@ def _summarize_v2_results(results: list[dict]) -> dict:
             "correct_rate": _average_metric([r["answer"]["metrics"]["correct"] for r in items]),
             "grounded_rate": _average_metric([r["answer"]["metrics"]["grounded"] for r in items]),
         }
+    by_domain = {}
+    by_session_format = {}
+    for result in results:
+        domain = result.get("metadata", {}).get("domain", "unknown")
+        session_format = result.get("session_format", "single")
+        by_domain.setdefault(domain, []).append(result)
+        by_session_format.setdefault(session_format, []).append(result)
+    by_domain_summary = {}
+    for domain, items in by_domain.items():
+        by_domain_summary[domain] = {
+            "n": len(items),
+            "correct_rate": _average_metric([r["answer"]["metrics"]["correct"] for r in items]),
+            "grounded_rate": _average_metric([r["answer"]["metrics"]["grounded"] for r in items]),
+        }
+    by_session_summary = {}
+    for session_format, items in by_session_format.items():
+        by_session_summary[session_format] = {
+            "n": len(items),
+            "correct_rate": _average_metric([r["answer"]["metrics"]["correct"] for r in items]),
+            "grounded_rate": _average_metric([r["answer"]["metrics"]["grounded"] for r in items]),
+        }
+    confidence_intervals = {
+        "answer.correct_rate": bootstrap_mean_ci([r["answer"]["metrics"]["correct"] for r in results]),
+        "answer.grounded_rate": bootstrap_mean_ci([r["answer"]["metrics"]["grounded"] for r in results]),
+        "answer.abstention_correct_rate": bootstrap_mean_ci([r["answer"]["metrics"]["abstention_correct"] for r in results]),
+    }
     return {
         "storage": storage,
         "retrieval": retrieval,
         "answer": answer,
         "by_type": by_type_summary,
+        "by_domain": by_domain_summary,
+        "by_session_format": by_session_summary,
+        "confidence_intervals": confidence_intervals,
     }
 
 
@@ -290,16 +320,18 @@ def run_benchmark_v2(
     trace_required: bool = False,
     limit: Optional[int] = None,
     quiet: bool = False,
+    official_run: bool = False,
 ) -> dict:
     """Run the v2 benchmark scaffolding with structured traces.
 
-    This runner intentionally stops at trace capture. Official v2 scoring will
-    plug into the returned envelope in a later change.
+    This is the official MESA v2 benchmark runner.
     """
     if dataset_path is None:
         dataset_path = DEFAULT_DATASET_V2
 
     manifest = load_dataset_manifest(dataset_path)
+    if official_run and manifest is None:
+        raise ValueError("Official v2 runs require a dataset manifest")
     with open(dataset_path) as f:
         dataset = json.load(f)
 
@@ -346,6 +378,9 @@ def run_benchmark_v2(
                 "version": item["version"],
                 "task_type": item["task_type"],
                 "answer_format": item["answer_format"],
+                "metadata": item.get("metadata", {}),
+                "session_format": "multi" if len(sessions) > 1 else "single",
+                "session_count": len(sessions) if sessions else 0,
                 "observable": observable,
                 "storage": {
                     "writes": writes,
@@ -368,10 +403,15 @@ def run_benchmark_v2(
     return {
         "run_id": datetime.now().strftime("%Y-%m-%d_%H-%M"),
         "dataset": str(dataset_path),
+        "dataset_name": manifest.get("dataset_name") if manifest else dataset_path.stem,
+        "dataset_split": manifest.get("split", "unspecified") if manifest else "unspecified",
         "schema_version": "2",
         "dataset_version": manifest.get("dataset_version") if manifest else None,
+        "benchmark_release": manifest.get("benchmark_release") if manifest else None,
         "n_items": len(results),
         "trace_required": trace_required,
+        "official_run": official_run,
+        "observable_rate": _average_metric([r["observable"] for r in results]),
         "summary": _summarize_v2_results(results),
         "results": results,
     }

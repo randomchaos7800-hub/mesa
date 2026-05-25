@@ -10,6 +10,9 @@ Planning docs:
 - [GitHub Issue Plan](docs/github_issue_plan.md)
 - [Benchmark Spec](docs/benchmark_spec.md)
 - [Result Reporting](docs/result_reporting.md)
+- [Evaluation Protocol](docs/evaluation_protocol.md)
+- [Dataset Governance](docs/dataset_governance.md)
+- [Benchmark Card](docs/benchmark_card.md)
 
 ---
 
@@ -23,6 +26,7 @@ MESA has two runnable paths, but only one official benchmark path:
 If you are adopting MESA now, use:
 
 - [dataset/mesa_v2.json](dataset/mesa_v2.json)
+- [dataset/mesa_v2_dev.json](dataset/mesa_v2_dev.json) for public development
 - `run_benchmark_v2()`
 - the stage-level metrics in `storage`, `retrieval`, and `answer`
 
@@ -225,7 +229,9 @@ The legacy judge runs with a separate system prompt, strict JSON output, and det
 Official dataset:
 
 - [dataset/mesa_v2.json](dataset/mesa_v2.json) — curated v2 gold dataset for observable diagnostic runs
+- [dataset/mesa_v2_dev.json](dataset/mesa_v2_dev.json) — public dev split for iteration and smoke-comparison
 - [dataset/version_v2.json](dataset/version_v2.json) — dataset manifest and version metadata
+- [dataset/version_v2_dev.json](dataset/version_v2_dev.json) — public dev manifest
 - [dataset/fixtures/sample_v2.json](dataset/fixtures/sample_v2.json) — small v2 smoke-test fixture set
 
 Legacy dataset:
@@ -343,6 +349,10 @@ If you use MESA in research, a mention in your methodology is appreciated:
 Vitale Dynamics MESA v1 (2026). Memory Eval Benchmark for Personal AI Systems.
 https://github.com/randomchaos7800-hub/mesa
 ```
+
+Machine-readable citation metadata:
+
+- [CITATION.cff](CITATION.cff)
 
 ---
 

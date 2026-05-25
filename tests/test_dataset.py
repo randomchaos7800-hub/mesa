@@ -17,8 +17,12 @@ FIXTURES_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample.json"
 FIXTURES_V2_PATH = REPO_ROOT / "dataset" / "fixtures" / "sample_v2.json"
 GOLD_PATH = REPO_ROOT / "dataset" / "mesa_v1.json"
 GOLD_V2_PATH = REPO_ROOT / "dataset" / "mesa_v2.json"
+DEV_V2_PATH = REPO_ROOT / "dataset" / "mesa_v2_dev.json"
 ANNOTATED_V2_PATH = REPO_ROOT / "dataset" / "mesa_v2_annotated.json"
 VERSION_V2_PATH = REPO_ROOT / "dataset" / "version_v2.json"
+VERSION_V2_DEV_PATH = REPO_ROOT / "dataset" / "version_v2_dev.json"
+VERSION_V2_TEST_TEMPLATE_PATH = REPO_ROOT / "dataset" / "version_v2_test_hidden.template.json"
+REVIEW_LOG_V2_PATH = REPO_ROOT / "dataset" / "review_log_v2.json"
 
 VALID_TYPES = {
     "recall/single", "recall/preference", "recall/constraint",
@@ -189,7 +193,7 @@ class TestGoldDatasetV2:
     def test_valid_json(self):
         items = json.loads(GOLD_V2_PATH.read_text())
         assert isinstance(items, list)
-        assert len(items) >= 40
+        assert len(items) >= 60
 
     def test_all_valid(self):
         items = json.loads(GOLD_V2_PATH.read_text())
@@ -220,10 +224,10 @@ class TestGoldDatasetV2:
             "causal",
         } <= types
 
-    def test_milestone_a_type_floor(self):
+    def test_milestone_b_type_floor(self):
         items = json.loads(GOLD_V2_PATH.read_text())
         counts = Counter(item["task_type"] for item in items)
-        assert all(counts[task_type] >= 4 for task_type in VALID_TYPES), counts
+        assert all(counts[task_type] >= 5 for task_type in VALID_TYPES), counts
 
 
 class TestVersionManifestV2:
@@ -235,8 +239,51 @@ class TestVersionManifestV2:
         items = json.loads(GOLD_V2_PATH.read_text())
         assert manifest["dataset_name"] == "mesa_v2"
         assert manifest["schema_version"] == "2"
+        assert manifest["split"] == "full_gold_public"
         assert manifest["item_count"] == len(items)
         assert set(manifest["task_types"]) == {item["task_type"] for item in items}
+
+    def test_dev_manifest_matches_dataset(self):
+        manifest = json.loads(VERSION_V2_DEV_PATH.read_text())
+        items = json.loads(DEV_V2_PATH.read_text())
+        assert manifest["dataset_name"] == "mesa_v2_dev"
+        assert manifest["schema_version"] == "2"
+        assert manifest["split"] == "dev_public"
+        assert manifest["item_count"] == len(items)
+        assert set(manifest["task_types"]) == {item["task_type"] for item in items}
+
+    def test_hidden_test_template_exists(self):
+        manifest = json.loads(VERSION_V2_TEST_TEMPLATE_PATH.read_text())
+        assert manifest["split"] == "test_hidden"
+        assert manifest["dataset_name"] == "mesa_v2_test_hidden"
+
+
+class TestDevDatasetV2:
+    def test_exists(self):
+        assert DEV_V2_PATH.exists()
+
+    def test_all_valid(self):
+        items = json.loads(DEV_V2_PATH.read_text())
+        assert len(items) >= 27
+        for item in items:
+            errors = []
+            errors.extend(validate_v2_item_structure(item))
+            errors.extend(validate_gold_memory(item))
+            errors.extend(validate_gold_answer(item))
+            assert errors == [], f"{item.get('id')}: {errors}"
+
+
+class TestReviewLogV2:
+    def test_exists(self):
+        assert REVIEW_LOG_V2_PATH.exists()
+
+    def test_review_log_matches_curated_ids(self):
+        review_log = json.loads(REVIEW_LOG_V2_PATH.read_text())
+        items = json.loads(GOLD_V2_PATH.read_text())
+        assert review_log["dataset_name"] == "mesa_v2"
+        logged_ids = {entry["item_id"] for entry in review_log["entries"]}
+        item_ids = {item["id"] for item in items}
+        assert logged_ids == item_ids
 
 
 class TestAnnotatedDatasetV2:

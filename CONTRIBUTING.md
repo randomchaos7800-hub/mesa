@@ -14,11 +14,22 @@ High-value contributions are:
 For v2 dataset work:
 
 1. Follow [docs/annotation_guidelines.md](/home/dino/mesa-benchmark/docs/annotation_guidelines.md:1).
-2. Prefer promoting items from `dataset/mesa_v2_annotated.json` into `dataset/mesa_v2.json` rather than inventing synthetic examples.
-3. Keep `dataset/version_v2.json` in sync:
+2. Use [docs/dataset_review_checklist.md](/home/dino/mesa-benchmark/docs/dataset_review_checklist.md:1) before promoting items.
+3. Respect [docs/dataset_governance.md](/home/dino/mesa-benchmark/docs/dataset_governance.md:1).
+4. Keep required metadata fields populated:
+   - `domain`
+   - `source_profile`
+   - `annotator_id`
+   - `reviewer_id`
+   - `review_status`
+5. Keep `dataset/review_log_v2.json` in sync with curated item changes.
+6. Prefer promoting items from `dataset/mesa_v2_annotated.json` into `dataset/mesa_v2.json` rather than inventing synthetic examples.
+7. Keep dataset manifests in sync:
    - `item_count`
    - `task_types`
-4. Add or update tests if the curated dataset coverage changes.
+   - `split`
+   - `dataset_version`
+8. Add or update tests if the curated dataset coverage changes.
 
 ## Code changes
 

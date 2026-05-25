@@ -1,5 +1,7 @@
 """Lightweight validators for MESA dataset schema v2."""
 
+VALID_REVIEW_STATUSES = {"annotated", "reviewed", "adjudicated", "provisional"}
+
 
 def validate_v2_item_structure(item: dict) -> list[str]:
     errors = []
@@ -12,6 +14,7 @@ def validate_v2_item_structure(item: dict) -> list[str]:
         "sessions",
         "gold_memory",
         "gold_answer",
+        "metadata",
     }
     missing = sorted(required - set(item))
     if missing:
@@ -20,6 +23,38 @@ def validate_v2_item_structure(item: dict) -> list[str]:
         errors.append(f"version must be '2': {item.get('version')!r}")
     if not isinstance(item.get("sessions"), list):
         errors.append("sessions must be a list")
+    metadata = item.get("metadata")
+    if not isinstance(metadata, dict):
+        errors.append("metadata must be an object")
+        return errors
+    for key in (
+        "difficulty",
+        "domain",
+        "source_profile",
+        "distractor_density",
+        "annotator_id",
+        "reviewer_id",
+        "review_status",
+    ):
+        if key not in metadata:
+            errors.append(f"metadata missing required field: {key}")
+    if metadata.get("difficulty") not in {"easy", "medium", "hard"}:
+        errors.append(f"invalid metadata.difficulty: {metadata.get('difficulty')!r}")
+    if metadata.get("distractor_density") not in {"low", "medium", "high"}:
+        errors.append(f"invalid metadata.distractor_density: {metadata.get('distractor_density')!r}")
+    if not isinstance(metadata.get("domain"), str) or not metadata.get("domain", "").strip():
+        errors.append("metadata.domain must be a non-empty string")
+    if not isinstance(metadata.get("source_profile"), str) or not metadata.get("source_profile", "").strip():
+        errors.append("metadata.source_profile must be a non-empty string")
+    if not isinstance(metadata.get("annotator_id"), str) or not metadata.get("annotator_id", "").strip():
+        errors.append("metadata.annotator_id must be a non-empty string")
+    if not isinstance(metadata.get("reviewer_id"), str) or not metadata.get("reviewer_id", "").strip():
+        errors.append("metadata.reviewer_id must be a non-empty string")
+    if metadata.get("review_status") not in VALID_REVIEW_STATUSES:
+        errors.append(f"invalid metadata.review_status: {metadata.get('review_status')!r}")
+    temporal_gap_days = metadata.get("temporal_gap_days")
+    if temporal_gap_days is not None and (not isinstance(temporal_gap_days, int) or temporal_gap_days < 0):
+        errors.append("metadata.temporal_gap_days must be null or a non-negative integer")
     return errors
 
 

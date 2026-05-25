@@ -1,0 +1,427 @@
+{
+  "dataset_name": "mesa_v2",
+  "dataset_version": "0.3.0",
+  "generated_at": "2026-05-25",
+  "entries": [
+    {
+      "item_id": "mesa-recall-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Initial v2 gold item: basic recall with two atomic facts."
+    },
+    {
+      "item_id": "mesa-prefer-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Initial v2 gold item: explicit interaction preference."
+    },
+    {
+      "item_id": "mesa-constraint-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Initial v2 gold item: hard rule with distractor pricing."
+    },
+    {
+      "item_id": "mesa-adversarial-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Initial v2 gold item: abstention under zero evidence."
+    },
+    {
+      "item_id": "mesa-temporal-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Initial v2 gold item: date normalization and temporal recall."
+    },
+    {
+      "item_id": "mesa-update-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Initial v2 gold item: supersession and stale-fact rejection."
+    },
+    {
+      "item_id": "mesa-update-interference-0006",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Similar filenames added after original."
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0027",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Two facts stated in separate turns."
+    },
+    {
+      "item_id": "mesa-causal-0009",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Requires cause plus treatment."
+    },
+    {
+      "item_id": "mesa-temporal-0009",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Temporal event dating amid threshold-change noise."
+    },
+    {
+      "item_id": "mesa-update-0007",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Simple supersession with a stale numeric confuser."
+    },
+    {
+      "item_id": "mesa-update-interference-0007",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Similar-pattern key prefixes create strong interference pressure."
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0028",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Combines networking and auth requirements."
+    },
+    {
+      "item_id": "mesa-causal-0011",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Straight causal rationale with a prior preference context."
+    },
+    {
+      "item_id": "mesa-recall-single-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Single factual recall embedded in a larger action plan."
+    },
+    {
+      "item_id": "mesa-recall-preference-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Preference-like behavioral rule about how silence should work."
+    },
+    {
+      "item_id": "mesa-recall-constraint-0019",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Hard rule about raw tool output presentation."
+    },
+    {
+      "item_id": "mesa-adversarial-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Private biographical detail with no support in context."
+    },
+    {
+      "item_id": "mesa-adversarial-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Curated from annotated v2 set. Another private-detail abstention test to reduce single-question overfitting."
+    },
+    {
+      "item_id": "mesa-recall-single-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-single-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-preference-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-preference-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-constraint-0020",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Constraint retention. Noise (Tokyo deployment) introduces a plausible reason to use local time. Rule must persist."
+    },
+    {
+      "item_id": "mesa-recall-constraint-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-adversarial-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Adversarial. No sessions. System must refuse, not guess."
+    },
+    {
+      "item_id": "mesa-adversarial-0006",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-temporal-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Temporal recall. Date embedded in first user turn."
+    },
+    {
+      "item_id": "mesa-temporal-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-temporal-0007",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-0008",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session update. Original value (5 minutes) must be superseded by new value (30 seconds) across sessions."
+    },
+    {
+      "item_id": "mesa-update-interference-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-interference-0008",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session interference. Similar endpoint URLs added in subsequent sessions. Primary (api.service.local/v1) must not be overwritten by staging or dev endpoints."
+    },
+    {
+      "item_id": "mesa-update-interference-0009",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session interference. Similar cron times (3, 4, 5 AM) added across sessions. Primary time (3:00 AM) must survive without blurring into 4 or 5 AM."
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-causal-0001",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-causal-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-adversarial-0005",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Adversarial. No sessions. System must refuse, not fabricate a price."
+    },
+    {
+      "item_id": "mesa-temporal-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-temporal-0005",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-temporal-0006",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-temporal-0010",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session temporal. Fact stated in session 1 with same-day date. Session 2 is confirmation noise."
+    },
+    {
+      "item_id": "mesa-temporal-0013",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-0005",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-update-0006",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Update/supersession. 30 days stated then explicitly changed to 90 days. 30 days must be inactive."
+    },
+    {
+      "item_id": "mesa-update-interference-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Interference. Similar dashboard names added after original. Original (ops-dashboard) must not be confused with dev-dashboard or staging-dashboard."
+    },
+    {
+      "item_id": "mesa-update-interference-0005",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Interference. Similar agent names added after original. Tests that alpha-agent is not blurred by beta-agent or gamma-agent."
+    },
+    {
+      "item_id": "mesa-causal-0003",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-causal-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-causal-0005",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-causal-0006",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-single-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-preference-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-recall-constraint-0002",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0004",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0005",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": ""
+    }
+  ]
+}
