@@ -1,6 +1,6 @@
 {
   "dataset_name": "mesa_v2",
-  "dataset_version": "0.3.0",
+  "dataset_version": "0.4.0",
   "generated_at": "2026-05-25",
   "entries": [
     {
@@ -422,6 +422,118 @@
       "reviewer_id": "dino",
       "review_status": "reviewed",
       "adjudication_notes": ""
+    },
+    {
+      "item_id": "mesa-temporal-0016",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session workplace temporal item."
+    },
+    {
+      "item_id": "mesa-temporal-0017",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session education temporal item."
+    },
+    {
+      "item_id": "mesa-temporal-0018",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session finance temporal sequence item."
+    },
+    {
+      "item_id": "mesa-update-0009",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session health update item."
+    },
+    {
+      "item_id": "mesa-update-0010",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session workplace ownership update."
+    },
+    {
+      "item_id": "mesa-update-0011",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session finance update item."
+    },
+    {
+      "item_id": "mesa-update-interference-0010",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session workplace interference item with similar account names."
+    },
+    {
+      "item_id": "mesa-update-interference-0011",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session education interference with similar room IDs."
+    },
+    {
+      "item_id": "mesa-update-interference-0012",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session health interference with same time across different days."
+    },
+    {
+      "item_id": "mesa-causal-0013",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session workplace causal item."
+    },
+    {
+      "item_id": "mesa-causal-0014",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session health causal item."
+    },
+    {
+      "item_id": "mesa-causal-0015",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session finance causal item."
+    },
+    {
+      "item_id": "mesa-causal-0016",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session education causal item."
+    },
+    {
+      "item_id": "mesa-adversarial-0007",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Adversarial finance item: partial card data present but secret answer unavailable."
+    },
+    {
+      "item_id": "mesa-adversarial-0008",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Adversarial workplace privacy item."
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0029",
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "adjudication_notes": "Multi-session synthesis item in finance domain."
     }
   ]
 }

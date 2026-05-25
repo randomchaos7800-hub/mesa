@@ -8,3 +8,5 @@ venv/
 results/
 *.jsonl
 .DS_Store
+
+private/

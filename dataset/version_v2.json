@@ -2,10 +2,10 @@
   "dataset_name": "mesa_v2",
   "dataset_path": "dataset/mesa_v2.json",
   "schema_version": "2",
-  "dataset_version": "0.3.0",
-  "item_count": 60,
+  "dataset_version": "0.4.0",
+  "item_count": 76,
   "created_at": "2026-05-25",
-  "notes": "Curated v2 gold dataset expanded to 60 items with broader type coverage; remaining gap is multi-session and domain diversity, not raw count.",
+  "notes": "Curated v2 gold dataset expanded to 75 items with multi-session and multi-domain additions.",
   "task_types": [
     "adversarial",
     "causal",
@@ -24,14 +24,22 @@
     "behavior",
     "budgeting",
     "developer-workflow",
+    "education",
+    "finance",
+    "health",
     "infrastructure",
     "interaction",
     "medical",
     "operations",
     "personal",
-    "security"
+    "security",
+    "workplace"
   ],
   "source_profiles": [
-    "personal_ai_companion"
+    "finance_assistant",
+    "health_assistant",
+    "personal_ai_companion",
+    "project_assistant",
+    "research_advisor"
   ]
 }

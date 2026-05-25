@@ -35,15 +35,16 @@ It is not intended to support:
 
 Current curated public gold set:
 
-- `60` items
+- `76` items
 - all `9` task types represented
 - public dev split: `27` items
+- hidden local test split scaffolded outside version control: `18` items
 
 ## Known limitations
 
-- remaining curated items are still dominated by single-session examples
-- domain diversity is still weaker than the long-term target
-- hidden-test operation is scaffolded, not yet externally hosted
+- the benchmark still leans heavily on a single author/source family
+- multi-session coverage is improved but still concentrated in a subset of task types
+- hidden-test operation exists locally but is not yet externally hosted
 
 ## Reporting requirements
 

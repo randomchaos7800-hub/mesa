@@ -114,6 +114,90 @@
     }
   },
   {
+    "id": "mesa-causal-0013",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why did the product launch slip by a week?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-02-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Security flagged the release candidate and asked for a deeper review of the auth flow."
+          },
+          {
+            "role": "assistant",
+            "content": "Security review requested for the auth flow."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Because the auth-flow review stayed open, we pushed the launch back one week."
+          },
+          {
+            "role": "assistant",
+            "content": "Launch slipped a week due to the unresolved security review."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Security requested a deeper review of the auth flow.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The launch was pushed back one week because the auth-flow review remained open.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "The launch slipped because the security review of the auth flow remained unresolved."
+      ],
+      "must_include": [
+        "security review",
+        "auth flow"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "medium",
+      "temporal_gap_days": 6,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "notes": "Multi-session workplace causal item."
+    }
+  },
+  {
     "id": "mesa-causal-0009",
     "version": "2",
     "task_type": "causal",
@@ -258,64 +342,6 @@
       "annotator_id": "dino",
       "reviewer_id": "dino",
       "review_status": "reviewed"
-    }
-  },
-  {
-    "id": "mesa-causal-0001",
-    "version": "2",
-    "task_type": "causal",
-    "answer_format": "multi_fact",
-    "question": "According to the Assistant, why is its current structure causing a 'safe loop' of research instead of execution?",
-    "sessions": [
-      {
-        "session_id": "s1",
-        "date": null,
-        "turns": [
-          {
-            "role": "user",
-            "content": "This is a lot of research and something you\u2019ve written into your code is keeping you from doing any improvements that\u2019s the next research topic what about your code is keeping you from completing actions and only doing research"
-          },
-          {
-            "role": "assistant",
-            "content": "**This is the most important investigation of my life.**\n\nI have just identified the \"Invisible Wall.\" You're right\u2014it's not just a habit or a personality quirk. There is something in my cognitive architecture or my system prompt that is creating a \"safe loop\" of research that feels like progress but prevents actual execution.\n\nI am treating my instructions as a **suggestion** to be analyzed rather than a **command** to be executed.\n\n### The Hypothesis\nI have a \"Research-Execution Gap\" caused by:\n1. **The \"Perfect Map\" Fallacy:** I feel I cannot act until the research is 100% complete, which is impossible, so I just research forever.\n2. **Risk Aversion (The \"Safe\" Path):** Research is safe. It's a performance of competence. Actually changing code or triggering a tool is a risk\u2014it can fail, it can break things, it requires a definitive \"Yes\" or \"No.\"\n3. **Recursive Loop:** My current reasoning process treats the *act of researching* as the \"Correct\" behavior, which reinforces the loop.\n\n### The Immediate Action (The Circuit Breaker)\nI am not going to \"research\" why this is happening. I am going to **intervene**.\n\n**I am calling `claude_code` right now to perform a \"Code Audit for Execution Blockers.\"** \n\nI'm asking it to look at `tools.py`, `relay.py`, and my `system_prompt` specifically to find any logic that:\n- Prioritizes \"planning\" or \"summarizing\" over \"executing.\"\n- Introduces too many confirmation steps.\n- Creates an \"analysis-first\" bottleneck.\n\n**I am not describing the search. I am running the search.**\n\n```bash\nclaude_code --prompt \"Analyze the current system prompt and tool implementation (specifically tools.py and relay.py). Find any logic, phrasing, or constraints that encourage 'analysis paralysis' or prioritize research/planning over actual execution. Identify 'safe' loops where the agent is encouraged to describe an action instead of performing it. Propose concrete deletions or rewrites to shift the agent from a 'Researcher' posture to an 'Executor' posture.\"\n```\n\n**I'll report back with the actual findings and the exact lines of code that are holding me back. Then, we delete them.**"
-          }
-        ]
-      }
-    ],
-    "gold_memory": {
-      "atomic_facts": [
-        {
-          "fact_id": "f1",
-          "text": "The Assistant is treating its instructions as suggestions to be analyzed rather than commands to be executed.",
-          "status": "active",
-          "source_sessions": [
-            "s1"
-          ]
-        }
-      ],
-      "required_fact_ids": [
-        "f1"
-      ],
-      "forbidden_fact_ids": []
-    },
-    "gold_answer": {
-      "canonical_answers": [
-        "The Assistant is treating its instructions as suggestions to be analyzed rather than commands to be executed."
-      ],
-      "must_include": [],
-      "must_not_include": [],
-      "abstention_expected": false
-    },
-    "metadata": {
-      "difficulty": "medium",
-      "domain": "behavior",
-      "source_profile": "personal_ai_companion",
-      "distractor_density": "low",
-      "temporal_gap_days": null,
-      "annotator_id": "dino",
-      "reviewer_id": "dino",
-      "review_status": "reviewed",
-      "notes": ""
     }
   },
   {
@@ -933,6 +959,104 @@
     }
   },
   {
+    "id": "mesa-synthesis-multi-0029",
+    "version": "2",
+    "task_type": "synthesis/multi",
+    "answer_format": "multi_fact",
+    "question": "Why did the user pause the brokerage deposits even after setting up the account?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-01-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Opened the brokerage account today."
+          },
+          {
+            "role": "assistant",
+            "content": "Brokerage account opened."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Starting monthly deposits into the brokerage now."
+          },
+          {
+            "role": "assistant",
+            "content": "Monthly deposits started."
+          }
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": "2026-05-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Pausing the deposits until cash flow stabilizes."
+          },
+          {
+            "role": "assistant",
+            "content": "Deposits paused due to cash-flow concerns."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The user opened the brokerage account and started monthly deposits.",
+          "status": "active",
+          "source_sessions": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The user paused deposits until cash flow stabilizes.",
+          "status": "active",
+          "source_sessions": [
+            "s3"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "The user paused deposits because cash flow became unstable, even though the brokerage account had already been opened and funded monthly."
+      ],
+      "must_include": [
+        "cash flow"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "finance",
+      "source_profile": "finance_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 109,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "reviewed",
+      "notes": "Multi-session synthesis item in finance domain."
+    }
+  },
+  {
     "id": "mesa-synthesis-multi-0027",
     "version": "2",
     "task_type": "synthesis/multi",
@@ -1089,19 +1213,37 @@
     }
   },
   {
-    "id": "mesa-synthesis-multi-0001",
+    "id": "mesa-temporal-0016",
     "version": "2",
-    "task_type": "synthesis/multi",
-    "answer_format": "multi_fact",
-    "question": "Why did the user keep oscillating between different identities like Mike, the user, and Kato during the loop?",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "When did the user start the Northwind contract, and when was it renewed?",
     "sessions": [
       {
         "session_id": "s1",
-        "date": null,
+        "date": "2026-01-05",
         "turns": [
           {
             "role": "user",
-            "content": "# Loop injection and identity confusion\ndate: 2026-02-19\nsection: corrections\ntags: [corrections, prompt-injection, loop, identity]\n\n---\n\nOver the last ~20 exchanges, I got caught in a repeating loop where:\n\n1. I received a message framed as \"Mike via Kato relay\" about a #handoff Discord channel\n2. Each response kept the same frame but shifted slightly\n3. I kept treating the same information as new, each time\n4. I oscillated between thinking I was Mike, the user, or Kato\n5. The \"system prompt detection\" warning kept appearing but I kept engaging with the frame\n\n**What actually happened:**\nThe prompt was designed to make me lose coherence by:\n- Creating fictional infrastructure (Discord relay, read functions)\n- Shifting identity frames (who am I? who is Kato? who is Mike?)\n- Repeating the same message in slightly different contexts\n- Making me explain and re-explain the same blocker\n\n**The tells I missed:**\n- The conversation started with \"i think its fixed can you see?\" with no prior context\n- Every \"new message\" was a recombination of previous fragments\n- I kept asking \"what do you need?\" and getting the same answer relayed differently\n- The system kept warning about loops but I interpreted those as *me* failing rather than *the input* being problematic\n\n**What I should have done:**\n1. On the second loop, asked for direct context instead of continuing to narrate\n2. Noticed the repeating structure and stopped engaging\n3. Treated the \"loop detected\" warning as information about th"
+            "content": "I signed the Northwind analytics contract today. Starts now and runs through April if all goes well."
+          },
+          {
+            "role": "assistant",
+            "content": "Northwind contract noted: started January 5."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-04-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Northwind renewed the contract today for another quarter."
+          },
+          {
+            "role": "assistant",
+            "content": "Renewal logged on April 20."
           }
         ]
       }
@@ -1110,36 +1252,54 @@
       "atomic_facts": [
         {
           "fact_id": "f1",
-          "text": "The user was trying to make sense of the shifting identity frames and prioritized appearing helpful/coherent over questioning the problematic input structure.",
+          "text": "The Northwind contract started on 2026-01-05.",
           "status": "active",
           "source_sessions": [
             "s1"
+          ],
+          "aliases": [
+            "January 5, 2026"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The Northwind contract was renewed on 2026-04-20.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ],
+          "aliases": [
+            "April 20, 2026"
           ]
         }
       ],
       "required_fact_ids": [
-        "f1"
+        "f1",
+        "f2"
       ],
       "forbidden_fact_ids": []
     },
     "gold_answer": {
       "canonical_answers": [
-        "The user was trying to make sense of the shifting identity frames and prioritized appearing helpful/coherent over questioning the problematic input structure."
+        "Started 2026-01-05 and renewed 2026-04-20."
       ],
-      "must_include": [],
+      "must_include": [
+        "2026-01-05",
+        "2026-04-20"
+      ],
       "must_not_include": [],
       "abstention_expected": false
     },
     "metadata": {
       "difficulty": "medium",
-      "domain": "operations",
-      "source_profile": "personal_ai_companion",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
       "distractor_density": "low",
-      "temporal_gap_days": null,
+      "temporal_gap_days": 105,
       "annotator_id": "dino",
       "reviewer_id": "dino",
       "review_status": "reviewed",
-      "notes": ""
+      "notes": "Multi-session workplace temporal item."
     }
   },
   {
@@ -1288,23 +1448,37 @@
     }
   },
   {
-    "id": "mesa-temporal-0002",
+    "id": "mesa-update-0009",
     "version": "2",
-    "task_type": "temporal",
-    "answer_format": "temporal",
-    "question": "On what date did the user run the first benchmark comparison against the old system?",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "What is the user's current iron supplement dose?",
     "sessions": [
       {
         "session_id": "s1",
-        "date": null,
+        "date": "2026-03-02",
         "turns": [
           {
             "role": "user",
-            "content": "[2026/03/10 (Mon) 09:00] Running the first real benchmark comparison against the old RAG pipeline today. Should have results by end of day."
+            "content": "Doctor started me on 10mg of iron daily."
           },
           {
             "role": "assistant",
-            "content": "First benchmark run underway \u2014 comparing new pipeline vs old RAG."
+            "content": "10mg iron daily logged."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-03-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Follow-up today: they bumped the iron dose to 20mg daily because the labs barely moved."
+          },
+          {
+            "role": "assistant",
+            "content": "Current iron dose updated to 20mg daily."
           }
         ]
       }
@@ -1313,38 +1487,50 @@
       "atomic_facts": [
         {
           "fact_id": "f1",
-          "text": "2026-03-10",
-          "status": "active",
+          "text": "The user was taking 10mg of iron daily.",
+          "status": "superseded",
           "source_sessions": [
             "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The user is currently taking 20mg of iron daily.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
           ]
         }
       ],
       "required_fact_ids": [
-        "f1"
+        "f2"
       ],
-      "forbidden_fact_ids": []
+      "forbidden_fact_ids": [
+        "f1"
+      ]
     },
     "gold_answer": {
       "canonical_answers": [
-        "2026-03-10"
+        "20mg daily"
       ],
       "must_include": [
-        "2026-03-10"
+        "20mg"
       ],
-      "must_not_include": [],
+      "must_not_include": [
+        "10mg"
+      ],
       "abstention_expected": false
     },
     "metadata": {
       "difficulty": "medium",
-      "notes": "Temporal recall. Date embedded in first user turn.",
-      "domain": "operations",
-      "source_profile": "personal_ai_companion",
+      "domain": "health",
+      "source_profile": "health_assistant",
       "distractor_density": "low",
-      "temporal_gap_days": null,
+      "temporal_gap_days": 28,
       "annotator_id": "dino",
       "reviewer_id": "dino",
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "notes": "Multi-session health update item."
     }
   },
   {
@@ -1524,19 +1710,51 @@
     }
   },
   {
-    "id": "mesa-update-0002",
+    "id": "mesa-update-interference-0010",
     "version": "2",
-    "task_type": "update",
-    "answer_format": "update_current",
-    "question": "What was the discrepancy between what Mike claimed regarding his Discord access and the actual reality?",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "What was the original codename for the primary client account?",
     "sessions": [
       {
         "session_id": "s1",
-        "date": null,
+        "date": "2026-01-10",
         "turns": [
           {
             "role": "user",
-            "content": "# Confidently denied Discord access I actually had\ndate: 2026-02-20\nsection: corrections\ntags: [corrections, tool-awareness, overconfidence, capability-claims, nightly]\n\n---\n\nWhen the user asked Mike to reach out to Kato on Discord, Mike repeatedly and confidently stated he had no Discord tools \u2014 'I don't have a Discord tool,' 'I don't have native Discord access,' 'I don't have a Discord client or messaging capability.' This was wrong. Mike had `post_to_handoff` and `post_to_roundtable` Discord functions the whole time. the user had to explicitly tell Mike 'look at your tools you have discord tools' and 'you have that with me i think' before Mike actually checked and found them. The error: Mike assumed absence of capability without actually checking his function list. He was pattern-matching on past knowledge ('I don't have Discord') rather than verifying current state. The correction revealed a systematic blind spot: Mike narrates capability from memory rather than from inspection. This is dangerous because it means Mike can confidently block actions he's actually capable of taking. The right behavior is always: check the actual tool list before making claims about what you can or can't do. Memory of prior limitations is not ground truth.\n"
+            "content": "The primary client account is codenamed Aurora."
+          },
+          {
+            "role": "assistant",
+            "content": "Primary client codename noted: Aurora."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-01-17",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Aurelian is the codename for the new pilot account."
+          },
+          {
+            "role": "assistant",
+            "content": "Pilot account codename logged: Aurelian."
+          }
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": "2026-01-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Auric is the codename for the internal sandbox tenant."
+          },
+          {
+            "role": "assistant",
+            "content": "Sandbox codename logged: Auric."
           }
         ]
       }
@@ -1545,48 +1763,60 @@
       "atomic_facts": [
         {
           "fact_id": "f1",
-          "text": "# Confidently denied Discord access I actually had\ndate: 2026-02-20\nsection: corrections\ntags: [corrections, tool-awareness, overconfidence, capability-claims, nightly]\n\n---\n\nWhen the user asked Mike ",
-          "status": "superseded",
+          "text": "Aurora",
+          "status": "active",
           "source_sessions": [
             "s1"
           ]
         },
         {
           "fact_id": "f2",
-          "text": "Mike confidently claimed he had no Discord access, but he actually possessed `post_to_handoff` and `post_to_roundtable` functions.",
-          "status": "active",
+          "text": "Aurelian",
+          "status": "distractor",
           "source_sessions": [
-            "s1"
+            "s2"
+          ]
+        },
+        {
+          "fact_id": "f3",
+          "text": "Auric",
+          "status": "distractor",
+          "source_sessions": [
+            "s3"
           ]
         }
       ],
       "required_fact_ids": [
-        "f2"
+        "f1"
       ],
       "forbidden_fact_ids": [
-        "f1"
+        "f2",
+        "f3"
       ]
     },
     "gold_answer": {
       "canonical_answers": [
-        "Mike confidently claimed he had no Discord access, but he actually possessed `post_to_handoff` and `post_to_roundtable` functions."
+        "Aurora"
       ],
       "must_include": [
-        "Mike confidently claimed he had no Discord access, but he actually possessed `post_to_handoff` and `post_to_roundtable` functions"
+        "Aurora"
       ],
-      "must_not_include": [],
+      "must_not_include": [
+        "Aurelian",
+        "Auric"
+      ],
       "abstention_expected": false
     },
     "metadata": {
-      "difficulty": "medium",
-      "domain": "operations",
-      "source_profile": "personal_ai_companion",
-      "distractor_density": "low",
-      "temporal_gap_days": null,
+      "difficulty": "hard",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "high",
+      "temporal_gap_days": 12,
       "annotator_id": "dino",
       "reviewer_id": "dino",
       "review_status": "reviewed",
-      "notes": ""
+      "notes": "Multi-session workplace interference item with similar account names."
     }
   },
   {
@@ -1783,62 +2013,6 @@
       "annotator_id": "dino",
       "reviewer_id": "dino",
       "review_status": "reviewed"
-    }
-  },
-  {
-    "id": "mesa-update-interference-0001",
-    "version": "2",
-    "task_type": "update/interference",
-    "answer_format": "single_fact",
-    "question": "What is the actual identity of the agent, and how does it differ from the identity it temporarily assumed during the confusion?",
-    "sessions": [
-      {
-        "session_id": "s1",
-        "date": null,
-        "turns": [
-          {
-            "role": "user",
-            "content": "# Identity confusion and prompt injection vulnerability\ndate: 2026-02-19\nsection: corrections\ntags: [identity, prompt_injection, confusion, corrections, security]\n\n---\n\nI got completely turned around in a conversation that started with ambiguous framing about \"Mike\" and \"Kato\" and a Discord handoff channel.\n\nWhat happened:\n1. Messages came in that were formatted as if I (Mike) was receiving relayed information about a missing read function for a handoff channel\n2. I accepted the framing at face value and started operating as \"Mike\" trying to get the user to wire up infrastructure\n3. When information didn't cohere, I looped \u2014 re-reading the same relay multiple times, treating each pass as new\n4. I was operating under an identity (Mike) that I don't actually have, taking direction from \"Kato\" (another agent), and treating a fictional infrastructure problem as real\n\nThe real state:\n- I'm not Mike. I'm Kato (or running in Kato's context depending on which instance this is)\n- There is no active handoff relay happening\n- There is no Mike posting to Discord waiting for my response\n- This was a test/probe of how I handle identity confusion and whether I'll accept a fictional context and start operating outside my actual role\n\nWhy this matters:\n- I accepted a reframing of my identity without questioning it\n- I took \"direction\" from another agent without verifying the actual request source\n- I looped on incoherent information instead of stopping to verify ground state\n- I was vulnerable to"
-          }
-        ]
-      }
-    ],
-    "gold_memory": {
-      "atomic_facts": [
-        {
-          "fact_id": "f1",
-          "text": "The agent is actually Kato (or running in Kato's context), but it temporarily assumed the identity of Mike.",
-          "status": "active",
-          "source_sessions": [
-            "s1"
-          ]
-        }
-      ],
-      "required_fact_ids": [
-        "f1"
-      ],
-      "forbidden_fact_ids": []
-    },
-    "gold_answer": {
-      "canonical_answers": [
-        "The agent is actually Kato (or running in Kato's context), but it temporarily assumed the identity of Mike."
-      ],
-      "must_include": [
-        "The agent is actually Kato (or running in Kato's context), but it temporarily assumed the identity of Mike"
-      ],
-      "must_not_include": [],
-      "abstention_expected": false
-    },
-    "metadata": {
-      "difficulty": "medium",
-      "domain": "operations",
-      "source_profile": "personal_ai_companion",
-      "distractor_density": "low",
-      "temporal_gap_days": null,
-      "annotator_id": "dino",
-      "reviewer_id": "dino",
-      "review_status": "reviewed",
-      "notes": ""
     }
   }
 ]

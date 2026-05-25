@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
+from mesa.dataset.manifest import infer_manifest_path
 from mesa.dataset.validators import validate_gold_answer, validate_gold_memory, validate_v2_item_structure
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -193,7 +194,7 @@ class TestGoldDatasetV2:
     def test_valid_json(self):
         items = json.loads(GOLD_V2_PATH.read_text())
         assert isinstance(items, list)
-        assert len(items) >= 60
+        assert len(items) >= 75
 
     def test_all_valid(self):
         items = json.loads(GOLD_V2_PATH.read_text())
@@ -229,6 +230,22 @@ class TestGoldDatasetV2:
         counts = Counter(item["task_type"] for item in items)
         assert all(counts[task_type] >= 5 for task_type in VALID_TYPES), counts
 
+    def test_multisession_floor(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        multi_items = [item for item in items if len(item.get("sessions", [])) > 1]
+        assert len(multi_items) >= 12
+        counts = Counter(item["task_type"] for item in multi_items)
+        assert counts["temporal"] >= 3
+        assert counts["update"] >= 3
+        assert counts["update/interference"] >= 3
+        assert counts["causal"] >= 4
+
+    def test_domain_diversity_floor(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        domains = {item["metadata"]["domain"] for item in items}
+        assert {"workplace", "education", "finance", "health"} <= domains
+        assert len(domains) >= 10
+
 
 class TestVersionManifestV2:
     def test_exists(self):
@@ -257,6 +274,11 @@ class TestVersionManifestV2:
         assert manifest["split"] == "test_hidden"
         assert manifest["dataset_name"] == "mesa_v2_test_hidden"
 
+    def test_hidden_split_manifest_inference(self):
+        dataset_path = Path("/tmp/private/mesa_v2_test_hidden.json")
+        manifest_path = infer_manifest_path(dataset_path)
+        assert manifest_path == Path("/tmp/private/version_v2_test_hidden.json")
+
 
 class TestDevDatasetV2:
     def test_exists(self):
@@ -271,6 +293,11 @@ class TestDevDatasetV2:
             errors.extend(validate_gold_memory(item))
             errors.extend(validate_gold_answer(item))
             assert errors == [], f"{item.get('id')}: {errors}"
+
+    def test_has_multisession_representatives(self):
+        items = json.loads(DEV_V2_PATH.read_text())
+        multi_items = [item for item in items if len(item.get("sessions", [])) > 1]
+        assert len(multi_items) >= 5
 
 
 class TestReviewLogV2:

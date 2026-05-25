@@ -32,6 +32,11 @@ If you are adopting MESA now, use:
 
 Use the legacy v1 path only for backwards comparison against older results.
 
+For serious evaluation workflow, use:
+
+- `dataset/mesa_v2_dev.json` for public iteration
+- a hidden test split outside version control for private comparison
+
 ## What it tests
 
 Nine question types, each targeting a distinct failure mode:

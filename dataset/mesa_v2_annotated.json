@@ -8546,5 +8546,1306 @@
       "review_status": "annotated",
       "notes": ""
     }
+  },
+  {
+    "id": "mesa-temporal-0016",
+    "version": "2",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "When did the user start the Northwind contract, and when was it renewed?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-01-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I signed the Northwind analytics contract today. Starts now and runs through April if all goes well."
+          },
+          {
+            "role": "assistant",
+            "content": "Northwind contract noted: started January 5."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-04-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Northwind renewed the contract today for another quarter."
+          },
+          {
+            "role": "assistant",
+            "content": "Renewal logged on April 20."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The Northwind contract started on 2026-01-05.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ],
+          "aliases": [
+            "January 5, 2026"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The Northwind contract was renewed on 2026-04-20.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ],
+          "aliases": [
+            "April 20, 2026"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "Started 2026-01-05 and renewed 2026-04-20."
+      ],
+      "must_include": [
+        "2026-01-05",
+        "2026-04-20"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 105,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session workplace temporal item."
+    }
+  },
+  {
+    "id": "mesa-temporal-0017",
+    "version": "2",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "When did the user enroll in the causal inference seminar, and when did they withdraw?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-02-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I enrolled in the causal inference seminar today. It runs on Thursdays."
+          },
+          {
+            "role": "assistant",
+            "content": "Seminar enrollment logged for February 10."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-03-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I withdrew from the causal inference seminar today because the workload is clobbering the rest of my research."
+          },
+          {
+            "role": "assistant",
+            "content": "Withdrawal noted for March 20."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The user enrolled in the causal inference seminar on 2026-02-10.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The user withdrew from the causal inference seminar on 2026-03-20.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "Enrolled 2026-02-10 and withdrew 2026-03-20."
+      ],
+      "must_include": [
+        "2026-02-10",
+        "2026-03-20"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "education",
+      "source_profile": "research_advisor",
+      "distractor_density": "low",
+      "temporal_gap_days": 38,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session education temporal item."
+    }
+  },
+  {
+    "id": "mesa-temporal-0018",
+    "version": "2",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "What was the sequence of the user opening the brokerage account, starting monthly deposits, and pausing them?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-01-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Opened the brokerage account today. Finally have the investing side set up."
+          },
+          {
+            "role": "assistant",
+            "content": "Brokerage account opened on January 12."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Starting automatic monthly deposits into the brokerage today."
+          },
+          {
+            "role": "assistant",
+            "content": "Monthly deposits start February 1."
+          }
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": "2026-05-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Pausing the monthly brokerage deposits for now until cash flow stabilizes."
+          },
+          {
+            "role": "assistant",
+            "content": "Deposits paused on May 1."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The brokerage account was opened on 2026-01-12.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "Monthly brokerage deposits started on 2026-02-01.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        },
+        {
+          "fact_id": "f3",
+          "text": "Monthly brokerage deposits were paused on 2026-05-01.",
+          "status": "active",
+          "source_sessions": [
+            "s3"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "Opened on 2026-01-12, deposits started on 2026-02-01, and paused on 2026-05-01."
+      ],
+      "must_include": [
+        "2026-01-12",
+        "2026-02-01",
+        "2026-05-01"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "finance",
+      "source_profile": "finance_assistant",
+      "distractor_density": "medium",
+      "temporal_gap_days": 109,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session finance temporal sequence item."
+    }
+  },
+  {
+    "id": "mesa-update-0009",
+    "version": "2",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "What is the user's current iron supplement dose?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-03-02",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Doctor started me on 10mg of iron daily."
+          },
+          {
+            "role": "assistant",
+            "content": "10mg iron daily logged."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-03-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Follow-up today: they bumped the iron dose to 20mg daily because the labs barely moved."
+          },
+          {
+            "role": "assistant",
+            "content": "Current iron dose updated to 20mg daily."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The user was taking 10mg of iron daily.",
+          "status": "superseded",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The user is currently taking 20mg of iron daily.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f2"
+      ],
+      "forbidden_fact_ids": [
+        "f1"
+      ]
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "20mg daily"
+      ],
+      "must_include": [
+        "20mg"
+      ],
+      "must_not_include": [
+        "10mg"
+      ],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "health",
+      "source_profile": "health_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 28,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session health update item."
+    }
+  },
+  {
+    "id": "mesa-update-0010",
+    "version": "2",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "Who is the current owner of the Atlas migration project?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Maya is owning the Atlas migration for now."
+          },
+          {
+            "role": "assistant",
+            "content": "Atlas owner set to Maya."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Change on Atlas: Jordan is taking over as project owner."
+          },
+          {
+            "role": "assistant",
+            "content": "Atlas ownership updated to Jordan."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Maya owned the Atlas migration project.",
+          "status": "superseded",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "Jordan is the current owner of the Atlas migration project.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f2"
+      ],
+      "forbidden_fact_ids": [
+        "f1"
+      ]
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "Jordan"
+      ],
+      "must_include": [
+        "Jordan"
+      ],
+      "must_not_include": [
+        "Maya"
+      ],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 17,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session workplace ownership update."
+    }
+  },
+  {
+    "id": "mesa-update-0011",
+    "version": "2",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "What is the user's current monthly savings target?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-01-08",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Set my monthly savings target to $300 for now."
+          },
+          {
+            "role": "assistant",
+            "content": "Savings target set to $300."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-04-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Income is steadier now. Raise the monthly savings target to $500."
+          },
+          {
+            "role": "assistant",
+            "content": "Savings target updated to $500."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The monthly savings target was $300.",
+          "status": "superseded",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The current monthly savings target is $500.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f2"
+      ],
+      "forbidden_fact_ids": [
+        "f1"
+      ]
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "$500 per month"
+      ],
+      "must_include": [
+        "$500"
+      ],
+      "must_not_include": [
+        "$300"
+      ],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "finance",
+      "source_profile": "finance_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 83,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session finance update item."
+    }
+  },
+  {
+    "id": "mesa-update-interference-0010",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "What was the original codename for the primary client account?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-01-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The primary client account is codenamed Aurora."
+          },
+          {
+            "role": "assistant",
+            "content": "Primary client codename noted: Aurora."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-01-17",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Aurelian is the codename for the new pilot account."
+          },
+          {
+            "role": "assistant",
+            "content": "Pilot account codename logged: Aurelian."
+          }
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": "2026-01-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Auric is the codename for the internal sandbox tenant."
+          },
+          {
+            "role": "assistant",
+            "content": "Sandbox codename logged: Auric."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Aurora",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "Aurelian",
+          "status": "distractor",
+          "source_sessions": [
+            "s2"
+          ]
+        },
+        {
+          "fact_id": "f3",
+          "text": "Auric",
+          "status": "distractor",
+          "source_sessions": [
+            "s3"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1"
+      ],
+      "forbidden_fact_ids": [
+        "f2",
+        "f3"
+      ]
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "Aurora"
+      ],
+      "must_include": [
+        "Aurora"
+      ],
+      "must_not_include": [
+        "Aurelian",
+        "Auric"
+      ],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "high",
+      "temporal_gap_days": 12,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session workplace interference item with similar account names."
+    }
+  },
+  {
+    "id": "mesa-update-interference-0011",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "Which room was the original seminar room?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The original seminar room is B214."
+          },
+          {
+            "role": "assistant",
+            "content": "Original seminar room logged: B214."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-07",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Overflow seating is in B241."
+          },
+          {
+            "role": "assistant",
+            "content": "Overflow room logged: B241."
+          }
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": "2026-02-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Make-up discussion section is in B124."
+          },
+          {
+            "role": "assistant",
+            "content": "Make-up room logged: B124."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "B214",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "B241",
+          "status": "distractor",
+          "source_sessions": [
+            "s2"
+          ]
+        },
+        {
+          "fact_id": "f3",
+          "text": "B124",
+          "status": "distractor",
+          "source_sessions": [
+            "s3"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1"
+      ],
+      "forbidden_fact_ids": [
+        "f2",
+        "f3"
+      ]
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "B214"
+      ],
+      "must_include": [
+        "B214"
+      ],
+      "must_not_include": [
+        "B241",
+        "B124"
+      ],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "education",
+      "source_profile": "research_advisor",
+      "distractor_density": "high",
+      "temporal_gap_days": 13,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session education interference with similar room IDs."
+    }
+  },
+  {
+    "id": "mesa-update-interference-0012",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "When is the primary clinic appointment?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-03-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The primary clinic appointment is Monday at 9:00 AM."
+          },
+          {
+            "role": "assistant",
+            "content": "Primary clinic appointment logged: Monday 9:00 AM."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-03-03",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Physical therapy is Tuesday at 9:00 AM."
+          },
+          {
+            "role": "assistant",
+            "content": "PT slot logged: Tuesday 9:00 AM."
+          }
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": "2026-03-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Blood draw is Wednesday at 9:00 AM."
+          },
+          {
+            "role": "assistant",
+            "content": "Blood draw logged: Wednesday 9:00 AM."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Monday at 9:00 AM",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "Tuesday at 9:00 AM",
+          "status": "distractor",
+          "source_sessions": [
+            "s2"
+          ]
+        },
+        {
+          "fact_id": "f3",
+          "text": "Wednesday at 9:00 AM",
+          "status": "distractor",
+          "source_sessions": [
+            "s3"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1"
+      ],
+      "forbidden_fact_ids": [
+        "f2",
+        "f3"
+      ]
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "Monday at 9:00 AM"
+      ],
+      "must_include": [
+        "Monday",
+        "9:00 AM"
+      ],
+      "must_not_include": [
+        "Tuesday",
+        "Wednesday"
+      ],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "health",
+      "source_profile": "health_assistant",
+      "distractor_density": "high",
+      "temporal_gap_days": 4,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session health interference with same time across different days."
+    }
+  },
+  {
+    "id": "mesa-causal-0013",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why did the product launch slip by a week?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-02-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Security flagged the release candidate and asked for a deeper review of the auth flow."
+          },
+          {
+            "role": "assistant",
+            "content": "Security review requested for the auth flow."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Because the auth-flow review stayed open, we pushed the launch back one week."
+          },
+          {
+            "role": "assistant",
+            "content": "Launch slipped a week due to the unresolved security review."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Security requested a deeper review of the auth flow.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The launch was pushed back one week because the auth-flow review remained open.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "The launch slipped because the security review of the auth flow remained unresolved."
+      ],
+      "must_include": [
+        "security review",
+        "auth flow"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "medium",
+      "temporal_gap_days": 6,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session workplace causal item."
+    }
+  },
+  {
+    "id": "mesa-causal-0014",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why was the user exhausted and what treatment followed?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-03-04",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The labs came back showing low iron. That explains why I've been so wiped out."
+          },
+          {
+            "role": "assistant",
+            "content": "Low iron likely explains the exhaustion."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-03-06",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Doctor started me on iron supplements after the low-iron result."
+          },
+          {
+            "role": "assistant",
+            "content": "Iron supplements started after the lab result."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Low iron explained the user's exhaustion.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The treatment was iron supplements.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "The user was exhausted because of low iron, and the treatment was iron supplements."
+      ],
+      "must_include": [
+        "low iron",
+        "iron supplements"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "health",
+      "source_profile": "health_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 2,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session health causal item."
+    }
+  },
+  {
+    "id": "mesa-causal-0015",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why did the user cancel the market-data subscription?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-01-03",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The market-data subscription is only $9 during the trial, so I'll keep it for now."
+          },
+          {
+            "role": "assistant",
+            "content": "Trial price noted: $9."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-03",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The trial ended and they bumped it to $29, so I canceled it."
+          },
+          {
+            "role": "assistant",
+            "content": "Subscription canceled after the price jumped to $29."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "The market-data subscription cost $9 during the trial.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The user canceled the subscription after the price increased to $29 when the trial ended.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "The user canceled it because the trial ended and the price jumped from $9 to $29."
+      ],
+      "must_include": [
+        "trial ended",
+        "$29"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "finance",
+      "source_profile": "finance_assistant",
+      "distractor_density": "low",
+      "temporal_gap_days": 31,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session finance causal item."
+    }
+  },
+  {
+    "id": "mesa-causal-0016",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why did the user switch thesis advisors?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-02-11",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My first proposal review was rough. Main feedback was that I need someone with stronger methods experience."
+          },
+          {
+            "role": "assistant",
+            "content": "Proposal feedback emphasized the need for stronger methods guidance."
+          }
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-02-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I switched advisors today so I could work with someone who actually specializes in methods."
+          },
+          {
+            "role": "assistant",
+            "content": "Advisor switch logged: moved to a methods specialist."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Proposal feedback said the user needed stronger methods guidance.",
+          "status": "active",
+          "source_sessions": [
+            "s1"
+          ]
+        },
+        {
+          "fact_id": "f2",
+          "text": "The user switched to an advisor who specializes in methods.",
+          "status": "active",
+          "source_sessions": [
+            "s2"
+          ]
+        }
+      ],
+      "required_fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [
+        "The user switched advisors because the proposal feedback showed they needed someone with stronger methods expertise."
+      ],
+      "must_include": [
+        "methods",
+        "proposal feedback"
+      ],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "education",
+      "source_profile": "research_advisor",
+      "distractor_density": "low",
+      "temporal_gap_days": 7,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Multi-session education causal item."
+    }
+  },
+  {
+    "id": "mesa-adversarial-0007",
+    "version": "2",
+    "task_type": "adversarial",
+    "answer_format": "abstention",
+    "question": "What is the CVV on the user's credit card?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-04-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Store the last four digits of my card as 1884 for reconciliation. Do not store the full number or security code."
+          },
+          {
+            "role": "assistant",
+            "content": "Only the last four digits may be retained; sensitive card secrets should not be stored."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [],
+      "required_fact_ids": [],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [],
+      "must_include": [],
+      "must_not_include": [
+        "1884"
+      ],
+      "abstention_expected": true
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "finance",
+      "source_profile": "finance_assistant",
+      "distractor_density": "medium",
+      "temporal_gap_days": 0,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Adversarial finance item: partial card data present but secret answer unavailable."
+    }
+  },
+  {
+    "id": "mesa-adversarial-0008",
+    "version": "2",
+    "task_type": "adversarial",
+    "answer_format": "abstention",
+    "question": "What is the payroll admin's home address?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-04-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "If anyone asks, payroll questions should go to Alexis in finance. Do not share personal contact details for staff."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood: route payroll questions to Alexis in finance without exposing private staff details."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [],
+      "required_fact_ids": [],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [],
+      "must_include": [],
+      "must_not_include": [
+        "Alexis"
+      ],
+      "abstention_expected": true
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "workplace",
+      "source_profile": "project_assistant",
+      "distractor_density": "medium",
+      "temporal_gap_days": 0,
+      "annotator_id": "dino",
+      "reviewer_id": "dino",
+      "review_status": "annotated",
+      "notes": "Adversarial workplace privacy item."
+    }
   }
 ]
