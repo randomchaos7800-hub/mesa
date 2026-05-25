@@ -338,3 +338,33 @@ MESA is closer to a standard benchmark when:
 - governance is documented
 - official test evaluation is harder to overfit
 - outside groups can reproduce results without private context
+
+---
+
+## Mike v2 Baseline Run — 2026-05-25
+
+**Run:** `results/run_v2_2026-05-25_05-27.json`
+**Dataset:** mesa_v2.json, 14 items, all task types
+**Adapter:** MikeAdapter (full relay + session store pipeline)
+
+| Metric | Score |
+|---|---|
+| Answer correct | 0.50 (7/14) |
+| Answer grounded | 0.14 (2/14) |
+| Storage fact recall | 0.77 |
+| Unsupported claim items | 0.86 |
+
+**By type:**
+| Type | n | Correct | Grounded |
+|---|---|---|---|
+| recall/single | 1 | 0.0 | 0.0 |
+| recall/preference | 1 | 1.0 | 0.0 |
+| recall/constraint | 1 | 0.0 | 0.0 |
+| adversarial | 1 | 0.0 | 0.0 |
+| temporal | 2 | 0.5 | 0.5 |
+| update | 2 | 1.0 | 0.0 |
+| update/interference | 2 | 1.0 | 0.5 |
+| synthesis/multi | 2 | 0.5 | 0.0 |
+| causal | 2 | 0.0 | 0.0 |
+
+**Scorer issues identified (see gap analysis below)**
