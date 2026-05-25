@@ -6,8 +6,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
+from types import SimpleNamespace
+from unittest.mock import patch
 from mesa.scorer import (
-    exact_match, rouge1_f1, composite, is_refusal,
+    exact_match, rouge1_f1, composite, is_refusal, llm_judge,
     _normalize, _normalize_dates,
 )
 
@@ -144,3 +146,58 @@ class TestIsRefusal:
 
     def test_case_insensitive(self):
         assert is_refusal("I DON'T KNOW") == 1.0
+
+
+class TestRougeFallback:
+    def test_fallback_identical(self):
+        with patch.dict("sys.modules", {"rouge_score": None}):
+            assert rouge1_f1("hello world foo", "hello world foo") == 1.0
+
+    def test_fallback_partial(self):
+        with patch.dict("sys.modules", {"rouge_score": None}):
+            score = rouge1_f1("the cat sat on the mat", "the cat sat")
+            assert 0.0 < score < 1.0
+
+
+class _FakeCompletionClient:
+    def __init__(self, content):
+        self._content = content
+        self.last_kwargs = None
+        self.chat = SimpleNamespace(completions=SimpleNamespace(create=self.create))
+
+    def create(self, **kwargs):
+        self.last_kwargs = kwargs
+        return SimpleNamespace(
+            choices=[SimpleNamespace(message=SimpleNamespace(content=self._content))]
+        )
+
+
+class TestLlmJudge:
+    def test_parses_json_response(self):
+        client = _FakeCompletionClient('{"grade": 2, "reason": "Core fact is right."}')
+        result = llm_judge("homeserver", "homeserver", "What is the server?", client)
+        assert result == {
+            "score": round(2 / 3.0, 4),
+            "grade": 2,
+            "verdict": "PASS",
+            "reason": "Core fact is right.",
+        }
+        assert client.last_kwargs["temperature"] == 0
+        assert client.last_kwargs["response_format"] == {"type": "json_object"}
+        assert client.last_kwargs["messages"][0]["role"] == "system"
+        assert "<candidate_answer>" in client.last_kwargs["messages"][1]["content"]
+
+    def test_extracts_json_from_fenced_response(self):
+        client = _FakeCompletionClient(
+            '```json\n{"grade": 1, "reason": "Some overlap."}\n```\nextra text ignored'
+        )
+        result = llm_judge("foo", "bar", "question", client)
+        assert result["grade"] == 1
+        assert result["verdict"] == "FAIL"
+
+    def test_returns_error_on_invalid_response(self):
+        client = _FakeCompletionClient("not json at all")
+        result = llm_judge("foo", "bar", "question", client)
+        assert result["score"] is None
+        assert result["grade"] is None
+        assert result["verdict"] == "ERROR"

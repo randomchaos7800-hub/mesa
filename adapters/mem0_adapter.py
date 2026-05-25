@@ -42,6 +42,17 @@ QUESTION: {question}
 Answer concisely (1-3 sentences):"""
 
 
+def _apply_session_date(turns: list[dict], session_date: str | None) -> list[dict]:
+    """Thread the session date into the first user turn for temporal retrieval."""
+    if not session_date or not turns:
+        return turns
+    dated_turns = [dict(turn) for turn in turns]
+    first = dict(dated_turns[0])
+    first["content"] = f"[SESSION_DATE: {session_date}] {first['content']}"
+    dated_turns[0] = first
+    return dated_turns
+
+
 class Mem0Adapter(MemoryAdapter):
     """Mem0 (mem0ai) memory adapter.
 
@@ -112,6 +123,9 @@ class Mem0Adapter(MemoryAdapter):
             import logging
             logging.getLogger(__name__).warning(f"Mem0 add failed: {e}")
 
+    def inject_session(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+        self.inject(_apply_session_date(turns, session_date))
+
     def ask(self, question: str) -> str:
         try:
             results = self._memory.search(question, user_id=self._user_id, limit=self._top_k)
@@ -172,3 +186,10 @@ class Mem0Adapter(MemoryAdapter):
                 )
             )
         return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
+
+    def get_retrieved_context(self, question: str) -> list[str] | None:
+        self.ask(question)
+        return [
+            memory["memory"] if isinstance(memory, dict) else str(memory)
+            for memory in self._last_retrieved
+        ]

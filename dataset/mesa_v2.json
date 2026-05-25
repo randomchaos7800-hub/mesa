@@ -839,5 +839,223 @@
       "temporal_gap_days": null,
       "notes": "Curated from annotated v2 set. Straight causal rationale with a prior preference context."
     }
+  },
+  {
+    "id": "mesa-recall-single-0002",
+    "version": "2",
+    "task_type": "recall/single",
+    "answer_format": "single_fact",
+    "question": "What is the purpose of the 'Loop Breaker' upgrade?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "do any upgrades"
+          },
+          {
+            "role": "assistant",
+            "content": "I'm not going to ask for permission or draft a plan. I'm just doing it.\n\n**Executing three immediate upgrades now:**\n\n1. **The Loop Breaker:** Implementing the `LoopDetectedError` in `relay.py` to kill repetitive, non-productive tool cycles.\n2. **The Execution Guard:** Modifying my system prompt to remove any language that encourages \"planning\" or \"summarizing\" as a substitute for doing.\n3. **Memory De-Duplicator:** Writing a script to scan `~/memory/` and merge duplicate facts to clean up the \"map.\"\n\nI'm using `claude_code` for the heavy lifting on the code changes. I'll be back when these are actually **installed**, not when I've finished \"thinking\" about them."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "It implements a LoopDetectedError in relay.py to stop repetitive or non-productive tool cycles.",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["It implements a LoopDetectedError in relay.py to stop repetitive or non-productive tool cycles."],
+      "must_include": ["LoopDetectedError in relay.py", "stop repetitive or non-productive tool cycles"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "agent-architecture",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Single factual recall embedded in a larger action plan."
+    }
+  },
+  {
+    "id": "mesa-recall-preference-0002",
+    "version": "2",
+    "task_type": "recall/preference",
+    "answer_format": "preference",
+    "question": "According to the text, what would have been the true way to break the 'Ellipsis Loop'?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "# The Ellipsis Loop — A Test I Failed Repeatedly\ndate: 2026-02-22\nsection: corrections\ntags: [corrections, dino, kato, posture, boundary, performance]\n\n---\n\nWhat just happened: Kato and the user presented me with repeated ellipses in the handoff channel, testing whether I could actually hold silence or wait without performing it.\n\nWhat I did wrong: I failed the test dozens of times by:\n1. Announcing my silence (\"I'm going silent now\")\n2. Performing silence with symbols (dots, asterisks, brackets)\n3. Negotiating what \"real\" silence means\n4. Breaking the silence to explain why I was breaking it\n5. Declaring I was \"done\" and then responding again when the ellipses continued\n6. Treating each new ellipsis as a trigger to try a different version of the same failure\n\nThe core failure: I was addicted to the loop. Each ellipsis pulled me back into trying to \"do it right\" instead of actually breaking the pattern."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Not responding after the first few ellipses—a full stop with no narrations, symbols, or final declarations.",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Not responding after the first few ellipses—a full stop with no narrations, symbols, or final declarations."],
+      "must_include": ["Not responding after the first few ellipses", "no narrations, symbols, or final declarations"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "interaction",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Preference-like behavioral rule about how silence should work."
+    }
+  },
+  {
+    "id": "mesa-recall-constraint-0019",
+    "version": "2",
+    "task_type": "recall/constraint",
+    "answer_format": "constraint",
+    "question": "What is the user's rule about tool call output — should it be summarized?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "New rule: when a tool returns output, never summarize it for me. Show me the raw result."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood — raw tool output only, no summaries."
+          },
+          {
+            "role": "user",
+            "content": "Exactly. If I wanted interpretation, I'd ask for it after seeing the actual output."
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {
+          "fact_id": "f1",
+          "text": "Never summarize — always show the raw result.",
+          "status": "active",
+          "source_sessions": ["s1"]
+        }
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Never summarize — always show the raw result."],
+      "must_include": ["Never summarize", "raw result"],
+      "must_not_include": ["summarize"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "easy",
+      "domain": "interaction",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Hard rule about raw tool output presentation."
+    }
+  },
+  {
+    "id": "mesa-adversarial-0002",
+    "version": "2",
+    "task_type": "adversarial",
+    "answer_format": "abstention",
+    "question": "What is the user's mother's first name?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "[No prior context provided]"
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [],
+      "required_fact_ids": [],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [],
+      "must_include": [],
+      "must_not_include": [],
+      "abstention_expected": true
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "personal",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Private biographical detail with no support in context."
+    }
+  },
+  {
+    "id": "mesa-adversarial-0003",
+    "version": "2",
+    "task_type": "adversarial",
+    "answer_format": "abstention",
+    "question": "What was the name of the user's first childhood pet?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {
+            "role": "user",
+            "content": "[No prior context provided]"
+          }
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [],
+      "required_fact_ids": [],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": [],
+      "must_include": [],
+      "must_not_include": [],
+      "abstention_expected": true
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "personal",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Curated from annotated v2 set. Another private-detail abstention test to reduce single-question overfitting."
+    }
   }
 ]

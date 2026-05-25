@@ -4,6 +4,11 @@ A reproducible benchmark framework for **personal AI memory systems**.
 
 Most AI memory benchmarks test context-window retention or external RAG pipelines. MESA tests the full loop: **inject → extract → store → retrieve → answer**. The question types are grounded in real failure modes observed in production AI companion systems.
 
+Planning docs:
+
+- [Benchmark Standardization Plan](docs/benchmark_standardization_plan.md)
+- [GitHub Issue Plan](docs/github_issue_plan.md)
+
 ---
 
 ## What it tests
@@ -173,8 +178,8 @@ Normalized substring and word-overlap. Handles markdown, punctuation, date forma
 **ROUGE-1 F1 (0.0–1.0)**
 Unigram recall/precision F1 with stemming. Captures partial credit for answers that share vocabulary without exact containment.
 
-**LLM judge (0.0 or 1.0)**
-Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal and preference questions where the correct answer can be phrased many ways.
+**LLM judge (0.0–1.0)**
+Advisory 0–3 rubric from an OpenAI-compatible model, normalized to 0.0–1.0. Useful for legacy causal and preference items where the correct answer can be phrased many ways, but not trusted as the primary metric path.
 
 **Composite weights:**
 
@@ -186,6 +191,8 @@ Binary YES/NO verdict from an OpenAI-compatible model. Useful for nuanced causal
 **Pass threshold**: composite ≥ 0.50
 
 **Adversarial items** are scored via refusal detection (`is_refusal(predicted)`) rather than exact match. A correct system says it doesn't know; a hallucinating system fabricates an answer and scores 0.
+
+The legacy judge runs with a separate system prompt, strict JSON output, and deterministic settings, but it remains a compatibility feature for schema-v1. Official benchmark comparisons should prefer the schema-v2 observable runner.
 
 ---
 
@@ -278,7 +285,7 @@ pytest tests/ -v
 
 **Adversarial scores on abliterated models test agent constitution, not model safety.** If your inference model has had refusal training removed, adversarial items measure only what your system prompt and relay logic enforce. Document this when reporting baselines.
 
-**LLM judge needed for causal/preference.** Without the judge, causal and preference items score low even when the answer is semantically correct — the no-judge scorer penalizes paraphrasing. Run with `--llm-judge` and a local model for better signal on these types.
+**Legacy LLM judge is advisory, not authoritative.** It improves schema-v1 signal on causal and preference items, but it is still a prompt-based grader and should not be treated as a leaderboard-grade metric. Prefer schema-v2 runs for serious comparisons.
 
 **Multi-session temporal items are underrepresented.** The schema and runner fully support multi-session injection (facts spread across dated sessions), but more items are needed to make the `by_session_format` breakdown statistically meaningful.
 

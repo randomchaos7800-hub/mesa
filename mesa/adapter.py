@@ -90,6 +90,17 @@ class MemoryAdapter(ABC):
         """
         return AnswerTrace(answer=self.ask(question), retrieved=None, metadata={})
 
+    def get_retrieved_context(self, question: str) -> list[str] | None:
+        """Return retrieved context strings for debugging and analysis.
+
+        This is a lightweight compatibility/debugging hook for adapters that can
+        expose retrieved memory strings without constructing a full trace object.
+        """
+        trace = self.ask_with_trace(question)
+        if trace is None or trace.retrieved is None:
+            return None
+        return [item.text for item in trace.retrieved]
+
     def stored_facts(self) -> list[str] | None:
         """Return a list of facts/memories stored after inject().
 

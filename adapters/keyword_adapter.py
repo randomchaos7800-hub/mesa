@@ -173,5 +173,9 @@ class KeywordAdapter(MemoryAdapter):
         ]
         return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
 
+    def get_retrieved_context(self, question: str) -> list[str] | None:
+        self.ask(question)
+        return [fact for _, fact in self._last_retrieved]
+
     def stored_facts(self) -> list[str] | None:
         return list(self._facts)

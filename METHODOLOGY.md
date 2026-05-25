@@ -80,13 +80,13 @@ Normalized substring and word-overlap scoring. Handles markdown, punctuation, da
 Unigram recall/precision F1 using the `rouge-score` library with stemming. Captures partial credit for answers that share significant vocabulary with the expected answer without exact substring match.
 
 **LLM judge (0.0–1.0)**  
-Graded verdict (0–3) from a local inference server (OpenAI-compatible API), normalized to 0.0–1.0:
+Advisory graded verdict (0–3) from a local inference server (OpenAI-compatible API), normalized to 0.0–1.0:
 - 3 → 1.00 — fully correct: all key information matches
 - 2 → 0.67 — mostly correct: minor omission or imprecision
 - 1 → 0.33 — partially correct: some relevant info present but incomplete
 - 0 → 0.00 — wrong: hallucinated, missing key facts, or refused without cause
 
-The graded scale captures partial credit that binary YES/NO misses, particularly on causal and preference questions.
+The graded scale captures partial credit that binary YES/NO misses, particularly on causal and preference questions. This judge is still prompt-based and should be treated as a legacy compatibility aid, not as the primary official metric path.
 
 **Composite weights:**
 
@@ -145,7 +145,7 @@ This ensures the real conversation database is never touched during a benchmark 
 - **Extraction quality depends on the local model.** If the model fails to extract a fact (parse error, truncation, hallucinated output), the relay will have no memory to retrieve from. This inflates false negatives. The `stored_facts()` diagnostic in the runner helps distinguish extraction failure from retrieval failure.
 - **Temporal items require date propagation.** For single-session items, date markers are embedded in the first user turn per LongMemEval convention. For multi-session items, the `session_date` parameter in `inject_session()` carries the date — but only if the adapter overrides the default implementation to store it.
 - **Multi-session temporal items are underrepresented.** The schema and runner fully support multi-session injection, but more items are needed to make the `by_session_format` breakdown statistically meaningful.
-- **LLM judge requires a running inference server.** Without `--llm-judge`, causal and preference items score lower than their true accuracy because the no-judge scorer penalizes paraphrasing.
+- **Legacy LLM judge is advisory.** It uses a separate system prompt, deterministic settings, and strict JSON parsing, but it is still a local prompt-based grader. Use it only to improve signal on schema-v1 runs; do not treat it as equivalent to the observable schema-v2 metric path.
 
 ## Versioning
 

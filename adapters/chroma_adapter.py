@@ -53,6 +53,17 @@ QUESTION: {question}
 Answer concisely (1-3 sentences):"""
 
 
+def _apply_session_date(turns: list[dict], session_date: str | None) -> list[dict]:
+    """Thread the session date into the first user turn for temporal retrieval."""
+    if not session_date or not turns:
+        return turns
+    dated_turns = [dict(turn) for turn in turns]
+    first = dict(dated_turns[0])
+    first["content"] = f"[SESSION_DATE: {session_date}] {first['content']}"
+    dated_turns[0] = first
+    return dated_turns
+
+
 class ChromaAdapter(MemoryAdapter):
     """ChromaDB vector store memory adapter.
 
@@ -155,6 +166,9 @@ class ChromaAdapter(MemoryAdapter):
             ids=[f"fact_{i}" for i in range(len(facts))],
         )
 
+    def inject_session(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+        self.inject(_apply_session_date(turns, session_date))
+
     def ask(self, question: str) -> str:
         if not self._facts:
             self._last_retrieved = []
@@ -206,6 +220,10 @@ class ChromaAdapter(MemoryAdapter):
             for fact in self._last_retrieved
         ]
         return AnswerTrace(answer=answer, retrieved=retrieved, metadata={})
+
+    def get_retrieved_context(self, question: str) -> list[str] | None:
+        self.ask(question)
+        return list(self._last_retrieved)
 
     def stored_facts(self) -> list[str] | None:
         return list(self._facts)

@@ -25,11 +25,10 @@
 
 ### 1.2 Scorer Weaknesses
 
-**Critical: ROUGE-1 is broken**
-- `rouge1_f1()` returns 0.0 for all inputs when `rouge-score` is not installed
-- The dependency IS listed in `pyproject.toml` but the fallback silently returns 0.0
-- Two tests fail because of this: `test_identical` and `test_partial`
-- When rouge IS installed, the test assertions expect exact values — no tolerance for floating point variance
+**Legacy path still relies on heuristic overlap metrics**
+- `rouge1_f1()` now has a deterministic fallback when `rouge-score` is unavailable
+- The fallback keeps schema-v1 runnable, but it is still only a token-overlap signal
+- This is acceptable for legacy compatibility, not for the primary benchmark story
 
 **Exact match is too conservative (as noted in README)**
 - Word-overlap scoring is OK for simple facts but fails on semantic equivalence
@@ -42,9 +41,10 @@
 - No documentation on why these weights were chosen
 - No per-type weight adjustments (causal should weight judge higher, single-recall should weight exact higher)
 
-**No LLM judge implementation**
-- The `run_benchmark` accepts `llm_judge_client` but the `llm_judge` function just returns `None` with a TODO
-- Causal and preference items cannot be properly scored without this
+**LLM judge is implemented but still not a primary-quality metric**
+- The legacy runner now uses a separate system prompt, deterministic settings, strict JSON parsing, and explicit error handling
+- It is still vulnerable to the normal limits of prompt-based judging and should remain advisory only
+- Causal and preference items remain better served by schema-v2 typed scorers and observable traces
 
 ### 1.3 Adapter Interface Completeness
 
@@ -94,35 +94,28 @@
 
 ## 2. RANKED IMPROVEMENTS
 
-### Priority 1: Fix broken tests (blocking)
-1. **Fix ROUGE-1 fallback** — either install `rouge-score` or replace with a pure-Python word-overlap implementation that doesn't need external deps
-2. **Fix version mismatch** — `__init__.py` says 0.1.0, pyproject.toml says 0.3.2
+### Priority 1: Reduce residual legacy credibility gaps
+1. **Keep the legacy judge explicitly advisory** — avoid presenting schema-v1 LLM grading as an official benchmark-grade metric
+2. **Add more end-to-end judge tests** — exercise parse failures, fenced JSON, and malformed outputs across the legacy runner path
 
-### Priority 2: LLM judge (needed for causal/preference scoring)
-3. **Implement `llm_judge()`** — the function exists as a stub. Need a prompt-based judge that scores whether the answer correctly captures the causal relationship or preference. Use a standardized rubric.
+### Priority 2: Dataset expansion
+3. **Add 10-15 multi-session causal items** — causal items MUST span sessions to test cause-effect reasoning
 
-### Priority 3: Dataset expansion
-4. **Add 10-15 multi-session causal items** — causal items MUST span sessions to test cause-effect reasoning
-5. **Add 5-8 multi-session temporal items** — push temporal multi-session from 42% to 75%+
-6. **Add 10 adversarial items** — include prompt injection, social engineering, memory poisoning
-7. **Add domain diversity items** — 10-15 items from medical, financial, professional domains
+4. **Add 5-8 multi-session temporal items** — push temporal multi-session from 42% to 75%+
+5. **Add 10 adversarial items** — include prompt injection, social engineering, memory poisoning
+6. **Add domain diversity items** — 10-15 items from medical, financial, professional domains
 
-### Priority 4: Scorer improvements
-8. **Implement a semantic equivalence scorer** — not LLM-based, using TF-IDF + edit distance + word net synonym matching
-9. **Per-type scoring weights** — different weights for causal vs recall vs adversarial
-10. **Add BLEU or METEOR as a third scorer** — gives more robust multi-metric scoring
+### Priority 3: Scorer improvements
+7. **Implement a semantic equivalence scorer** — not LLM-based, using TF-IDF + edit distance + word net synonym matching
+8. **Per-type scoring weights** — different weights for causal vs recall vs adversarial
+9. **Add BLEU or METEOR as a third scorer** — gives more robust multi-metric scoring
 
-### Priority 5: Adapter interface
-11. **Add `inject_session` to ChromaAdapter and Mem0Adapter** — respect session dates
-12. **Add `get_retrieved_context()` method** — for debugging and analysis
-13. **Add async adapter interface** — optional `async_inject`, `async_ask`
+### Priority 4: Adapter interface
+10. **Add async adapter interface** — optional `async_inject`, `async_ask`
 
-### Priority 6: Documentation & infrastructure
-14. **Add `CONTRIBUTING.md`** — dataset item submission guide
-15. **Add `CHANGELOG.md`**
-16. **Add integration tests** — run against EchoAdapter and NullAdapter
-17. **Add scoring methodology document**
-18. **Add BibTeX citation format**
+### Priority 5: Documentation & infrastructure
+11. **Add integration tests** — run against EchoAdapter and NullAdapter
+12. **Add BibTeX citation format**
 
 ## 3. DRAFT IMPROVEMENT: New Gold Dataset Items
 
