@@ -2,6 +2,7 @@
 
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -188,7 +189,7 @@ class TestGoldDatasetV2:
     def test_valid_json(self):
         items = json.loads(GOLD_V2_PATH.read_text())
         assert isinstance(items, list)
-        assert len(items) >= 9
+        assert len(items) >= 40
 
     def test_all_valid(self):
         items = json.loads(GOLD_V2_PATH.read_text())
@@ -218,6 +219,11 @@ class TestGoldDatasetV2:
             "synthesis/multi",
             "causal",
         } <= types
+
+    def test_milestone_a_type_floor(self):
+        items = json.loads(GOLD_V2_PATH.read_text())
+        counts = Counter(item["task_type"] for item in items)
+        assert all(counts[task_type] >= 4 for task_type in VALID_TYPES), counts
 
 
 class TestVersionManifestV2:

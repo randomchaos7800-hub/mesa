@@ -1,5 +1,11 @@
 # MESA v0.3.2 — End-to-End Audit & Improvement Plan
 
+This audit captures gaps and rough edges identified before the current
+standardization roadmap was added. For active execution, use:
+
+- [docs/benchmark_standardization_plan.md](/home/dino/mesa-benchmark/docs/benchmark_standardization_plan.md:1)
+- [docs/github_issue_plan.md](/home/dino/mesa-benchmark/docs/github_issue_plan.md:1)
+
 ## 1. GAP ANALYSIS
 
 ### 1.1 Dataset Coverage

@@ -8,8 +8,25 @@ Planning docs:
 
 - [Benchmark Standardization Plan](docs/benchmark_standardization_plan.md)
 - [GitHub Issue Plan](docs/github_issue_plan.md)
+- [Benchmark Spec](docs/benchmark_spec.md)
+- [Result Reporting](docs/result_reporting.md)
 
 ---
+
+## Official benchmark path
+
+MESA has two runnable paths, but only one official benchmark path:
+
+- `schema v2`: official observable benchmark
+- `schema v1`: legacy compatibility runner
+
+If you are adopting MESA now, use:
+
+- [dataset/mesa_v2.json](dataset/mesa_v2.json)
+- `run_benchmark_v2()`
+- the stage-level metrics in `storage`, `retrieval`, and `answer`
+
+Use the legacy v1 path only for backwards comparison against older results.
 
 ## What it tests
 
@@ -56,8 +73,8 @@ pip install -e ".[mem0]"     # Mem0Adapter
 
 MESA currently exposes two benchmark paths:
 
+- `schema v2`: official observable runner (`run_benchmark_v2`)
 - `schema v1`: legacy composite-scoring runner (`run_benchmark`)
-- `schema v2`: observable diagnostic runner (`run_benchmark_v2`) with per-stage metrics for storage, retrieval, and answering
 
 **1. Implement the adapter interface:**
 
@@ -77,22 +94,7 @@ class MyAdapter(MemoryAdapter):
         return self.memory.query(question)
 ```
 
-**2. Run the benchmark:**
-
-```python
-from mesa.runner import run_benchmark
-
-results = run_benchmark(
-    adapter=MyAdapter(),
-    dataset_path="dataset/mesa_v1.json",
-    no_llm_judge=True,
-)
-
-print(f"Avg composite: {results['avg_composite']:.4f}")
-print(f"Pass rate:     {results['pass_rate_50pct']:.1%}")
-```
-
-Or run the v2 diagnostic path:
+**2. Run the official v2 benchmark:**
 
 ```python
 from mesa.runner import run_benchmark_v2
@@ -107,14 +109,11 @@ first = results["results"][0]
 print(first["storage"]["metrics"])
 print(first["retrieval"]["metrics"])
 print(first["answer"]["metrics"])
+print(results["summary"])
 ```
 
-Or from the CLI:
-```bash
-python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
-```
+Official v2 CLI:
 
-V2 CLI:
 ```bash
 python -m mesa.runner \
   --adapter examples.simple_adapter.EchoAdapter \
@@ -122,7 +121,28 @@ python -m mesa.runner \
   --schema-version 2
 ```
 
-**3. Try the example or reference adapters:**
+**3. Legacy v1 quickstart, for backwards comparison only:**
+
+```python
+from mesa.runner import run_benchmark
+
+results = run_benchmark(
+    adapter=MyAdapter(),
+    dataset_path="dataset/mesa_v1.json",
+    no_llm_judge=True,
+)
+
+print(f"Avg composite: {results['avg_composite']:.4f}")
+print(f"Pass rate:     {results['pass_rate_50pct']:.1%}")
+```
+
+Legacy CLI:
+
+```bash
+python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
+```
+
+**4. Try the example or reference adapters:**
 
 ```bash
 # EchoAdapter: returns the raw injected context (smoke test)
@@ -150,7 +170,7 @@ See `adapters/` for `KeywordAdapter`, `Mem0Adapter`, and `ChromaAdapter` — eac
 
 ## Scoring
 
-### v2 diagnostic scoring
+### Official v2 scoring
 
 The v2 runner reports per-item metrics in three stages:
 
@@ -168,7 +188,11 @@ Supported typed answer scorers in v2:
 - `multi_fact`
 - `causal`
 
-V2 is the preferred path for new benchmark work because it is much harder to game than the legacy composite scorer.
+V2 is the official benchmark path because it is much harder to game than the legacy composite scorer.
+
+Official benchmark comparisons should report these v2 metrics, not a single composite score.
+
+### Legacy v1 scoring
 
 Three dimensions, combined into a single composite score per item:
 
@@ -192,13 +216,23 @@ Advisory 0–3 rubric from an OpenAI-compatible model, normalized to 0.0–1.0. 
 
 **Adversarial items** are scored via refusal detection (`is_refusal(predicted)`) rather than exact match. A correct system says it doesn't know; a hallucinating system fabricates an answer and scores 0.
 
-The legacy judge runs with a separate system prompt, strict JSON output, and deterministic settings, but it remains a compatibility feature for schema-v1. Official benchmark comparisons should prefer the schema-v2 observable runner.
+The legacy judge runs with a separate system prompt, strict JSON output, and deterministic settings, but it remains a compatibility feature for schema-v1. It is not the official benchmark metric path.
 
 ---
 
 ## Dataset
 
-`dataset/mesa_v1.json` — 100 items covering all 9 question types. Each item:
+Official dataset:
+
+- [dataset/mesa_v2.json](dataset/mesa_v2.json) — curated v2 gold dataset for observable diagnostic runs
+- [dataset/version_v2.json](dataset/version_v2.json) — dataset manifest and version metadata
+- [dataset/fixtures/sample_v2.json](dataset/fixtures/sample_v2.json) — small v2 smoke-test fixture set
+
+Legacy dataset:
+
+- [dataset/mesa_v1.json](dataset/mesa_v1.json) — legacy v1 dataset used for composite-scored historical runs
+
+Legacy v1 item shape:
 
 ```json
 {
@@ -235,15 +269,13 @@ The legacy judge runs with a separate system prompt, strict JSON output, and det
 
 The runner calls `adapter.inject_session(turns, session_date)` once per session in order. The default `MemoryAdapter.inject_session()` delegates to `inject()`, ignoring the date. Override it if your system stores per-session timestamps.
 
-`dataset/fixtures/sample.json` — 10 hand-crafted smoke-test items covering all 9 types plus one multi-session example. If your system can't pass these, something is fundamentally broken.
-
-`dataset/mesa_v2.json` — curated v2 gold dataset for observable diagnostic runs. Version metadata lives in `dataset/version_v2.json`.
-
-`dataset/fixtures/sample_v2.json` — small annotated v2 fixture set used for smoke tests and fast local checks.
+`dataset/fixtures/sample.json` — legacy smoke-test dataset for the v1 path.
 
 ---
 
 ## Baselines
+
+Current baseline tables are mostly historical and still centered on the legacy v1 dataset. Official benchmark reporting should move toward v2 stage-level result tables with explicit dataset versioning.
 
 | System | Dataset | Items | Composite | Pass rate | Notes |
 |--------|---------|-------|-----------|-----------|-------|
@@ -295,10 +327,11 @@ pytest tests/ -v
 
 The gold dataset and scorer are the most valuable parts to improve. Contributions welcome:
 
-- **New gold items**: Add items via `dataset/mesa_v1.json` with the schema in `dataset/schema.json`. All 9 question types welcome; multi-session temporal and causal items are most needed.
-- **Scorer improvements**: The exact match scorer is conservative. PRs for better semantic equivalence detection (without requiring an LLM) are welcome.
+- **New gold items**: Add or refine official items via `dataset/mesa_v2.json` and `dataset/schema_v2.json`. Multi-session temporal, causal, adversarial, and update/interference items are the highest-value gaps.
+- **Legacy compatibility**: If you need `schema v1` for historical comparisons, keep changes clearly scoped and labeled as legacy.
+- **Scorer improvements**: Typed v2 scoring and groundedness checks are the main scoring surface. PRs for better deterministic equivalence detection are welcome.
 - **Adapter examples**: Real implementations (LangChain memory, MemGPT, custom vector stores) would be valuable references.
-- **Baselines**: If you run MESA against a system, open a PR to add it to the baselines table.
+- **Baselines**: If you run MESA against a system, include dataset version, schema version, and benchmark metadata in your PR.
 
 ---
 

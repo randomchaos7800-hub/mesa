@@ -638,4 +638,4 @@ class TestRunBenchmarkV2:
             limit=1,
         )
         assert summary["dataset"].endswith("dataset/mesa_v2.json")
-        assert summary["dataset_version"] == "0.1.0"
+        assert summary["dataset_version"] == "0.2.0"
