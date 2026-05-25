@@ -62,6 +62,12 @@ pip install rouge-score openai  # runtime deps
 pip install pytest jsonschema   # for tests
 ```
 
+Published package name:
+
+```bash
+pip install mesa-memory-eval
+```
+
 Or clone and install in editable mode:
 
 ```bash
@@ -111,7 +117,7 @@ from mesa.runner import run_benchmark_v2
 results = run_benchmark_v2(
     adapter=MyAdapter(),
     dataset_path="dataset/mesa_v2.json",
-    trace_required=False,
+    official_run=True,
 )
 
 first = results["results"][0]
@@ -124,10 +130,11 @@ print(results["summary"])
 Official v2 CLI:
 
 ```bash
-python -m mesa.runner \
+mesa-benchmark \
   --adapter examples.simple_adapter.EchoAdapter \
   --dataset dataset/mesa_v2.json \
-  --schema-version 2
+  --schema-version 2 \
+  --official-run
 ```
 
 **3. Legacy v1 quickstart, for backwards comparison only:**
@@ -148,7 +155,7 @@ print(f"Pass rate:     {results['pass_rate_50pct']:.1%}")
 Legacy CLI:
 
 ```bash
-python -m mesa.runner --adapter my_package.MyAdapter --no-llm-judge
+mesa-benchmark --adapter my_package.MyAdapter --schema-version 1 --dataset dataset/mesa_v1.json --no-llm-judge
 ```
 
 **4. Try the example or reference adapters:**
@@ -281,6 +288,10 @@ Legacy v1 item shape:
 The runner calls `adapter.inject_session(turns, session_date)` once per session in order. The default `MemoryAdapter.inject_session()` delegates to `inject()`, ignoring the date. Override it if your system stores per-session timestamps.
 
 `dataset/fixtures/sample.json` — legacy smoke-test dataset for the v1 path.
+
+## Security note
+
+Running a third-party adapter means executing arbitrary Python code from that adapter path. Treat adapter classes as fully trusted local code.
 
 ---
 

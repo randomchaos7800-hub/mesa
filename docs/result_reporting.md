@@ -40,7 +40,7 @@ Also report:
 
 - per-task-type breakdown
 - dataset version
-- whether traces were complete or partial
+- whether retrieval traces were complete or partial
 
 ## Legacy v1 Reporting
 
@@ -109,6 +109,7 @@ Good benchmark reports say:
 - what evidence path was available
 - what benchmark release was used
 - what metric families improved or regressed
+- whether retrieval trace support was complete enough for official comparability
 
 Bad benchmark reports say:
 

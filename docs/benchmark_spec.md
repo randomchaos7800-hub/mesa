@@ -119,6 +119,7 @@ An official run should:
 
 - use `run_benchmark_v2()`
 - use a validated `schema v2` dataset
+- expose retrieval trace support through `ask_with_trace()`
 - report dataset version metadata
 - disclose the adapter and memory architecture
 - disclose model/backend details if any LLMs are used
@@ -127,6 +128,7 @@ An official run should:
 An official run should not:
 
 - present `schema v1` composite scores as benchmark-grade headline metrics
+- omit retrieval trace support while claiming official comparability
 - compare results across different dataset versions without disclosure
 - mix public-dev and official-test results in one table without labeling
 

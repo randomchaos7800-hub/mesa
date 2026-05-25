@@ -110,14 +110,14 @@ def _collect_answer_trace(adapter: MemoryAdapter, question: str) -> tuple[dict, 
     if trace is not None:
         return {
             "answer": trace.answer,
-            "retrieved": [
+            "retrieved": None if trace.retrieved is None else [
                 {
                     "memory_id": item.memory_id,
                     "text": item.text,
                     "score": item.score,
                     "metadata": item.metadata,
                 }
-                for item in (trace.retrieved or [])
+                for item in trace.retrieved
             ],
             "metadata": trace.metadata,
         }, True
@@ -332,6 +332,7 @@ def run_benchmark_v2(
     manifest = load_dataset_manifest(dataset_path)
     if official_run and manifest is None:
         raise ValueError("Official v2 runs require a dataset manifest")
+    effective_trace_required = trace_required or official_run
     with open(dataset_path) as f:
         dataset = json.load(f)
 
@@ -366,11 +367,19 @@ def run_benchmark_v2(
             has_trace = False
         elapsed = round(time.time() - t0, 2)
 
-        observable = writes is not None or has_trace
-        if trace_required and not observable:
+        write_trace_available = writes is not None
+        retrieval_trace_available = answer_trace["retrieved"] is not None
+        observable = write_trace_available or retrieval_trace_available
+        if effective_trace_required and not observable:
             raise ValueError(f"Adapter does not expose trace hooks required for v2 run: {item_id}")
+        if official_run and not retrieval_trace_available:
+            raise ValueError(f"Official v2 runs require retrieval trace support: {item_id}")
 
         storage_metrics, retrieval_metrics, answer_metrics, failures = _score_item_v2(item, writes, answer_trace)
+        retrieval_metrics["trace_available"] = retrieval_trace_available
+        storage_metrics["trace_available"] = write_trace_available
+        if not retrieval_trace_available:
+            failures.append("retrieval_trace_missing")
 
         results.append(
             {
@@ -382,6 +391,8 @@ def run_benchmark_v2(
                 "session_format": "multi" if len(sessions) > 1 else "single",
                 "session_count": len(sessions) if sessions else 0,
                 "observable": observable,
+                "write_trace_available": write_trace_available,
+                "retrieval_trace_available": retrieval_trace_available,
                 "storage": {
                     "writes": writes,
                     "metrics": storage_metrics,
@@ -409,7 +420,7 @@ def run_benchmark_v2(
         "dataset_version": manifest.get("dataset_version") if manifest else None,
         "benchmark_release": manifest.get("benchmark_release") if manifest else None,
         "n_items": len(results),
-        "trace_required": trace_required,
+        "trace_required": effective_trace_required,
         "official_run": official_run,
         "observable_rate": _average_metric([r["observable"] for r in results]),
         "summary": _summarize_v2_results(results),
@@ -582,9 +593,10 @@ def main():
 
     parser = argparse.ArgumentParser(description="MESA benchmark runner")
     parser.add_argument("--adapter", required=True, help="Dotted path to MemoryAdapter class, e.g. examples.simple_adapter.EchoAdapter")
-    parser.add_argument("--dataset", default=str(DEFAULT_DATASET), help="Path to dataset JSON")
-    parser.add_argument("--schema-version", choices=["1", "2"], default="1", help="Dataset/runner schema version")
+    parser.add_argument("--dataset", default=str(DEFAULT_DATASET_V2), help="Path to dataset JSON")
+    parser.add_argument("--schema-version", choices=["1", "2"], default="2", help="Dataset/runner schema version")
     parser.add_argument("--trace-required", action="store_true", help="Require observable trace hooks for schema v2 runs")
+    parser.add_argument("--official-run", action="store_true", help="Enforce official v2 observability and manifest requirements")
     parser.add_argument("--no-llm-judge", action="store_true", default=True, help="Skip LLM judge (default: on)")
     parser.add_argument("--llm-judge", dest="no_llm_judge", action="store_false", help="Enable LLM judge")
     parser.add_argument("--judge-url", default=None, help="OpenAI-compatible base URL for LLM judge")
@@ -599,14 +611,13 @@ def main():
 
     if args.schema_version == "2":
         dataset_path = Path(args.dataset)
-        if dataset_path == DEFAULT_DATASET:
-            dataset_path = DEFAULT_DATASET_V2
         summary = run_benchmark_v2(
             adapter=adapter,
             dataset_path=dataset_path,
             trace_required=args.trace_required,
             limit=args.limit,
             quiet=args.quiet,
+            official_run=args.official_run,
         )
         out_dir = Path(args.output)
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -617,6 +628,7 @@ def main():
         print(f"\n{'='*60}")
         print(f"  Schema: v2")
         print(f"  Items : {summary['n_items']}")
+        print(f"  Split : {summary['dataset_split']}")
         print(f"  Trace : {'required' if summary['trace_required'] else 'preferred'}")
         print(f"  Answer correct : {summary['summary']['answer']['correct_rate']}")
         print(f"  Answer grounded: {summary['summary']['answer']['grounded_rate']}")
@@ -633,7 +645,7 @@ def main():
 
     summary = run_benchmark(
         adapter=adapter,
-        dataset_path=Path(args.dataset),
+        dataset_path=Path(args.dataset) if Path(args.dataset) != DEFAULT_DATASET_V2 else DEFAULT_DATASET,
         no_llm_judge=args.no_llm_judge,
         judge_client=judge_client,
         judge_model=args.judge_model,

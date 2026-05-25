@@ -464,9 +464,12 @@ class TestRunBenchmarkV2:
         )
         result = summary["results"][0]
         assert result["observable"] is True
+        assert result["write_trace_available"] is True
+        assert result["retrieval_trace_available"] is False
         assert result["storage"]["writes"][0]["metadata"]["source"] == "stored_facts"
-        assert result["retrieval"]["retrieved"] == []
+        assert result["retrieval"]["retrieved"] is None
         assert result["answer"]["text"] == "legacy answer"
+        assert "retrieval_trace_missing" in result["failures"]
 
     def test_marks_non_observable_adapter(self):
         adapter = _OpaqueAdapter()
@@ -487,6 +490,16 @@ class TestRunBenchmarkV2:
                 quiet=True,
                 limit=1,
                 trace_required=True,
+            )
+
+    def test_official_run_rejects_missing_retrieval_trace(self):
+        adapter = _LegacyOnlyAdapter()
+        with pytest.raises(ValueError, match="Official v2 runs require retrieval trace support"):
+            run_benchmark_v2(
+                adapter=adapter,
+                quiet=True,
+                limit=1,
+                official_run=True,
             )
 
     def test_scores_single_fact_answer(self):
