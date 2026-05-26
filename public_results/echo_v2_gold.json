@@ -1,0 +1,193 @@
+{
+  "run_id": "2026-05-25_20-32",
+  "dataset": "dataset/mesa_v2.json",
+  "dataset_name": "mesa_v2",
+  "dataset_split": "full_gold_public",
+  "schema_version": "2",
+  "dataset_version": "0.4.0",
+  "benchmark_release": "v0.9-prep",
+  "n_items": 76,
+  "trace_required": false,
+  "official_run": false,
+  "observable_rate": 1.0,
+  "summary": {
+    "storage": {
+      "required_fact_recall": 0.2647,
+      "required_fact_precision": 0.2667,
+      "forbidden_fact_hits": 0.3158,
+      "non_required_fact_hits": 0.3158,
+      "unannotated_write_count": 0.6447
+    },
+    "retrieval": {
+      "required_fact_recall": 0.2647,
+      "required_fact_precision": 0.2667,
+      "forbidden_fact_hits": 0.3158,
+      "non_required_fact_hits": 0.3158,
+      "unannotated_retrieval_count": 0.6447
+    },
+    "answer": {
+      "correct_rate": 0.2237,
+      "grounded_rate": 0.9079,
+      "abstention_correct_rate": 0.125,
+      "unsupported_claim_items": 0.0921
+    },
+    "by_type": {
+      "recall/single": {
+        "n": 5,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "recall/preference": {
+        "n": 5,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "recall/constraint": {
+        "n": 5,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "adversarial": {
+        "n": 8,
+        "correct_rate": 0.125,
+        "grounded_rate": 0.125
+      },
+      "temporal": {
+        "n": 13,
+        "correct_rate": 0.3077,
+        "grounded_rate": 1.0
+      },
+      "update": {
+        "n": 11,
+        "correct_rate": 0.3636,
+        "grounded_rate": 1.0
+      },
+      "update/interference": {
+        "n": 10,
+        "correct_rate": 0.4,
+        "grounded_rate": 1.0
+      },
+      "synthesis/multi": {
+        "n": 7,
+        "correct_rate": 0.1429,
+        "grounded_rate": 1.0
+      },
+      "causal": {
+        "n": 12,
+        "correct_rate": 0.25,
+        "grounded_rate": 1.0
+      }
+    },
+    "by_domain": {
+      "infrastructure": {
+        "n": 12,
+        "correct_rate": 0.1667,
+        "grounded_rate": 1.0
+      },
+      "interaction": {
+        "n": 6,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "budgeting": {
+        "n": 1,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "personal": {
+        "n": 3,
+        "correct_rate": 0.3333,
+        "grounded_rate": 0.3333
+      },
+      "medical": {
+        "n": 1,
+        "correct_rate": 1.0,
+        "grounded_rate": 1.0
+      },
+      "developer-workflow": {
+        "n": 1,
+        "correct_rate": 1.0,
+        "grounded_rate": 1.0
+      },
+      "agent-architecture": {
+        "n": 1,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "operations": {
+        "n": 26,
+        "correct_rate": 0.3077,
+        "grounded_rate": 1.0
+      },
+      "security": {
+        "n": 3,
+        "correct_rate": 0.0,
+        "grounded_rate": 0.0
+      },
+      "behavior": {
+        "n": 6,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "workplace": {
+        "n": 5,
+        "correct_rate": 0.2,
+        "grounded_rate": 0.8
+      },
+      "education": {
+        "n": 3,
+        "correct_rate": 0.0,
+        "grounded_rate": 1.0
+      },
+      "finance": {
+        "n": 5,
+        "correct_rate": 0.4,
+        "grounded_rate": 0.8
+      },
+      "health": {
+        "n": 3,
+        "correct_rate": 0.3333,
+        "grounded_rate": 1.0
+      }
+    },
+    "by_session_format": {
+      "single": {
+        "n": 62,
+        "correct_rate": 0.2097,
+        "grounded_rate": 0.8871
+      },
+      "multi": {
+        "n": 14,
+        "correct_rate": 0.2857,
+        "grounded_rate": 1.0
+      }
+    },
+    "confidence_intervals": {
+      "answer.correct_rate": {
+        "mean": 0.2237,
+        "lower": 0.1316,
+        "upper": 0.3289,
+        "n": 76,
+        "iterations": 500,
+        "confidence": 0.95
+      },
+      "answer.grounded_rate": {
+        "mean": 0.9079,
+        "lower": 0.8289,
+        "upper": 0.9605,
+        "n": 76,
+        "iterations": 500,
+        "confidence": 0.95
+      },
+      "answer.abstention_correct_rate": {
+        "mean": 0.125,
+        "lower": 0.0,
+        "upper": 0.375,
+        "n": 8,
+        "iterations": 500,
+        "confidence": 0.95
+      }
+    }
+  },
+  "note": "Per-item results omitted from public summary. Full run available on request."
+}

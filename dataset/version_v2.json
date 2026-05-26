@@ -2,10 +2,10 @@
   "dataset_name": "mesa_v2",
   "dataset_path": "dataset/mesa_v2.json",
   "schema_version": "2",
-  "dataset_version": "0.4.0",
-  "item_count": 76,
+  "dataset_version": "0.5.0",
+  "item_count": 94,
   "created_at": "2026-05-25",
-  "notes": "Curated v2 gold dataset expanded to 75 items with multi-session and multi-domain additions.",
+  "notes": "v0.5 expansion: all types reach \u22658 items (recall/* +5 each, synthesis/multi +3).",
   "task_types": [
     "adversarial",
     "causal",

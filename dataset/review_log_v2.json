@@ -534,6 +534,151 @@
       "reviewer_id": "dino",
       "review_status": "reviewed",
       "adjudication_notes": "Multi-session synthesis item in finance domain."
+    },
+    {
+      "item_id": "mesa-recall-constraint-0003",
+      "task_type": "recall/constraint",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-constraint-0004",
+      "task_type": "recall/constraint",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-constraint-0005",
+      "task_type": "recall/constraint",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-constraint-0006",
+      "task_type": "recall/constraint",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-constraint-0007",
+      "task_type": "recall/constraint",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-preference-0005",
+      "task_type": "recall/preference",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-preference-0006",
+      "task_type": "recall/preference",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-preference-0007",
+      "task_type": "recall/preference",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-preference-0008",
+      "task_type": "recall/preference",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-preference-0009",
+      "task_type": "recall/preference",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-single-0005",
+      "task_type": "recall/single",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-single-0006",
+      "task_type": "recall/single",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-single-0007",
+      "task_type": "recall/single",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-single-0008",
+      "task_type": "recall/single",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-recall-single-0009",
+      "task_type": "recall/single",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0006",
+      "task_type": "synthesis/multi",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0007",
+      "task_type": "synthesis/multi",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-synthesis-multi-0008",
+      "task_type": "synthesis/multi",
+      "status": "approved",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "v0.5 expansion batch"
     }
-  ]
+  ],
+  "last_updated": "2026-05-25"
 }
