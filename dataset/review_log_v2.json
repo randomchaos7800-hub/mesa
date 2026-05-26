@@ -678,6 +678,126 @@
       "reviewed_by": "dino",
       "review_date": "2026-05-25",
       "notes": "v0.5 expansion batch"
+    },
+    {
+      "item_id": "mesa-pers-recall-single-0001",
+      "task_type": "recall/single",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-recall-preference-0002",
+      "task_type": "recall/preference",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-recall-constraint-0003",
+      "task_type": "recall/constraint",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-synthesis-multi-0004",
+      "task_type": "synthesis/multi",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-temporal-0005",
+      "task_type": "temporal",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-update-0006",
+      "task_type": "update",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-update-interference-0007",
+      "task_type": "update/interference",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-adversarial-0008",
+      "task_type": "adversarial",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-causal-0009",
+      "task_type": "causal",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-recall-single-0010",
+      "task_type": "recall/single",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-adversarial-0011",
+      "task_type": "adversarial",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-update-0012",
+      "task_type": "update",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-synthesis-multi-0013",
+      "task_type": "synthesis/multi",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-temporal-0014",
+      "task_type": "temporal",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-pers-causal-0015",
+      "task_type": "causal",
+      "status": "draft",
+      "reviewed_by": "dino",
+      "review_date": "2026-05-25",
+      "notes": "personal/lifestyle domain batch"
     }
   ],
   "last_updated": "2026-05-25"
