@@ -1,6 +1,6 @@
 {
   "dataset_name": "mesa_v2",
-  "dataset_version": "0.4.0",
+  "dataset_version": "0.7.0",
   "generated_at": "2026-05-25",
   "entries": [
     {
@@ -798,7 +798,1771 @@
       "reviewed_by": "dino",
       "review_date": "2026-05-25",
       "notes": "personal/lifestyle domain batch"
+    },
+    {
+      "item_id": "mesa-infra-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-infra-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-work-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-edu-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-fin-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-health-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-legal-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-single-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-single-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-single-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-single-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-preference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-preference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-preference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-preference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-constraint-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-constraint-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-constraint-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-recall-constraint-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-synthesis-multi-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-synthesis-multi-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-synthesis-multi-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-synthesis-multi-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-temporal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-temporal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-temporal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-temporal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-interference-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-interference-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-interference-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-update-interference-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-adversarial-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-adversarial-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-adversarial-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-adversarial-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-causal-0001",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-causal-0002",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-causal-0003",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
+    },
+    {
+      "item_id": "mesa-pers2-causal-0004",
+      "annotator_id": "generated",
+      "reviewer_id": null,
+      "review_status": "provisional",
+      "adjudication_notes": "Auto-generated from domain expansion batch."
     }
   ],
-  "last_updated": "2026-05-25"
+  "last_updated": "2026-05-26T04:08:58Z"
 }
