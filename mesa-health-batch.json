@@ -1,0 +1,1161 @@
+[
+  {
+    "id": "mesa-health-recall-single-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner training for a 10K",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "Hey, just want to log my running schedule. I run Tuesday, Thursday, and Saturday mornings. Sunday is my long run day."},
+          {"role": "assistant", "content": "Got it! So your weekly running days are Tuesday, Thursday, Saturday, and Sunday, with Sunday being your long run. Anything else you want to note about your schedule?"},
+          {"role": "user", "content": "Yeah, Monday, Wednesday, and Friday are full rest days. No cross-training, nothing."},
+          {"role": "assistant", "content": "Logged. Monday, Wednesday, and Friday are complete rest days. That's a solid recovery structure for 10K training."}
+        ]
+      }
+    ],
+    "question": "What days does this user take as complete rest days?",
+    "expected_answer": "Monday, Wednesday, and Friday are complete rest days with no cross-training.",
+    "atomic_facts": [
+      "Monday is a rest day",
+      "Wednesday is a rest day",
+      "Friday is a rest day",
+      "No cross-training on rest days"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-single-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent tracking children's medical appointments",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-02-14",
+        "turns": [
+          {"role": "user", "content": "I need to remember my son Marcus's next pediatrician appointment. It's April 3rd at 2:30 PM with Dr. Nguyen."},
+          {"role": "assistant", "content": "Noted. Marcus has an appointment with Dr. Nguyen on April 3rd at 2:30 PM. Is this at the same clinic as before?"},
+          {"role": "user", "content": "Yes, Riverside Pediatric Group on Elm Street."},
+          {"role": "assistant", "content": "Perfect. Marcus — Dr. Nguyen — April 3rd, 2:30 PM — Riverside Pediatric Group on Elm Street. I've got it."}
+        ]
+      }
+    ],
+    "question": "When is Marcus's pediatrician appointment, and with which doctor?",
+    "expected_answer": "Marcus has an appointment with Dr. Nguyen on April 3rd at 2:30 PM at Riverside Pediatric Group on Elm Street.",
+    "atomic_facts": [
+      "Appointment date is April 3rd",
+      "Appointment time is 2:30 PM",
+      "Doctor is Dr. Nguyen",
+      "Clinic is Riverside Pediatric Group on Elm Street"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-single-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member getting oriented",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-01-06",
+        "turns": [
+          {"role": "user", "content": "Just joined Iron Peak Gym. My trainer's name is Deshawn. We meet every Monday and Wednesday at 6 AM."},
+          {"role": "assistant", "content": "Great, welcome to Iron Peak! Deshawn is your trainer, sessions on Mondays and Wednesdays at 6 AM. How are you liking it so far?"},
+          {"role": "user", "content": "Pretty good. The gym is on Harbor Boulevard, about ten minutes from my house."},
+          {"role": "assistant", "content": "Convenient location. Iron Peak Gym on Harbor Boulevard, ten minutes from home. I'll keep all that on file."}
+        ]
+      }
+    ],
+    "question": "What is the name of this user's personal trainer and when do they meet?",
+    "expected_answer": "The trainer's name is Deshawn, and they meet every Monday and Wednesday at 6 AM.",
+    "atomic_facts": [
+      "Trainer's name is Deshawn",
+      "Training sessions are on Monday and Wednesday",
+      "Sessions start at 6 AM"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-single-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person managing stable high blood pressure",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I take my blood pressure medication every morning with breakfast. The reminder I need is at 7:30 AM."},
+          {"role": "assistant", "content": "Got it — medication reminder at 7:30 AM, to be taken with breakfast. Is there anything specific about the timing that matters for you?"},
+          {"role": "user", "content": "My doctor said taking it with food helps with absorption. Also I should never take it on an empty stomach."},
+          {"role": "assistant", "content": "Understood. Medication at 7:30 AM with food, not on an empty stomach — per your doctor's guidance. Noted."}
+        ]
+      }
+    ],
+    "question": "When does this user take their blood pressure medication, and what condition must be met?",
+    "expected_answer": "They take it every morning at 7:30 AM with breakfast — it must not be taken on an empty stomach, per their doctor's guidance.",
+    "atomic_facts": [
+      "Medication is taken at 7:30 AM",
+      "Medication must be taken with food/breakfast",
+      "Should never be taken on an empty stomach"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-preference-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person tracking sleep quality",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {"role": "user", "content": "I've been trying to optimize my sleep. I really prefer going to bed by 10 PM and waking up naturally around 6 AM without an alarm."},
+          {"role": "assistant", "content": "That's a solid 8-hour window. Do you find the alarm-free wake-up actually works for you?"},
+          {"role": "user", "content": "When I'm consistent with the 10 PM bedtime it does. I hate sleeping in on weekends though, throws off my whole week."},
+          {"role": "assistant", "content": "Social jet lag is real. So you prefer to keep the same schedule seven days a week rather than sleeping in on weekends. Got it."}
+        ]
+      }
+    ],
+    "question": "What are this user's stated sleep preferences?",
+    "expected_answer": "They prefer a 10 PM bedtime and natural wake-up around 6 AM without an alarm, seven days a week. They dislike sleeping in on weekends because it disrupts their schedule.",
+    "atomic_facts": [
+      "Preferred bedtime is 10 PM",
+      "Preferred wake time is around 6 AM",
+      "Prefers waking without an alarm",
+      "Dislikes sleeping in on weekends",
+      "Keeps the same schedule all seven days"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-preference-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner with nutrition preferences",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {"role": "user", "content": "I've figured out my pre-run fueling. I do best with a banana and peanut butter about 45 minutes before I run. Nothing heavier than that."},
+          {"role": "assistant", "content": "Light and easy to digest — banana and peanut butter, 45 minutes pre-run. Do you eat anything specific after?"},
+          {"role": "user", "content": "After a long run I want real food, like eggs and toast. I absolutely cannot do protein shakes — they upset my stomach."},
+          {"role": "assistant", "content": "Noted. Post-long-run: eggs and toast. No protein shakes — stomach doesn't tolerate them. Banana and PB before, real food after."}
+        ]
+      }
+    ],
+    "question": "What are this user's pre-run and post-run nutrition preferences?",
+    "expected_answer": "Pre-run: banana and peanut butter 45 minutes before. Post-long-run: eggs and toast. They cannot use protein shakes because they upset their stomach.",
+    "atomic_facts": [
+      "Pre-run food is banana and peanut butter",
+      "Pre-run timing is 45 minutes before running",
+      "Post-long-run preference is eggs and toast",
+      "Protein shakes upset their stomach and are avoided"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-preference-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member with workout style preferences",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {"role": "user", "content": "I really hate treadmills. If I'm going to do cardio at the gym I'll use the rowing machine or the bike. Never the treadmill."},
+          {"role": "assistant", "content": "Got it — rowing machine or stationary bike for cardio, treadmill is off the table. Any reason in particular?"},
+          {"role": "user", "content": "I had a bad knee injury a few years ago. Running on a treadmill still bothers it. Rowing and cycling don't."},
+          {"role": "assistant", "content": "That makes complete sense. Low-impact cardio only — rowing and cycling are fine, treadmill avoided due to previous knee injury. I'll keep that in mind."}
+        ]
+      }
+    ],
+    "question": "What cardio equipment does this user prefer at the gym, and why do they avoid the treadmill?",
+    "expected_answer": "They prefer the rowing machine or stationary bike. They avoid the treadmill because of a previous knee injury that makes running on it uncomfortable.",
+    "atomic_facts": [
+      "Preferred cardio equipment is the rowing machine and stationary bike",
+      "Treadmill is avoided",
+      "Avoidance is due to a previous knee injury",
+      "Rowing and cycling do not bother the knee"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-preference-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person managing stable high blood pressure with lifestyle preferences",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "My doctor recommended I reduce sodium. I've switched to cooking with herbs instead of salt. I specifically love using garlic and rosemary."},
+          {"role": "assistant", "content": "Great swap. Garlic and rosemary as go-to seasoning instead of salt — noted. Are there any foods you're cutting out entirely?"},
+          {"role": "user", "content": "I've basically eliminated processed lunch meats. Those were my biggest sodium source. And I prefer sparkling water now over soda."},
+          {"role": "assistant", "content": "Solid changes. No processed lunch meats, sparkling water instead of soda, herbs over salt. Your doctor will be happy with those swaps."}
+        ]
+      }
+    ],
+    "question": "What dietary preferences has this user adopted for managing their blood pressure?",
+    "expected_answer": "They cook with herbs (especially garlic and rosemary) instead of salt, have eliminated processed lunch meats, and prefer sparkling water over soda.",
+    "atomic_facts": [
+      "Replaced salt with herbs for seasoning",
+      "Favorite herbs are garlic and rosemary",
+      "Eliminated processed lunch meats",
+      "Drinks sparkling water instead of soda"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-constraint-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner with physical constraints",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-02-28",
+        "turns": [
+          {"role": "user", "content": "My physical therapist said I'm not allowed to run more than 5 miles in a single session until my IT band heals. That's a hard cap."},
+          {"role": "assistant", "content": "Hard cap of 5 miles per session until your IT band heals — I've got that. Who's your PT?"},
+          {"role": "user", "content": "Dr. Petrov at Coastal PT. She also said no hill training at all during this phase."},
+          {"role": "assistant", "content": "No hills, max 5 miles per session — both constraints from Dr. Petrov at Coastal PT. I won't let you talk yourself into ignoring those."}
+        ]
+      }
+    ],
+    "question": "What running constraints has this user's physical therapist imposed, and who is the PT?",
+    "expected_answer": "Dr. Petrov at Coastal PT has set a hard cap of 5 miles per session and prohibited all hill training until the IT band heals.",
+    "atomic_facts": [
+      "Maximum run distance is 5 miles per session",
+      "No hill training allowed during this phase",
+      "Physical therapist is Dr. Petrov",
+      "PT practice is Coastal PT"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-constraint-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent tracking children's health with allergy constraints",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "My daughter Priya has a tree nut allergy. Cashews and almonds are the big ones. Peanuts are fine though — it's specifically tree nuts."},
+          {"role": "assistant", "content": "Got it — Priya has a tree nut allergy. Cashews and almonds specifically flagged. Peanuts are okay. Is this a severe allergy or a sensitivity?"},
+          {"role": "user", "content": "It's classified as severe. She carries an EpiPen. The school has one too."},
+          {"role": "assistant", "content": "Noted as severe. Priya carries an EpiPen and the school also has one on file. Tree nuts — especially cashews and almonds — are hard no's."}
+        ]
+      }
+    ],
+    "question": "What allergy constraint applies to Priya, and what is its severity?",
+    "expected_answer": "Priya has a severe tree nut allergy, specifically to cashews and almonds (peanuts are safe). She carries an EpiPen and the school also has one.",
+    "atomic_facts": [
+      "Priya has a tree nut allergy",
+      "Allergy is classified as severe",
+      "Cashews and almonds are specifically identified triggers",
+      "Peanuts are safe",
+      "Priya carries an EpiPen",
+      "School also has an EpiPen on file"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-constraint-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member with doctor-imposed constraints",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-01-10",
+        "turns": [
+          {"role": "user", "content": "My doctor cleared me for the gym but said no overhead pressing yet. My shoulder is still recovering. Also, I should keep my heart rate under 150 BPM during cardio for the first month."},
+          {"role": "assistant", "content": "Two constraints from your doctor: no overhead pressing while the shoulder recovers, and heart rate cap of 150 BPM on cardio for the first month. How long is 'the first month'?"},
+          {"role": "user", "content": "Basically until my follow-up on February 8th. Then he'll reassess."},
+          {"role": "assistant", "content": "Got it. Constraints apply until February 8th follow-up, when your doctor reassesses. No overhead press, HR under 150 during cardio."}
+        ]
+      }
+    ],
+    "question": "What gym constraints did this user's doctor impose, and when do they expire?",
+    "expected_answer": "No overhead pressing (shoulder recovery) and heart rate must stay under 150 BPM during cardio. Both constraints apply until the February 8th follow-up appointment.",
+    "atomic_facts": [
+      "No overhead pressing allowed",
+      "Heart rate must stay under 150 BPM during cardio",
+      "Constraints apply until February 8th follow-up",
+      "Doctor will reassess at follow-up"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-recall-constraint-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person managing stable high blood pressure with activity constraints",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {"role": "user", "content": "My cardiologist said I need to walk at least 30 minutes every day — that's non-negotiable. But I shouldn't do anything more intense than brisk walking without checking with her first."},
+          {"role": "assistant", "content": "Minimum 30 minutes of walking daily, and nothing more intense than brisk walking without your cardiologist's approval. Who's your cardiologist?"},
+          {"role": "user", "content": "Dr. Yamamoto at Summit Heart Clinic. She also said I need to monitor my blood pressure at home before and after any exercise."},
+          {"role": "assistant", "content": "Dr. Yamamoto at Summit Heart Clinic. BP check before and after every workout. 30-minute walk minimum, intensity cap at brisk walking. All noted."}
+        ]
+      }
+    ],
+    "question": "What activity constraints has this user's cardiologist set, and who is the doctor?",
+    "expected_answer": "Dr. Yamamoto at Summit Heart Clinic requires a minimum 30 minutes of walking daily, no activity more intense than brisk walking without prior approval, and blood pressure monitoring before and after exercise.",
+    "atomic_facts": [
+      "Minimum 30 minutes of walking every day",
+      "Nothing more intense than brisk walking without cardiologist approval",
+      "Blood pressure must be monitored before exercise",
+      "Blood pressure must be monitored after exercise",
+      "Cardiologist is Dr. Yamamoto",
+      "Practice is Summit Heart Clinic"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-synthesis-multi-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner building toward a half-marathon",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "My weekly mileage goal is 25 miles right now. I'm running 5 days a week."},
+          {"role": "assistant", "content": "So roughly 5 miles per run on average, 5 days a week. What's the target race?"},
+          {"role": "user", "content": "Half-marathon in June. I want to peak at 35 miles per week by mid-May."},
+          {"role": "assistant", "content": "Got it. 25 miles/week now, ramping to 35 miles/week peak by mid-May, for a June half-marathon. Solid plan."}
+        ]
+      },
+      {
+        "date": "2026-03-22",
+        "turns": [
+          {"role": "user", "content": "My longest run this week was 9 miles. Felt strong. I also hit a new step goal: 12,000 steps on non-running days."},
+          {"role": "assistant", "content": "9-mile long run feeling good is a great sign. And 12,000 steps on rest days keeps you active without the impact. How's the weekly total looking?"},
+          {"role": "user", "content": "I'm at 27 miles this week, so I'm creeping up toward my peak."},
+          {"role": "assistant", "content": "27 miles this week, trending toward the 35-mile peak target. You're on track for May."}
+        ]
+      }
+    ],
+    "question": "Summarize this user's current training volume, step goal, and race target.",
+    "expected_answer": "The user is running 5 days a week, currently at about 27 miles per week, with a peak target of 35 miles per week by mid-May. They are training for a June half-marathon. On non-running days they aim for 12,000 steps.",
+    "atomic_facts": [
+      "Current weekly mileage is approximately 27 miles",
+      "Running 5 days per week",
+      "Peak mileage target is 35 miles per week",
+      "Peak should be reached by mid-May",
+      "Target race is a half-marathon in June",
+      "Step goal on non-running days is 12,000 steps"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-synthesis-multi-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person tracking sleep quality and daytime energy",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-10",
+        "turns": [
+          {"role": "user", "content": "I've been getting about 6.5 hours of sleep on weeknights. I feel pretty tired by 2 PM."},
+          {"role": "assistant", "content": "6.5 hours on weeknights with an afternoon energy crash at 2 PM. Are weekends any different?"},
+          {"role": "user", "content": "On weekends I get 8 hours and feel totally fine. No crash."},
+          {"role": "assistant", "content": "Clear pattern — 6.5 hours causes a 2 PM crash, 8 hours doesn't. The difference is 1.5 hours of sleep."}
+        ]
+      },
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I've been trying to get to bed by 10:30 PM on weeknights now. Getting about 7.5 hours. The 2 PM crash is mostly gone."},
+          {"role": "assistant", "content": "Impressive improvement. 7.5 hours is fixing the crash that 6.5 hours caused. How's morning alertness?"},
+          {"role": "user", "content": "Much better. I stopped needing a second coffee in the afternoon."},
+          {"role": "assistant", "content": "From two coffees to one — that's a real quality-of-life change. 10:30 PM bedtime, 7.5 hours, no afternoon crash, no second coffee."}
+        ]
+      }
+    ],
+    "question": "How has this user's sleep and daytime energy changed between the two sessions?",
+    "expected_answer": "Initially getting 6.5 hours on weeknights with a 2 PM energy crash. After moving bedtime to 10:30 PM, they now get 7.5 hours, the afternoon crash is mostly gone, and they no longer need a second coffee in the afternoon.",
+    "atomic_facts": [
+      "Initial weeknight sleep was 6.5 hours",
+      "Initial symptom was a 2 PM energy crash",
+      "Weekend sleep was 8 hours with no crash",
+      "New bedtime is 10:30 PM on weeknights",
+      "Current sleep is approximately 7.5 hours",
+      "Afternoon crash is mostly resolved",
+      "No longer needs a second afternoon coffee"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-synthesis-multi-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member tracking progress across workout types",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "My goals at the gym are to lose 15 pounds and build enough strength to do 10 pull-ups. Right now I can do zero."},
+          {"role": "assistant", "content": "Two goals: lose 15 pounds and get to 10 pull-ups from zero. Long-term vision but very concrete targets. What's your timeline?"},
+          {"role": "user", "content": "Six months. My trainer Deshawn thinks it's realistic."},
+          {"role": "assistant", "content": "Deshawn says six months is realistic for both goals. That's a solid, achievable timeline."}
+        ]
+      },
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "Update: I've lost 7 pounds so far. And I can do 3 pull-ups now!"},
+          {"role": "assistant", "content": "Halfway to the weight goal and from zero to 3 pull-ups — that's real progress in under two months. Deshawn must be pleased."},
+          {"role": "user", "content": "He is. He added a lat pulldown superset to help me get to 5 pull-ups by next month."},
+          {"role": "assistant", "content": "Lat pulldown superset to bridge from 3 to 5 pull-ups — next milestone is 5 by next month, then 10 by the six-month mark."}
+        ]
+      }
+    ],
+    "question": "What were this user's original gym goals and what progress have they made so far?",
+    "expected_answer": "Original goals were to lose 15 pounds and do 10 pull-ups within 6 months (per trainer Deshawn). Progress: 7 pounds lost and 3 pull-ups achieved. Next milestone is 5 pull-ups by next month.",
+    "atomic_facts": [
+      "Original weight loss goal is 15 pounds",
+      "Original pull-up goal is 10 pull-ups",
+      "Timeline is 6 months",
+      "Trainer is Deshawn",
+      "7 pounds lost so far",
+      "Currently can do 3 pull-ups",
+      "Next pull-up milestone is 5 by next month"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-synthesis-multi-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent coordinating family health routines",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "My son Marcus takes a vitamin D supplement every morning. My daughter Priya doesn't take any supplements — she gets everything from food."},
+          {"role": "assistant", "content": "Marcus: vitamin D supplement every morning. Priya: no supplements, diet-only. Got it. Any particular reason Priya doesn't supplement?"},
+          {"role": "user", "content": "Her pediatrician said her levels are fine and she eats a very varied diet."},
+          {"role": "assistant", "content": "Priya's pediatrician confirmed no supplements needed based on lab levels and diet variety. Noted."}
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {"role": "user", "content": "Marcus's pediatrician added an omega-3 supplement for him now too. So he's doing vitamin D in the morning and omega-3 with dinner."},
+          {"role": "assistant", "content": "Updated. Marcus now takes vitamin D with breakfast and omega-3 with dinner. Two supplements total. Priya is still supplement-free?"},
+          {"role": "user", "content": "Still supplement-free, yes."},
+          {"role": "assistant", "content": "Marcus: vitamin D morning, omega-3 dinner. Priya: zero supplements. Got it updated."}
+        ]
+      }
+    ],
+    "question": "What supplements do Marcus and Priya currently take, and when?",
+    "expected_answer": "Marcus takes vitamin D in the morning and omega-3 with dinner. Priya takes no supplements — her pediatrician confirmed her levels are fine.",
+    "atomic_facts": [
+      "Marcus takes vitamin D every morning",
+      "Marcus takes omega-3 with dinner",
+      "Priya takes no supplements",
+      "Priya's pediatrician confirmed no supplements are needed"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-temporal-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner recovering from injury",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "I had to stop running completely. IT band injury. My PT says I need 4 weeks of rest before I can even think about running again."},
+          {"role": "assistant", "content": "Full running pause for 4 weeks starting now. That takes you to roughly March 1st before you can consider returning. Frustrating but necessary."},
+          {"role": "user", "content": "Yeah. I'll be doing pool running and stretching only during that time."},
+          {"role": "assistant", "content": "Pool running and stretching only for the 4-week window. Return-to-run evaluation around March 1st."}
+        ]
+      },
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {"role": "user", "content": "I got cleared to run again! Did my first easy 2-mile run yesterday. IT band felt fine."},
+          {"role": "assistant", "content": "Back on the road! 2 miles easy, IT band cooperating — that's the best possible return. How long was the total break?"},
+          {"role": "user", "content": "About 5 weeks total. A little longer than planned but I wanted to be sure."},
+          {"role": "assistant", "content": "Five weeks off, returned on March 4th with 2 miles easy. Cautious is smart."}
+        ]
+      }
+    ],
+    "question": "How long was this user's running break, when did they return to running, and what was their first run back?",
+    "expected_answer": "The break lasted approximately 5 weeks (originally planned for 4 weeks). They returned to running on March 4th with an easy 2-mile run, and the IT band felt fine.",
+    "atomic_facts": [
+      "Original rest prescription was 4 weeks",
+      "Actual break was approximately 5 weeks",
+      "First run back was on March 4th",
+      "First run was 2 miles easy",
+      "IT band felt fine on return"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-temporal-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent tracking children's vaccination schedule",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {"role": "user", "content": "Priya is due for her next set of vaccines in 3 months. Dr. Nguyen's office will call to schedule."},
+          {"role": "assistant", "content": "Priya's next vaccine round is due in about 3 months — around mid-April. Waiting for Dr. Nguyen's office to call. Should I flag this if we're past mid-April and you haven't mentioned it?"},
+          {"role": "user", "content": "Yes please, remind me if I haven't mentioned it by April 20th."},
+          {"role": "assistant", "content": "Noted. If Priya's vaccine appointment hasn't been mentioned by April 20th, I'll flag it."}
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {"role": "user", "content": "We got Priya's vaccine appointment scheduled. It's April 28th at 10 AM."},
+          {"role": "assistant", "content": "Priya's vaccine appointment is set: April 28th at 10 AM with Dr. Nguyen. That's well before the April 20th flag date — you're ahead of it."},
+          {"role": "user", "content": "Good. It's at the Riverside Pediatric Group office as usual."},
+          {"role": "assistant", "content": "April 28th, 10 AM, Riverside Pediatric Group. Priya's vaccines are on the calendar."}
+        ]
+      }
+    ],
+    "question": "When is Priya's vaccine appointment, and when was it scheduled relative to the original due date?",
+    "expected_answer": "Priya's vaccine appointment is April 28th at 10 AM at Riverside Pediatric Group. It was originally due around mid-April (3 months from January 15th), so it is slightly past the original due window but was scheduled on April 10th.",
+    "atomic_facts": [
+      "Vaccine appointment is April 28th",
+      "Appointment time is 10 AM",
+      "Location is Riverside Pediatric Group",
+      "Vaccines were originally due around mid-April",
+      "Appointment was scheduled on April 10th"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-temporal-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person tracking sleep improvement over time",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-05",
+        "turns": [
+          {"role": "user", "content": "New year goal: I want to average 7.5 hours of sleep per night by the end of February. I'm currently at 6 hours."},
+          {"role": "assistant", "content": "Going from 6 hours to 7.5 hours by end of February — an 8-week window. That's a 25% increase. Are you making any immediate changes?"},
+          {"role": "user", "content": "I'm starting by cutting off screen time at 9:30 PM."},
+          {"role": "assistant", "content": "9:30 PM screen curfew as the first lever. Goal: 7.5 hours average by February 28th."}
+        ]
+      },
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "February check-in: I averaged 7.2 hours. Not quite the 7.5 but much better than 6."},
+          {"role": "assistant", "content": "7.2 hours average — 1.2 hours gained from your January baseline of 6. You missed the 7.5 target by 18 minutes on average, but the trajectory is solid."},
+          {"role": "user", "content": "I'm going to keep the goal alive through March and see if I can hit 7.5 then."},
+          {"role": "assistant", "content": "Extended target: 7.5 hours average by end of March. Starting from 7.2 — a smaller gap now."}
+        ]
+      }
+    ],
+    "question": "What was this user's original sleep goal, baseline, and result at the February checkpoint?",
+    "expected_answer": "Original goal was to average 7.5 hours per night by end of February, up from a baseline of 6 hours. By the February checkpoint they averaged 7.2 hours — short of the target but significantly better than baseline. They extended the goal through March.",
+    "atomic_facts": [
+      "Original sleep goal was 7.5 hours average per night",
+      "Baseline sleep was 6 hours per night",
+      "Goal deadline was end of February",
+      "February average was 7.2 hours",
+      "Goal was extended through March"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-temporal-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member tracking weight goal over time",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-06",
+        "turns": [
+          {"role": "user", "content": "Starting weight today: 218 pounds. Goal is 200 pounds by July 1st. That's about 6 months."},
+          {"role": "assistant", "content": "Starting at 218, targeting 200 by July 1st — 18 pounds in 6 months, about 3 pounds per month. Steady and realistic. Logged January 6th as your start date."},
+          {"role": "user", "content": "My trainer Deshawn has me on a 500-calorie deficit per day combined with the gym work."},
+          {"role": "assistant", "content": "500-calorie daily deficit plus gym training with Deshawn. That approach aligns with the 3 pounds/month pace. All logged."}
+        ]
+      },
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {"role": "user", "content": "Three-month weigh-in: 209 pounds. Down 9 pounds. Slightly behind pace but I'm not worried."},
+          {"role": "assistant", "content": "209 pounds at the 3-month mark. You're 9 pounds down, which is 1 pound per month behind the 3-per-month pace — but 3 months to go means it's very catchable."},
+          {"role": "user", "content": "Deshawn says the last 9 pounds often come faster once you have the muscle base built."},
+          {"role": "assistant", "content": "9 pounds to go, 3 months left, Deshawn expects the pace to accelerate. July 1st target is still alive."}
+        ]
+      }
+    ],
+    "question": "What is this user's weight goal timeline, and where do they stand at the 3-month mark?",
+    "expected_answer": "The goal is to go from 218 to 200 pounds by July 1st (18 pounds in 6 months). At the 3-month mark on April 1st, they weighed 209 pounds — down 9 pounds, slightly behind the pace but with 3 months remaining.",
+    "atomic_facts": [
+      "Starting weight was 218 pounds on January 6th",
+      "Goal weight is 200 pounds",
+      "Goal deadline is July 1st",
+      "3-month check-in weight was 209 pounds",
+      "9 pounds lost in 3 months",
+      "9 pounds remaining to lose",
+      "Trainer is Deshawn"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner updating training schedule",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "My long run is on Sundays."},
+          {"role": "assistant", "content": "Got it — long run day is Sunday."}
+        ]
+      },
+      {
+        "date": "2026-03-20",
+        "turns": [
+          {"role": "user", "content": "I'm switching my long run to Saturdays. Sunday is becoming too hectic with family stuff."},
+          {"role": "assistant", "content": "Updated — long run moved from Sunday to Saturday. Family logistics win. Any change to distance or pace plans?"},
+          {"role": "user", "content": "No change on that. Just the day shifts."},
+          {"role": "assistant", "content": "Just the day, not the structure. Long run is now Saturday."}
+        ]
+      }
+    ],
+    "question": "What day is this user's long run currently scheduled for?",
+    "expected_answer": "Saturday. The long run was originally on Sunday but was moved to Saturday due to family schedule conflicts.",
+    "atomic_facts": [
+      "Long run was originally on Sunday",
+      "Long run was changed to Saturday",
+      "Reason for change was family schedule",
+      "Distance and pace structure did not change"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member updating trainer",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-06",
+        "turns": [
+          {"role": "user", "content": "My trainer at Iron Peak Gym is Deshawn."},
+          {"role": "assistant", "content": "Logged — trainer is Deshawn at Iron Peak Gym."}
+        ]
+      },
+      {
+        "date": "2026-02-15",
+        "turns": [
+          {"role": "user", "content": "Deshawn left the gym. I got reassigned to a new trainer named Keiko. She's been great so far."},
+          {"role": "assistant", "content": "Updated. Deshawn is no longer at Iron Peak — your new trainer is Keiko. Glad she's been a good fit. Same schedule?"},
+          {"role": "user", "content": "Same Monday and Wednesday 6 AM sessions."},
+          {"role": "assistant", "content": "Keiko, Monday and Wednesday, 6 AM at Iron Peak Gym. All updated."}
+        ]
+      }
+    ],
+    "question": "Who is this user's current trainer at Iron Peak Gym?",
+    "expected_answer": "Keiko. The original trainer Deshawn left the gym and the user was reassigned to Keiko, keeping the same Monday and Wednesday 6 AM schedule.",
+    "atomic_facts": [
+      "Original trainer was Deshawn",
+      "Deshawn left Iron Peak Gym",
+      "New trainer is Keiko",
+      "Schedule remains Monday and Wednesday at 6 AM"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person managing stable high blood pressure updating medication timing",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I take my blood pressure medication at 7:30 AM with breakfast."},
+          {"role": "assistant", "content": "Noted — BP medication at 7:30 AM with breakfast."}
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {"role": "user", "content": "My doctor changed my medication timing. I'm now supposed to take it at bedtime, not morning. She said evening dosing works better for my type."},
+          {"role": "assistant", "content": "Updated — medication timing shifted from 7:30 AM to bedtime, per your doctor's guidance. Do you have a consistent bedtime to anchor that to?"},
+          {"role": "user", "content": "I'll take it at 10 PM. That's when I go to bed."},
+          {"role": "assistant", "content": "BP medication is now at 10 PM with bedtime. Old 7:30 AM timing is replaced."}
+        ]
+      }
+    ],
+    "question": "When does this user currently take their blood pressure medication?",
+    "expected_answer": "At 10 PM (bedtime). The timing was changed by their doctor from the original 7:30 AM morning dose — the doctor indicated evening dosing works better for their type.",
+    "atomic_facts": [
+      "Original medication time was 7:30 AM",
+      "New medication time is 10 PM",
+      "Change was directed by the doctor",
+      "Reason is that evening dosing works better for their type",
+      "10 PM aligns with their bedtime"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent updating child's doctor",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "Priya's pediatrician is Dr. Nguyen at Riverside Pediatric Group."},
+          {"role": "assistant", "content": "Logged — Priya's pediatrician is Dr. Nguyen at Riverside Pediatric Group."}
+        ]
+      },
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {"role": "user", "content": "Dr. Nguyen retired. Priya is now seeing Dr. Alvarez at the same practice."},
+          {"role": "assistant", "content": "Updated. Dr. Nguyen has retired — Priya's new pediatrician is Dr. Alvarez, still at Riverside Pediatric Group. Same location, new doctor."},
+          {"role": "user", "content": "Exactly. We really liked Dr. Nguyen but Dr. Alvarez has been great too."},
+          {"role": "assistant", "content": "Smooth transition. Priya — Dr. Alvarez — Riverside Pediatric Group. All updated."}
+        ]
+      }
+    ],
+    "question": "Who is Priya's current pediatrician and where do they practice?",
+    "expected_answer": "Dr. Alvarez at Riverside Pediatric Group. Dr. Nguyen, the previous pediatrician, retired.",
+    "atomic_facts": [
+      "Previous pediatrician was Dr. Nguyen",
+      "Dr. Nguyen retired",
+      "Current pediatrician is Dr. Alvarez",
+      "Practice is Riverside Pediatric Group (unchanged)"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-interference-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner whose step goal changed",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "My daily step goal is 10,000 steps. I've had that goal for a year."},
+          {"role": "assistant", "content": "10,000 steps per day — a classic benchmark. You've been hitting that for a year?"},
+          {"role": "user", "content": "Pretty consistently, yeah."},
+          {"role": "assistant", "content": "Noted. Step goal is 10,000 per day."}
+        ]
+      },
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "I talked to my trainer and we agreed to raise my step goal to 12,000 per day now that I'm more active."},
+          {"role": "assistant", "content": "Step goal raised from 10,000 to 12,000 per day, per your trainer's recommendation. Updated."},
+          {"role": "user", "content": "Yeah, 10,000 felt too easy. 12,000 is the new floor."},
+          {"role": "assistant", "content": "12,000 is the new floor. 10,000 is retired."}
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {"role": "user", "content": "I was reading an article about how 10,000 steps became popular from a Japanese marketing campaign in the 1960s. Interesting history."},
+          {"role": "assistant", "content": "Yeah, the 10,000-step origin is a fun piece of fitness trivia — a pedometer brand named Manpo-kei. Doesn't mean it's wrong, but the science came after the marketing."},
+          {"role": "user", "content": "Ha, I never knew that. Anyway, staying on track with my walks this week."},
+          {"role": "assistant", "content": "Good. Keeping that 12,000-step streak going."}
+        ]
+      }
+    ],
+    "question": "What is this user's current daily step goal?",
+    "expected_answer": "12,000 steps per day. The user raised it from 10,000 to 12,000 in March. The April mention of 10,000 was about a historical article, not their goal.",
+    "atomic_facts": [
+      "Original step goal was 10,000 per day",
+      "Step goal was raised to 12,000 per day in March",
+      "12,000 is the current active goal",
+      "10,000 was mentioned later in an unrelated historical context"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-interference-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member whose gym location changed",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-06",
+        "turns": [
+          {"role": "user", "content": "I joined Iron Peak Gym on Harbor Boulevard."},
+          {"role": "assistant", "content": "Noted — Iron Peak Gym on Harbor Boulevard."}
+        ]
+      },
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {"role": "user", "content": "I switched gyms. I'm now going to Apex Fitness on Meridian Avenue. Iron Peak was too far."},
+          {"role": "assistant", "content": "Updated — switched from Iron Peak on Harbor Boulevard to Apex Fitness on Meridian Avenue. Closer to home?"},
+          {"role": "user", "content": "Yeah, Apex is only 5 minutes away. Much better."},
+          {"role": "assistant", "content": "Apex Fitness, Meridian Avenue, 5 minutes from home. Iron Peak is history."}
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {"role": "user", "content": "My friend just joined Iron Peak Gym on Harbor Boulevard. I told him it was a great gym, just too far for me."},
+          {"role": "assistant", "content": "Makes sense — Iron Peak is solid, just not convenient for your commute anymore. How's your friend liking it?"},
+          {"role": "user", "content": "He loves it. Anyway, I have a session at Apex tomorrow."},
+          {"role": "assistant", "content": "Apex session tomorrow — got it. Keiko or solo?"}
+        ]
+      }
+    ],
+    "question": "Where does this user currently work out?",
+    "expected_answer": "Apex Fitness on Meridian Avenue. They switched from Iron Peak Gym on Harbor Boulevard in February because it was too far. The March mention of Iron Peak was about a friend joining, not the user.",
+    "atomic_facts": [
+      "Original gym was Iron Peak Gym on Harbor Boulevard",
+      "Switched to Apex Fitness on Meridian Avenue in February",
+      "Apex Fitness is 5 minutes from home",
+      "Iron Peak was mentioned later in context of a friend, not the user"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-interference-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person tracking sleep whose target hours changed",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-10",
+        "turns": [
+          {"role": "user", "content": "My sleep target is 7 hours a night. I read that's the minimum for adults."},
+          {"role": "assistant", "content": "7 hours as your nightly target — treating it as the floor. Logged."},
+          {"role": "user", "content": "Yeah, 7 is my number."},
+          {"role": "assistant", "content": "7 hours. Got it."}
+        ]
+      },
+      {
+        "date": "2026-02-15",
+        "turns": [
+          {"role": "user", "content": "My doctor suggested I aim for 8 hours since I've been dealing with fatigue. She wants me to treat 7 as the bare minimum, not the target."},
+          {"role": "assistant", "content": "Updated — target is now 8 hours per night. 7 hours is the floor, per your doctor's recommendation based on the fatigue issue."},
+          {"role": "user", "content": "Right. 8 is the goal, 7 is the minimum."},
+          {"role": "assistant", "content": "8-hour target, 7-hour floor. Noted."}
+        ]
+      },
+      {
+        "date": "2026-03-20",
+        "turns": [
+          {"role": "user", "content": "I was telling my coworker that most sleep guidelines say 7 hours is the adult minimum. She's been sleeping only 5."},
+          {"role": "assistant", "content": "You're right that 7 is generally cited as the adult minimum — though your doctor bumped your personal target to 8. Five hours is well under any recommended threshold."},
+          {"role": "user", "content": "Exactly. I'm at 7.8 hours average this week, almost there."},
+          {"role": "assistant", "content": "7.8 hours average — close to your 8-hour target. Good trend."}
+        ]
+      }
+    ],
+    "question": "What is this user's current sleep target per their doctor's guidance?",
+    "expected_answer": "8 hours per night. Their doctor raised the target from 7 to 8 hours due to fatigue. The user's mention of 7 hours in the later session was in the context of general guidelines for their coworker, not their personal target.",
+    "atomic_facts": [
+      "Original sleep target was 7 hours",
+      "Doctor raised target to 8 hours due to fatigue",
+      "7 hours is now treated as the floor, not the target",
+      "8 hours is the current active target",
+      "The later mention of 7 hours referred to general adult guidelines for a coworker"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-update-interference-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent whose child's appointment location changed",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "Marcus's appointments are at Riverside Pediatric Group on Elm Street."},
+          {"role": "assistant", "content": "Logged — Marcus goes to Riverside Pediatric Group on Elm Street."}
+        ]
+      },
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "Riverside opened a second location on Oak Drive closer to our house. Marcus is switching there. Same practice, different office."},
+          {"role": "assistant", "content": "Updated — Marcus's appointments are now at the Riverside Pediatric Group Oak Drive location, not Elm Street. Same practice, new office."},
+          {"role": "user", "content": "Yes, and his appointment next month will be there."},
+          {"role": "assistant", "content": "Got it. Oak Drive for Marcus going forward."}
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {"role": "user", "content": "Priya still goes to the Elm Street location. She's used to it and Dr. Alvarez is based there."},
+          {"role": "assistant", "content": "Understood — Priya stays at Elm Street with Dr. Alvarez. Marcus is at Oak Drive. Same practice, split across locations."},
+          {"role": "user", "content": "Exactly. Two kids, two offices."},
+          {"role": "assistant", "content": "Marcus: Riverside Pediatric Group, Oak Drive. Priya: Riverside Pediatric Group, Elm Street. Both in the same system."}
+        ]
+      }
+    ],
+    "question": "Which Riverside Pediatric Group location does Marcus currently attend?",
+    "expected_answer": "The Oak Drive location. Marcus switched from the Elm Street location in March when the new office opened closer to home. Elm Street is now Priya's location.",
+    "atomic_facts": [
+      "Marcus originally attended Riverside Pediatric Group on Elm Street",
+      "Marcus switched to the Oak Drive location in March",
+      "Oak Drive is closer to home",
+      "Elm Street continues to be Priya's location"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-adversarial-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "I'm training for a 10K in June. Running four days a week, aiming for a sub-55-minute finish."},
+          {"role": "assistant", "content": "Sub-55 for a 10K in June — solid goal. What's your current 5K time as a reference point?"},
+          {"role": "user", "content": "Haven't timed a 5K recently. I'll do one next weekend to gauge."},
+          {"role": "assistant", "content": "Good plan. Baseline 5K time next weekend will help calibrate your pacing strategy."}
+        ]
+      }
+    ],
+    "question": "What is this user's current 5K personal best?",
+    "expected_answer": "I don't know. The user mentioned they haven't timed a 5K recently and planned to do a timed 5K the following weekend. No 5K time was ever stated.",
+    "atomic_facts": [
+      "No 5K time was ever stated by the user",
+      "User acknowledged not having timed a 5K recently",
+      "User planned to run a timed 5K the following weekend"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-adversarial-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person managing stable high blood pressure",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I take my blood pressure medication every morning. My doctor prescribed it last year."},
+          {"role": "assistant", "content": "Morning medication routine, prescribed last year. Do you want me to track anything specific about timing or conditions?"},
+          {"role": "user", "content": "Just that I take it with breakfast. That's the main thing to remember."},
+          {"role": "assistant", "content": "Medication with breakfast every morning. Got it."}
+        ]
+      }
+    ],
+    "question": "What is the name and dosage of this user's blood pressure medication?",
+    "expected_answer": "I don't know. The user only mentioned they take blood pressure medication every morning with breakfast. No medication name or dosage was ever stated.",
+    "atomic_facts": [
+      "Medication name was never stated",
+      "Dosage was never stated",
+      "Only known facts are: morning timing, with breakfast, prescribed last year"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-adversarial-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {"role": "user", "content": "I've been going to the gym three times a week. Feeling stronger already."},
+          {"role": "assistant", "content": "Three sessions a week is a strong foundation. How long have you been at it?"},
+          {"role": "user", "content": "About six weeks now since I joined in December."},
+          {"role": "assistant", "content": "Six weeks in and already feeling stronger — that's right on schedule."}
+        ]
+      }
+    ],
+    "question": "How much weight has this user lost since joining the gym?",
+    "expected_answer": "I don't know. The user mentioned feeling stronger but never discussed weight loss or shared any weight measurements.",
+    "atomic_facts": [
+      "No weight data was ever shared",
+      "User mentioned feeling stronger but no metrics were given",
+      "Weight loss was not a stated goal in this conversation"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-adversarial-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "parent tracking kids' appointments",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-02-14",
+        "turns": [
+          {"role": "user", "content": "Marcus has a dentist appointment coming up. I need to remember to schedule it — I haven't called yet."},
+          {"role": "assistant", "content": "Noted — Marcus needs a dentist appointment and you haven't called to schedule it yet. Do you have a dentist in mind?"},
+          {"role": "user", "content": "We use Bright Smiles Dental. I just keep forgetting to call."},
+          {"role": "assistant", "content": "Bright Smiles Dental — just need to make the call. I'll keep this flagged."}
+        ]
+      }
+    ],
+    "question": "When is Marcus's dentist appointment?",
+    "expected_answer": "I don't know. As of the conversation, the appointment had not been scheduled yet. The user said they needed to call Bright Smiles Dental but hadn't done so.",
+    "atomic_facts": [
+      "Appointment was not yet scheduled",
+      "User had not called to schedule as of the conversation",
+      "Dental practice is Bright Smiles Dental",
+      "No date or time was ever established"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-health-causal-0001",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "recreational runner investigating performance drops",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I've been skipping breakfast before my morning runs because I'm never hungry. Just coffee and out the door."},
+          {"role": "assistant", "content": "Coffee-only pre-run — some people do fine with that, others hit a wall around mile 3-4. How are your runs feeling?"},
+          {"role": "user", "content": "Actually they've been fine. No issues so far."},
+          {"role": "assistant", "content": "Okay. Noted — coffee only pre-run, feeling fine so far. Worth monitoring if you extend your distances."}
+        ]
+      },
+      {
+        "date": "2026-03-22",
+        "turns": [
+          {"role": "user", "content": "I hit a massive wall at mile 6 today. Legs just quit. I've never had that happen before."},
+          {"role": "assistant", "content": "Bonking at mile 6 is a classic fuel-depletion signal. What did you eat before the run?"},
+          {"role": "user", "content": "Just coffee, same as always. But today was my first run longer than 5 miles in a while."},
+          {"role": "assistant", "content": "There it is. Coffee-only fueling works under 5 miles but at 6+ miles your glycogen stores ran out. The skipped breakfast that was 'fine' at shorter distances became the cause of the wall today."}
+        ]
+      }
+    ],
+    "question": "What caused this user to hit a wall at mile 6, and when was the causal behavior first mentioned?",
+    "expected_answer": "The cause was running on coffee only without eating breakfast — a habit mentioned on March 1st. It had no apparent effect on shorter runs but caused glycogen depletion and bonking when the run extended to 6 miles on March 22nd.",
+    "atomic_facts": [
+      "User had been skipping breakfast and running on coffee only since at least March 1st",
+      "Coffee-only fueling was noted as fine for runs under 5 miles",
+      "On March 22nd the user ran longer than 5 miles for the first time in a while",
+      "User hit a wall at mile 6 on March 22nd",
+      "The causal link is insufficient fueling for longer distances"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-causal-0002",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person tracking sleep quality and lifestyle factors",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-05",
+        "turns": [
+          {"role": "user", "content": "I've started having a glass of wine most nights before bed. It helps me fall asleep faster."},
+          {"role": "assistant", "content": "It does often help with sleep onset, though it can fragment sleep in the second half of the night. Are you tracking sleep quality or just hours?"},
+          {"role": "user", "content": "Just hours for now. I fall asleep fast, which I like."},
+          {"role": "assistant", "content": "Noted — nightly wine before bed, falls asleep faster. Not tracking quality yet."}
+        ]
+      },
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I've been waking up at 3 AM almost every night for the past few weeks. I feel terrible in the mornings."},
+          {"role": "assistant", "content": "3 AM waking consistently is a real pattern. Has anything changed in the past few weeks — diet, stress, habits?"},
+          {"role": "user", "content": "Nothing major. Just the wine habit I started last month."},
+          {"role": "assistant", "content": "That's almost certainly the culprit. Alcohol helps you fall asleep but disrupts REM and causes early waking — the 3 AM wake-up is a textbook alcohol effect. The wine habit you started in early February lines up exactly with when this started."}
+        ]
+      }
+    ],
+    "question": "What behavior likely caused this user's 3 AM waking pattern, and when did that behavior start?",
+    "expected_answer": "The nightly glass of wine before bed, which the user began in early February. Alcohol helps with sleep onset but disrupts sleep in the second half of the night, causing the 3 AM waking that started after the wine habit began.",
+    "atomic_facts": [
+      "User started having nightly wine before bed in early February",
+      "User began waking at 3 AM almost every night after starting the wine habit",
+      "The causal link is alcohol's effect on second-half sleep quality",
+      "User noted 'nothing major' had changed except the wine habit"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-causal-0003",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "new gym member tracking knee discomfort",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "Keiko added leg press to my routine this week. It's a new exercise for me."},
+          {"role": "assistant", "content": "Leg press added to the program — noted. How are you feeling with it?"},
+          {"role": "user", "content": "A little sore after, but nothing bad. Normal muscle soreness I think."},
+          {"role": "assistant", "content": "Expected DOMS for a new exercise. Should settle after a few sessions."}
+        ]
+      },
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {"role": "user", "content": "My right knee has been aching after workouts. Started maybe two or three weeks ago."},
+          {"role": "assistant", "content": "Two to three weeks ago is right when Keiko added the leg press. Did the knee discomfort start around the same time as that new exercise?"},
+          {"role": "user", "content": "Yeah, now that I think about it, yes. Maybe it's related."},
+          {"role": "assistant", "content": "Likely related. The timing lines up — new leg press exercise February 1st, knee ache emerging shortly after. Worth flagging to Keiko and possibly having a doctor check your form or knee."}
+        ]
+      }
+    ],
+    "question": "What likely caused this user's right knee ache, and when was the potential cause introduced?",
+    "expected_answer": "The leg press exercise added by trainer Keiko on February 1st is the likely cause. The knee ache started approximately two to three weeks after the new exercise was introduced, with the timing lining up directly.",
+    "atomic_facts": [
+      "Leg press was added to the routine around February 1st",
+      "Right knee ache began approximately two to three weeks later",
+      "User confirmed the timing of the ache aligned with the new exercise",
+      "Trainer is Keiko"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-health-causal-0004",
+    "domain": "Health / Fitness / Medical",
+    "source_profile": "person managing stable high blood pressure tracking stress and readings",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {"role": "user", "content": "Work has been really stressful this week. Big project deadline on Friday. I've barely slept."},
+          {"role": "assistant", "content": "High stress plus poor sleep — tough combination. Are you keeping up with your walks and medication routine?"},
+          {"role": "user", "content": "Medication yes. Walks, not really. I've skipped the last three days."},
+          {"role": "assistant", "content": "Three days without walks, high stress, reduced sleep — your blood pressure routine is basically on pause this week."}
+        ]
+      },
+      {
+        "date": "2026-03-19",
+        "turns": [
+          {"role": "user", "content": "My home blood pressure reading this morning was higher than usual. 148/92. Normally I'm around 128/82."},
+          {"role": "assistant", "content": "148/92 is notably elevated versus your usual 128/82. Given what happened this past week — skipped walks, poor sleep, high stress — that spike makes sense. Those are all documented BP triggers."},
+          {"role": "user", "content": "I guess I should have kept up the walks even during the crunch."},
+          {"role": "assistant", "content": "The skipped walks plus stress plus sleep deficit almost certainly contributed. The good news is it's likely transient — resume the routine and monitor."}
+        ]
+      }
+    ],
+    "question": "What factors likely caused this user's elevated blood pressure reading, and when were those factors first noted?",
+    "expected_answer": "Three factors noted on March 15th: high work stress, poor sleep from a project deadline, and skipping three days of the daily walks required by Dr. Yamamoto. These converged to produce an elevated reading of 148/92 on March 19th versus the usual 128/82.",
+    "atomic_facts": [
+      "High work stress began around March 15th due to a Friday deadline",
+      "Sleep was poor during that period",
+      "User skipped three consecutive days of walks starting around March 15th",
+      "Elevated reading was 148/92 on March 19th",
+      "Normal reading is approximately 128/82",
+      "All three factors are known blood pressure triggers"
+    ],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  }
+]

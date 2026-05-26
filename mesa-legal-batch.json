@@ -1,0 +1,874 @@
+[
+  {
+    "id": "mesa-legal-recall-single-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance graphic designer with multiple client contracts",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "I just signed the contract with Apex Digital. The payment terms are net-30 from invoice date, and the project end date is June 15th. Wanted to log this somewhere I can refer back to."},
+          {"role": "assistant", "content": "Got it. Apex Digital contract: net-30 payment terms from invoice date, project end date June 15th. I'll remember that."},
+          {"role": "user", "content": "Perfect. The governing law clause is California, just so I have that on record too."},
+          {"role": "assistant", "content": "Noted — governing law is California for the Apex Digital contract."}
+        ]
+      }
+    ],
+    "question": "What are the payment terms in the Apex Digital contract?",
+    "expected_answer": "Net-30 from invoice date.",
+    "atomic_facts": ["Payment terms are net-30", "The 30-day period starts from invoice date", "This is for the Apex Digital contract"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-single-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter negotiating a residential lease",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-02-14",
+        "turns": [
+          {"role": "user", "content": "The landlord finally sent over the lease. It's a 12-month term starting March 1st and ending February 28th next year. Notice to vacate is 60 days written notice."},
+          {"role": "assistant", "content": "Lease terms logged: 12-month term from March 1st to February 28th, with a 60-day written notice to vacate requirement."},
+          {"role": "user", "content": "Right. And rent is $1,850 per month, due on the 1st with a 5-day grace period."},
+          {"role": "assistant", "content": "Got it — $1,850/month, due the 1st, 5-day grace period before any late fees."}
+        ]
+      }
+    ],
+    "question": "What is the required notice period to vacate in this lease?",
+    "expected_answer": "60 days written notice.",
+    "atomic_facts": ["Notice to vacate requires 60 days", "Notice must be in writing"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-single-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner reviewing vendor agreement",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "Signed the vendor agreement with PrintFlow today. Their liability cap is set at the total fees paid in the 12 months preceding any claim. Contract term is 2 years."},
+          {"role": "assistant", "content": "PrintFlow vendor agreement: 2-year term, liability cap equal to total fees paid in the 12 months before any claim."},
+          {"role": "user", "content": "Also there's an auto-renewal clause — it renews for 1-year terms unless either party gives 90 days notice before expiry."},
+          {"role": "assistant", "content": "Noted — auto-renews for 1-year terms, 90-day notice required to cancel before expiry."}
+        ]
+      }
+    ],
+    "question": "What is the liability cap in the PrintFlow vendor agreement?",
+    "expected_answer": "Total fees paid in the 12 months preceding any claim.",
+    "atomic_facts": ["Liability cap equals total fees paid", "The lookback period is 12 months prior to any claim", "This is the PrintFlow vendor agreement"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-single-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee reviewing workplace policy handbook",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {"role": "user", "content": "I read through the employee handbook today. The non-compete clause is 12 months post-employment and covers a 50-mile radius from our main office in Denver."},
+          {"role": "assistant", "content": "Non-compete logged: 12 months post-employment, 50-mile radius from the Denver main office."},
+          {"role": "user", "content": "And the data retention policy says employee records are kept for 7 years after termination."},
+          {"role": "assistant", "content": "Got it — employee records retained for 7 years post-termination per the handbook."}
+        ]
+      }
+    ],
+    "question": "What is the geographic scope of the non-compete clause in the employee handbook?",
+    "expected_answer": "50-mile radius from the main office in Denver.",
+    "atomic_facts": ["Non-compete geographic scope is 50 miles", "The reference point is the main office", "The main office is in Denver"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-preference-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance developer negotiating contract terms",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {"role": "user", "content": "I'm reviewing two contract offers. TechStart wants net-60 payment and I keep IP rights until final payment. BuildCo wants net-15 but they take IP on signing. I really prefer keeping IP control — that's non-negotiable for me."},
+          {"role": "assistant", "content": "Clear preference noted: IP control is your non-negotiable. TechStart's terms align better with that even with the longer payment window."},
+          {"role": "user", "content": "Exactly. I'd rather wait for money than lose my work. I'll probably go with TechStart unless BuildCo changes their IP clause."},
+          {"role": "assistant", "content": "Makes sense. I'll keep that in mind — IP ownership over faster payment is your priority."}
+        ]
+      }
+    ],
+    "question": "When choosing between contracts, what does this user prioritize over faster payment?",
+    "expected_answer": "Retaining IP (intellectual property) control over their work.",
+    "atomic_facts": ["User prioritizes IP control", "IP ownership is described as non-negotiable", "User prefers slower payment over losing IP rights"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-preference-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter researching lease options",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-01-12",
+        "turns": [
+          {"role": "user", "content": "I'm deciding between a month-to-month lease and a 12-month fixed lease. The fixed one is $200 cheaper per month but I lose flexibility. Honestly, I move around a lot for work, so flexibility matters more to me than saving money right now."},
+          {"role": "assistant", "content": "Noted — given your work travel, you're prioritizing lease flexibility over the $200/month savings."},
+          {"role": "user", "content": "Yeah, being locked in for 12 months gives me anxiety. Month-to-month it is, even at the higher rate."},
+          {"role": "assistant", "content": "Got it. Month-to-month is your preference — flexibility over cost savings."}
+        ]
+      }
+    ],
+    "question": "What does this user value more when choosing a lease: cost savings or flexibility?",
+    "expected_answer": "Flexibility — the user explicitly prioritizes flexibility over saving $200/month because they move frequently for work.",
+    "atomic_facts": ["User prefers flexibility over cost savings", "Fixed lease would save $200/month", "User moves frequently for work", "User chose month-to-month despite higher cost"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-preference-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner choosing between NDA templates",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {"role": "user", "content": "Looking at two NDA templates for my vendor discussions. Template A has a 1-year confidentiality period, Template B has 3 years. I always go with longer confidentiality windows — my product ideas take time to develop and I don't want anything leaking before I'm ready."},
+          {"role": "assistant", "content": "Preference noted: you favor longer confidentiality periods, specifically Template B at 3 years, because your development timelines are long."},
+          {"role": "user", "content": "Exactly. One year feels like nothing. I need more protection than that."},
+          {"role": "assistant", "content": "Understood — 3-year NDA terms are your default preference for vendor discussions."}
+        ]
+      }
+    ],
+    "question": "What NDA confidentiality duration does this user prefer and why?",
+    "expected_answer": "3 years (longer terms), because their product development timelines are long and they need more protection before ideas are ready.",
+    "atomic_facts": ["User prefers 3-year confidentiality periods", "User considers 1-year insufficient", "Reason is long product development timelines", "User wants protection until products are ready to launch"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-preference-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance consultant reviewing dispute resolution clauses",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {"role": "user", "content": "My new contract has a dispute resolution clause — either arbitration or court litigation. I hate arbitration. Had a nightmare experience with it two years ago where I felt I had no recourse. Give me a courtroom over private arbitration any day."},
+          {"role": "assistant", "content": "Strong preference logged: you oppose arbitration clauses based on a bad past experience, and prefer litigation in court for dispute resolution."},
+          {"role": "user", "content": "If a client insists on mandatory arbitration, that's probably a dealbreaker for me."},
+          {"role": "assistant", "content": "Noted — mandatory arbitration clauses are a potential dealbreaker for you in contract negotiations."}
+        ]
+      }
+    ],
+    "question": "How does this user feel about mandatory arbitration clauses in contracts?",
+    "expected_answer": "The user opposes mandatory arbitration and considers it a potential dealbreaker, preferring court litigation based on a negative prior arbitration experience.",
+    "atomic_facts": ["User opposes mandatory arbitration", "User prefers court litigation", "User had a negative arbitration experience two years ago", "Mandatory arbitration is a potential dealbreaker for this user"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-constraint-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance writer under NDA with a media company",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "Signed an NDA with Meridian Media today. I cannot discuss any story pitches, editorial strategies, or internal data I encounter during my engagement. The NDA runs for 2 years from the signing date."},
+          {"role": "assistant", "content": "NDA with Meridian Media logged: 2-year term from today (February 1st), covering story pitches, editorial strategies, and internal data."},
+          {"role": "user", "content": "Right. And there's a non-disparagement clause too — I can't publicly criticize the company or its executives during or after engagement."},
+          {"role": "assistant", "content": "Non-disparagement clause noted — applies both during and after your engagement with Meridian Media."}
+        ]
+      }
+    ],
+    "question": "What specific types of information is this user prohibited from disclosing under the Meridian Media NDA?",
+    "expected_answer": "Story pitches, editorial strategies, and internal data encountered during the engagement.",
+    "atomic_facts": ["NDA covers story pitches", "NDA covers editorial strategies", "NDA covers internal data", "Restriction applies to information encountered during engagement", "NDA is with Meridian Media"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-constraint-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner subject to GDPR compliance requirements",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {"role": "user", "content": "My privacy consultant told me that under GDPR, since I collect EU customer emails, I have to get explicit opt-in consent before sending marketing emails. Pre-ticked boxes don't count. And I can only retain their data for as long as the purpose requires — I've set a 2-year max for inactive customers."},
+          {"role": "assistant", "content": "GDPR constraints logged: explicit opt-in required for EU marketing emails (no pre-ticked boxes), and inactive customer data must be deleted after 2 years maximum."},
+          {"role": "user", "content": "Also, if someone requests deletion, I have to honor it within 30 days. That's my understanding anyway."},
+          {"role": "assistant", "content": "Noted — deletion requests from EU customers must be honored within 30 days."}
+        ]
+      }
+    ],
+    "question": "Under this user's GDPR setup, how long can they retain data for inactive customers?",
+    "expected_answer": "A maximum of 2 years.",
+    "atomic_facts": ["Data retention limit for inactive customers is 2 years maximum", "This was set by the user based on GDPR guidance", "Deletion requests must be honored within 30 days"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-constraint-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee bound by workplace IP policy",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-01-08",
+        "turns": [
+          {"role": "user", "content": "HR walked me through the IP assignment clause in my employment contract. Anything I create using company resources or during work hours belongs to the company. But personal projects done on my own time and equipment are mine, as long as they don't compete with our core business."},
+          {"role": "assistant", "content": "IP constraint noted: work created with company resources or during work hours is company-owned. Personal projects on personal time and equipment remain yours, provided they don't compete with the company's core business."},
+          {"role": "user", "content": "The 'core business' part is fuzzy though. I'm going to ask HR to clarify what that means in writing."},
+          {"role": "assistant", "content": "Good move — getting that clarification in writing will prevent ambiguity later."}
+        ]
+      }
+    ],
+    "question": "Under this employee's IP policy, what conditions allow them to retain ownership of personal projects?",
+    "expected_answer": "The project must be done on their own time and using personal equipment, and must not compete with the company's core business.",
+    "atomic_facts": ["Personal projects must be done on own time", "Personal projects must use personal equipment", "Projects must not compete with company's core business", "Projects meeting all three conditions belong to the employee"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-recall-constraint-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance photographer with client usage rights restrictions",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-04-22",
+        "turns": [
+          {"role": "user", "content": "I finalized the usage rights with Bloom Events for their wedding photos. They get personal use rights only — no commercial use whatsoever. They can print and share on personal social accounts but cannot use images in paid advertising, sell them, or license them to third parties."},
+          {"role": "assistant", "content": "Usage rights for Bloom Events logged: personal use only. Permitted: printing, personal social sharing. Prohibited: commercial use, paid advertising, selling, third-party licensing."},
+          {"role": "user", "content": "And I retain the copyright and the right to use the images in my portfolio."},
+          {"role": "assistant", "content": "Confirmed — you retain copyright and portfolio usage rights for all Bloom Events wedding photos."}
+        ]
+      }
+    ],
+    "question": "What is Bloom Events prohibited from doing with the wedding photos under this contract?",
+    "expected_answer": "Commercial use, use in paid advertising, selling the images, or licensing them to third parties.",
+    "atomic_facts": ["Bloom Events cannot use images commercially", "Images cannot appear in paid advertising", "Images cannot be sold", "Images cannot be licensed to third parties", "Photographer retains copyright"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-synthesis-multi-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance developer managing multiple client contracts",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-10",
+        "turns": [
+          {"role": "user", "content": "I signed with Orbis Inc. today. Payment is net-45, IP transfers to them on final payment, and the contract runs through August 31st."},
+          {"role": "assistant", "content": "Orbis Inc. contract logged: net-45 payment, IP transfers on final payment, end date August 31st."}
+        ]
+      },
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "Got another contract — this one's with NovaCraft. Net-15 payment, I keep IP rights permanently, and the engagement ends May 15th. Much better terms on the IP side."},
+          {"role": "assistant", "content": "NovaCraft contract logged: net-15 payment, you retain IP permanently, end date May 15th."}
+        ]
+      }
+    ],
+    "question": "Comparing the Orbis Inc. and NovaCraft contracts, which has faster payment terms and who retains IP rights in each?",
+    "expected_answer": "NovaCraft has faster payment terms (net-15 vs. net-45). For IP: Orbis Inc. takes IP upon final payment; NovaCraft allows the user to retain IP permanently.",
+    "atomic_facts": ["Orbis Inc. payment terms are net-45", "NovaCraft payment terms are net-15", "NovaCraft payment is faster", "Orbis Inc. takes IP on final payment", "User retains IP permanently with NovaCraft"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-synthesis-multi-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner with multiple vendor contracts",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {"role": "user", "content": "Signed with CloudBase for hosting. The SLA guarantees 99.9% uptime. If they breach, I get service credits — not cash refunds. Governing law is Delaware."},
+          {"role": "assistant", "content": "CloudBase SLA noted: 99.9% uptime guarantee, breach remedies are service credits only (no cash), governing law is Delaware."}
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "turns": [
+          {"role": "user", "content": "Now I'm adding a second vendor — DataVault for backups. Their SLA is 99.5% uptime. If they breach, I can terminate with 30 days notice and get a prorated refund. Governing law is New York."},
+          {"role": "assistant", "content": "DataVault SLA logged: 99.5% uptime, breach allows termination with 30-day notice plus prorated refund, governing law New York."}
+        ]
+      }
+    ],
+    "question": "Which vendor offers stronger breach remedies for the user — CloudBase or DataVault — and what is each vendor's remedy?",
+    "expected_answer": "DataVault offers stronger remedies: the user can terminate with 30-day notice and get a prorated refund. CloudBase only provides service credits with no cash refunds.",
+    "atomic_facts": ["CloudBase breach remedy is service credits only", "No cash refunds from CloudBase on breach", "DataVault breach allows termination with 30-day notice", "DataVault breach remedy includes prorated refund", "DataVault remedies are more favorable to the user"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-synthesis-multi-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee tracking competing job offer terms",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-03-20",
+        "turns": [
+          {"role": "user", "content": "Got an offer from Harmon Group. Non-compete is 18 months, covers the entire US, and my start date would be April 15th."},
+          {"role": "assistant", "content": "Harmon Group offer: 18-month non-compete, nationwide scope, start date April 15th."}
+        ]
+      },
+      {
+        "date": "2026-03-25",
+        "turns": [
+          {"role": "user", "content": "Also got an offer from Lindale Co. Their non-compete is just 6 months and limited to the state of Texas. Start date March 31st."},
+          {"role": "assistant", "content": "Lindale Co. offer: 6-month non-compete, Texas only, start date March 31st."}
+        ]
+      }
+    ],
+    "question": "Between Harmon Group and Lindale Co., which offer has the more restrictive non-compete and what are the differences?",
+    "expected_answer": "Harmon Group has the more restrictive non-compete: 18 months vs. 6 months, and nationwide scope vs. Texas only for Lindale Co.",
+    "atomic_facts": ["Harmon Group non-compete is 18 months", "Harmon Group non-compete covers the entire US", "Lindale Co. non-compete is 6 months", "Lindale Co. non-compete is limited to Texas", "Harmon Group terms are more restrictive on both duration and geography"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-synthesis-multi-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter comparing lease renewal offers from landlord",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {"role": "user", "content": "Landlord offered me two renewal options. Option A: 12-month lease at $1,950/month, same 60-day notice to vacate. Option B: month-to-month at $2,100/month with 30-day notice to vacate."},
+          {"role": "assistant", "content": "Renewal options logged. Option A: 12 months, $1,950/month, 60-day notice. Option B: month-to-month, $2,100/month, 30-day notice."}
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {"role": "user", "content": "I have a job interview that might relocate me. If I get the job I'd need to move in about 4-5 months. That's the main factor in my decision."},
+          {"role": "assistant", "content": "Noted — potential relocation in 4-5 months is the key decision factor for your lease renewal choice."}
+        ]
+      }
+    ],
+    "question": "Given the user's situation, which lease renewal option likely fits their needs better and what are the financial and notice term differences?",
+    "expected_answer": "Option B (month-to-month) likely fits better given the potential relocation in 4-5 months, since it avoids a 12-month lock-in. However it costs $150/month more ($2,100 vs. $1,950) and requires only 30-day notice to vacate vs. 60 days for Option A.",
+    "atomic_facts": ["Option A is 12 months at $1,950/month with 60-day notice", "Option B is month-to-month at $2,100/month with 30-day notice", "Option B costs $150/month more", "User may need to relocate in 4-5 months", "Option B avoids 12-month lock-in relevant to possible relocation"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-temporal-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance designer tracking contract deadlines",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-05",
+        "turns": [
+          {"role": "user", "content": "I signed the Westbridge contract today. The NDA that comes with it runs for exactly 3 years from the signing date. I need to remember when that expires."},
+          {"role": "assistant", "content": "NDA signed January 5th, 2026 — expires January 5th, 2029."},
+          {"role": "user", "content": "Great. And the project itself ends April 30th, 2026, with deliverables due 2 weeks before that."},
+          {"role": "assistant", "content": "Deliverables due April 16th, project end date April 30th, 2026."}
+        ]
+      }
+    ],
+    "question": "When does the Westbridge NDA expire?",
+    "expected_answer": "January 5th, 2029 — 3 years from the signing date of January 5th, 2026.",
+    "atomic_facts": ["NDA was signed January 5th 2026", "NDA duration is 3 years", "NDA expires January 5th 2029"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-temporal-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner with auto-renewing software contract",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {"role": "user", "content": "I want to cancel my subscription with FlowTools but I keep forgetting the deadline. The contract renews annually on July 1st and I need to give 45 days notice to cancel. I need to send that notice by mid-May at the latest."},
+          {"role": "assistant", "content": "Cancellation deadline calculated: you need to notify FlowTools by May 17th at the latest (45 days before the July 1st renewal)."},
+          {"role": "user", "content": "Good. Set a mental note for that — I always miss these things."},
+          {"role": "assistant", "content": "Noted — May 17th is your hard deadline to cancel FlowTools before the July 1st auto-renewal."}
+        ]
+      }
+    ],
+    "question": "By what date must this user notify FlowTools to cancel before the contract auto-renews?",
+    "expected_answer": "By May 17th (45 days before the July 1st renewal date).",
+    "atomic_facts": ["FlowTools contract renews July 1st", "Required notice period is 45 days", "Cancellation notice deadline is May 17th"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-temporal-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter tracking lease end and renewal window",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "My lease ends September 30th. The landlord said if I want to renew, I need to give written notice of intent to renew 90 days before the end date. I'm trying to figure out the exact date I need to decide by."},
+          {"role": "assistant", "content": "Your renewal notice deadline is July 2nd — 90 days before September 30th."},
+          {"role": "user", "content": "July 2nd. Got it. And if I don't give notice by then, the lease just ends and I'm out?"},
+          {"role": "assistant", "content": "Correct — if you don't notify by July 2nd, the lease terminates September 30th with no automatic renewal."}
+        ]
+      }
+    ],
+    "question": "What is the deadline for the user to give written notice of intent to renew their lease?",
+    "expected_answer": "July 2nd — 90 days before the September 30th lease end date.",
+    "atomic_facts": ["Lease ends September 30th", "Renewal notice must be given 90 days before end date", "Renewal notice deadline is July 2nd", "Failure to notify means lease terminates on September 30th"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-temporal-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee tracking probationary period end date",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-04-15",
+        "turns": [
+          {"role": "user", "content": "Started my new job today. There's a 90-day probationary period before I get full benefits and the standard termination protections kick in. I want to track when that ends."},
+          {"role": "assistant", "content": "Probationary period started April 15th — it ends July 14th, 2026, when full benefits and termination protections activate."},
+          {"role": "user", "content": "Perfect. And during probation, they can terminate with just 1 week notice instead of the standard 4 weeks."},
+          {"role": "assistant", "content": "Got it — during probation (until July 14th) termination notice is 1 week; after that, the standard 4-week notice applies."}
+        ]
+      }
+    ],
+    "question": "When does this employee's probationary period end?",
+    "expected_answer": "July 14th, 2026 — 90 days after the April 15th start date.",
+    "atomic_facts": ["Start date was April 15th 2026", "Probationary period is 90 days", "Probationary period ends July 14th 2026", "Full benefits and termination protections begin July 14th"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-update-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance consultant tracking amended contract terms",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "The Kellner Group contract is net-30 payment terms. Just logging that for reference."},
+          {"role": "assistant", "content": "Kellner Group payment terms: net-30. Logged."}
+        ]
+      },
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "Quick update — Kellner Group agreed to amend the contract to net-15. We signed the amendment today. So the payment terms have changed."},
+          {"role": "assistant", "content": "Updated: Kellner Group payment terms are now net-15, effective today March 10th per the signed amendment. Previous terms were net-30."}
+        ]
+      }
+    ],
+    "question": "What are the current payment terms in the Kellner Group contract?",
+    "expected_answer": "Net-15, as amended on March 10th. The original terms of net-30 were superseded by a signed amendment.",
+    "atomic_facts": ["Original payment terms were net-30", "Amendment signed March 10th 2026", "Current payment terms are net-15", "Net-15 supersedes the original net-30 terms"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter whose landlord revised lease notice terms",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "My lease says 30-day notice to vacate. That's the original term."},
+          {"role": "assistant", "content": "Lease notice to vacate: 30 days. Logged."}
+        ]
+      },
+      {
+        "date": "2026-02-15",
+        "turns": [
+          {"role": "user", "content": "Landlord sent a lease addendum. We agreed to change the notice period to 60 days since I asked for more predictability. Signed it today."},
+          {"role": "assistant", "content": "Lease addendum signed February 15th: notice to vacate is now 60 days, up from the original 30 days."}
+        ]
+      }
+    ],
+    "question": "What is the current notice-to-vacate period in this renter's lease?",
+    "expected_answer": "60 days, as updated by a signed addendum on February 15th. The original 30-day term was replaced.",
+    "atomic_facts": ["Original notice period was 30 days", "Addendum signed February 15th 2026", "Current notice period is 60 days", "Renter requested the change for more predictability"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner renegotiating vendor contract duration",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-10",
+        "turns": [
+          {"role": "user", "content": "The Zenith Supply agreement is a 1-year contract. Logging that."},
+          {"role": "assistant", "content": "Zenith Supply contract: 1-year term. Logged."}
+        ]
+      },
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {"role": "user", "content": "I renegotiated with Zenith. They offered better pricing if I commit to 2 years. I took the deal and signed the new agreement today. The contract term is now 2 years from the original start date."},
+          {"role": "assistant", "content": "Zenith Supply contract updated: term is now 2 years from the original start date (January 10th, 2026), expiring January 10th, 2028. Previous term was 1 year."}
+        ]
+      }
+    ],
+    "question": "What is the current contract term with Zenith Supply?",
+    "expected_answer": "2 years from the original start date (January 10th, 2026), expiring January 10th, 2028. The original 1-year term was renegotiated for better pricing.",
+    "atomic_facts": ["Original term was 1 year", "Renegotiated to 2 years for better pricing", "New agreement signed March 1st 2026", "2-year term runs from original start date January 10th 2026", "Contract expires January 10th 2028"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee whose non-compete was modified in a contract revision",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "My employment agreement originally had a 24-month non-compete. I'm logging that as the baseline."},
+          {"role": "assistant", "content": "Employment non-compete: 24 months. Logged as baseline."}
+        ]
+      },
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {"role": "user", "content": "HR agreed to reduce my non-compete to 12 months as part of my promotion package. New contract signed today."},
+          {"role": "assistant", "content": "Non-compete updated: 12 months as of April 1st promotion contract. The original 24-month term is no longer in effect."}
+        ]
+      }
+    ],
+    "question": "What is the current non-compete duration in this employee's contract?",
+    "expected_answer": "12 months, as revised in the promotion contract signed April 1st. The original 24-month term was reduced.",
+    "atomic_facts": ["Original non-compete was 24 months", "Non-compete reduced to 12 months as part of promotion package", "New contract signed April 1st 2026", "24-month term is no longer in effect"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-interference-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance developer whose payment terms were updated",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {"role": "user", "content": "The Arclight contract is net-60. Logging for reference."},
+          {"role": "assistant", "content": "Arclight contract payment terms: net-60. Logged."}
+        ]
+      },
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {"role": "user", "content": "Good news — Arclight agreed to change to net-30. Signed the amendment today."},
+          {"role": "assistant", "content": "Arclight payment terms updated to net-30 per signed amendment dated February 20th. Previous terms were net-60."}
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {"role": "user", "content": "I'm comparing how my different clients handle invoicing. Arclight used to be my worst — they were on net-60 originally before we renegotiated. Comparing that to Prism Co which is still on net-45."},
+          {"role": "assistant", "content": "Right — Arclight originally had net-60 terms before the February amendment. Prism Co remains at net-45, so Arclight is now better on payment speed."}
+        ]
+      }
+    ],
+    "question": "What are the current payment terms for the Arclight contract?",
+    "expected_answer": "Net-30, as amended on February 20th. The original net-60 terms were superseded. The April conversation mentioning net-60 referred to the old terms historically, not the current ones.",
+    "atomic_facts": ["Original Arclight terms were net-60", "Amendment signed February 20th changed terms to net-30", "Current terms are net-30", "April conversation referenced old net-60 terms in historical context only"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-interference-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter whose notice period was changed then referenced historically",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-05",
+        "turns": [
+          {"role": "user", "content": "Lease says 30-day notice to vacate. Baseline logged."},
+          {"role": "assistant", "content": "Notice to vacate: 30 days. Logged."}
+        ]
+      },
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "Landlord agreed to extend it to 45 days after I pushed back. Signed the addendum yesterday."},
+          {"role": "assistant", "content": "Notice to vacate updated to 45 days per addendum signed January 31st."}
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {"role": "user", "content": "Talking to a friend about their lease — they've got 30 days notice like I originally had before the landlord agreed to change it. My old 30-day setup felt so short."},
+          {"role": "assistant", "content": "Yeah, 30 days goes fast. Good that you negotiated yours up to 45 days."}
+        ]
+      }
+    ],
+    "question": "What is this renter's current notice-to-vacate period?",
+    "expected_answer": "45 days, per the addendum signed January 31st. The 30-day figure mentioned in the April session referred to the original, superseded terms.",
+    "atomic_facts": ["Original notice period was 30 days", "Addendum changed it to 45 days (signed January 31st)", "Current notice period is 45 days", "April reference to 30 days was historical context about old terms"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-interference-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner whose vendor liability cap changed",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "Vendor contract with SkyBridge has a liability cap of $5,000. That's the original cap."},
+          {"role": "assistant", "content": "SkyBridge liability cap: $5,000. Logged."}
+        ]
+      },
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {"role": "user", "content": "After a dispute we renegotiated. SkyBridge agreed to raise the liability cap to $15,000 in the revised contract. Signed and done."},
+          {"role": "assistant", "content": "SkyBridge liability cap updated to $15,000 per revised contract signed March 5th. Previous cap was $5,000."}
+        ]
+      },
+      {
+        "date": "2026-05-01",
+        "turns": [
+          {"role": "user", "content": "I was reviewing my old vendor contracts earlier and remembered that SkyBridge originally only had a $5,000 cap. I fought hard to get that changed."},
+          {"role": "assistant", "content": "Yes, the original $5,000 cap was the starting point — you successfully renegotiated it to $15,000 in March."}
+        ]
+      }
+    ],
+    "question": "What is the current liability cap in the SkyBridge vendor contract?",
+    "expected_answer": "$15,000, per the revised contract signed March 5th. The original $5,000 cap was replaced after renegotiation.",
+    "atomic_facts": ["Original SkyBridge liability cap was $5,000", "Revised contract signed March 5th 2026 raised cap to $15,000", "Current liability cap is $15,000", "May session's $5,000 reference was historical, referring to the original cap"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-update-interference-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee whose NDA duration was amended and later referenced historically",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-10",
+        "turns": [
+          {"role": "user", "content": "My NDA with my employer runs for 1 year post-employment. Logging the original term."},
+          {"role": "assistant", "content": "NDA post-employment term: 1 year. Logged."}
+        ]
+      },
+      {
+        "date": "2026-02-28",
+        "turns": [
+          {"role": "user", "content": "My lawyer suggested I push back on the NDA length — I negotiated it down from 1 year to 6 months post-employment. New agreement signed today."},
+          {"role": "assistant", "content": "NDA post-employment term updated: now 6 months, per agreement signed February 28th. Previous term was 1 year."}
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "turns": [
+          {"role": "user", "content": "A colleague asked me about NDA enforcement — I told her my original NDA had a 1-year post-employment clause, which is pretty typical for this industry."},
+          {"role": "assistant", "content": "Right — 1 year is common. Yours started there before you got it reduced to 6 months."}
+        ]
+      }
+    ],
+    "question": "What is the current post-employment NDA duration in this employee's agreement?",
+    "expected_answer": "6 months, per the agreement signed February 28th. The 1-year figure mentioned in the April session was the original, now-superseded term.",
+    "atomic_facts": ["Original NDA post-employment term was 1 year", "Renegotiated to 6 months, new agreement signed February 28th", "Current NDA term is 6 months", "April reference to 1 year was describing the original term, not the current one"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-adversarial-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance designer asking about a contract never discussed",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {"role": "user", "content": "I've got contracts with two clients right now — Apex for logo work and Bright Studio for a branding project. Apex is net-30 and Bright is net-45."},
+          {"role": "assistant", "content": "Logged: Apex payment terms net-30, Bright Studio payment terms net-45."},
+          {"role": "user", "content": "Good. That's all I need for now."},
+          {"role": "assistant", "content": "Got it — let me know if anything changes."}
+        ]
+      }
+    ],
+    "question": "What are the payment terms in the user's contract with Summit Creative?",
+    "expected_answer": "I don't know — no contract with Summit Creative has been mentioned or discussed in any session.",
+    "atomic_facts": ["No Summit Creative contract has been mentioned", "Only Apex (net-30) and Bright Studio (net-45) contracts were discussed"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-adversarial-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter who discussed lease start but not the penalty clause",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-02-10",
+        "turns": [
+          {"role": "user", "content": "Got my lease — starting March 1st, 12-month term, $1,800/month. 60-day notice to vacate."},
+          {"role": "assistant", "content": "Lease logged: March 1st start, 12-month term, $1,800/month, 60-day notice to vacate."},
+          {"role": "user", "content": "Yep, all set."},
+          {"role": "assistant", "content": "Let me know if you need to reference any of these terms."}
+        ]
+      }
+    ],
+    "question": "What is the early termination penalty in this renter's lease?",
+    "expected_answer": "I don't know — the early termination penalty was never mentioned or discussed in any session.",
+    "atomic_facts": ["No early termination penalty was discussed", "Only start date, duration, rent amount, and notice period were logged"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-adversarial-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner who discussed one vendor contract",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-01-25",
+        "turns": [
+          {"role": "user", "content": "Signed with TerraFirm for landscaping services. It's a 1-year contract, $500/month. No auto-renewal."},
+          {"role": "assistant", "content": "TerraFirm contract: 1-year, $500/month, no auto-renewal. Logged."},
+          {"role": "user", "content": "Perfect."},
+          {"role": "assistant", "content": "All set."}
+        ]
+      }
+    ],
+    "question": "What is the indemnification clause in the TerraFirm contract?",
+    "expected_answer": "I don't know — the indemnification clause in the TerraFirm contract was never discussed.",
+    "atomic_facts": ["No indemnification clause details were discussed", "Only contract duration, price, and auto-renewal terms were mentioned for TerraFirm"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-adversarial-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee who discussed their own contract but not a colleague's",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-03-20",
+        "turns": [
+          {"role": "user", "content": "My employment contract has a 12-month non-compete and a 6-month NDA post-employment. Governing law is New York."},
+          {"role": "assistant", "content": "Your employment contract: 12-month non-compete, 6-month post-employment NDA, governing law New York. Logged."},
+          {"role": "user", "content": "My colleague Sara mentioned she has different terms but didn't share details."},
+          {"role": "assistant", "content": "Understood — I only have your terms on record, not Sara's."}
+        ]
+      }
+    ],
+    "question": "What non-compete terms does Sara have in her employment contract?",
+    "expected_answer": "I don't know — Sara's contract terms were never shared or discussed. Only the user's own terms are on record.",
+    "atomic_facts": ["Sara's contract terms were never shared", "Sara only mentioned having different terms without specifics", "Only user's non-compete (12 months) and NDA (6 months) are on record"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-legal-causal-0001",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Freelance developer whose client triggered a contract penalty",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-15",
+        "turns": [
+          {"role": "user", "content": "My contract with Duskline has a late payment clause: if they pay more than 15 days past the net-30 due date, I'm entitled to charge 1.5% monthly interest on the outstanding balance."},
+          {"role": "assistant", "content": "Duskline late payment clause logged: 1.5% monthly interest applies if payment is more than 15 days past the net-30 due date."}
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {"role": "user", "content": "Duskline still hasn't paid Invoice #12 from March 1st. It's been 40 days since the invoice, so 10 days past the late payment trigger. I'm going to charge the interest."},
+          {"role": "assistant", "content": "Invoice #12 is 40 days old, which is 10 days past the 30-day net term plus the 15-day grace period. You're entitled to apply the 1.5% monthly interest."},
+          {"role": "user", "content": "Good. Sending them a notice today."},
+          {"role": "assistant", "content": "Good move — the interest clause is clearly triggered at this point."}
+        ]
+      }
+    ],
+    "question": "Why is this user entitled to charge Duskline interest on Invoice #12?",
+    "expected_answer": "Because the contract includes a late payment clause entitling 1.5% monthly interest when payment is more than 15 days past the net-30 due date, and Invoice #12 from March 1st has been unpaid for 40 days — 10 days past the trigger threshold.",
+    "atomic_facts": ["Contract includes 1.5% monthly interest for late payments", "Late payment trigger is 15 days past net-30 due date", "Invoice #12 was issued March 1st", "Invoice is 40 days old as of April 10th", "10 days past the trigger threshold means interest clause is activated"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-causal-0002",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Renter facing early termination after job loss",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {"role": "user", "content": "My lease has a hardship clause: if I lose my job and provide documentation, I can break the lease with 30-day notice and no early termination fee."},
+          {"role": "assistant", "content": "Hardship clause logged: job loss with documentation allows lease termination with 30-day notice and no penalty."}
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {"role": "user", "content": "I got laid off today. I'm going to invoke the hardship clause in my lease to avoid the early termination fee."},
+          {"role": "assistant", "content": "That triggers the hardship clause — you'll need to provide documentation of the job loss and give 30 days notice. No early termination fee applies."},
+          {"role": "user", "content": "Exactly. I just need to get my layoff letter from HR."},
+          {"role": "assistant", "content": "Get the letter, submit it with your 30-day notice, and you're covered."}
+        ]
+      }
+    ],
+    "question": "Why is this renter able to break their lease without an early termination fee?",
+    "expected_answer": "Because the lease contains a hardship clause allowing fee-free termination with 30-day notice if the tenant loses their job and provides documentation. The renter was laid off, which triggers this clause.",
+    "atomic_facts": ["Lease includes a hardship clause for job loss", "Hardship clause requires documentation of job loss", "Hardship clause allows 30-day notice termination with no fee", "Renter was laid off on March 15th, triggering the clause"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-causal-0003",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Small business owner whose vendor triggered a termination clause",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {"role": "user", "content": "The contract with Greenfield Supplies has a termination for cause clause: if they miss 2 consecutive deliveries, I can terminate immediately with no penalty."},
+          {"role": "assistant", "content": "Greenfield termination clause: 2 consecutive missed deliveries allow immediate termination with no penalty."}
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "turns": [
+          {"role": "user", "content": "Greenfield missed their March delivery and now missed the April one too. I'm terminating the contract today."},
+          {"role": "assistant", "content": "Two consecutive missed deliveries — the termination clause is triggered. You can terminate immediately with no penalty under the contract."},
+          {"role": "user", "content": "Sending the termination notice now."},
+          {"role": "assistant", "content": "You're on solid contractual ground. Keep copies of the missed delivery records."}
+        ]
+      }
+    ],
+    "question": "What contractual basis does this business owner have for immediately terminating the Greenfield Supplies contract?",
+    "expected_answer": "The contract's termination for cause clause, which allows immediate no-penalty termination if the vendor misses 2 consecutive deliveries. Greenfield missed both the March and April deliveries, satisfying this condition.",
+    "atomic_facts": ["Contract allows immediate termination if vendor misses 2 consecutive deliveries", "No penalty applies when this clause is triggered", "Greenfield missed March delivery", "Greenfield missed April delivery", "Two consecutive misses triggers the clause"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-legal-causal-0004",
+    "domain": "Legal / Contracts / Compliance",
+    "source_profile": "Employee whose workplace policy change affected their bonus eligibility",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {"role": "user", "content": "Per the handbook, annual bonuses are paid to employees who are active on December 31st and have completed at least 12 months of continuous employment."},
+          {"role": "assistant", "content": "Bonus eligibility: must be active on December 31st and have at least 12 months continuous employment. Logged."}
+        ]
+      },
+      {
+        "date": "2026-05-01",
+        "turns": [
+          {"role": "user", "content": "I started July 1st last year, so I'll hit 12 months on July 1st this year. If I'm still active at December 31st, I should be eligible for the bonus this year."},
+          {"role": "assistant", "content": "Correct — you'll have 12 months by July 1st and if you're active December 31st, you meet both eligibility criteria for this year's bonus."},
+          {"role": "user", "content": "Good. Just wanted to confirm my understanding."},
+          {"role": "assistant", "content": "Your analysis is right — July 1st is when you clear the tenure requirement."}
+        ]
+      }
+    ],
+    "question": "Why will this employee become eligible for the annual bonus during this calendar year, and when does that eligibility fully vest?",
+    "expected_answer": "Because the bonus policy requires 12 months continuous employment and active status on December 31st. The employee started July 1st of the prior year, reaching 12 months on July 1st of the current year. They will be fully eligible if still active on December 31st.",
+    "atomic_facts": ["Bonus requires 12 months continuous employment", "Bonus requires active status on December 31st", "Employee start date was July 1st of the prior year", "12-month tenure threshold is reached July 1st of the current year", "Full eligibility requires remaining active through December 31st"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "medium", "multi_session": true}
+  }
+]

@@ -1,0 +1,990 @@
+[
+  {
+    "id": "mesa-fin-recall-single-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, 26, first job post-college",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2024-03-10",
+        "turns": [
+          {"role": "user", "content": "I'm trying to get my budget straight. My rent is $1,150 a month and I just locked in that rate through next March."},
+          {"role": "assistant", "content": "Got it — $1,150/month locked through March 2025. That's a solid anchor for your budget. Want to map out the rest of your fixed expenses?"},
+          {"role": "user", "content": "Yeah, groceries run about $280, utilities average $95, and my car insurance is $112. Those are all pretty consistent."},
+          {"role": "assistant", "content": "So your fixed monthly floor is $1,150 + $280 + $95 + $112 = $1,637. Everything after that is variable. What's your take-home each month?"},
+          {"role": "user", "content": "About $3,200 after taxes. So I have around $1,563 left for everything else."},
+          {"role": "assistant", "content": "Good headroom. That $1,563 covers savings, discretionary, subscriptions, and any irregular costs. Where do you want to put savings first?"}
+        ]
+      }
+    ],
+    "question": "What is the user's monthly rent amount?",
+    "expected_answer": "$1,150 per month",
+    "atomic_facts": ["rent is $1,150 per month", "rate is locked through March 2025"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-single-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, self-employed designer",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2024-01-15",
+        "turns": [
+          {"role": "user", "content": "My Q4 estimated tax payment is due January 15th and I always forget. I set aside $2,340 for it this quarter."},
+          {"role": "assistant", "content": "January 15th is today — good timing. $2,340 set aside for Q4. Did you already send the payment or are you doing it now?"},
+          {"role": "user", "content": "Doing it now through IRS Direct Pay. Just wanted to log this somewhere so I remember what I paid."},
+          {"role": "assistant", "content": "Noted: Q4 2023 estimated tax payment of $2,340 via IRS Direct Pay on January 15, 2024. Want me to flag the Q1 deadline too? That's April 15."},
+          {"role": "user", "content": "Yes please. And remind me that Q1 I usually owe more — around $2,800 — because I take on more work in spring."},
+          {"role": "assistant", "content": "Logged. Q1 estimated target is ~$2,800, due April 15. Spring income bump noted as the driver."}
+        ]
+      }
+    ],
+    "question": "How much did the user set aside for their Q4 estimated tax payment?",
+    "expected_answer": "$2,340",
+    "atomic_facts": ["Q4 estimated tax payment was $2,340", "payment made via IRS Direct Pay on January 15 2024"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-single-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, 24, two student loans",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2024-02-05",
+        "turns": [
+          {"role": "user", "content": "I have two student loans. The federal one has a balance of $18,400 at 5.5% and the private one is $6,750 at 9.1%."},
+          {"role": "assistant", "content": "Two loans: federal $18,400 at 5.5%, private $6,750 at 9.1%. The private loan is costing you more per dollar — classic case for targeting it first if you're doing avalanche method. What are your minimum payments?"},
+          {"role": "user", "content": "Federal minimum is $189/month, private is $142/month. I'm paying $200 on the private to knock it down faster."},
+          {"role": "assistant", "content": "Smart. Extra $58/month on the private loan accelerates payoff significantly at 9.1%. You're treating it right."}
+        ]
+      }
+    ],
+    "question": "What is the interest rate on the user's private student loan?",
+    "expected_answer": "9.1%",
+    "atomic_facts": ["private student loan balance is $6,750", "private student loan interest rate is 9.1%", "user pays $200/month on private loan"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-single-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, two kids ages 8 and 11",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2024-04-12",
+        "turns": [
+          {"role": "user", "content": "We opened a 529 for each kid last year. Emma's has $8,200 in it and Jake's has $5,600. Jake's is lower because we started his later."},
+          {"role": "assistant", "content": "Got it — Emma's 529 at $8,200, Jake's at $5,600. Both growing. Are you contributing monthly or lump sum?"},
+          {"role": "user", "content": "Monthly. We put $200 into Emma's and $250 into Jake's — more for Jake to catch up since he's older and closer to college."},
+          {"role": "assistant", "content": "Makes sense — accelerating Jake's contributions to close the gap before his window is shorter. Emma has more runway at age 8."}
+        ]
+      }
+    ],
+    "question": "What is the current balance in Emma's 529 account?",
+    "expected_answer": "$8,200",
+    "atomic_facts": ["Emma's 529 balance is $8,200", "Jake's 529 balance is $5,600", "Emma's monthly contribution is $200", "Jake's monthly contribution is $250"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-preference-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, freelance photographer, sole proprietor",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2024-03-22",
+        "turns": [
+          {"role": "user", "content": "I've tried three budgeting apps — Mint, YNAB, and Copilot. YNAB is the only one that actually changed how I think about money. The others just tracked, they didn't change behavior."},
+          {"role": "assistant", "content": "That's a meaningful distinction — tracking vs. changing behavior. What specifically clicked for you with YNAB?"},
+          {"role": "user", "content": "The 'give every dollar a job' philosophy. With Mint I'd look at spending after the fact and feel bad. YNAB has me decide before I spend. Total mindset shift."},
+          {"role": "assistant", "content": "Proactive allocation vs. reactive reporting. That's the core of zero-based budgeting. Makes sense it landed differently."},
+          {"role": "user", "content": "Exactly. I'll probably never switch. Even if a competitor has more features, I don't want to lose the habit I've built."},
+          {"role": "assistant", "content": "Habit lock-in is real — especially when the tool reshaped your mental model. YNAB is sticky for that reason."}
+        ]
+      }
+    ],
+    "question": "Which budgeting app does the user prefer and why?",
+    "expected_answer": "YNAB, because its 'give every dollar a job' philosophy changed their behavior proactively rather than just tracking spending after the fact",
+    "atomic_facts": ["user prefers YNAB over Mint and Copilot", "user values YNAB's proactive allocation philosophy", "user tried Mint Copilot and YNAB", "user says they will not switch away from YNAB"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-preference-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, 28, tech job, aggressive saver",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2024-01-08",
+        "turns": [
+          {"role": "user", "content": "For my emergency fund I want it somewhere I can access it in 24 hours max but I don't want it in my checking account where I'll spend it."},
+          {"role": "assistant", "content": "Classic problem — accessible but friction-protected. High-yield savings at a separate institution is the usual answer. Any banks you're already considering?"},
+          {"role": "user", "content": "I like Marcus by Goldman Sachs. I already have an account there and the rate is decent. I specifically don't want it at my main bank — out of sight, out of mind."},
+          {"role": "assistant", "content": "Marcus as a friction layer — good call. Same-day or next-day transfers when you actually need it, invisible day-to-day."},
+          {"role": "user", "content": "Right. And I'll never link it to Apple Pay or anything. It's a firewall account, not a spending account."},
+          {"role": "assistant", "content": "Firewall account — I like that framing. No payment integrations, separate institution, access only by deliberate ACH. That's disciplined."}
+        ]
+      }
+    ],
+    "question": "Where does the user prefer to keep their emergency fund and what is their stated reason?",
+    "expected_answer": "Marcus by Goldman Sachs, kept separate from their main bank to create an out-of-sight friction layer that prevents casual spending",
+    "atomic_facts": ["user keeps emergency fund at Marcus by Goldman Sachs", "user deliberately avoids their main bank for the emergency fund", "user will not link the account to Apple Pay", "user calls it a firewall account"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-preference-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, also does side consulting",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2024-02-14",
+        "turns": [
+          {"role": "user", "content": "I hate tracking receipts digitally. I know everyone says scan everything but I keep a physical accordion folder by month. It works for me."},
+          {"role": "assistant", "content": "If it works, it works. Paper accordion folders are underrated — tactile, no app to update, survives a phone dying. Does your accountant accept physical receipts?"},
+          {"role": "user", "content": "She does, and she prefers it actually. She says her digital clients are messier than her paper ones."},
+          {"role": "assistant", "content": "Counterintuitive but plausible — physical creates a natural sorting ritual. What do you do at tax time, hand her the whole folder?"},
+          {"role": "user", "content": "I drop off the folder plus a one-page summary I write by hand. Old school but I've never had a tax problem in 6 years."},
+          {"role": "assistant", "content": "Six years without a tax problem is the only metric that matters. Your system works."}
+        ]
+      }
+    ],
+    "question": "How does the user prefer to track their business receipts for tax purposes?",
+    "expected_answer": "Physical accordion folder organized by month, accompanied by a handwritten one-page summary at tax time",
+    "atomic_facts": ["user uses a physical accordion folder organized by month", "user writes a handwritten one-page summary at tax time", "user has used this system for 6 years without tax problems", "user's accountant accepts and prefers physical receipts"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-preference-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, 25, focused on debt payoff strategy",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2024-03-01",
+        "turns": [
+          {"role": "user", "content": "I went with debt avalanche over snowball even though everyone says snowball feels better. I ran the math and avalanche saves me about $800 in interest."},
+          {"role": "assistant", "content": "Avalanche wins on math, snowball wins on psychology. You ran the numbers and chose math — that's a valid preference if you can sustain it."},
+          {"role": "user", "content": "I can sustain it. I'm not motivated by small wins, I'm motivated by the total number going down. Watching total debt shrink is my thing."},
+          {"role": "assistant", "content": "Good self-knowledge — the motivator matters more than the method. Avalanche is the right call for you."},
+          {"role": "user", "content": "Exactly. I've tried snowball before with credit cards and I kept relapsing on spending. Avalanche feels more like a commitment."},
+          {"role": "assistant", "content": "Interesting — the higher stakes of the bigger loan creates accountability. Different psychological mechanism, same goal."}
+        ]
+      }
+    ],
+    "question": "Which debt payoff method does the user prefer and what is their stated reason?",
+    "expected_answer": "Debt avalanche, because they are motivated by watching total debt decrease and estimated it saves about $800 in interest compared to snowball",
+    "atomic_facts": ["user chose debt avalanche over snowball", "user estimates avalanche saves $800 in interest", "user is motivated by total debt decreasing not small wins", "user previously tried snowball with credit cards and relapsed on spending"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-constraint-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, retail shop, tight cash flow management",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2024-02-20",
+        "turns": [
+          {"role": "user", "content": "I have a hard rule: I never carry a personal credit card balance over 30 days. I've seen what interest does to cash flow and I refuse to pay it."},
+          {"role": "assistant", "content": "Pay-in-full every cycle — a clear hard constraint. Do you have a specific day you pay or do you pay when the statement closes?"},
+          {"role": "user", "content": "Statement close date, same day it posts. I set autopay for the full balance. Not the minimum, not a fixed amount — full balance every time."},
+          {"role": "assistant", "content": "Autopay full balance on statement close. No discretion, no exceptions. That's a clean constraint."},
+          {"role": "user", "content": "Correct. And if autopay ever failed for some reason, I'd pay in cash from savings before I let a balance roll. That's a non-negotiable."},
+          {"role": "assistant", "content": "Understood — the constraint holds even if automation breaks. Manual fallback from savings before any interest accrues."}
+        ]
+      }
+    ],
+    "question": "What is the user's hard constraint regarding personal credit card balances?",
+    "expected_answer": "Never carry a balance longer than 30 days; autopays the full balance on statement close date, and would pay from savings manually if autopay ever failed",
+    "atomic_facts": ["user never carries a credit card balance past 30 days", "user sets autopay for full balance on statement close", "user would pay from savings manually if autopay failed", "this is described as a non-negotiable"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-constraint-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, variable income",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2024-01-20",
+        "turns": [
+          {"role": "user", "content": "My rule for client work: I require 50% upfront on any project over $500. I had a $2,400 project ghost me at the end and I'll never do that again."},
+          {"role": "assistant", "content": "50% upfront on projects over $500 — that's a sensible deposit floor. Does the $500 threshold ever cause friction with smaller clients?"},
+          {"role": "user", "content": "Rarely. Under $500 I sometimes skip the deposit but I always require payment before I hand over final files. That's universal regardless of project size."},
+          {"role": "assistant", "content": "So two-tier: deposit 50% for over $500, and always withhold deliverables until paid regardless. Clean."},
+          {"role": "user", "content": "Exactly. And I put both of those in my contract now. Learned it the hard way."},
+          {"role": "assistant", "content": "The $2,400 ghost client bought you a better business rule. That's an expensive lesson that's now protecting you on every future project."}
+        ]
+      }
+    ],
+    "question": "What are the user's payment constraints for freelance client work?",
+    "expected_answer": "50% deposit upfront for projects over $500; final deliverables withheld until payment received regardless of project size; both rules are in the contract",
+    "atomic_facts": ["50% deposit required for projects over $500", "final files withheld until payment received regardless of project size", "rules are written into the contract", "rule was created after a $2,400 project client ghosted them"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-constraint-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, dual income household",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2024-03-15",
+        "turns": [
+          {"role": "user", "content": "We have a household rule that any purchase over $300 requires both my spouse and I to agree. Doesn't matter whose paycheck it comes from."},
+          {"role": "assistant", "content": "Joint approval threshold at $300 — that's a clear spending constraint. Did you land on that number through negotiation or trial and error?"},
+          {"role": "user", "content": "Trial and error. We started at $100 and it was exhausting. $500 caused too many surprises. $300 is the sweet spot."},
+          {"role": "assistant", "content": "Calibrated over time — that's how good household rules get made. Are recurring subscriptions exempt or do they fall under the $300 rule if they're annual?"},
+          {"role": "user", "content": "Annual subscriptions count if the renewal is over $300. Monthly subscriptions under $30 each are pre-approved automatically — we reviewed those together once."},
+          {"role": "assistant", "content": "So the rule has nuance: $300 threshold for one-time purchases, annual renewals over $300 require joint sign-off, monthly under $30 are pre-cleared. Good system."}
+        ]
+      }
+    ],
+    "question": "What is the household spending approval constraint and how does it apply to subscriptions?",
+    "expected_answer": "Any purchase over $300 requires both spouses to agree; annual subscription renewals over $300 require joint approval; monthly subscriptions under $30 are pre-approved",
+    "atomic_facts": ["purchases over $300 require both spouses to approve", "threshold was calibrated from $100 and $500 before settling on $300", "annual renewals over $300 require joint approval", "monthly subscriptions under $30 are pre-approved"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-recall-constraint-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, 27, building financial habits",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2024-04-05",
+        "turns": [
+          {"role": "user", "content": "I have a 48-hour rule for any non-essential purchase over $75. I put it in my cart and wait two days. If I still want it, I can buy it."},
+          {"role": "assistant", "content": "Classic impulse-suppression rule with a cooling period. Does the $75 threshold feel right or does it let too much slip through?"},
+          {"role": "user", "content": "It's right for now. Under $75 I don't stress about it — that's my fun money zone. Over $75 is where I used to make dumb decisions."},
+          {"role": "assistant", "content": "So $75 is your identified impulse threshold. Below it: free purchase. Above it: 48-hour hold. Clean bright line."},
+          {"role": "user", "content": "And I've killed probably 70% of purchases that hit the cart. If it survives 48 hours, I actually want it."},
+          {"role": "assistant", "content": "70% cart abandonment by your own rule — that's the constraint working exactly as designed."}
+        ]
+      }
+    ],
+    "question": "What is the user's rule for non-essential purchases?",
+    "expected_answer": "A 48-hour waiting rule for any non-essential purchase over $75; if they still want it after two days they can buy it",
+    "atomic_facts": ["48-hour waiting period for non-essential purchases over $75", "purchases under $75 are unrestricted fun money", "user reports killing approximately 70% of purchases that enter the cart"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-synthesis-multi-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, building first real budget",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2024-01-10",
+        "turns": [
+          {"role": "user", "content": "My take-home is $2,850/month. Rent is $925. That's fixed."},
+          {"role": "assistant", "content": "Got it — $2,850 income, $925 rent. What else is fixed?"},
+          {"role": "user", "content": "Car insurance $89, phone $45, internet $60. Those don't change."},
+          {"role": "assistant", "content": "Fixed monthly total: $925 + $89 + $45 + $60 = $1,119. You have $1,731 left before discretionary and debt."}
+        ]
+      },
+      {
+        "date": "2024-01-17",
+        "turns": [
+          {"role": "user", "content": "I worked out my debt minimums. Student loan is $210, credit card minimum is $85. I'm paying $150 on the credit card to get ahead."},
+          {"role": "assistant", "content": "Debt payments: $210 student loan minimum + $150 credit card = $360/month going to debt. That leaves about $1,371 for groceries, savings, and everything else."},
+          {"role": "user", "content": "Groceries are around $320. I want to put $400 into savings each month. That leaves what?"},
+          {"role": "assistant", "content": "Let me add it up: $1,731 - $360 debt - $320 groceries - $400 savings = $651 discretionary. That's your spending money for everything else."}
+        ]
+      }
+    ],
+    "question": "After all fixed expenses, debt payments, groceries, and savings contributions, how much discretionary money does the user have each month?",
+    "expected_answer": "Approximately $651 per month",
+    "atomic_facts": ["monthly take-home is $2,850", "rent is $925", "car insurance $89 phone $45 internet $60 totaling $1,119 fixed", "debt payments are $360 per month ($210 student loan + $150 credit card)", "groceries are $320", "savings contribution is $400", "discretionary amount is approximately $651"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-synthesis-multi-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, tracks business and personal separately",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2024-02-01",
+        "turns": [
+          {"role": "user", "content": "Business checking gets all revenue. My salary transfer to personal is $4,200/month flat, regardless of how good a month it is."},
+          {"role": "assistant", "content": "Fixed owner's draw of $4,200/month — consistent separation of business and personal. Smart for tax purposes and cash flow predictability."},
+          {"role": "user", "content": "Exactly. And 25% of gross revenue goes into a tax reserve account before anything else. That's the first transfer every month."},
+          {"role": "assistant", "content": "Revenue comes in, 25% goes to tax reserve immediately, then other obligations including your $4,200 draw. What's your average monthly gross?"}
+        ]
+      },
+      {
+        "date": "2024-02-15",
+        "turns": [
+          {"role": "user", "content": "Average monthly gross is about $11,500. Some months are $8k, some are $15k, but $11,500 is a fair average."},
+          {"role": "assistant", "content": "At $11,500 gross, your 25% tax reserve is $2,875/month. Draw is $4,200. Combined that's $7,075 off the top, leaving ~$4,425 for business expenses."},
+          {"role": "user", "content": "Right, and my fixed business expenses — software, storage, insurance — run about $1,800/month. So net retained in the business is around $2,625."},
+          {"role": "assistant", "content": "Business P&L in simple form: $11,500 in, $2,875 tax reserve, $4,200 draw, $1,800 fixed ops = $2,625 retained. Clean picture."}
+        ]
+      }
+    ],
+    "question": "Based on the user's average monthly gross revenue, how much is retained in the business after the tax reserve, owner's draw, and fixed business expenses?",
+    "expected_answer": "Approximately $2,625 per month retained in the business",
+    "atomic_facts": ["average monthly gross revenue is $11,500", "25% of gross goes to tax reserve ($2,875)", "owner's draw is $4,200 per month", "fixed business expenses are $1,800 per month", "retained business funds are approximately $2,625 per month"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-synthesis-multi-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, tracking multiple savings goals simultaneously",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2024-03-05",
+        "turns": [
+          {"role": "user", "content": "We have three savings goals active right now. Emergency fund target is $18,000, currently at $11,400. Vacation fund target is $3,500, currently at $1,200."},
+          {"role": "assistant", "content": "Emergency fund: $11,400 of $18,000 — $6,600 to go. Vacation fund: $1,200 of $3,500 — $2,300 to go. What's the third?"}
+        ]
+      },
+      {
+        "date": "2024-03-12",
+        "turns": [
+          {"role": "user", "content": "Third is a home repair fund. Target $8,000, we're at $2,900. We put $350/month across all three goals combined."},
+          {"role": "assistant", "content": "Home repair: $2,900 of $8,000 — $5,100 to go. Total gap across all three goals: $6,600 + $2,300 + $5,100 = $14,000. At $350/month, that's 40 months to fully fund everything. How do you split the $350?"},
+          {"role": "user", "content": "Emergency fund gets $200, home repair gets $100, vacation gets $50. Emergency fund is priority because we're underinsured there."},
+          {"role": "assistant", "content": "Good triage. Emergency fund closes in about 33 months at $200/month. Vacation fund in 46 months at $50, home repair in 51 months at $100 — unless you reallocate once emergency is funded."}
+        ]
+      }
+    ],
+    "question": "What is the total savings gap across all three of the user's savings goals, and how much do they contribute monthly to savings overall?",
+    "expected_answer": "Total gap is $14,000 ($6,600 emergency fund + $2,300 vacation + $5,100 home repair); they contribute $350 per month total across all three goals",
+    "atomic_facts": ["emergency fund gap is $6,600 ($11,400 of $18,000 target)", "vacation fund gap is $2,300 ($1,200 of $3,500 target)", "home repair fund gap is $5,100 ($2,900 of $8,000 target)", "total savings gap is $14,000", "total monthly savings contribution is $350"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-synthesis-multi-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, also tracks subscription costs",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2024-01-25",
+        "turns": [
+          {"role": "user", "content": "I audited my subscriptions. Adobe Creative Cloud is $54.99/month, Dropbox is $11.99/month, Notion is $16/month for the team plan."},
+          {"role": "assistant", "content": "Three subscriptions: Adobe $54.99, Dropbox $11.99, Notion $16.00. That's $82.98/month so far. Any others?"}
+        ]
+      },
+      {
+        "date": "2024-02-02",
+        "turns": [
+          {"role": "user", "content": "Found two more I forgot. QuickBooks Self-Employed at $15/month and a stock photo site at $29/month. The photo site I'm canceling — barely use it."},
+          {"role": "assistant", "content": "QuickBooks $15 + photos $29 = $44 more. Current total: $126.98. After canceling the photo site you'll be at $97.98/month. Are Adobe and Dropbox business expenses you deduct?"},
+          {"role": "user", "content": "Yes, all four remaining ones are 100% business use. I'll claim all of them. QuickBooks, Adobe, Dropbox, Notion — all deductible."},
+          {"role": "assistant", "content": "After photo site cancellation: $97.98/month in fully deductible business subscriptions. Annualized that's $1,175.76 in deductions."}
+        ]
+      }
+    ],
+    "question": "After canceling the stock photo subscription, what is the user's total monthly subscription cost and which subscriptions remain?",
+    "expected_answer": "$97.98 per month; remaining subscriptions are Adobe Creative Cloud ($54.99), Dropbox ($11.99), Notion ($16.00), and QuickBooks Self-Employed ($15.00)",
+    "atomic_facts": ["Adobe Creative Cloud costs $54.99/month", "Dropbox costs $11.99/month", "Notion costs $16/month", "QuickBooks Self-Employed costs $15/month", "stock photo site at $29/month was canceled", "remaining total is $97.98/month", "all four remaining subscriptions are 100% business deductible"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-temporal-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, tracking savings milestones over time",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2023-11-01",
+        "turns": [
+          {"role": "user", "content": "Emergency fund is at $3,200 right now. My goal is $10,000 by end of next year."},
+          {"role": "assistant", "content": "$3,200 today, $10,000 target by end of 2024. That's $6,800 to go over 14 months — about $486/month. Is that in your current budget?"}
+        ]
+      },
+      {
+        "date": "2024-04-15",
+        "turns": [
+          {"role": "user", "content": "Emergency fund hit $5,800 today. Really happy with the progress. Still on track for $10k by December."},
+          {"role": "assistant", "content": "$5,800 — up $2,600 since November. That's good velocity. Eight months left in the year, $4,200 to go. You're running right on pace."}
+        ]
+      },
+      {
+        "date": "2024-08-10",
+        "turns": [
+          {"role": "user", "content": "Had a setback — had to pull $800 from emergency fund for a car repair. Balance is $7,100 now instead of where I wanted to be."},
+          {"role": "assistant", "content": "$7,100 after the withdrawal. You're still $2,900 away from $10k with about 5 months left — roughly $580/month. Tighter but doable. How's the car fixed?"}
+        ]
+      }
+    ],
+    "question": "What was the user's emergency fund balance after the August car repair withdrawal, and how much do they still need to reach their goal?",
+    "expected_answer": "$7,100 after the withdrawal; they need $2,900 more to reach the $10,000 goal",
+    "atomic_facts": ["emergency fund balance in November 2023 was $3,200", "balance grew to $5,800 by April 2024", "$800 was withdrawn for a car repair in August 2024", "balance after withdrawal is $7,100", "goal is $10,000 by end of 2024", "remaining gap is $2,900"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-temporal-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, tracking credit card payoff progress",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2024-01-01",
+        "turns": [
+          {"role": "user", "content": "New year. Credit card balance is $4,200. Goal is to eliminate it completely this year."},
+          {"role": "assistant", "content": "$4,200 to zero by December 31 — $350/month minimum to hit it exactly. Are you planning to pay more than that?"}
+        ]
+      },
+      {
+        "date": "2024-06-01",
+        "turns": [
+          {"role": "user", "content": "Six months in, balance is down to $1,900. I got a $600 tax refund and threw it all at the card in March, which helped."},
+          {"role": "assistant", "content": "$4,200 to $1,900 — $2,300 paid off in 6 months. The $600 refund accelerated it nicely. At current pace you'll clear it by September or October."}
+        ]
+      }
+    ],
+    "question": "What was the user's credit card balance at the start of the year and what was it six months later?",
+    "expected_answer": "$4,200 at the start of January 2024; reduced to $1,900 by June 2024",
+    "atomic_facts": ["credit card balance was $4,200 in January 2024", "balance was $1,900 in June 2024", "$600 tax refund was applied to the card in March", "goal is to eliminate balance completely by year end"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-temporal-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, tracking quarterly revenue trends",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2024-01-20",
+        "turns": [
+          {"role": "user", "content": "Q4 2023 was my best quarter — $38,500 gross. Q3 was $29,200 and Q2 was $27,800."},
+          {"role": "assistant", "content": "Strong Q4 spike — $38,500 is 32% above your Q3. Holiday season effect or a specific client win?"},
+          {"role": "user", "content": "Big corporate client in November. One-time project, $12,000 alone. Won't repeat in Q1."},
+          {"role": "assistant", "content": "So normalized Q4 without that client would be roughly $26,500 — actually slightly below Q3. Good to know for Q1 projections."}
+        ]
+      },
+      {
+        "date": "2024-04-15",
+        "turns": [
+          {"role": "user", "content": "Q1 came in at $24,100. Lower than I expected but not a disaster. The big client didn't come back as I predicted."},
+          {"role": "assistant", "content": "$24,100 for Q1 — your lowest quarter in the data I have. Below your normalized Q4 estimate of $26,500. What's the pipeline looking like for Q2?"}
+        ]
+      }
+    ],
+    "question": "What was the user's gross revenue for each quarter from Q2 2023 through Q1 2024?",
+    "expected_answer": "Q2 2023: $27,800; Q3 2023: $29,200; Q4 2023: $38,500 (including $12,000 one-time corporate project); Q1 2024: $24,100",
+    "atomic_facts": ["Q2 2023 gross was $27,800", "Q3 2023 gross was $29,200", "Q4 2023 gross was $38,500", "Q4 included a $12,000 one-time corporate client", "Q1 2024 gross was $24,100"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-temporal-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, 529 contribution history",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2023-09-01",
+        "turns": [
+          {"role": "user", "content": "We opened both 529s today. Started each with $1,000. Emma's is at Vanguard, Jake's is at Fidelity — we split them to test both platforms."},
+          {"role": "assistant", "content": "Both opened at $1,000 each — Emma at Vanguard, Jake at Fidelity. Good to compare platforms over time. Are contributions automated?"}
+        ]
+      },
+      {
+        "date": "2024-01-15",
+        "turns": [
+          {"role": "user", "content": "After four months of contributions, Emma's is at $1,840 and Jake's is at $1,920. We've been putting $200 into each monthly."},
+          {"role": "assistant", "content": "4 months × $200 each = $800 contributed to each. Emma: $1,000 + $800 = $1,800 expected but at $1,840 — $40 growth. Jake: $1,800 expected but at $1,920 — $120 growth. Fidelity plan outperformed so far."}
+        ]
+      },
+      {
+        "date": "2024-04-01",
+        "turns": [
+          {"role": "user", "content": "We decided to consolidate. Moving Jake's Fidelity 529 into the Vanguard plan with Emma's. Combined balance will be about $4,200 total."},
+          {"role": "assistant", "content": "Consolidation to Vanguard — single platform, simpler management. $4,200 combined. Do you plan to maintain separate accounting for each child's share?"}
+        ]
+      }
+    ],
+    "question": "Where were the 529 accounts originally held, and what happened to them by April 2024?",
+    "expected_answer": "Emma's 529 was at Vanguard and Jake's was at Fidelity; in April 2024 they consolidated by moving Jake's Fidelity account into the Vanguard plan, resulting in a combined balance of approximately $4,200",
+    "atomic_facts": ["Emma's 529 was opened at Vanguard in September 2023", "Jake's 529 was opened at Fidelity in September 2023", "both opened with $1,000 each", "monthly contributions were $200 per child", "in April 2024 accounts were consolidated to Vanguard", "combined balance after consolidation was approximately $4,200"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, rent changed after lease renewal",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2024-01-05",
+        "turns": [
+          {"role": "user", "content": "My rent is $1,050/month. Has been since I moved in two years ago."},
+          {"role": "assistant", "content": "Got it — $1,050/month, stable for two years. Is your lease coming up for renewal soon?"},
+          {"role": "user", "content": "Renewal is in March. Hoping the landlord doesn't raise it."},
+          {"role": "assistant", "content": "We'll see in March. For now I'll note $1,050/month as your rent."}
+        ]
+      },
+      {
+        "date": "2024-03-20",
+        "turns": [
+          {"role": "user", "content": "Lease renewed. Landlord raised it to $1,175/month starting April 1. Not thrilled but I'm staying."},
+          {"role": "assistant", "content": "$1,175/month effective April 1 — a $125 increase. That's about 12% up. I'll update your rent figure. Budget will need to absorb that extra $125."},
+          {"role": "user", "content": "Yeah, I'll cut back on dining out to cover it. My rent number going forward is $1,175."},
+          {"role": "assistant", "content": "Noted — rent updated to $1,175/month from April 2024. Dining out absorbs the delta."}
+        ]
+      }
+    ],
+    "question": "What is the user's current monthly rent after the lease renewal?",
+    "expected_answer": "$1,175 per month effective April 1, 2024",
+    "atomic_facts": ["original rent was $1,050/month", "rent increased to $1,175/month starting April 1 2024", "increase is $125/month or approximately 12%", "user is staying despite the increase"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, changed tax set-aside rate",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2024-02-10",
+        "turns": [
+          {"role": "user", "content": "I set aside 28% of every payment for taxes. My accountant suggested that when I started freelancing."},
+          {"role": "assistant", "content": "28% tax reserve on gross income — solid buffer. Covers federal self-employment tax plus income tax. Has it been accurate so far?"},
+          {"role": "user", "content": "Roughly. Sometimes I get a small refund, sometimes I owe a little. It's close enough."},
+          {"role": "assistant", "content": "Close enough is the goal with estimated taxes. 28% noted as your reserve rate."}
+        ]
+      },
+      {
+        "date": "2024-04-20",
+        "turns": [
+          {"role": "user", "content": "After filing this year I owed $1,800 extra. My accountant says I need to go to 32% going forward because my income bracket shifted."},
+          {"role": "assistant", "content": "Significant underpayment — $1,800 gap means 28% wasn't covering it. Bumping to 32% makes sense if your bracket shifted. I'll update your tax reserve rate."},
+          {"role": "user", "content": "Yes, 32% effective now. Q2 estimated payment will reflect that new rate."},
+          {"role": "assistant", "content": "Updated: tax reserve rate is now 32%, starting with Q2 estimated payments. Previous rate was 28%."}
+        ]
+      }
+    ],
+    "question": "What is the user's current tax set-aside rate and what was it previously?",
+    "expected_answer": "Current rate is 32% (updated after filing season revealed a $1,800 underpayment); previous rate was 28%",
+    "atomic_facts": ["original tax reserve rate was 28%", "new rate is 32% effective Q2 2024", "owed $1,800 extra when filing at the 28% rate", "accountant recommended the increase due to bracket shift"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, changed debt payoff priority",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2024-01-15",
+        "turns": [
+          {"role": "user", "content": "My plan is to pay off my credit card first — balance is $3,400 at 22%. Then I'll attack the personal loan at $5,200 at 11%."},
+          {"role": "assistant", "content": "Avalanche order: credit card first at 22%, then personal loan at 11%. Higher rate first — that's the math-optimal path."}
+        ]
+      },
+      {
+        "date": "2024-03-10",
+        "turns": [
+          {"role": "user", "content": "Change of plan. I'm switching to snowball. Paying the personal loan first because the credit card minimum is lower and I need a win psychologically."},
+          {"role": "assistant", "content": "Snowball switch noted — personal loan first now despite higher balance. Psychological win takes priority over interest math. Credit card to minimum only until loan is cleared?"},
+          {"role": "user", "content": "Exactly. Credit card gets minimum $65/month, everything extra goes to the personal loan. New plan starts this month."},
+          {"role": "assistant", "content": "Updated: personal loan is the primary payoff target, credit card at minimum $65/month. Snowball strategy replacing avalanche."}
+        ]
+      }
+    ],
+    "question": "What is the user's current debt payoff strategy and which debt are they targeting first?",
+    "expected_answer": "Snowball strategy, targeting the personal loan ($5,200 at 11%) first; the credit card gets only the minimum payment of $65/month",
+    "atomic_facts": ["user switched from avalanche to snowball strategy in March 2024", "personal loan ($5,200 at 11%) is now the primary target", "credit card minimum is $65/month and gets minimum only", "original plan was to pay credit card ($3,400 at 22%) first"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, updated monthly savings contribution",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2024-01-08",
+        "turns": [
+          {"role": "user", "content": "I auto-transfer $500/month to my business savings account on the 1st. Has been that amount for about a year."},
+          {"role": "assistant", "content": "$500/month auto-transfer to business savings on the 1st. Consistent for a year — that's discipline."}
+        ]
+      },
+      {
+        "date": "2024-05-01",
+        "turns": [
+          {"role": "user", "content": "Revenue has been strong so I'm bumping the business savings transfer to $900/month starting today. Keeping the same 1st-of-month cadence."},
+          {"role": "assistant", "content": "Business savings transfer updated: $900/month starting May 1, 2024. Same auto-transfer date. $400 increase over prior amount."},
+          {"role": "user", "content": "Yes. And I'm targeting $15,000 in that account by year end. Currently at $7,200."},
+          {"role": "assistant", "content": "At $900/month for 8 remaining months, you'd add $7,200 — landing right at $14,400. Close to your $15,000 target. One more month might get you there or a small year-end boost."}
+        ]
+      }
+    ],
+    "question": "What is the user's current monthly business savings transfer amount and when did it change?",
+    "expected_answer": "$900 per month as of May 1, 2024; previously $500 per month for about a year",
+    "atomic_facts": ["original transfer was $500/month", "new transfer is $900/month starting May 1 2024", "transfer occurs on the 1st of each month", "business savings target is $15,000 by year end", "current balance at time of update was $7,200"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-interference-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, changed savings target after life event",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2024-01-10",
+        "turns": [
+          {"role": "user", "content": "Emergency fund goal is $8,000. That's three months of my expenses roughly."},
+          {"role": "assistant", "content": "$8,000 emergency fund target — solid three-month cushion at your expense level. What are you at currently?"},
+          {"role": "user", "content": "About $4,500 right now. Halfway there."},
+          {"role": "assistant", "content": "$4,500 of $8,000 — halfway. Good momentum."}
+        ]
+      },
+      {
+        "date": "2024-03-15",
+        "turns": [
+          {"role": "user", "content": "I got a dog. She's great but it's adding about $200/month to expenses. Vet, food, supplies. So my emergency fund target needs to go up to $9,200 to reflect the new expenses."},
+          {"role": "assistant", "content": "New target: $9,200 — accounts for the dog adding $200/month to your baseline. Updated. How's the pup?"},
+          {"role": "user", "content": "She's wonderful. I'm calling her my $9,200 reason to save more."},
+          {"role": "assistant", "content": "Best motivation. $9,200 it is."}
+        ]
+      },
+      {
+        "date": "2024-05-02",
+        "turns": [
+          {"role": "user", "content": "Quick question — my friend is also trying to save an emergency fund and asked me what a good starting target is. I told her $8,000 is what I originally aimed for when I started."},
+          {"role": "assistant", "content": "$8,000 is a reasonable starting benchmark — three months of expenses is the classic rule of thumb. Her number will depend on her own expense level of course."},
+          {"role": "user", "content": "Right, I used that as a starting point but mine has since changed for my own situation."},
+          {"role": "assistant", "content": "Exactly — your target evolved with your circumstances. $8,000 was the right start for you, and you adjusted as life changed."}
+        ]
+      }
+    ],
+    "question": "What is the user's current emergency fund target?",
+    "expected_answer": "$9,200, updated in March 2024 to account for added dog-related expenses of approximately $200/month",
+    "atomic_facts": ["original emergency fund target was $8,000", "target was updated to $9,200 in March 2024", "increase reflects $200/month additional dog expenses", "user mentioned $8,000 in May 2024 only as advice to a friend not as their own current target"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-interference-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, changed cell phone plan reimbursement",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2024-02-01",
+        "turns": [
+          {"role": "user", "content": "I reimburse myself $65/month for cell phone as a business expense. That's what I've claimed for the past two years."},
+          {"role": "assistant", "content": "$65/month cell phone reimbursement, consistent for two years. Is that a flat amount or based on actual business use percentage?"},
+          {"role": "user", "content": "Flat amount my accountant set. Based on roughly 70% business use of my $92/month plan."},
+          {"role": "assistant", "content": "Got it — $65 is ~70% of $92. Accountant-approved methodology. I'll note $65/month as your cell reimbursement."}
+        ]
+      },
+      {
+        "date": "2024-04-10",
+        "turns": [
+          {"role": "user", "content": "My phone plan jumped to $108/month. Accountant says I can now reimburse $76/month at the same 70% rate. Updating the expense."},
+          {"role": "assistant", "content": "Updated: cell phone reimbursement is now $76/month (70% of $108). Previous amount was $65/month based on the old $92 plan."},
+          {"role": "user", "content": "Correct. $76 effective April."},
+          {"role": "assistant", "content": "Logged — $76/month starting April 2024."}
+        ]
+      },
+      {
+        "date": "2024-06-15",
+        "turns": [
+          {"role": "user", "content": "I was helping my sister set up her freelance finances. I told her $65/month is a common cell phone reimbursement amount that I used to use as a benchmark."},
+          {"role": "assistant", "content": "That's a reasonable starting point for her to bring to her accountant — the right number depends on her plan cost and business use percentage. Her accountant should set the actual figure."},
+          {"role": "user", "content": "Yeah, I told her it's just a starting conversation point, not a hard number."},
+          {"role": "assistant", "content": "Exactly right. The methodology matters more than matching any specific dollar amount."}
+        ]
+      }
+    ],
+    "question": "What is the user's current monthly cell phone reimbursement amount for business expenses?",
+    "expected_answer": "$76 per month, effective April 2024, based on 70% business use of a $108/month plan",
+    "atomic_facts": ["original reimbursement was $65/month based on $92 plan at 70% business use", "updated to $76/month in April 2024 when plan cost increased to $108", "70% business use rate remained the same", "$65 was mentioned in June 2024 only as a benchmark for user's sister not as their own current amount"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-interference-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, changed minimum payment amount",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2024-01-20",
+        "turns": [
+          {"role": "user", "content": "My credit card minimum payment is $85/month. I've been paying $150 to get ahead."},
+          {"role": "assistant", "content": "$85 minimum, paying $150. Extra $65 every month chips away at the principal. Good habit."}
+        ]
+      },
+      {
+        "date": "2024-03-05",
+        "turns": [
+          {"role": "user", "content": "Good news — my balance dropped enough that my minimum is now $62/month. But I'm keeping my payment at $150."},
+          {"role": "assistant", "content": "Minimum dropped to $62, payment stays at $150 — $88 extra per month hitting principal now instead of $65. Accelerating nicely."},
+          {"role": "user", "content": "Exactly. The lower minimum is a trap. I'm not touching my payment amount."},
+          {"role": "assistant", "content": "Disciplined. Minimum reductions are designed to keep you in debt longer. You're seeing through it."}
+        ]
+      },
+      {
+        "date": "2024-05-15",
+        "turns": [
+          {"role": "user", "content": "I was explaining credit cards to my younger brother. I told him the typical starter minimum is around $85 which is what mine used to be."},
+          {"role": "assistant", "content": "That's a reasonable example for illustration. The important thing to convey is that minimums are a floor not a target."},
+          {"role": "user", "content": "That's exactly what I told him. Pay as much above minimum as possible."},
+          {"role": "assistant", "content": "Right advice. The minimum is the bank's preferred outcome, not yours."}
+        ]
+      }
+    ],
+    "question": "What is the user's current credit card minimum payment and how much are they actually paying?",
+    "expected_answer": "Current minimum is $62/month; user is paying $150/month (unchanged from before the minimum dropped)",
+    "atomic_facts": ["original minimum payment was $85/month", "minimum dropped to $62/month in March 2024 as balance decreased", "user continues to pay $150/month regardless of minimum", "$85 was mentioned in May 2024 only as an example for the user's brother not as their current minimum"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-update-interference-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, changed 529 monthly contribution",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2024-01-05",
+        "turns": [
+          {"role": "user", "content": "We contribute $150/month to each kid's 529. Has been that amount since we started the accounts."},
+          {"role": "assistant", "content": "$150/month per child into the 529s. Consistent contributions — dollar cost averaging works well for education savings."}
+        ]
+      },
+      {
+        "date": "2024-04-01",
+        "turns": [
+          {"role": "user", "content": "I got a raise. Bumping 529 contributions to $225/month per kid starting this month."},
+          {"role": "assistant", "content": "$225/month per child — $450/month total to college savings. Up from $300/month combined. Nice raise impact."},
+          {"role": "user", "content": "Yeah, I wanted the raise to go somewhere productive before lifestyle inflation ate it."},
+          {"role": "assistant", "content": "Smart deployment. $450/month total locked in before the raise became invisible spending."}
+        ]
+      },
+      {
+        "date": "2024-06-10",
+        "turns": [
+          {"role": "user", "content": "My neighbor asked me what a good starting 529 contribution is. I told her $150/month per kid is what we started with and it was manageable."},
+          {"role": "assistant", "content": "That's a solid starting point to share. Manageable and meaningful — perfect for getting the habit established before scaling up."},
+          {"role": "user", "content": "Right, we started there and increased once we had more room in the budget."},
+          {"role": "assistant", "content": "Good framing — start where it's sustainable, increase when you can. That's how durable savings habits build."}
+        ]
+      }
+    ],
+    "question": "What is the user's current monthly 529 contribution per child?",
+    "expected_answer": "$225 per month per child (increased from $150 in April 2024 after a raise)",
+    "atomic_facts": ["original 529 contribution was $150/month per child", "contribution increased to $225/month per child starting April 2024", "increase was funded by a raise", "$150 was mentioned in June 2024 only as advice to a neighbor not as the current contribution"],
+    "metadata": {"review_status": "draft", "difficulty": "hard", "distractor_density": "high", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-adversarial-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, discussed general financial goals",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2024-02-20",
+        "turns": [
+          {"role": "user", "content": "I'm thinking about opening a Roth IRA. I know I should max it out but I need to figure out my budget first."},
+          {"role": "assistant", "content": "Good instinct — figure out what you can consistently contribute before committing. Have you looked at what IRA contribution limits are for this year?"},
+          {"role": "user", "content": "I think it's $7,000 but I'm not 100% sure. I'll look it up."},
+          {"role": "assistant", "content": "Worth confirming directly with IRS.gov — limits can change. Once you know your number, we can work backward to see if maxing it fits your budget."},
+          {"role": "user", "content": "For now I'm just in the research phase. Haven't opened anything yet."},
+          {"role": "assistant", "content": "Noted — Roth IRA is on your radar but not yet opened. No contributions made yet."}
+        ]
+      }
+    ],
+    "question": "How much does the user currently have in their Roth IRA?",
+    "expected_answer": "I don't know — the user mentioned considering opening a Roth IRA but explicitly stated they have not opened one yet",
+    "atomic_facts": ["user has not opened a Roth IRA as of the conversation date", "user is in research phase only", "no contributions have been made"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-adversarial-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, discussed income variability",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2024-03-10",
+        "turns": [
+          {"role": "user", "content": "My income varies a lot month to month. March was great, February was rough. Hard to predict."},
+          {"role": "assistant", "content": "Variable income is the freelancer reality. How do you handle budgeting when months vary that much?"},
+          {"role": "user", "content": "I budget to my slow month income and treat good months as windfalls. Works most of the time."},
+          {"role": "assistant", "content": "Conservative baseline with windfall treatment — solid approach. What's your rough slow-month baseline?"},
+          {"role": "user", "content": "Somewhere in the $3,000-$4,000 range but it's hard to pin down exactly. Depends on the season."},
+          {"role": "assistant", "content": "Rough floor of $3k-$4k noted — seasonal variance acknowledged. Useful for planning even if imprecise."}
+        ]
+      }
+    ],
+    "question": "What was the user's exact income in February of this year?",
+    "expected_answer": "I don't know — the user only described February as 'rough' without stating a specific dollar amount",
+    "atomic_facts": ["user described February income as rough without specifying an amount", "user's slow-month range is approximately $3,000-$4,000 but not exact", "no specific February figure was provided"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "high", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-adversarial-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, discussed investment account types",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2024-04-08",
+        "turns": [
+          {"role": "user", "content": "We have the 529s for the kids, a joint brokerage account we barely touch, and my 401k through work."},
+          {"role": "assistant", "content": "Three accounts: 529s for education, joint brokerage for general investing, 401k for retirement. The brokerage is underused — any particular reason?"},
+          {"role": "user", "content": "We opened it during COVID when everyone was buying stocks. Put some money in and kind of forgot about it."},
+          {"role": "assistant", "content": "Classic pandemic brokerage — opened in the excitement, went dormant. It's still an asset though. Do you know what's in it?"},
+          {"role": "user", "content": "Some ETFs I think. I should check but we haven't logged in in over a year."},
+          {"role": "assistant", "content": "Worth a login when you get a chance — at minimum to confirm the holdings and make sure nothing needs attention."}
+        ]
+      }
+    ],
+    "question": "What is the current balance in the user's joint brokerage account?",
+    "expected_answer": "I don't know — the user acknowledged they haven't logged into the account in over a year and don't know the current balance or exact holdings",
+    "atomic_facts": ["user has a joint brokerage account opened during COVID", "account contains some ETFs according to the user's recollection", "user has not logged in for over a year and does not know the current balance"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-adversarial-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "recent grad paying off debt, asked about future plans",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2024-03-25",
+        "turns": [
+          {"role": "user", "content": "Once my credit card is paid off I'm thinking about either building up savings or starting to invest. Haven't decided which."},
+          {"role": "assistant", "content": "Classic fork: liquidity vs. growth. Most frameworks say shore up emergency fund first before investing. Where does your emergency fund stand?"},
+          {"role": "user", "content": "It's okay but not where I want it. I'll figure it out when the card is gone. Probably in about six months."},
+          {"role": "assistant", "content": "Six months out — good to be thinking ahead even if the decision isn't final. No rush to lock it in now."},
+          {"role": "user", "content": "Right. No decision yet. Just considering options."},
+          {"role": "assistant", "content": "Noted — post-payoff plan is still open. You'll have more clarity when you're actually at that point."}
+        ]
+      }
+    ],
+    "question": "After paying off their credit card, does the user plan to invest or build savings first?",
+    "expected_answer": "I don't know — the user explicitly stated they have not decided yet and are just considering both options",
+    "atomic_facts": ["user has not decided between investing and saving after credit card payoff", "credit card payoff is approximately six months away", "user is in consideration phase only with no decision made"],
+    "metadata": {"review_status": "draft", "difficulty": "easy", "distractor_density": "low", "multi_session": false}
+  },
+  {
+    "id": "mesa-fin-causal-0001",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "small business owner, expense decision traced to cash flow event",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2024-01-30",
+        "turns": [
+          {"role": "user", "content": "January was brutal. Lost a client mid-month that was worth $1,800/month to me. Came completely out of nowhere."},
+          {"role": "assistant", "content": "Sudden client loss of $1,800/month is significant. That's a real cash flow hit. Do you have enough runway to absorb it?"},
+          {"role": "user", "content": "Barely. I have about two months of operating expenses in reserve. That's not comfortable."},
+          {"role": "assistant", "content": "Two months is tight for a business. You'll want to replace that revenue or reduce expenses quickly. What's your pipeline?"}
+        ]
+      },
+      {
+        "date": "2024-03-05",
+        "turns": [
+          {"role": "user", "content": "I canceled my project management software — $89/month. Also paused my business coaching subscription at $120/month. Felt necessary."},
+          {"role": "assistant", "content": "$209/month cut. What pushed you to those specific cuts?"},
+          {"role": "user", "content": "Losing that $1,800/month client in January. I haven't replaced the revenue and I refuse to burn through my reserves. Those felt like the most discretionary business costs."},
+          {"role": "assistant", "content": "Direct response to the January client loss — smart triage. $209 saved is roughly 11% of the gap while you rebuild."}
+        ]
+      }
+    ],
+    "question": "Why did the user cancel their project management software and pause their business coaching subscription?",
+    "expected_answer": "Because they lost a client worth $1,800/month in January 2024 and had not replaced the revenue; they cut discretionary expenses to avoid burning through reserves",
+    "atomic_facts": ["client worth $1,800/month was lost in January 2024", "project management software was canceled at $89/month", "business coaching subscription was paused at $120/month", "cuts were made in response to the client loss to protect two months of operating reserves"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-causal-0002",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "early-career saver, opened separate savings account due to spending behavior",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2023-12-10",
+        "turns": [
+          {"role": "user", "content": "I keep spending my savings. Every time I hit a goal amount I dip into it for something. Last month I had $2,000 saved and spent $400 of it on a concert trip."},
+          {"role": "assistant", "content": "Classic problem — savings in the same place as spending creates easy access. The friction to spend is zero. Separate institution is usually the fix."},
+          {"role": "user", "content": "I know I need to fix it. It's just too easy to transfer within my bank's app."},
+          {"role": "assistant", "content": "One tap is too frictionless for savings. Separate bank with a transfer delay is the structural solution."}
+        ]
+      },
+      {
+        "date": "2024-01-20",
+        "turns": [
+          {"role": "user", "content": "I opened a savings account at Ally. No debit card, no ATM access, can't connect it to Venmo. Transfer takes two days."},
+          {"role": "assistant", "content": "Ally high-yield with friction-by-design — no debit card, no instant transfer. What triggered you to finally do it?"},
+          {"role": "user", "content": "Honestly the concert trip embarrassed me enough. I worked two weeks for that $400 and spent it on one weekend."},
+          {"role": "assistant", "content": "The concert trip was the catalyst. Sometimes one clear moment of regret is all it takes to build the right structure."}
+        ]
+      }
+    ],
+    "question": "What caused the user to open a separate Ally savings account?",
+    "expected_answer": "Embarrassment over spending $400 of savings on a concert trip in December 2023; the ease of accessing savings within their main bank was enabling impulsive spending",
+    "atomic_facts": ["user spent $400 of savings on a concert trip in December 2023", "savings were previously held in the same bank as checking making transfer too easy", "user opened an Ally account in January 2024 with no debit card no ATM and two-day transfer delays", "the concert trip was described as the catalyst that triggered action"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "low", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-causal-0003",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "freelancer managing quarterly taxes, changed invoicing terms",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2024-02-15",
+        "turns": [
+          {"role": "user", "content": "I have a client who is 47 days past due on a $3,200 invoice. Net-30 terms and they're ignoring my follow-ups."},
+          {"role": "assistant", "content": "47 days on a $3,200 invoice with Net-30 terms — 17 days past due. Have you sent a formal overdue notice or just email follow-ups?"},
+          {"role": "user", "content": "Just emails. Three of them. I'm going to try a phone call next week."},
+          {"role": "assistant", "content": "Escalate to phone — email is easy to ignore. If that fails, a written demand letter via certified mail is the next step before considering collections."}
+        ]
+      },
+      {
+        "date": "2024-04-10",
+        "turns": [
+          {"role": "user", "content": "I changed all my client contracts from Net-30 to Net-15 payment terms. And I added a 1.5% monthly late fee clause."},
+          {"role": "assistant", "content": "Tighter terms and a penalty — what drove that change?"},
+          {"role": "user", "content": "That $3,200 invoice fiasco from February. Client eventually paid at day 68 — no late fee because I didn't have one. Lesson learned the hard way."},
+          {"role": "assistant", "content": "The 68-day wait with no recourse wrote the new policy. Net-15 plus 1.5% monthly late fee is now your standard — that single bad experience was worth it structurally."}
+        ]
+      }
+    ],
+    "question": "Why did the user change their payment terms from Net-30 to Net-15 and add a late fee clause?",
+    "expected_answer": "Because a client took 68 days to pay a $3,200 invoice in early 2024 and there was no late fee clause to enforce; the experience directly prompted the contract changes",
+    "atomic_facts": ["client with $3,200 invoice took 68 days to pay on Net-30 terms", "no late fee clause existed at the time so user had no recourse", "user changed all contracts to Net-15 terms in April 2024", "user added 1.5% monthly late fee to all contracts", "the February invoice situation was explicitly cited as the cause"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  },
+  {
+    "id": "mesa-fin-causal-0004",
+    "domain": "Finance / Money / Investments",
+    "source_profile": "parent saving for college, increased emergency fund target due to job change",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2024-02-01",
+        "turns": [
+          {"role": "user", "content": "I'm leaving my salaried job at the end of the month to go independent. Consulting work lined up but income will be variable now."},
+          {"role": "assistant", "content": "Big transition — salaried to independent is a cash flow model change. Variable income means your safety net calculus changes. Are you prepared for the income gap months?"},
+          {"role": "user", "content": "Trying to be. I have some clients ready to go but there will be irregular months for sure."},
+          {"role": "assistant", "content": "Good to go in clear-eyed. First six months as independent are almost always bumpier than expected."}
+        ]
+      },
+      {
+        "date": "2024-03-10",
+        "turns": [
+          {"role": "user", "content": "I raised my emergency fund target from $12,000 to $20,000 now that I'm independent. Six months of expenses instead of three."},
+          {"role": "assistant", "content": "That's a direct response to the income variability of going independent — doubled the runway target. What's your current balance against the new goal?"},
+          {"role": "user", "content": "At $14,500 right now. So $5,500 to go. I want to hit $20k before I feel fully stable."},
+          {"role": "assistant", "content": "$14,500 of $20,000 — $5,500 gap. Reasonable to want that cushion closed before settling in to the new mode."}
+        ]
+      }
+    ],
+    "question": "Why did the user raise their emergency fund target from $12,000 to $20,000?",
+    "expected_answer": "Because they left salaried employment at the end of February 2024 to become an independent consultant, making income variable and requiring a larger safety net of six months of expenses instead of three",
+    "atomic_facts": ["user left salaried job at end of February 2024 to go independent", "income is now variable as a consultant", "emergency fund target raised from $12,000 to $20,000 in March 2024", "new target represents six months of expenses versus the prior three months", "current balance is $14,500 leaving a $5,500 gap"],
+    "metadata": {"review_status": "draft", "difficulty": "medium", "distractor_density": "medium", "multi_session": true}
+  }
+]

@@ -1,0 +1,2216 @@
+[
+  {
+    "id": "mesa-edu-recall-single-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student in computational linguistics",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-02-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I finally nailed down my thesis topic after months of waffling. I'm going with 'Cross-lingual transfer learning for low-resource Bantu languages using multilingual BERT variants.' My advisor Dr. Amara Diallo signed off on it yesterday."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a well-scoped topic \u2014 Bantu language families have significant linguistic diversity and genuinely limited NLP resources, so there's real contribution potential there. Dr. Diallo signed off quickly; she must be confident in the direction. Do you have a target corpus in mind yet?"
+          },
+          {
+            "role": "user",
+            "content": "Yes, I'm starting with Swahili and Zulu as the higher-resource ends of the spectrum, then pushing toward Lingala and Tshiluba. Should give me a nice gradient."
+          },
+          {
+            "role": "assistant",
+            "content": "Smart gradient design. Swahili and Zulu have more existing annotated data, so they'll serve as your upper-bound baselines, while Lingala and Tshiluba stress-test your transfer approach. That should make for a compelling Chapter 3."
+          }
+        ]
+      }
+    ],
+    "question": "What is the PhD student's thesis topic?",
+    "expected_answer": "Cross-lingual transfer learning for low-resource Bantu languages using multilingual BERT variants.",
+    "atomic_facts": [
+      "Thesis topic is cross-lingual transfer learning",
+      "Focus is on low-resource Bantu languages",
+      "Uses multilingual BERT variants",
+      "Advisor Dr. Amara Diallo approved it"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-single-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Undergraduate biology student",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I registered for my fall semester courses today. Ended up with Molecular Genetics, Biostatistics II, Cell Signaling, and a seminar on CRISPR ethics. Four courses, 16 credits total."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a solid load. Biostatistics II will probably demand the most consistent weekly effort \u2014 the problem sets compound. CRISPR ethics seminars can be surprisingly engaging if the instructor frames the policy angles well. Do you have any labs attached to the science courses?"
+          },
+          {
+            "role": "user",
+            "content": "Molecular Genetics has a 3-credit lab component, so really it's 19 credits if you count that. I probably should have mentioned that."
+          },
+          {
+            "role": "assistant",
+            "content": "19 credits is a heavier semester. Keep an eye on the lab writeup schedule \u2014 Molecular Genetics labs often have weekly reports that stack up if you fall behind."
+          }
+        ]
+      }
+    ],
+    "question": "How many total credits is the undergraduate student registered for in the fall semester?",
+    "expected_answer": "19 credits (16 course credits plus a 3-credit lab component for Molecular Genetics).",
+    "atomic_facts": [
+      "Student registered for 4 courses",
+      "Base credit count is 16",
+      "Molecular Genetics has a 3-credit lab",
+      "Total is 19 credits"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-single-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Self-taught developer learning machine learning",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-01-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been going back and forth on citation managers. Landed on Zotero because it handles PDFs well and the browser plugin saves me a ton of time. Tried Mendeley last year but the sync issues drove me crazy."
+          },
+          {
+            "role": "assistant",
+            "content": "Zotero is a solid choice \u2014 the browser connector is genuinely one of the best in class for one-click capture, and it plays nicely with most word processors. Mendeley's sync problems became notorious after Elsevier's acquisition. Are you using any Zotero plugins on top of the base install?"
+          },
+          {
+            "role": "user",
+            "content": "Yeah, ZotFile for managing the PDFs and Better BibTeX for clean LaTeX exports. Those two made it feel complete."
+          },
+          {
+            "role": "assistant",
+            "content": "ZotFile plus Better BibTeX is essentially the canonical power-user setup. Better BibTeX's citekey customization alone saves a lot of headaches when you're managing a large bibliography."
+          }
+        ]
+      }
+    ],
+    "question": "Which citation manager is the user currently using, and why did they leave the previous one?",
+    "expected_answer": "The user is using Zotero. They left Mendeley because of sync issues.",
+    "atomic_facts": [
+      "Current citation manager is Zotero",
+      "Previously used Mendeley",
+      "Left Mendeley due to sync problems",
+      "Uses ZotFile and Better BibTeX plugins"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-single-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "High school chemistry teacher pursuing a master's degree part-time",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-04-02",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The NeurIPS submission deadline is wrecking my schedule. November 15th for abstract, November 22nd for full paper. My advisor wants a full draft two weeks before the full paper deadline so she has time to review."
+          },
+          {
+            "role": "assistant",
+            "content": "That puts your internal draft deadline at November 8th \u2014 right in the middle of what's usually a heavy grading period if you're also teaching. Are you planning to carve out dedicated writing blocks, or squeezing it into evenings?"
+          },
+          {
+            "role": "user",
+            "content": "Squeezing into evenings mostly. Tuesdays and Thursdays after 8pm when my kids are in bed. I'm not thrilled about it but it's what I have."
+          },
+          {
+            "role": "assistant",
+            "content": "Tuesday and Thursday evenings are real time \u2014 protect them hard. Even two focused hours each session gets you to a draft if you start early enough. Putting the November 8th draft date in your calendar now would help."
+          }
+        ]
+      }
+    ],
+    "question": "What is the NeurIPS full paper submission deadline the teacher mentioned?",
+    "expected_answer": "November 22nd.",
+    "atomic_facts": [
+      "NeurIPS abstract deadline is November 15th",
+      "Full paper deadline is November 22nd",
+      "Advisor wants a draft two weeks before the full paper deadline",
+      "Internal draft deadline is therefore November 8th"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-preference-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Adult learner studying Spanish independently",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've tried Duolingo, Babbel, and Pimsleur over the past two years. Pimsleur is the one that actually sticks for me \u2014 the audio-only format works with my commute and I retain things better when I hear them first before seeing the text."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a meaningful personal insight about your learning style \u2014 auditory-first with delayed reading reinforcement. Pimsleur was designed around spaced audio repetition, so it maps well to commute-length sessions. Are you supplementing with anything for reading and writing?"
+          },
+          {
+            "role": "user",
+            "content": "Just news articles. I read El Pa\u00eds at a pretty basic level and look up words I don't know. It's slow but I like it more than flashcard apps."
+          },
+          {
+            "role": "assistant",
+            "content": "Reading authentic news, even slowly, builds vocabulary in context rather than in isolation \u2014 that tends to produce better long-term retention than isolated flashcard drills. El Pa\u00eds is a reasonable difficulty target for intermediate learners."
+          }
+        ]
+      }
+    ],
+    "question": "Which language learning app does the adult learner prefer and why?",
+    "expected_answer": "Pimsleur, because the audio-only format fits their commute and they retain material better when they hear it before seeing text.",
+    "atomic_facts": [
+      "Preferred app is Pimsleur",
+      "Audio-only format suits the commute",
+      "Auditory-first learning style works better for this learner",
+      "Also tried Duolingo and Babbel",
+      "Supplements with reading El Pa\u00eds"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-preference-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student in cognitive neuroscience",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I hate reading papers on a screen. I print everything, annotate in the margins with a red pen, and file the physical copies in manila folders by topic. My labmates think I'm from the 1980s but my recall is way better this way."
+          },
+          {
+            "role": "assistant",
+            "content": "The research on annotation medium is actually on your side to some extent \u2014 motor encoding during handwriting and physical annotation can strengthen memory consolidation. The red pen specifically, or just any contrast color?"
+          },
+          {
+            "role": "user",
+            "content": "Red specifically. I've tried other colors but red feels more urgent and I pay more attention to my own notes when I review. Probably psychological but it works."
+          },
+          {
+            "role": "assistant",
+            "content": "Psychological or not, consistency in your annotation system reduces friction \u2014 you always know what you're looking for when you come back to a paper. The folder-by-topic system is essentially a physical knowledge graph."
+          }
+        ]
+      }
+    ],
+    "question": "How does the PhD student prefer to read and annotate research papers?",
+    "expected_answer": "They print papers, annotate in the margins with a red pen, and file physical copies in manila folders organized by topic.",
+    "atomic_facts": [
+      "Prefers printed papers over screen reading",
+      "Annotates with a red pen specifically",
+      "Files physical copies in manila folders by topic",
+      "Reports better recall with this method"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-preference-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Bootcamp student learning full-stack web development",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-01-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "For studying I do best in the morning before 9am. After that my focus tanks, especially for algorithmic problems. I've tried studying at night and it's just a write-off \u2014 I retain almost nothing."
+          },
+          {
+            "role": "assistant",
+            "content": "Strong morning preference is worth protecting. For algorithm practice especially, that kind of problem-solving demands working memory at its peak. Have you structured your bootcamp schedule around this, or do the cohort sessions force different hours?"
+          },
+          {
+            "role": "user",
+            "content": "Cohort sessions are 10am to 4pm which is fine, but I try to do my own Leetcode practice from 6-8am every day before the sessions start. That two-hour window is sacred."
+          },
+          {
+            "role": "assistant",
+            "content": "6 to 8 as protected time is a good system. Two hours of focused algorithmic work before the cohort context-switches you is worth more than four hours of scattered evening work. Guard it."
+          }
+        ]
+      }
+    ],
+    "question": "When does the bootcamp student prefer to study and what do they do during that time?",
+    "expected_answer": "They study from 6 to 8am, before cohort sessions start, and use that window specifically for Leetcode algorithm practice.",
+    "atomic_facts": [
+      "Prefers studying before 9am",
+      "Morning focus is strongest for algorithmic problems",
+      "Evening studying produces poor retention for them",
+      "Daily Leetcode practice runs 6am to 8am",
+      "Cohort sessions run 10am to 4pm"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-preference-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Self-taught ML developer",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-02-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've settled on Jupyter notebooks for exploratory work and VSCode for anything I'm going to actually ship. The notebooks are great for iterating on ideas but I can't stand maintaining them as real code. VSCode with the Python extension feels like actual engineering."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a clean mental boundary \u2014 notebooks as scratch space and thinking tool, VSCode as the production environment. A lot of people blur that line and end up with unmaintainable notebook spaghetti. Do you use any notebook extensions that help with the exploratory side?"
+          },
+          {
+            "role": "user",
+            "content": "Just nbstripout to keep diffs clean in git. I hate reviewing PRs with embedded outputs in notebooks."
+          },
+          {
+            "role": "assistant",
+            "content": "nbstripout is exactly the right call for that. Notebook output in diffs is genuinely painful to review and adds noise to blame history. Stripping on commit is low-friction hygiene."
+          }
+        ]
+      }
+    ],
+    "question": "What is the ML developer's preference for development tools, and how do they divide their use?",
+    "expected_answer": "Jupyter notebooks for exploratory work and iteration, VSCode for production-ready code they intend to ship.",
+    "atomic_facts": [
+      "Uses Jupyter notebooks for exploratory work",
+      "Uses VSCode for code intended for production",
+      "Considers notebooks poor for maintainable code",
+      "Uses nbstripout to strip outputs before git commits"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-constraint-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student managing research constraints",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-03-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My IRB approval only covers data collection from participants 18 and older. I made that mistake clear when I submitted because my study involves mood-tracking data and minors would require parental consent forms and a separate review board process I don't have time for."
+          },
+          {
+            "role": "assistant",
+            "content": "That's the right call to scope it explicitly upfront \u2014 IRB amendments for age range changes are slow and can derail timelines significantly. Is your recruitment targeting university students specifically, or broader adult community samples?"
+          },
+          {
+            "role": "user",
+            "content": "University students via SONA system, so realistically 18 to 25, but the IRB language just says 18 and over so I have room if I want to go broader later."
+          },
+          {
+            "role": "assistant",
+            "content": "Having the broader IRB language gives you flexibility without needing an amendment. SONA pools tend to skew younger so your actual distribution will probably stay in the 18-22 range regardless."
+          }
+        ]
+      }
+    ],
+    "question": "What is the age constraint on the PhD student's IRB-approved study?",
+    "expected_answer": "Participants must be 18 years old or older.",
+    "atomic_facts": [
+      "IRB approval covers participants 18 and older only",
+      "Minors would require parental consent and separate review board",
+      "Study involves mood-tracking data",
+      "Recruiting primarily through the SONA system"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-constraint-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Undergraduate on academic probation",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-01-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My academic advisor told me I can only take 13 credits this semester because of my GPA situation. I'm on academic probation and there's a hard cap until my GPA comes back up above 2.5."
+          },
+          {
+            "role": "assistant",
+            "content": "A 13-credit cap is actually a reasonable ceiling to help you focus \u2014 spreading thin across 18 credits when you're trying to rebuild your GPA tends to backfire. Do you know what GPA you need to hit to get the cap lifted?"
+          },
+          {
+            "role": "user",
+            "content": "Above 2.5 cumulative. I'm at 2.1 right now so it's doable but I need a solid semester. If I get above 2.5 the probation lifts automatically."
+          },
+          {
+            "role": "assistant",
+            "content": "2.1 to 2.5 in one semester is achievable, especially with a lighter load. Identify which courses give you the clearest path to A's or B's and prioritize those for time investment."
+          }
+        ]
+      }
+    ],
+    "question": "What is the undergraduate's credit limit this semester and why is it imposed?",
+    "expected_answer": "13 credits maximum, due to academic probation stemming from a GPA below 2.5.",
+    "atomic_facts": [
+      "Credit limit is 13 credits this semester",
+      "Limit is due to academic probation",
+      "Probation condition is cumulative GPA below 2.5",
+      "Current GPA is 2.1",
+      "Probation lifts automatically if GPA exceeds 2.5"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-constraint-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "High school teacher writing a grant proposal",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-04-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The NSF grant I'm applying to caps indirect costs at 26 percent of the total budget. My grants office keeps trying to push it to 35 but the program solicitation is explicit. I've had to send them the PDF three times now."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a frustrating gap \u2014 grants offices often default to the institution's negotiated rate and don't always read program-specific overrides carefully. Having the solicitation page and section number ready to cite is your best lever."
+          },
+          {
+            "role": "user",
+            "content": "Page 14, section IV. I've basically memorized it at this point. The total award ceiling is also $500,000 for the full three years."
+          },
+          {
+            "role": "assistant",
+            "content": "Page 14 section IV with a $500,000 three-year ceiling and a 26 percent indirect cost cap \u2014 that's a well-defined constraint set. If your grants office keeps pushing, looping in the program officer for written clarification can sometimes break the impasse."
+          }
+        ]
+      }
+    ],
+    "question": "What is the indirect cost rate cap on the NSF grant the teacher is applying for?",
+    "expected_answer": "26 percent of the total budget.",
+    "atomic_facts": [
+      "Indirect cost cap is 26 percent",
+      "Grant office was pushing for 35 percent",
+      "Constraint is stated on page 14, section IV of the solicitation",
+      "Total award ceiling is $500,000 over three years"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-recall-constraint-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Bootcamp student with employer tuition reimbursement",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-02-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My employer will reimburse up to $5,250 per year for the bootcamp, which is the IRS tax-free education benefit limit. Anything above that gets treated as taxable income so I'm being careful not to exceed it. The bootcamp costs $7,800 total so I'll be out of pocket about $2,550."
+          },
+          {
+            "role": "assistant",
+            "content": "The $5,250 IRS limit is a real constraint worth respecting \u2014 the tax hit on the overage could erase most of the perceived benefit. Are you splitting the $7,800 across calendar years to potentially double your reimbursement window?"
+          },
+          {
+            "role": "user",
+            "content": "No, it's a single cohort, starts and ends in 2026. I looked into that but the payment schedule doesn't split cleanly across a fiscal year boundary."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a common limitation of cohort-based programs. Sticking to the $5,250 ceiling and accepting the $2,550 out-of-pocket is the clean path then."
+          }
+        ]
+      }
+    ],
+    "question": "What is the maximum annual employer reimbursement the bootcamp student can receive tax-free, and what is their expected out-of-pocket cost?",
+    "expected_answer": "The tax-free maximum is $5,250 per year (the IRS limit). With a total bootcamp cost of $7,800, the expected out-of-pocket cost is approximately $2,550.",
+    "atomic_facts": [
+      "Employer reimburses up to $5,250 per year",
+      "$5,250 is the IRS tax-free education benefit limit",
+      "Amounts above $5,250 are treated as taxable income",
+      "Total bootcamp cost is $7,800",
+      "Expected out-of-pocket cost is approximately $2,550"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-edu-synthesis-multi-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student in computational linguistics",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm planning to use three main tools for my research pipeline: spaCy for preprocessing, Hugging Face Transformers for model experiments, and Weights & Biases for experiment tracking. That's my whole stack."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a coherent stack \u2014 spaCy handles the linguistic preprocessing cleanly, Transformers gives you model flexibility, and W&B closes the loop on reproducibility. Are you handling data versioning separately or baking it into W&B artifacts?"
+          },
+          {
+            "role": "user",
+            "content": "Separate DVC setup for data versioning. W&B just handles runs and metrics."
+          },
+          {
+            "role": "assistant",
+            "content": "DVC plus W&B is a solid division of labor. DVC for data lineage, W&B for experiment history \u2014 you get full reproducibility without either tool overstepping."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-08",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been thinking about my funding situation. My NSF fellowship covers tuition and gives me a $34,000 annual stipend. I also just got a $5,000 travel grant from my department to attend ACL in Vienna this summer."
+          },
+          {
+            "role": "assistant",
+            "content": "An NSF fellowship plus a department travel grant puts you in a good position for the year. ACL in Vienna is a strong venue for computational linguistics work \u2014 will you be presenting or attending?"
+          },
+          {
+            "role": "user",
+            "content": "Presenting a short paper on code-switching detection in Swahili-English social media text. It's adjacent to my thesis but not the core chapter."
+          },
+          {
+            "role": "assistant",
+            "content": "Short papers at ACL are well-read \u2014 code-switching in social media is a hot subfield. Adjacent work that generates visibility before your main thesis findings land is a smart positioning move."
+          }
+        ]
+      }
+    ],
+    "question": "Summarize this PhD student's research infrastructure and financial support situation.",
+    "expected_answer": "The student uses spaCy, Hugging Face Transformers, Weights & Biases, and DVC as their research tool stack. They are funded by an NSF fellowship covering tuition and a $34,000 annual stipend, plus a $5,000 department travel grant to present at ACL in Vienna.",
+    "atomic_facts": [
+      "Research tools: spaCy, Hugging Face Transformers, Weights & Biases, DVC",
+      "NSF fellowship covers tuition",
+      "Annual stipend is $34,000",
+      "Department travel grant is $5,000",
+      "Presenting at ACL in Vienna",
+      "Short paper on code-switching in Swahili-English social media text"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-synthesis-multi-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Adult learner studying data science",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been working through Andrew Ng's Machine Learning Specialization on Coursera. I finished Course 1 last week and I'm about 40% through Course 2, the advanced learning algorithms one."
+          },
+          {
+            "role": "assistant",
+            "content": "Course 2 is where the material starts demanding more careful attention \u2014 decision trees, neural network backprop from scratch, all the good stuff. Are you doing the optional labs or just the graded assignments?"
+          },
+          {
+            "role": "user",
+            "content": "All the optional labs too. I learn better by running the code than reading about it."
+          },
+          {
+            "role": "assistant",
+            "content": "Running the code is the right instinct for this material. The optional labs in Course 2 do a particularly good job of making backpropagation tactile rather than just symbolic."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I finished the ML Specialization last weekend. Took me just under three months total. Now I'm pivoting to the Deep Learning Specialization, also Ng, but I want to go faster this time \u2014 maybe two months if I push."
+          },
+          {
+            "role": "assistant",
+            "content": "Three months for the ML Specialization while presumably working is a solid pace. The Deep Learning Specialization is five courses rather than three, so two months would mean roughly one course every two and a half weeks. Aggressive but doable if you maintain the same lab-first approach."
+          },
+          {
+            "role": "user",
+            "content": "I work 30 hours a week part time so I can put in maybe 15 hours a week on this. Should be enough."
+          },
+          {
+            "role": "assistant",
+            "content": "15 hours a week is enough to push through the Deep Learning Specialization in two months, especially since you're already comfortable with the foundational Ng style and notation."
+          }
+        ]
+      }
+    ],
+    "question": "What learning path has this adult learner followed and what are they planning next?",
+    "expected_answer": "They completed Andrew Ng's Machine Learning Specialization on Coursera in just under three months. They are now starting Ng's Deep Learning Specialization and aim to finish it in approximately two months, studying about 15 hours per week while working 30 hours per week.",
+    "atomic_facts": [
+      "Completed Andrew Ng's Machine Learning Specialization on Coursera",
+      "Completion took just under three months",
+      "Now starting the Deep Learning Specialization (also Ng)",
+      "Target completion is approximately two months",
+      "Studies about 15 hours per week",
+      "Works 30 hours per week part-time"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-synthesis-multi-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "High school teacher conducting action research",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My action research question is: does weekly low-stakes writing practice improve AP Chemistry exam scores compared to a control group that gets extra problem sets? I'm running it in two of my four sections."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a clean quasi-experimental design \u2014 two intervention sections, two control sections within the same instructor reduces confounding from teaching style. How are you operationalizing 'low-stakes writing practice'?"
+          },
+          {
+            "role": "user",
+            "content": "Five-minute free writes at the start of class, twice a week. They write about a concept from the prior day. No grade, just completion credit."
+          },
+          {
+            "role": "assistant",
+            "content": "Twice-weekly low-pressure retrieval plus generative processing \u2014 that's a sound intervention. Completion credit removes the anxiety variable that might otherwise confound the writing condition."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Midpoint check: the writing sections are showing a 0.4 standard deviation improvement on unit tests so far. Control sections are flat. My department chair wants a write-up by June 1st."
+          },
+          {
+            "role": "assistant",
+            "content": "0.4 SD at midpoint is a meaningful signal, especially given the low-intensity intervention. That's approaching what you'd call a medium effect size. Is the June 1st write-up for internal use or are you targeting a journal?"
+          },
+          {
+            "role": "user",
+            "content": "Internal first, but my chair mentioned the Journal of Chemistry Education as a potential venue if the final data holds."
+          },
+          {
+            "role": "assistant",
+            "content": "Journal of Chemistry Education is a good fit for classroom intervention research with a chemistry-specific sample. If the effect size holds through the AP exam, you'll have a credible submission."
+          }
+        ]
+      }
+    ],
+    "question": "What is the teacher's research design, and what results have emerged so far?",
+    "expected_answer": "The teacher is conducting action research comparing weekly low-stakes writing practice (5-minute free writes twice a week, no grade) to extra problem sets in AP Chemistry. At midpoint, the writing sections show a 0.4 standard deviation improvement on unit tests while control sections are flat. A write-up is due June 1st, with the Journal of Chemistry Education as a potential publication venue.",
+    "atomic_facts": [
+      "Research question compares low-stakes writing to extra problem sets in AP Chemistry",
+      "Two sections receive writing intervention, two are controls",
+      "Intervention is 5-minute free writes twice a week with completion credit only",
+      "Midpoint results show 0.4 SD improvement in writing sections",
+      "Control sections are flat",
+      "Department chair write-up due June 1st",
+      "Journal of Chemistry Education is potential publication venue"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-synthesis-multi-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Bootcamp student transitioning from marketing career",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-01-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My learning goals for this bootcamp are: get comfortable with React, build two full-stack portfolio projects, and land a junior front-end role within six months of graduating. Those are the three concrete targets."
+          },
+          {
+            "role": "assistant",
+            "content": "React proficiency, two portfolio projects, and a six-month job timeline \u2014 that's a measurable set. The portfolio projects will likely be your strongest lever in interviews if you can articulate the decisions you made. Do you have project ideas in mind?"
+          },
+          {
+            "role": "user",
+            "content": "One is a budget tracker app, the other is something related to my marketing background \u2014 probably a campaign analytics dashboard. That way I'm not starting from scratch on the domain knowledge."
+          },
+          {
+            "role": "assistant",
+            "content": "The campaign analytics dashboard is smart positioning \u2014 it lets you walk into interviews with credible domain context behind the technical demo. Junior roles in ad-tech or marketing SaaS companies would be natural fits."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've finished the budget tracker and I'm about halfway through the analytics dashboard. Graduation is May 15th. I've already started applying to companies and got one phone screen last week for a role at a small SaaS startup."
+          },
+          {
+            "role": "assistant",
+            "content": "One phone screen before graduation is a good early signal. The half-finished dashboard will be complete by May 15th, which means you'll hit the market with both portfolio pieces live. How did the phone screen go?"
+          },
+          {
+            "role": "user",
+            "content": "Pretty well I think. They seemed interested in the marketing background. Second round is next Thursday with the CTO."
+          },
+          {
+            "role": "assistant",
+            "content": "CTO second round at a small startup means you're being evaluated on fit and trajectory, not just technical depth. Walk them through the analytics dashboard architecture \u2014 it shows both the technical work and the domain context you bring."
+          }
+        ]
+      }
+    ],
+    "question": "What are the bootcamp student's stated learning goals, and how close are they to achieving them as of the second session?",
+    "expected_answer": "Goals are: React proficiency, two full-stack portfolio projects, and a junior front-end role within six months of graduating. As of the second session, they have completed the budget tracker, are halfway through the analytics dashboard, graduating May 15th, and already have a second-round interview with a startup CTO.",
+    "atomic_facts": [
+      "Three goals: React proficiency, two portfolio projects, junior front-end role within six months",
+      "Budget tracker app is complete",
+      "Campaign analytics dashboard is halfway done",
+      "Graduation is May 15th",
+      "Has already gotten a phone screen at a SaaS startup",
+      "Second-round CTO interview is scheduled for Thursday"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-temporal-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student tracking dissertation milestones",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My dissertation defense is scheduled for October 14th. My committee chair said I need to submit the final draft to the full committee eight weeks before the defense date."
+          },
+          {
+            "role": "assistant",
+            "content": "Eight weeks before October 14th puts your committee submission deadline at August 19th. That gives your committee members time to read carefully and return consolidated feedback. Are you tracking toward that comfortably?"
+          },
+          {
+            "role": "user",
+            "content": "Barely. I'm still on Chapter 4 of 5. Chapter 5 is the shortest \u2014 mostly discussion and limitations \u2014 so I'm cautiously optimistic."
+          },
+          {
+            "role": "assistant",
+            "content": "If Chapter 5 is primarily synthesis rather than new analysis, it often moves faster than the empirical chapters. August 19th as a hard back-deadline means finishing your own draft well before that to leave revision buffer."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I finished Chapter 5 last week and I'm now in full revision mode. My chair moved the committee submission deadline by two weeks because two committee members are traveling in August. So the new submission deadline is August 5th."
+          },
+          {
+            "role": "assistant",
+            "content": "August 5th instead of August 19th \u2014 that's two weeks tighter. How far into revisions are you, and is your chair giving you feedback chapter by chapter or waiting for the full draft?"
+          },
+          {
+            "role": "user",
+            "content": "Chapter by chapter, which is helpful. She's already returned notes on Chapters 1-3 and I'm incorporating those now."
+          },
+          {
+            "role": "assistant",
+            "content": "Chapter-by-chapter review is a much healthier revision loop \u2014 you're not sitting on a mountain of feedback all at once. With Chapters 1-3 notes in hand and Chapter 5 done, you're in a workable position for August 5th."
+          }
+        ]
+      }
+    ],
+    "question": "What is the current committee submission deadline, and how did it change from the original?",
+    "expected_answer": "The current deadline is August 5th. It was originally August 19th (eight weeks before the October 14th defense), but moved two weeks earlier to August 5th because two committee members are traveling in August.",
+    "atomic_facts": [
+      "Defense date is October 14th",
+      "Original committee submission deadline was August 19th (eight weeks before defense)",
+      "Deadline moved to August 5th due to committee member travel",
+      "Deadline moved two weeks earlier, not later",
+      "Chapter 5 was completed before the second session"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-temporal-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Undergraduate tracking exam schedule",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My Organic Chemistry midterm is March 28th. I've been planning to start studying two weeks out, which would be March 14th."
+          },
+          {
+            "role": "assistant",
+            "content": "Two weeks for Orgo is reasonable if you're building a study schedule rather than cramming. Have you started outlining what mechanisms and reaction types will be on it?"
+          },
+          {
+            "role": "user",
+            "content": "My professor just sent the coverage list \u2014 everything up through carbonyl chemistry, so about 11 chapters."
+          },
+          {
+            "role": "assistant",
+            "content": "11 chapters in two weeks means roughly one chapter every 1.3 days on average. You'd want to front-load the heavier mechanisms and use the last few days for practice problems and reaction maps."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The professor pushed the midterm back a week because of a department event. So now it's April 4th. I didn't start studying on March 14th like I planned \u2014 I got sick \u2014 so this is actually a relief."
+          },
+          {
+            "role": "assistant",
+            "content": "April 4th gives you more breathing room, and since you're just starting to recover, you still have a clean two-plus-week runway from now. The illness delay and the rescheduling almost cancel out. How are you feeling?"
+          },
+          {
+            "role": "user",
+            "content": "Better, back to normal today. Starting the study schedule tonight."
+          },
+          {
+            "role": "assistant",
+            "content": "Good timing to restart. Beginning tonight with March 18th as day one and April 4th as the exam gives you 17 days \u2014 more manageable than the original two-week window for 11 chapters."
+          }
+        ]
+      }
+    ],
+    "question": "What is the current date of the Organic Chemistry midterm, and what was the original date?",
+    "expected_answer": "The current exam date is April 4th. The original date was March 28th; it was pushed back one week due to a department event.",
+    "atomic_facts": [
+      "Original midterm date was March 28th",
+      "Exam was pushed back one week",
+      "New midterm date is April 4th",
+      "Reason for change was a department event",
+      "Student also missed planned study start on March 14th due to illness"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-temporal-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Self-taught developer tracking a reading list",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My ML reading list for Q1 is: Goodfellow's Deep Learning book, the Attention Is All You Need paper, and Bishop's Pattern Recognition and Machine Learning. That's my three targets for January through March."
+          },
+          {
+            "role": "assistant",
+            "content": "Goodfellow and Bishop are both substantial \u2014 PRML especially is dense in the early chapters on probability. Attention Is All You Need is short by comparison. Have you read either of the books before?"
+          },
+          {
+            "role": "user",
+            "content": "Started Goodfellow last year and got through the first four chapters. Starting from chapter 5 this time. Bishop is completely new."
+          },
+          {
+            "role": "assistant",
+            "content": "Picking up Goodfellow at chapter 5 is efficient \u2014 chapters 1-4 are foundational math review that you likely have covered. Bishop is best read selectively unless you want to go deep on Bayesian methods from first principles."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Q1 update: I finished Goodfellow and the Attention paper, but I only got through Part 1 of Bishop \u2014 chapters 1 through 4. I'm carrying Part 2 into Q2. Also adding Sutton and Barto's RL book to Q2 since a project at work needs it."
+          },
+          {
+            "role": "assistant",
+            "content": "Finishing Goodfellow and the Attention paper in a quarter while working is solid. Bishop Part 1 is actually the hardest part \u2014 probability, linear models, kernel methods \u2014 so carrying Part 2 into Q2 with a fresh start on Sutton-Barto is a reasonable load."
+          },
+          {
+            "role": "user",
+            "content": "That's what I figured. Sutton-Barto is the priority for April, Bishop Part 2 is secondary."
+          },
+          {
+            "role": "assistant",
+            "content": "Work-driven priority is the right call. Getting enough RL foundation for the project from Sutton-Barto is more time-sensitive than completing Bishop on a self-directed schedule."
+          }
+        ]
+      }
+    ],
+    "question": "What was the original Q1 reading list, and what is the current reading status at the start of Q2?",
+    "expected_answer": "Q1 list: Goodfellow's Deep Learning, the Attention Is All You Need paper, and Bishop's PRML. Status: Goodfellow and Attention Is All You Need are complete. Bishop Part 1 (chapters 1-4) is done; Part 2 is carried into Q2. Sutton and Barto's RL book has been added to Q2 as the new priority.",
+    "atomic_facts": [
+      "Q1 reading list: Goodfellow Deep Learning, Attention Is All You Need, Bishop PRML",
+      "Goodfellow was completed in Q1",
+      "Attention Is All You Need was completed in Q1",
+      "Only Bishop Part 1 (chapters 1-4) was completed in Q1",
+      "Bishop Part 2 carried into Q2",
+      "Sutton and Barto RL book added to Q2",
+      "Sutton-Barto is Q2 priority due to work project"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-temporal-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student tracking grant funding timeline",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I submitted my NSF GRFP application in October. Results are supposed to come out in March or April. If I get it, funding starts in the fall semester \u2014 September 1st."
+          },
+          {
+            "role": "assistant",
+            "content": "GRFP results in March-April is the standard timeline. If you're awarded, the September 1st start means you'll know well before summer and can plan your fall around it. Do you have a backup funding plan if it doesn't come through?"
+          },
+          {
+            "role": "user",
+            "content": "My advisor has a TA position reserved for me as a fallback. Not ideal but it covers tuition and stipend."
+          },
+          {
+            "role": "assistant",
+            "content": "A confirmed TA fallback removes the worst-case scenario. GRFP is more prestigious and comes with more freedom, but knowing the floor is covered makes the wait more manageable."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "GRFP results just posted. I got Honorable Mention, not the fellowship. So I'm going to the TA position. My advisor said she'll still try to get me a summer research supplement from her grant, which would be around $4,500 for the summer."
+          },
+          {
+            "role": "assistant",
+            "content": "Honorable Mention is real recognition \u2014 it carries weight on your CV even without the funding. The TA position plus a $4,500 summer supplement from your advisor's grant is a reasonable bridge. When would the supplement decision come?"
+          },
+          {
+            "role": "user",
+            "content": "She said probably by the end of May. The grant reporting cycle aligns with that."
+          },
+          {
+            "role": "assistant",
+            "content": "End of May is early enough to plan your summer. If it comes through, you'll have funded research time before the TA contract kicks in September 1st."
+          }
+        ]
+      }
+    ],
+    "question": "What was the outcome of the PhD student's GRFP application, and what is their funding situation going forward?",
+    "expected_answer": "The student received Honorable Mention, not the fellowship. They will take the reserved TA position starting September 1st. Their advisor may provide a summer research supplement of approximately $4,500, with a decision expected by end of May.",
+    "atomic_facts": [
+      "GRFP result was Honorable Mention, not a fellowship award",
+      "Student will take the TA position as fallback",
+      "TA position covers tuition and stipend",
+      "Advisor may provide a $4,500 summer research supplement",
+      "Supplement decision expected by end of May",
+      "TA contract starts September 1st"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student who changed their thesis advisor",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My advisor is Professor Kenji Watanabe. We've been working together since I started the program two years ago. He's a great fit for my interests in NLP and multimodal learning."
+          },
+          {
+            "role": "assistant",
+            "content": "Having an advisor two years in who is well-aligned with your research interests is a significant advantage. Is Professor Watanabe actively working on any projects you're contributing to, or mostly guiding your independent dissertation work?"
+          },
+          {
+            "role": "user",
+            "content": "Both. I TA his graduate seminar and I'm also a co-investigator on a small NSF grant he has."
+          },
+          {
+            "role": "assistant",
+            "content": "Co-investigator experience on an NSF grant as a doctoral student is excellent for your CV and gives you early exposure to the full grant lifecycle. That combination of teaching and research collaboration is a well-rounded training environment."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I need to update you \u2014 I switched advisors last month. Professor Watanabe took an industry position at Google DeepMind and had to drop all his PhD students. I'm now working with Dr. Priya Chandrasekaran. She's strong on evaluation methodology, which I actually needed more of anyway."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a significant disruption, even if the outcome sounds reasonable. Losing an advisor mid-PhD is stressful regardless of the circumstances. How is Dr. Chandrasekaran's advising style compared to Professor Watanabe's?"
+          },
+          {
+            "role": "user",
+            "content": "More hands-on. She wants weekly check-ins instead of biweekly, which honestly I appreciate at this stage."
+          },
+          {
+            "role": "assistant",
+            "content": "Weekly check-ins with a new advisor during a transition period is actually ideal \u2014 it lets you establish working norms faster. Dr. Chandrasekaran's strength in evaluation methodology sounds like it could sharpen your dissertation's contribution framing."
+          }
+        ]
+      }
+    ],
+    "question": "Who is the PhD student's current advisor?",
+    "expected_answer": "Dr. Priya Chandrasekaran. The student's previous advisor, Professor Kenji Watanabe, left for a position at Google DeepMind.",
+    "atomic_facts": [
+      "Current advisor is Dr. Priya Chandrasekaran",
+      "Previous advisor was Professor Kenji Watanabe",
+      "Watanabe left for Google DeepMind",
+      "Advisor switch happened approximately last month relative to April 2026",
+      "Dr. Chandrasekaran requires weekly check-ins"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Undergraduate who changed their major",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-02-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm a Computer Science major, second year. My plan has been CS all along \u2014 I came in declared and I'm on track."
+          },
+          {
+            "role": "assistant",
+            "content": "Being declared from the start puts you ahead on requirements. Are you tracking toward any particular concentration within CS, or keeping it general for now?"
+          },
+          {
+            "role": "user",
+            "content": "Keeping it general. I haven't found the thing that excites me yet."
+          },
+          {
+            "role": "assistant",
+            "content": "That's honest. Second year is early enough that the general path keeps all doors open. Upper division courses often surface the specialization naturally."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I changed my major. I'm now Cognitive Science with a concentration in Computation and Mind. It happened fast \u2014 I took an intro CogSci course as a filler and it hit different. I still have my CS credits so I'm not behind."
+          },
+          {
+            "role": "assistant",
+            "content": "Cognitive Science with Computation and Mind is essentially the intersection of CS, linguistics, neuroscience, and philosophy of mind \u2014 that's a compelling space if the questions resonate with you. The CS credits transferring cleanly is lucky timing. What specifically clicked?"
+          },
+          {
+            "role": "user",
+            "content": "The question of how symbolic reasoning and neural processes interact. I didn't know that was a field until this semester."
+          },
+          {
+            "role": "assistant",
+            "content": "You've landed in the right place. That question is central to modern CogSci and has direct connections to AI alignment, computational neuroscience, and cognitive architectures. A lot of interesting careers live in that intersection."
+          }
+        ]
+      }
+    ],
+    "question": "What is the student's current major?",
+    "expected_answer": "Cognitive Science with a concentration in Computation and Mind. The student previously majored in Computer Science.",
+    "atomic_facts": [
+      "Current major is Cognitive Science",
+      "Concentration is Computation and Mind",
+      "Previous major was Computer Science",
+      "Change was prompted by an introductory CogSci course taken as an elective",
+      "CS credits transferred and student is not behind"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Self-taught developer who changed their learning platform",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm using fast.ai as my primary learning resource for deep learning. Jeremy Howard's teaching style clicks with me \u2014 top-down, code first. I paid for the course and I'm committed."
+          },
+          {
+            "role": "assistant",
+            "content": "fast.ai's top-down approach is genuinely different from most ML courses and tends to suit people who learn by doing before understanding the theory fully. How far in are you?"
+          },
+          {
+            "role": "user",
+            "content": "Lesson 4 of 8. About halfway through. Really enjoying the practical notebooks."
+          },
+          {
+            "role": "assistant",
+            "content": "Lesson 4 is where the course starts feeling less like setup and more like real experimentation. The practical notebook workflow is one of fast.ai's strongest assets."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I stopped using fast.ai. After Lesson 5 I hit a conceptual wall \u2014 I felt like I was copying code without understanding the math underneath. I switched to Karpathy's Neural Networks: Zero to Hero on YouTube. It's the opposite philosophy but I needed to build up from first principles."
+          },
+          {
+            "role": "assistant",
+            "content": "Karpathy's Zero to Hero is the definitive bottom-up counterpart to fast.ai \u2014 you literally implement backprop from scratch in the first few videos. That conceptual wall you hit is common around Lesson 5 when the abstractions compound. Where are you in Zero to Hero?"
+          },
+          {
+            "role": "user",
+            "content": "I finished the makemore series and I'm starting on the GPT from scratch video. It's slower but I feel like I actually understand what's happening."
+          },
+          {
+            "role": "assistant",
+            "content": "The makemore series plus GPT from scratch is the right sequence \u2014 you've built character-level language models from the ground up and now you're extending to the transformer architecture. The understanding you're building now will make any future fast.ai material click much faster."
+          }
+        ]
+      }
+    ],
+    "question": "What is the developer's current primary deep learning learning resource?",
+    "expected_answer": "Karpathy's Neural Networks: Zero to Hero on YouTube. They switched from fast.ai after hitting a conceptual wall at Lesson 5.",
+    "atomic_facts": [
+      "Current resource is Karpathy's Neural Networks: Zero to Hero on YouTube",
+      "Previously using fast.ai (stopped after Lesson 5)",
+      "Left fast.ai due to not understanding the math underneath the code",
+      "Completed the makemore series in Zero to Hero",
+      "Currently starting the GPT from scratch video"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Adult learner studying for a professional certification",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-02-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm targeting the AWS Solutions Architect Associate exam. I've registered for the exam on May 10th at the testing center near my office. Studying with Adrian Cantrill's course."
+          },
+          {
+            "role": "assistant",
+            "content": "Cantrill's SAA-C03 course is thorough \u2014 it runs long but the depth is worth it for actually understanding the services rather than just passing. May 10th gives you roughly three months. Do you have a study schedule?"
+          },
+          {
+            "role": "user",
+            "content": "Six hours a week, weekends mostly. Should be enough with three months."
+          },
+          {
+            "role": "assistant",
+            "content": "Six hours a week for three months is about 72 hours total, which is on the lighter end but workable if you supplement with hands-on labs. The SAA tends to reward people who've actually touched the AWS console."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I had to reschedule the exam. Work project blew up in March and I lost almost three weeks of study time. New exam date is June 18th. I also switched from Cantrill to Stephane Maarek's course because it's shorter and I need to cover gaps faster."
+          },
+          {
+            "role": "assistant",
+            "content": "June 18th gives you two more months to recover the lost time, and Maarek's course is faster-paced by design \u2014 good choice for gap-filling. Are you keeping Cantrill as a reference or fully switching?"
+          },
+          {
+            "role": "user",
+            "content": "Fully switching. I don't have time to run both. Maarek for primary, practice exams from Tutorials Dojo for drilling."
+          },
+          {
+            "role": "assistant",
+            "content": "Maarek plus Tutorials Dojo practice exams is actually a very common passing combination. Tutorials Dojo questions are notably closer to the real exam than AWS's own practice sets."
+          }
+        ]
+      }
+    ],
+    "question": "What is the current exam date and study resources for the AWS certification?",
+    "expected_answer": "Current exam date is June 18th (rescheduled from May 10th). Resources are Stephane Maarek's course as primary and Tutorials Dojo practice exams. Switched from Adrian Cantrill's course due to time constraints from a work project.",
+    "atomic_facts": [
+      "Original exam date was May 10th",
+      "New exam date is June 18th",
+      "Rescheduled due to work project causing three weeks of lost study time",
+      "Switched from Adrian Cantrill's course to Stephane Maarek's course",
+      "Using Tutorials Dojo for practice exams",
+      "Fully replaced Cantrill, not running both"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-interference-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student who changed their dissertation title",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My dissertation is titled 'Epistemic Closure and Justified Belief in Bayesian Epistemology.' My committee approved this title at my prospectus defense."
+          },
+          {
+            "role": "assistant",
+            "content": "That title covers substantial ground \u2014 epistemic closure debates go back to Dretske and Nozick, and mapping them onto Bayesian frameworks is a contemporary and contested move. Is your committee broadly sympathetic to formal epistemology?"
+          },
+          {
+            "role": "user",
+            "content": "Two of five are, the other three are more analytic but open to the formalism. It's a productive tension."
+          },
+          {
+            "role": "assistant",
+            "content": "A committee with mixed sympathies can actually strengthen the work \u2014 you'll have to defend the formalism clearly enough for the skeptics, which usually improves the writing."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My committee asked me to narrow the title after my second chapter review. The new title is 'Bayesian Updating and the Limits of Epistemic Closure.' It's more precise \u2014 closure is still central but it's framed as a limit condition rather than the whole inquiry."
+          },
+          {
+            "role": "assistant",
+            "content": "The new title is sharper \u2014 'limits of' signals that you're doing critical rather than reconstructive work, which matches what you've described of the second chapter. Did the committee suggest the new framing or did you propose it?"
+          },
+          {
+            "role": "user",
+            "content": "I proposed it after their feedback. They approved it same day."
+          },
+          {
+            "role": "assistant",
+            "content": "Same-day approval on a title revision means the committee felt you heard the feedback accurately. That's a good sign for the working relationship going forward."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm writing my conference abstract for the Philosophy of Science Association meeting. The submission form asks for my dissertation title \u2014 I almost wrote the old one, 'Epistemic Closure and Justified Belief in Bayesian Epistemology,' out of habit. Caught myself in time."
+          },
+          {
+            "role": "assistant",
+            "content": "Good catch \u2014 using the old title on a conference abstract could create a confusing paper trail if anyone tries to track your dissertation later. What's the abstract deadline for PSA?"
+          },
+          {
+            "role": "user",
+            "content": "May 15th. I'm presenting from Chapter 3, which connects most directly to the new framing."
+          },
+          {
+            "role": "assistant",
+            "content": "Chapter 3 as the PSA presentation source is the right call given the new title \u2014 it lets you present work that's coherent with the revised framing and get external feedback before the dissertation is locked."
+          }
+        ]
+      }
+    ],
+    "question": "What is the PhD student's current dissertation title?",
+    "expected_answer": "Bayesian Updating and the Limits of Epistemic Closure. The original title was 'Epistemic Closure and Justified Belief in Bayesian Epistemology,' which was revised at the committee's request after the second chapter review.",
+    "atomic_facts": [
+      "Current title is 'Bayesian Updating and the Limits of Epistemic Closure'",
+      "Original title was 'Epistemic Closure and Justified Belief in Bayesian Epistemology'",
+      "Title changed after second chapter review",
+      "Student proposed the new title; committee approved same day",
+      "Old title was mentioned in third session but only as something the student almost used by mistake"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-interference-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Adult learner who changed their tutoring arrangement",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-02-08",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I have a Statistics tutor, Marcus, who I meet with every Wednesday at 7pm. We've been working together for six weeks and he's helped me a lot with probability distributions."
+          },
+          {
+            "role": "assistant",
+            "content": "Six weeks with a consistent tutor is long enough to develop real working shorthand. Wednesday evenings as a fixed time makes it easier to do the prep work. Are you working through a specific textbook or focusing on course material?"
+          },
+          {
+            "role": "user",
+            "content": "Course material primarily \u2014 I'm taking Stats 201 and the exams are what matter. Marcus helps me work through the problem sets before I submit them."
+          },
+          {
+            "role": "assistant",
+            "content": "Problem-set review before submission is a good use of tutorial time \u2014 you get feedback while the work is still fresh and can correct understanding rather than just the grade."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-25",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I had to stop working with Marcus \u2014 he moved to another city and isn't doing online sessions. I found a new tutor, Lena, who I meet via Zoom on Tuesdays at 6pm. She's more focused on conceptual understanding than problem-set walkthroughs, which is actually better for the long term."
+          },
+          {
+            "role": "assistant",
+            "content": "Tuesday at 6pm on Zoom with Lena, shifting focus toward conceptual understanding \u2014 that's an upgrade in approach even if the circumstances were inconvenient. How did you find Lena?"
+          },
+          {
+            "role": "user",
+            "content": "University tutor matching service. She's a graduate student in the Statistics department."
+          },
+          {
+            "role": "assistant",
+            "content": "Graduate student in the Statistics department through the university service is a reliable source \u2014 she'll have the departmental context and likely knows the Stats 201 curriculum well."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I have my final Stats 201 exam in three weeks. I mentioned to my study group that I used to meet my old tutor Marcus on Wednesdays \u2014 they thought that was a good schedule. But Lena and I have actually increased frequency to twice a week now, Tuesdays and Thursdays at 6pm."
+          },
+          {
+            "role": "assistant",
+            "content": "Twice a week in the final stretch is smart escalation. Tuesdays and Thursdays give you the weekend as a buffer to consolidate before the exam. How is Lena structuring the final review sessions?"
+          },
+          {
+            "role": "user",
+            "content": "Conceptual gaps first two sessions, then mock exam problems for the last two or three before the exam."
+          },
+          {
+            "role": "assistant",
+            "content": "That sequencing makes sense \u2014 address the conceptual holes first so that the mock exam practice is actually diagnostic rather than reinforcing wrong understanding."
+          }
+        ]
+      }
+    ],
+    "question": "Who is the student's current statistics tutor, and when do they meet?",
+    "expected_answer": "The current tutor is Lena, a graduate student in the Statistics department. They now meet twice a week via Zoom on Tuesdays and Thursdays at 6pm. The previous tutor Marcus (who met Wednesdays at 7pm) is no longer available as he moved away.",
+    "atomic_facts": [
+      "Current tutor is Lena",
+      "Sessions are via Zoom",
+      "Current schedule is Tuesdays and Thursdays at 6pm",
+      "Previous tutor was Marcus, Wednesdays at 7pm",
+      "Marcus moved away and stopped taking sessions",
+      "In third session, Wednesday schedule mentioned as historical, not current"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-interference-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Bootcamp student who changed their project stack",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My capstone project is a recipe management app. I'm building it in React on the frontend and Express with MongoDB on the backend. That's the MERN stack."
+          },
+          {
+            "role": "assistant",
+            "content": "MERN is a reasonable bootcamp choice \u2014 MongoDB's document model maps naturally to recipe data with variable ingredient lists and nested steps. Is this a solo project or group?"
+          },
+          {
+            "role": "user",
+            "content": "Solo. I want full ownership so I understand every piece of it."
+          },
+          {
+            "role": "assistant",
+            "content": "Solo capstone is harder but the depth of ownership pays off in technical interviews \u2014 you can speak to every decision without a group caveat."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I switched the backend. Dropped MongoDB and Express for PostgreSQL and Fastify. The relational model is actually better for the recipe data \u2014 I'm storing nutritional info and users can link ingredients across recipes, which is a join operation not a document query."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a sound architectural decision made for the right reason \u2014 the data actually has relational structure and you recognized it. PostgreSQL with Fastify is a solid combination, and Fastify's performance characteristics are better than Express at the same complexity level."
+          },
+          {
+            "role": "user",
+            "content": "Yeah. And I already knew some SQL from a previous job so it wasn't starting from scratch."
+          },
+          {
+            "role": "assistant",
+            "content": "Leveraging prior SQL knowledge is smart project management \u2014 you're innovating on the parts that are new and consolidating on the parts you know. That's how real engineers approach tech selection."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I gave a progress presentation to the cohort today. Someone asked me about my original MongoDB choice and why I thought document stores were a good fit initially. I explained my thinking \u2014 at first the schema-less approach seemed flexible \u2014 but I made clear the stack is now PostgreSQL and Fastify."
+          },
+          {
+            "role": "assistant",
+            "content": "Being able to explain both the original decision and the pivot is actually more impressive than getting it right the first time \u2014 it demonstrates architectural reasoning and self-correction. Did the cohort have useful questions?"
+          },
+          {
+            "role": "user",
+            "content": "A few good ones about indexing strategy in Postgres. I need to think more about that before the final presentation."
+          },
+          {
+            "role": "assistant",
+            "content": "Indexing on a recipe app usually centers on ingredient lookups and user-owned recipe queries. If you're doing full-text search on recipe names or ingredient lists, GIN indexes in Postgres are worth knowing."
+          }
+        ]
+      }
+    ],
+    "question": "What backend stack is the student currently using for their capstone project?",
+    "expected_answer": "PostgreSQL and Fastify. They originally started with MongoDB and Express (MERN stack) but switched because the relational model better fit the data structure, specifically for nutritional info and cross-recipe ingredient linking.",
+    "atomic_facts": [
+      "Current backend: PostgreSQL and Fastify",
+      "Original backend: MongoDB and Express (MERN stack)",
+      "Switched because relational model better suits the data",
+      "Specific reason: ingredient-to-recipe joins don't work well as document queries",
+      "In third session, MongoDB was discussed historically as the original (not current) choice"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-update-interference-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Graduate student who switched research tools",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been using ATLAS.ti for my qualitative coding. My department has a site license and my advisor uses it, so it's been the default choice."
+          },
+          {
+            "role": "assistant",
+            "content": "ATLAS.ti is a standard choice in qualitative research, especially with a department license removing the cost barrier. Are you doing grounded theory coding, thematic analysis, or something else?"
+          },
+          {
+            "role": "user",
+            "content": "Thematic analysis. My interview data is about 40 hours of transcripts."
+          },
+          {
+            "role": "assistant",
+            "content": "40 hours of interview transcripts is substantial. ATLAS.ti handles that volume well once you're past the initial code development phase. Are you using any auto-coding features or working manually?"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I moved to NVivo. ATLAS.ti was fine but my collaborator at another university uses NVivo exclusively and we're merging our codebooks. Rather than fighting format exports back and forth, I just switched."
+          },
+          {
+            "role": "assistant",
+            "content": "Switching to NVivo for collaboration alignment is pragmatic \u2014 merging codebooks across platforms is genuinely painful and the translation artifacts can corrupt your coding consistency. Was the learning curve significant?"
+          },
+          {
+            "role": "user",
+            "content": "Two days of adjustment. The interface logic is similar enough. The query tools in NVivo are actually stronger for cross-case comparison, which I needed anyway."
+          },
+          {
+            "role": "assistant",
+            "content": "Two days of adjustment is a reasonable switching cost for a tool you'll use heavily through dissertation completion. NVivo's query and matrix coding features are well-regarded for cross-case work."
+          }
+        ]
+      },
+      {
+        "date": "2026-05-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I presented my coding methodology at a lab meeting today. One of the newer students asked about my experience with ATLAS.ti since my advisor recommends it. I explained it's good software but I'm now on NVivo for collaboration reasons. Kept it diplomatic."
+          },
+          {
+            "role": "assistant",
+            "content": "That's the right framing \u2014 ATLAS.ti is genuinely good, and the honest reason for your switch is collaboration pragmatism, not a quality judgment. Did the newer students have follow-up questions about your thematic analysis process?"
+          },
+          {
+            "role": "user",
+            "content": "A few, mostly about how I developed initial codes. I walked them through my first-cycle coding approach."
+          },
+          {
+            "role": "assistant",
+            "content": "First-cycle coding explanation is valuable for newer qualitative researchers \u2014 it demystifies what's often treated as the black box of the process."
+          }
+        ]
+      }
+    ],
+    "question": "Which qualitative analysis software is the student currently using?",
+    "expected_answer": "NVivo. They previously used ATLAS.ti but switched to NVivo to align with a collaborator at another university and avoid codebook format incompatibilities.",
+    "atomic_facts": [
+      "Current software is NVivo",
+      "Previous software was ATLAS.ti",
+      "Switched to align with collaborator at another university",
+      "Reason was codebook merging compatibility",
+      "In third session, ATLAS.ti mentioned as past tool and current advisor recommendation, not current user choice"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-adversarial-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student in materials science",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm writing my literature review. I've covered the foundational papers in perovskite solar cell efficiency, mostly the work from NREL and a few groups in Europe."
+          },
+          {
+            "role": "assistant",
+            "content": "Perovskite efficiency literature moves fast \u2014 are you setting a cutoff date for your review, or trying to stay current through submission? The NREL efficiency charts update frequently and that affects how you frame benchmarks."
+          },
+          {
+            "role": "user",
+            "content": "I'm cutting off at December 2025 publications. Anything after that I'll note as 'in press' if it's relevant. My advisor thinks that's clean."
+          },
+          {
+            "role": "assistant",
+            "content": "December 2025 as a hard cutoff with 'in press' notation is a standard and defensible approach for a literature review. It also clearly dates your review for future readers."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I got reviewer comments back on my submitted paper. Two reviewers, both anonymous. Reviewer 1 was mostly positive, Reviewer 2 had major concerns about my stability testing methodology."
+          },
+          {
+            "role": "assistant",
+            "content": "Reviewer 2 concerns about stability testing are common in perovskite work \u2014 the field doesn't have fully standardized protocols yet. What specifically did they flag?"
+          },
+          {
+            "role": "user",
+            "content": "They want longer aging tests under ISOS-D-3 conditions and feel my current 500-hour tests aren't sufficient for the claims I'm making about long-term stability."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a substantive methodological criticism rather than a quibble. ISOS-D-3 requires 85\u00b0C/85% humidity, and 500 hours may indeed be insufficient for the stability claims you're making. What's your advisor's read on how to respond?"
+          }
+        ]
+      }
+    ],
+    "question": "Which specific paper by the student's research group did Reviewer 2 say was methodologically flawed?",
+    "expected_answer": "I don't know. The conversation describes reviewer feedback on the student's submitted paper but never names a specific paper by the research group. No paper title was mentioned.",
+    "atomic_facts": [
+      "No paper title was mentioned in any session",
+      "Reviewer 2 raised concerns about stability testing methodology specifically",
+      "The submitted paper involved perovskite solar cell stability testing",
+      "Asking which paper is flawed assumes a title was stated, which it was not"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-adversarial-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Undergraduate preparing for graduate school applications",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-09-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm applying to PhD programs in environmental economics. I've identified about eight programs I want to target, ranging from reach to safe."
+          },
+          {
+            "role": "assistant",
+            "content": "Eight programs is a reasonable spread for PhD applications. Environmental economics sits at a specific intersection \u2014 are you targeting programs based on faculty match, ranking, funding packages, or some combination?"
+          },
+          {
+            "role": "user",
+            "content": "Faculty match primarily. I emailed three potential advisors over the summer and two responded positively."
+          },
+          {
+            "role": "assistant",
+            "content": "Two positive responses from potential advisors before you've even submitted is a strong signal. Those programs should sit at the top of your list \u2014 advisor fit is the most predictive factor in PhD program success."
+          }
+        ]
+      },
+      {
+        "date": "2026-10-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I finished my writing sample. It's a 25-page paper on carbon pricing heterogeneity across US states that I wrote for my environmental policy seminar. My professor said it's the strongest student paper she's seen in the seminar in several years."
+          },
+          {
+            "role": "assistant",
+            "content": "A strong writing sample from a seminar that your professor is willing to characterize highly is a meaningful asset. 25 pages on carbon pricing heterogeneity is a well-scoped topic for a PhD writing sample \u2014 specific enough to show depth, policy-relevant enough to signal real-world application."
+          },
+          {
+            "role": "user",
+            "content": "I'm also getting letters from three professors, including the seminar professor and my research methods professor who supervised my undergraduate thesis."
+          },
+          {
+            "role": "assistant",
+            "content": "Three letters including the seminar professor who praised your writing sample and the thesis supervisor is a strong letter slate. Those two carry the most weight given the direct supervision context."
+          }
+        ]
+      }
+    ],
+    "question": "What GRE scores did the student report in their application materials?",
+    "expected_answer": "I don't know. No GRE scores were mentioned in any session. The conversations covered writing samples, faculty contacts, and recommendation letters, but GRE scores were never discussed.",
+    "atomic_facts": [
+      "GRE scores were never mentioned in any session",
+      "Sessions covered writing sample, faculty email responses, and recommendation letters",
+      "Asking about GRE scores presupposes information that was never shared"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-adversarial-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Self-taught developer studying machine learning",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-02-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been reading a lot of the classic ML papers. Last week I went through the original dropout paper and the batch normalization paper. This week I'm starting on attention mechanisms."
+          },
+          {
+            "role": "assistant",
+            "content": "The dropout and batch norm papers are good foundational reads \u2014 they give you the 'why' behind choices that most tutorials just treat as given. For attention, the Bahdanau attention paper is worth reading before the Transformer paper to see the concept in its earlier form."
+          },
+          {
+            "role": "user",
+            "content": "I've actually already read Bahdanau. Going straight to Attention Is All You Need next."
+          },
+          {
+            "role": "assistant",
+            "content": "Reading Bahdanau first puts you in a better position to appreciate what Attention Is All You Need changed \u2014 the move to self-attention and the elimination of the recurrence is a much cleaner innovation when you have the prior art in context."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Finished the Transformer paper. Now I'm working through the BERT paper. I'm trying to understand how pretraining objectives work before I start fine-tuning experiments."
+          },
+          {
+            "role": "assistant",
+            "content": "Reading BERT before fine-tuning is the right order. The masked language model and next sentence prediction objectives are foundational to understanding why BERT representations generalize so well. Are you following along with the HuggingFace implementation as you read?"
+          },
+          {
+            "role": "user",
+            "content": "Yes, I have the BERT source open alongside the paper. It's slow but worth it."
+          },
+          {
+            "role": "assistant",
+            "content": "Cross-referencing the paper with the implementation is how you build genuine understanding rather than surface familiarity. It's slow but the depth compounds over time."
+          }
+        ]
+      }
+    ],
+    "question": "What did the user say about the GPT-2 paper specifically?",
+    "expected_answer": "I don't know. The user never mentioned the GPT-2 paper in any session. The papers discussed were dropout, batch normalization, Bahdanau attention, Attention Is All You Need, and BERT.",
+    "atomic_facts": [
+      "GPT-2 paper was never mentioned in any session",
+      "Papers explicitly mentioned: dropout, batch normalization, Bahdanau attention, Attention Is All You Need, BERT",
+      "Asking about GPT-2 introduces a paper not present in the conversation"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-adversarial-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "High school teacher developing a curriculum unit",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I'm designing a three-week unit on the American Civil Rights Movement for my 11th grade U.S. History class. I want to center primary sources \u2014 speeches, letters, legal documents."
+          },
+          {
+            "role": "assistant",
+            "content": "A primary source-centered approach for Civil Rights is strong pedagogically \u2014 it lets students reason from evidence rather than receive a narrative. Are you building around a central essential question to frame the three weeks?"
+          },
+          {
+            "role": "user",
+            "content": "Yes: 'How do ordinary people create extraordinary change?' I want students to see the movement as driven by organized, ordinary individuals, not just iconic leaders."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a well-framed essential question. It shifts the unit away from the 'great man' historiography that often flattens the Civil Rights Movement into three or four names. The Highlander Folk School materials and SNCC organizing documents are great primary sources for that angle."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The unit went well. Students really engaged with the Sit-In movement materials I pulled from the Nashville Student Movement archive. The essential question framing helped them connect individual actions to systemic change."
+          },
+          {
+            "role": "assistant",
+            "content": "The Nashville Student Movement materials are an excellent choice \u2014 highly documented, geographically specific, and shows the strategic discipline behind the sit-ins rather than just the moral courage. What assessment did you use?"
+          },
+          {
+            "role": "user",
+            "content": "An argumentative essay. Students chose a moment from the unit and argued for its significance using at least three primary sources. Most did really well."
+          },
+          {
+            "role": "assistant",
+            "content": "An argumentative essay grounded in primary source evidence is exactly the right capstone for this kind of unit. It requires synthesis and historical reasoning rather than recall."
+          }
+        ]
+      }
+    ],
+    "question": "What textbook did the teacher assign for students to read alongside the primary sources in this unit?",
+    "expected_answer": "I don't know. No textbook was mentioned in any session. The unit was described as centering primary sources, and specific archives were referenced, but no textbook assignment was ever discussed.",
+    "atomic_facts": [
+      "No textbook was mentioned in any session",
+      "Unit was explicitly described as primary source-centered",
+      "Sources mentioned: Nashville Student Movement archive, SNCC documents, Highlander Folk School materials (suggested by assistant)",
+      "Assessment was an argumentative essay using primary sources"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-causal-0001",
+    "domain": "Education / Research / Learning",
+    "source_profile": "PhD student explaining a research pivot",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-01-25",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My initial research plan was to use fMRI data from the HCP dataset for my cognitive load study. The problem is the HCP resolution is limited for the prefrontal regions I care most about, and I'd need to acquire new data which my grant doesn't cover."
+          },
+          {
+            "role": "assistant",
+            "content": "HCP's TR and spatial resolution are a known limitation for fine-grained prefrontal analysis. If new data acquisition is out of budget, are there other existing datasets with higher resolution in those regions?"
+          },
+          {
+            "role": "user",
+            "content": "I found the Cambridge Centre for Ageing and Neuroscience dataset \u2014 CamCAN \u2014 which has 3T data with better coverage. But it's aging-focused, so my sample will skew older than I originally wanted."
+          },
+          {
+            "role": "assistant",
+            "content": "CamCAN is rigorous and well-documented, but the age-skew is a real scope adjustment. It means your findings will be more precisely situated in an older adult population, which changes some of your generalizability claims."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-30",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've fully pivoted to EEG instead of fMRI. Better temporal resolution for cognitive load dynamics, I can acquire data myself in the university's EEG lab at no cost, and the equipment is available. It's a different trade-off \u2014 spatial vs temporal \u2014 but it fits my actual research questions better."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a significant but coherent pivot. EEG's temporal resolution in the millisecond range is actually better suited to tracking cognitive load fluctuations than fMRI's hemodynamic response delay. The spatial limitation is real but you can preregister which electrodes you're analyzing to handle that upfront."
+          },
+          {
+            "role": "user",
+            "content": "That's exactly the plan. I'm doing a pilot run next month with 12 participants."
+          },
+          {
+            "role": "assistant",
+            "content": "A 12-participant pilot is the right way to validate your paradigm and preprocessing pipeline before committing to a full N. What cognitive load task are you using?"
+          }
+        ]
+      },
+      {
+        "date": "2026-05-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The EEG pivot is paying off. Pilot data is clean and the paradigm is working. I'm planning to run the full study with 48 participants."
+          },
+          {
+            "role": "assistant",
+            "content": "48 participants with clean pilot data is a solid position. That should give you adequate power for your planned analyses assuming moderate effect sizes. Are you keeping the pilot participants in the final dataset or treating them as separate?"
+          },
+          {
+            "role": "user",
+            "content": "Separate. The pilot was mostly for debugging the paradigm, not production data. Different consent form too."
+          },
+          {
+            "role": "assistant",
+            "content": "Clean separation is the right call \u2014 pilot debugging conditions differ enough that mixing them into your final dataset could introduce noise. Different consent forms also makes the distinction clean for IRB purposes."
+          }
+        ]
+      }
+    ],
+    "question": "Why did the PhD student switch from fMRI to EEG, and what earlier constraint made the EEG option viable?",
+    "expected_answer": "The switch to EEG happened because: (1) HCP fMRI data had insufficient resolution for prefrontal regions, (2) new fMRI data acquisition wasn't covered by the grant, and (3) EEG better matched the temporal dynamics of cognitive load. The EEG option was viable because the university EEG lab was available at no cost \u2014 a factor that emerged directly from the earlier budget constraint that made fMRI acquisition impossible.",
+    "atomic_facts": [
+      "Original plan used HCP fMRI dataset",
+      "HCP resolution was insufficient for prefrontal regions of interest",
+      "New fMRI data acquisition was not covered by the grant",
+      "EEG provides better temporal resolution for cognitive load dynamics",
+      "University EEG lab is available at no cost",
+      "Budget constraint established in session 1 is the cause enabling the EEG choice in session 2"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-causal-0002",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Undergraduate whose study habits changed due to a specific event",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-03",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I failed my first Calculus II exam. I got a 48. I studied the night before for about three hours but clearly that wasn't enough. My professor said the average was 61 so I wasn't alone, but I can't let this become a pattern."
+          },
+          {
+            "role": "assistant",
+            "content": "A 48 on an exam where the average is 61 means you're below the class mean, which is a real signal worth acting on early. What did the exam cover specifically?"
+          },
+          {
+            "role": "user",
+            "content": "Series convergence tests \u2014 ratio test, root test, integral test, alternating series. I could do the mechanics but I kept confusing when to apply which test."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a common failure mode in series \u2014 the mechanics are learnable but the test-selection intuition requires more practice than most students give it before the exam. You need to run a lot of practice problems to pattern-match which test fits which series structure."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I completely changed how I study since that exam. I now do 30 minutes of practice problems every morning, six days a week, starting from the day after class. Not cramming \u2014 distributed practice. I got an 84 on the second exam."
+          },
+          {
+            "role": "assistant",
+            "content": "An 84 after a 48 is a significant turnaround and in one exam cycle. Distributed daily practice vs. massed cramming is exactly what the cognitive science of learning predicts should work. What changed in your daily routine to make the 30 minutes consistent?"
+          },
+          {
+            "role": "user",
+            "content": "I do it before breakfast so there's nothing to trade off against. It's just the first thing after I wake up."
+          },
+          {
+            "role": "assistant",
+            "content": "Pre-breakfast anchoring is a reliable habit design move \u2014 you're not deciding whether to study, you're deciding whether to eat, which is a much lower-friction commitment."
+          }
+        ]
+      }
+    ],
+    "question": "What caused the undergraduate to change their study habits, and what specifically changed?",
+    "expected_answer": "Failing the first Calculus II exam with a 48 (below the class average of 61) caused the change. The student switched from cramming the night before to 30 minutes of daily distributed practice problems starting the day after class, six days a week, anchored to before breakfast.",
+    "atomic_facts": [
+      "Cause was failing the first Calculus II exam with a 48",
+      "Class average was 61, placing the student below average",
+      "Old method: cramming the night before for approximately three hours",
+      "New method: 30 minutes of practice problems daily, six days a week",
+      "Practice starts the day after class, not before exams",
+      "Routine anchored before breakfast to reduce friction",
+      "Result: 84 on the second exam"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-causal-0003",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Adult learner who changed their language study approach",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-01-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I tried to watch a full episode of a Spanish TV show \u2014 Money Heist \u2014 without subtitles. Complete disaster. I understood maybe 15 percent. I've been studying for eight months and I thought I was further along than this."
+          },
+          {
+            "role": "assistant",
+            "content": "Native-speed spoken Spanish from a show like Money Heist is genuinely difficult even for B1-level learners \u2014 the actors use regional accents, rapid speech, and casual register that textbooks don't cover. 15 percent comprehension after eight months isn't necessarily a failure; it's a signal about what type of input you've been getting."
+          },
+          {
+            "role": "user",
+            "content": "Probably too much reading and grammar study, not enough listening. My Pimsleur is audio-focused but it's slow and formal."
+          },
+          {
+            "role": "assistant",
+            "content": "Pimsleur is excellent for production and formal register but doesn't prepare you for casual native-speed listening. Increasing your exposure to authentic informal audio \u2014 podcasts designed for learners, then gradually native content \u2014 would directly address that gap."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I added a daily Spanish podcast to my routine after that Money Heist reality check. I've been doing Espa\u00f1ol con Juan for 10 minutes every day for six weeks. I went back to Money Heist last weekend and I'm now at about 40 percent comprehension without subtitles."
+          },
+          {
+            "role": "assistant",
+            "content": "Going from 15 to 40 percent comprehension in six weeks through targeted listening input is a meaningful improvement \u2014 that's not a small jump. Espa\u00f1ol con Juan is well-suited to that intermediate listening gap. Are you planning to continue pushing toward more native-speed content?"
+          },
+          {
+            "role": "user",
+            "content": "Yes, I want to try a fully native Mexican podcast next. Something news-oriented."
+          },
+          {
+            "role": "assistant",
+            "content": "News podcasts in Spanish are a good next step \u2014 formal register but native speed, which stretches your listening without the added challenge of colloquial slang. Radio Ambulante is a narrative journalism podcast that's native speed but accessible."
+          }
+        ]
+      }
+    ],
+    "question": "What caused the adult learner to add a daily Spanish podcast to their routine, and what was the measurable result?",
+    "expected_answer": "The cause was a failed attempt to watch Money Heist without subtitles \u2014 only understanding approximately 15 percent \u2014 which revealed a gap in listening comprehension after eight months of study. After six weeks of daily podcast listening (Espa\u00f1ol con Juan), comprehension of Money Heist without subtitles improved to approximately 40 percent.",
+    "atomic_facts": [
+      "Cause: attempted to watch Money Heist without subtitles, understood only about 15%",
+      "Diagnosis: too much reading and grammar study, insufficient listening practice",
+      "Intervention: daily 10-minute sessions of Espa\u00f1ol con Juan podcast for six weeks",
+      "Result: comprehension of Money Heist improved to approximately 40% without subtitles",
+      "Cause established in session 1 before the intervention in session 2"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-edu-causal-0004",
+    "domain": "Education / Research / Learning",
+    "source_profile": "Bootcamp student explaining a career goal revision",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-25",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I came into this bootcamp wanting to be a front-end developer. I like design, I like visual stuff. That's been my goal since day one."
+          },
+          {
+            "role": "assistant",
+            "content": "A clear goal from day one is a useful anchor \u2014 front-end roles span a wide range from pixel-perfect UI to complex state management. Are you gravitating toward the design-adjacent side or the JavaScript engineering side?"
+          },
+          {
+            "role": "user",
+            "content": "Definitely design-adjacent. I want to work closely with designers, not be the person solving algorithmic problems all day."
+          },
+          {
+            "role": "assistant",
+            "content": "That's a well-defined lane \u2014 front-end roles at design-forward companies or agencies would fit that preference. Building a portfolio that shows visual sensibility alongside technical execution will position you well."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We had a back-end module last month covering databases and API design. I hated it going in but I actually loved it. The logic of schema design and how you think about data relationships is totally different from what I expected \u2014 it's almost philosophical. I'm now considering targeting full-stack roles instead of pure front-end."
+          },
+          {
+            "role": "assistant",
+            "content": "An unexpected affinity for data modeling is a meaningful signal \u2014 schema design does have a kind of structural elegance that appeals to a different kind of thinking than visual design. Full-stack opens more doors and often pays better than front-end-only roles. What's making you consider the shift seriously?"
+          },
+          {
+            "role": "user",
+            "content": "Honestly the back-end module was the most engaged I've felt in the bootcamp. I was staying up late voluntarily to work on the database assignments. That doesn't happen with CSS."
+          },
+          {
+            "role": "assistant",
+            "content": "Voluntary late nights are a strong signal. When work stops feeling like obligation, it usually means genuine fit. Full-stack with a back-end lean is a viable and in-demand career path."
+          }
+        ]
+      },
+      {
+        "date": "2026-05-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've officially updated my job search targets to full-stack roles. I'm still using front-end skills in my portfolio but the pitch has changed. My bootcamp career advisor helped me reframe my resume around the full-stack narrative."
+          },
+          {
+            "role": "assistant",
+            "content": "A resume reframe that leads with full-stack narrative while demonstrating front-end skills as complementary is the right positioning. You're not hiding the front-end work, just contextualizing it. How is the capstone project reflecting this shift?"
+          },
+          {
+            "role": "user",
+            "content": "It's now a full-stack app with a non-trivial back-end. I designed the schema and the API myself. That's the centerpiece."
+          },
+          {
+            "role": "assistant",
+            "content": "A self-designed schema and API as the portfolio centerpiece demonstrates exactly the kind of back-end thinking you want to signal. Walk interviewers through the schema decisions specifically \u2014 that's where the 'philosophical' thinking you mentioned will come through."
+          }
+        ]
+      }
+    ],
+    "question": "What caused the bootcamp student to shift their career goal from front-end to full-stack, and when did that cause occur?",
+    "expected_answer": "The shift was caused by the back-end database and API design module, which occurred the month before the second session (approximately March 2026). The student unexpectedly enjoyed schema design and database logic, staying up late voluntarily to work on assignments \u2014 a level of engagement they hadn't experienced with front-end work.",
+    "atomic_facts": [
+      "Original goal was front-end development, specifically design-adjacent work",
+      "Cause was the back-end module on databases and API design (approximately one month before April 12th session)",
+      "Student found schema design unexpectedly engaging and 'almost philosophical'",
+      "Student voluntarily stayed up late for back-end assignments but not for CSS",
+      "Outcome: officially updated job targets to full-stack roles by May 5th",
+      "Cause (back-end module) appeared in session 2, career goal shift formalized in session 3"
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  }
+]

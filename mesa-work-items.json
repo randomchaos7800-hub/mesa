@@ -1,0 +1,1771 @@
+[
+  {
+    "id": "mesa-work-recall-single-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager at a mid-size SaaS company",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Quick note for later: the client we're onboarding for Project Helix is Darnton Financial. Their main point of contact is a woman named Priya Menon, she's their VP of Operations."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it. Darnton Financial, Project Helix, Priya Menon as VP of Operations. I'll remember that."
+          },
+          {
+            "role": "user",
+            "content": "Yeah, and she prefers email over Slack. Very old school about async comms."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Priya Menon prefers email for async communication. I'll keep that in mind whenever this comes up."
+          }
+        ]
+      }
+    ],
+    "question": "Who is the main point of contact at Darnton Financial for Project Helix?",
+    "expected_answer": "Priya Menon, their VP of Operations.",
+    "atomic_facts": [
+      "The client for Project Helix is Darnton Financial.",
+      "The main point of contact is Priya Menon.",
+      "Priya Menon holds the title VP of Operations at Darnton Financial."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-single-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "junior developer at a startup",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-04-02",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Our sprint ends on April 18th. The main deliverable is the payments module \u2014 specifically the refund flow. Gotta have it demo-ready by end of day that Friday."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood. Sprint deadline is April 18th (Friday). The key deliverable is the refund flow within the payments module, demo-ready by end of day."
+          },
+          {
+            "role": "user",
+            "content": "Correct. Marcus is leading that piece. I'm on the notification service."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 Marcus owns the refund flow, and you're handling the notification service for this sprint."
+          }
+        ]
+      }
+    ],
+    "question": "What is the deadline and primary deliverable for the current sprint?",
+    "expected_answer": "The sprint ends April 18th. The primary deliverable is the refund flow within the payments module, which must be demo-ready by end of day that Friday.",
+    "atomic_facts": [
+      "The sprint deadline is April 18th.",
+      "The primary deliverable is the refund flow in the payments module.",
+      "The refund flow must be demo-ready by end of day on the deadline."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-single-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead at a B2B agency",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-02-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The campaign for Vantage Tech has been assigned codename Cobalt. Budget approved is $84,000 for Q2."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Vantage Tech campaign, codename Cobalt, Q2 budget of $84,000."
+          },
+          {
+            "role": "user",
+            "content": "The budget split is roughly 60% media buy, 40% creative production. Don't quote those as exact contractual figures, that's just the working plan."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 working budget split is approximately 60% media buy and 40% creative production, not contractually fixed."
+          }
+        ]
+      }
+    ],
+    "question": "What is the codename and approved Q2 budget for the Vantage Tech campaign?",
+    "expected_answer": "The campaign codename is Cobalt and the approved Q2 budget is $84,000.",
+    "atomic_facts": [
+      "The Vantage Tech campaign codename is Cobalt.",
+      "The approved Q2 budget is $84,000."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-single-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator at a construction management firm",
+    "type": "recall/single",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "For the Ridgeway Bridge contract, the vendor handling structural inspections is Kellner & Associates. Their contract number is KA-2026-0047."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged \u2014 Kellner & Associates for structural inspections on Ridgeway Bridge, contract number KA-2026-0047."
+          },
+          {
+            "role": "user",
+            "content": "Their site lead is Derek Osei. He's the one to call if there are any on-site issues."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it. Derek Osei is the site lead for Kellner & Associates on Ridgeway Bridge."
+          }
+        ]
+      }
+    ],
+    "question": "What is the contract number for Kellner & Associates on the Ridgeway Bridge project?",
+    "expected_answer": "KA-2026-0047.",
+    "atomic_facts": [
+      "Kellner & Associates is the structural inspection vendor for Ridgeway Bridge.",
+      "Their contract number is KA-2026-0047."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-preference-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant managing multiple client engagements",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "When I send status reports to Harmon & Blaine, they want them every Friday by noon, in PDF format. No Word docs \u2014 their compliance team won't accept anything editable."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood. Harmon & Blaine: weekly status reports, every Friday by noon, PDF only \u2014 no editable Word documents due to compliance requirements."
+          },
+          {
+            "role": "user",
+            "content": "Right. And the reports need an executive summary on page one. Their managing partner skips straight to that."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 executive summary must appear on page one of every report for Harmon & Blaine."
+          }
+        ]
+      }
+    ],
+    "question": "What format and cadence does Harmon & Blaine prefer for status reports?",
+    "expected_answer": "PDF format, delivered every Friday by noon, with an executive summary on page one. No editable Word documents.",
+    "atomic_facts": [
+      "Harmon & Blaine require PDF format for status reports.",
+      "Reports are due every Friday by noon.",
+      "An executive summary must appear on page one.",
+      "Word documents are not accepted due to compliance requirements."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-preference-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager coordinating cross-functional teams",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-04-11",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Sofia \u2014 our design lead \u2014 doesn't like being pulled into meetings without at least 24 hours notice. She's said it multiple times and I finally wrote it down."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it. Sofia (design lead) requires at least 24 hours advance notice before any meeting."
+          },
+          {
+            "role": "user",
+            "content": "Also, she prefers Figma comments over Jira tickets for design feedback. Says tickets get buried and she misses them."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 for design feedback, use Figma comments rather than Jira tickets. Sofia finds Jira tickets easy to miss."
+          }
+        ]
+      }
+    ],
+    "question": "What are Sofia the design lead's stated work preferences?",
+    "expected_answer": "Sofia requires at least 24 hours notice before meetings, and prefers Figma comments over Jira tickets for design feedback.",
+    "atomic_facts": [
+      "Sofia requires at least 24 hours advance notice before meetings.",
+      "Sofia prefers Figma comments over Jira tickets for design feedback.",
+      "She finds Jira tickets easy to miss."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-preference-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead at an e-commerce company",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-02-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Our CMO, Gerald, hates decks longer than 10 slides. He's walked out of presentations before. Keep everything under 10."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 Gerald the CMO has a hard limit of 10 slides maximum for any presentation. Noted."
+          },
+          {
+            "role": "user",
+            "content": "And he wants data visualizations, not tables. Tables are fine in the appendix but the main deck should be charts and graphs only."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 main deck uses charts and graphs only; tables go in the appendix if needed. Gerald's preference."
+          }
+        ]
+      }
+    ],
+    "question": "What are the CMO Gerald's presentation preferences?",
+    "expected_answer": "Gerald requires presentations to be 10 slides or fewer, with data visualizations (charts and graphs) in the main deck. Tables are acceptable only in an appendix.",
+    "atomic_facts": [
+      "Gerald the CMO has a maximum slide limit of 10.",
+      "Main deck slides must use charts and graphs, not tables.",
+      "Tables are acceptable only in an appendix."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-preference-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "junior developer on a distributed engineering team",
+    "type": "recall/preference",
+    "sessions": [
+      {
+        "date": "2026-03-17",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My team lead Brent does all code reviews in GitHub PRs, not in Slack threads. He says Slack reviews are ephemeral and don't create a paper trail."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Brent the team lead does code reviews via GitHub PRs exclusively, not in Slack threads. He wants a documented paper trail."
+          },
+          {
+            "role": "user",
+            "content": "Right. And he wants PRs under 400 lines of changed code. Anything bigger he asks you to split up before he'll review it."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 PRs should be under 400 lines of changed code. Brent will request a split before reviewing if they exceed that."
+          }
+        ]
+      }
+    ],
+    "question": "What are Brent the team lead's code review preferences?",
+    "expected_answer": "Brent reviews code only in GitHub PRs, not Slack threads. PRs must be under 400 lines of changed code \u2014 larger ones must be split before he will review them.",
+    "atomic_facts": [
+      "Brent conducts code reviews in GitHub PRs only, not Slack threads.",
+      "PRs must be under 400 lines of changed code.",
+      "Brent requests a split before reviewing any PR that exceeds 400 lines."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-constraint-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator managing vendor relationships",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-04-07",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Legal came back on the Stratos Media contract. We cannot share any project artifacts with subcontractors without written sign-off from our legal team first. That's a hard constraint."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 no project artifacts from the Stratos Media contract may be shared with subcontractors without prior written approval from legal. Hard constraint."
+          },
+          {
+            "role": "user",
+            "content": "And the NDA prohibits us from even acknowledging the client relationship publicly. No case study, no logo use, nothing."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 the Stratos Media NDA prohibits public acknowledgment of the client relationship, including case studies and logo use."
+          }
+        ]
+      }
+    ],
+    "question": "What are the key constraints around the Stratos Media contract?",
+    "expected_answer": "No project artifacts can be shared with subcontractors without prior written legal sign-off. The NDA also prohibits any public acknowledgment of the client relationship, including case studies or logo use.",
+    "atomic_facts": [
+      "Sharing project artifacts with subcontractors requires prior written sign-off from legal.",
+      "The NDA prohibits public acknowledgment of the client relationship.",
+      "Case study creation and logo use are both prohibited."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-constraint-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant with multiple active clients",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-05-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Pellegrino Group has a policy where all invoices have to go through their AP portal, not email. And payment terms are net-60, not the standard net-30 I'm used to."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 Pellegrino Group: invoices via AP portal only (not email), payment terms are net-60."
+          },
+          {
+            "role": "user",
+            "content": "Also they won't approve invoices over $15,000 without a secondary sign-off from their CFO. Anything under that just needs the project manager approval."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 invoices over $15,000 require CFO secondary sign-off at Pellegrino Group. Under $15,000, project manager approval is sufficient."
+          }
+        ]
+      }
+    ],
+    "question": "What are Pellegrino Group's invoicing constraints?",
+    "expected_answer": "Invoices must be submitted via their AP portal, not email. Payment terms are net-60. Invoices over $15,000 require secondary sign-off from the CFO; under that threshold, project manager approval is sufficient.",
+    "atomic_facts": [
+      "Pellegrino Group requires invoices via AP portal, not email.",
+      "Payment terms are net-60.",
+      "Invoices over $15,000 require CFO secondary approval.",
+      "Invoices under $15,000 require only project manager approval."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-constraint-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager at a healthcare tech company",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-03-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Compliance flagged something critical: any feature touching patient data must go through a HIPAA review before it enters the sprint backlog. Not after \u2014 before."
+          },
+          {
+            "role": "assistant",
+            "content": "Critical constraint noted \u2014 any feature touching patient data requires HIPAA compliance review before entering the sprint backlog. Not retroactively."
+          },
+          {
+            "role": "user",
+            "content": "And the review has to be documented in Confluence with a sign-off from Dr. Reyes on the compliance team. Her approval is the gate."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 HIPAA review documentation goes in Confluence, and Dr. Reyes from compliance must provide explicit sign-off before the feature can be backlogged."
+          }
+        ]
+      }
+    ],
+    "question": "What is the constraint for adding patient-data features to the sprint backlog?",
+    "expected_answer": "Any feature touching patient data must undergo a HIPAA compliance review before entering the sprint backlog. The review must be documented in Confluence with explicit sign-off from Dr. Reyes on the compliance team.",
+    "atomic_facts": [
+      "Features touching patient data require HIPAA review before entering the sprint backlog.",
+      "The review must be documented in Confluence.",
+      "Dr. Reyes from the compliance team must provide sign-off.",
+      "Dr. Reyes's approval is the gate for backlog entry."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-recall-constraint-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator at a government contracting firm",
+    "type": "recall/constraint",
+    "sessions": [
+      {
+        "date": "2026-02-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "For the Renwick County project, all deliverables must follow their document template \u2014 specifically Form RC-14. We cannot use our own templates."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Renwick County project requires all deliverables to use their Form RC-14 template. Our internal templates are not acceptable."
+          },
+          {
+            "role": "user",
+            "content": "Right. And every deliverable needs to be submitted in triplicate \u2014 one digital copy to their project portal, one physical copy to the County Clerk's office, and one physical copy retained by us."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 three copies per deliverable: one digital to project portal, one physical to County Clerk's office, one physical retained on our end."
+          }
+        ]
+      }
+    ],
+    "question": "What template and submission requirements apply to the Renwick County project deliverables?",
+    "expected_answer": "All deliverables must use Form RC-14. They must be submitted in triplicate: one digital copy to the project portal, one physical copy to the County Clerk's office, and one physical copy retained internally.",
+    "atomic_facts": [
+      "Renwick County project deliverables must use Form RC-14.",
+      "Internal templates are not acceptable.",
+      "Deliverables must be submitted in triplicate.",
+      "One digital copy goes to the project portal.",
+      "One physical copy goes to the County Clerk's office.",
+      "One physical copy is retained internally."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-synthesis-multi-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager overseeing a platform migration",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Project Falcon is our platform migration. The engineering team is five people: Ada (lead), then Kwame, Tariq, Yemi, and Lian."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 Project Falcon, five-person engineering team led by Ada, with Kwame, Tariq, Yemi, and Lian."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Update on Falcon: Lian is going on parental leave starting April 1st. Her workstream is moving to Tariq for the duration."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Lian on parental leave from April 1st, Tariq absorbs her workstream during that period."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Falcon milestone check: the data layer migration is done. Infrastructure provisioning is at 70%. API gateway is not started yet."
+          },
+          {
+            "role": "assistant",
+            "content": "Milestone status logged \u2014 data layer: complete; infrastructure provisioning: 70%; API gateway: not started."
+          }
+        ]
+      }
+    ],
+    "question": "Summarize the current state of Project Falcon, including team composition and milestone progress.",
+    "expected_answer": "Project Falcon is a platform migration with a five-person engineering team: Ada (lead), Kwame, Tariq, Yemi, and Lian. Lian is on parental leave from April 1st with her workstream covered by Tariq. Milestones: data layer migration is complete, infrastructure provisioning is at 70%, and the API gateway has not yet started.",
+    "atomic_facts": [
+      "Project Falcon is a platform migration.",
+      "The engineering lead is Ada.",
+      "Team members include Kwame, Tariq, Yemi, and Lian.",
+      "Lian is on parental leave from April 1st.",
+      "Tariq covers Lian's workstream during her leave.",
+      "The data layer migration is complete.",
+      "Infrastructure provisioning is at 70%.",
+      "The API gateway has not started."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-synthesis-multi-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant managing a digital transformation engagement",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The Northgate Retail engagement has two phases. Phase 1 is process mapping, budget is $45K. Phase 2 is system implementation, budget is $120K."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Northgate Retail: Phase 1 process mapping at $45K, Phase 2 system implementation at $120K."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Phase 1 wrapped up two weeks early. They were really happy. Client approved moving Phase 2 start to April 5th instead of the originally planned May 1st."
+          },
+          {
+            "role": "assistant",
+            "content": "Great news \u2014 Phase 1 completed early. Phase 2 start date moved up from May 1st to April 5th with client approval."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Phase 2 is in scope creep territory. They want to add EDI integration. I'm drafting a change order for an additional $28K. Haven't submitted yet."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 Phase 2 scope creep: EDI integration addition, change order for $28K drafted but not yet submitted."
+          }
+        ]
+      }
+    ],
+    "question": "What is the financial and schedule status of the Northgate Retail engagement?",
+    "expected_answer": "The engagement has two phases: Phase 1 (process mapping, $45K) completed early and Phase 2 (system implementation, $120K) started on April 5th instead of the original May 1st date. A $28K change order for EDI integration has been drafted due to scope creep but has not been submitted yet, bringing the potential total to $193K.",
+    "atomic_facts": [
+      "Phase 1 (process mapping) budget is $45K and is complete.",
+      "Phase 2 (system implementation) budget is $120K.",
+      "Phase 2 original start was May 1st.",
+      "Phase 2 actual start date is April 5th.",
+      "A $28K change order for EDI integration is drafted but not yet submitted."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-synthesis-multi-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead planning an annual product launch",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-01-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The launch for Apex 3.0 is set for June 15th. Channels we're using: email, LinkedIn, and a press release through PR Newswire. No paid social this time."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Apex 3.0 launch June 15th, channels: email, LinkedIn, PR Newswire press release. No paid social."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-08",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Change of plan \u2014 we're adding a webinar two days before launch, so June 13th. Max capacity 500 registrants. Using Zoom Webinar platform."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged \u2014 webinar added June 13th, two days before launch. Capacity 500, platform is Zoom Webinar."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Exec team signed off on adding paid search (Google Ads) to the launch mix. Budget is $12,000. Still no paid social though."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 Google Ads added to Apex 3.0 launch with $12,000 budget. Paid social still excluded."
+          }
+        ]
+      }
+    ],
+    "question": "What is the complete channel mix and schedule for the Apex 3.0 launch?",
+    "expected_answer": "Apex 3.0 launches June 15th. The channel mix includes email, LinkedIn, a PR Newswire press release, Google Ads ($12,000 budget), and a webinar on June 13th (two days before launch) via Zoom Webinar with a 500-registrant cap. Paid social remains excluded.",
+    "atomic_facts": [
+      "Apex 3.0 launches June 15th.",
+      "Channels include email, LinkedIn, and PR Newswire press release.",
+      "No paid social is included.",
+      "A webinar is scheduled for June 13th.",
+      "Webinar capacity is 500 registrants.",
+      "Webinar platform is Zoom Webinar.",
+      "Google Ads was added with a $12,000 budget."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-synthesis-multi-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator at a software implementation firm",
+    "type": "synthesis/multi",
+    "sessions": [
+      {
+        "date": "2026-02-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "For the Meridian ERP rollout, the approval chain for go/no-go decisions is: project manager signs off first, then the client's IT Director, then our COO for final greenlight."
+          },
+          {
+            "role": "assistant",
+            "content": "Approval chain for Meridian ERP go/no-go: (1) Project Manager, (2) Client IT Director, (3) our COO for final greenlight."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The client's IT Director changed. It's no longer Ramon Castillo \u2014 it's Felicia Huang. She took over last week. Update the approval chain."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 Meridian ERP approval chain now shows Felicia Huang (not Ramon Castillo) as the client IT Director in step two."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Also, the COO is on a leave of absence for six weeks. During that time, our VP of Delivery, Marcus Webb, has authority for final greenlight sign-offs."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 for the next six weeks, Marcus Webb (VP of Delivery) has final greenlight authority in place of the COO."
+          }
+        ]
+      }
+    ],
+    "question": "What is the current approval chain for go/no-go decisions on the Meridian ERP rollout?",
+    "expected_answer": "The current approval chain is: (1) Project Manager, (2) Felicia Huang (Client IT Director, replaced Ramon Castillo), (3) Marcus Webb (VP of Delivery), who is acting in place of the COO during a six-week leave of absence.",
+    "atomic_facts": [
+      "Step 1 is Project Manager sign-off.",
+      "Step 2 is the client IT Director \u2014 currently Felicia Huang, who replaced Ramon Castillo.",
+      "Step 3 is currently Marcus Webb (VP of Delivery) filling in for the COO.",
+      "The COO is on a six-week leave of absence."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-temporal-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager tracking sprint cycles",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Starting today, we're moving to two-week sprints. Sprint 1 kicks off March 1st and ends March 14th."
+          },
+          {
+            "role": "assistant",
+            "content": "Two-week sprint cycle begins March 1st. Sprint 1 runs March 1st through March 14th."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Sprint 1 closed yesterday. Good velocity overall. Sprint 2 starts today, March 15th. We added two new tickets from the backlog \u2014 the CSV export feature and the bulk delete function."
+          },
+          {
+            "role": "assistant",
+            "content": "Sprint 2 starts today March 15th. Two new backlog items added: CSV export feature and bulk delete function."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-29",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Sprint 2 done. The CSV export shipped. Bulk delete got deprioritized and rolls into Sprint 3. Sprint 3 kicks off today."
+          },
+          {
+            "role": "assistant",
+            "content": "Sprint 2 complete. CSV export shipped. Bulk delete rolls to Sprint 3, which begins today March 29th."
+          }
+        ]
+      }
+    ],
+    "question": "When did Sprint 2 start, and what happened to the bulk delete feature at the end of Sprint 2?",
+    "expected_answer": "Sprint 2 started on March 15th. The bulk delete feature was deprioritized and rolled over into Sprint 3.",
+    "atomic_facts": [
+      "Sprint 2 started on March 15th.",
+      "The bulk delete feature was deprioritized in Sprint 2.",
+      "Bulk delete rolled into Sprint 3."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-temporal-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant tracking contract milestones",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-01-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The Fortis Group engagement has three milestones. Milestone 1 \u2014 discovery report \u2014 is due January 31st. Milestone 2 \u2014 recommendations deck \u2014 February 28th. Milestone 3 \u2014 final report \u2014 March 31st."
+          },
+          {
+            "role": "assistant",
+            "content": "Fortis Group milestones: (1) Discovery report \u2014 Jan 31st, (2) Recommendations deck \u2014 Feb 28th, (3) Final report \u2014 Mar 31st."
+          }
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Milestone 1 was delivered on January 31st as planned. Client accepted it without revisions. That was a first."
+          },
+          {
+            "role": "assistant",
+            "content": "Milestone 1 delivered and accepted on January 31st, no revisions required."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Milestone 2 slipped. Delivered March 2nd \u2014 two days late. They accepted it but flagged the delay. We need to hit March 31st for Milestone 3."
+          },
+          {
+            "role": "assistant",
+            "content": "Milestone 2 delivered March 2nd, two days late. Client accepted but noted the delay. Milestone 3 remains due March 31st."
+          }
+        ]
+      }
+    ],
+    "question": "When was the Fortis Group recommendations deck actually delivered, and how did that compare to the original deadline?",
+    "expected_answer": "The recommendations deck (Milestone 2) was delivered on March 2nd, which was two days late. The original deadline was February 28th.",
+    "atomic_facts": [
+      "The recommendations deck (Milestone 2) was originally due February 28th.",
+      "It was delivered on March 2nd.",
+      "That was two days late.",
+      "The client accepted the delivery but flagged the delay."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-temporal-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead managing a campaign timeline",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Campaign Indigo has a hard go-live of May 15th. That's locked in with the media buying agency."
+          },
+          {
+            "role": "assistant",
+            "content": "Locked \u2014 Campaign Indigo go-live is May 15th, confirmed with the media buying agency."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We just found out the trade show we want to align the campaign with moved from May 12th to May 8th. We need to push our go-live earlier to May 9th to align."
+          },
+          {
+            "role": "assistant",
+            "content": "Trade show moved to May 8th, so Campaign Indigo go-live is now pushed earlier to May 9th to maintain alignment."
+          }
+        ]
+      }
+    ],
+    "question": "What was the original and revised go-live date for Campaign Indigo, and why was it changed?",
+    "expected_answer": "Campaign Indigo was originally set to go live on May 15th. The go-live was moved earlier to May 9th because the aligned trade show moved from May 12th to May 8th.",
+    "atomic_facts": [
+      "Campaign Indigo original go-live was May 15th.",
+      "The trade show moved from May 12th to May 8th.",
+      "Campaign Indigo go-live was revised to May 9th.",
+      "The revision was to maintain alignment with the trade show."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-temporal-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "junior developer tracking onboarding to a new team",
+    "type": "temporal",
+    "sessions": [
+      {
+        "date": "2026-03-03",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I officially joined the Platform team today. My 30-day check-in with my manager is April 2nd."
+          },
+          {
+            "role": "assistant",
+            "content": "You joined the Platform team on March 3rd. Your 30-day check-in with your manager is scheduled for April 2nd."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-25",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My manager asked to move the check-in to April 5th \u2014 he has a conference April 2nd-4th."
+          },
+          {
+            "role": "assistant",
+            "content": "30-day check-in rescheduled to April 5th. Manager has a conference conflicting April 2nd-4th."
+          }
+        ]
+      }
+    ],
+    "question": "When is the rescheduled 30-day check-in with the manager, and what caused the original date to change?",
+    "expected_answer": "The 30-day check-in was rescheduled to April 5th. The original date of April 2nd had to change because the manager has a conference from April 2nd to 4th.",
+    "atomic_facts": [
+      "Original 30-day check-in date was April 2nd.",
+      "The check-in was rescheduled to April 5th.",
+      "The manager has a conference April 2nd through 4th."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator managing a multi-vendor contract",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-02-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The primary vendor for the Orion Project network infrastructure is Coldwell Systems. They've been our go-to for three years."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Coldwell Systems is the primary vendor for Orion Project network infrastructure."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-14",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Update: we had to switch vendors on Orion. Coldwell Systems lost their certification and we moved the contract to Nexbridge. Effective immediately."
+          },
+          {
+            "role": "assistant",
+            "content": "Vendor updated \u2014 Orion Project network infrastructure is now handled by Nexbridge. Coldwell Systems is no longer the vendor effective April 14th."
+          }
+        ]
+      }
+    ],
+    "question": "Who is the current primary vendor for the Orion Project network infrastructure?",
+    "expected_answer": "Nexbridge. Coldwell Systems was replaced after losing their certification.",
+    "atomic_facts": [
+      "The current primary vendor for Orion Project network infrastructure is Nexbridge.",
+      "Coldwell Systems was the previous vendor.",
+      "Coldwell Systems was replaced because they lost their certification."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager on a growing product team",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-01-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Our weekly product standup is every Tuesday at 10 AM."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 weekly product standup: Tuesdays at 10 AM."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We moved the standup to Wednesdays at 9 AM. The change went into effect this week. The team's too scattered on Tuesday mornings now."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 product standup is now Wednesdays at 9 AM, effective this week."
+          }
+        ]
+      }
+    ],
+    "question": "When is the weekly product standup currently held?",
+    "expected_answer": "Wednesdays at 9 AM. It was moved from Tuesdays at 10 AM.",
+    "atomic_facts": [
+      "The current standup day is Wednesday.",
+      "The current standup time is 9 AM.",
+      "The previous standup was Tuesdays at 10 AM."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead managing an agency retainer",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-02-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Our creative agency retainer is $8,500 per month. That covers up to 80 hours of work."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 creative agency retainer: $8,500/month for up to 80 hours."
+          }
+        ]
+      },
+      {
+        "date": "2026-05-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We renegotiated the retainer. It's now $11,000 per month and covers up to 120 hours. New rate effective May 1st."
+          },
+          {
+            "role": "assistant",
+            "content": "Retainer updated \u2014 $11,000/month for up to 120 hours, effective May 1st."
+          }
+        ]
+      }
+    ],
+    "question": "What are the current terms of the creative agency retainer?",
+    "expected_answer": "$11,000 per month, covering up to 120 hours of work, effective May 1st. The previous rate was $8,500/month for 80 hours.",
+    "atomic_facts": [
+      "Current retainer is $11,000 per month.",
+      "Current retainer covers up to 120 hours.",
+      "The new rate is effective May 1st.",
+      "Previous retainer was $8,500/month for 80 hours."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "junior developer working under multiple team leads",
+    "type": "update",
+    "sessions": [
+      {
+        "date": "2026-03-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "My reporting line for the Atlas project is to Sonia Park, the lead architect."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 you report to Sonia Park (lead architect) for the Atlas project."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Sonia left the company. For Atlas, I now report to Henri Bouchard. He's stepping in as interim lead."
+          },
+          {
+            "role": "assistant",
+            "content": "Reporting line updated \u2014 you now report to Henri Bouchard (interim lead) for the Atlas project, following Sonia Park's departure."
+          }
+        ]
+      }
+    ],
+    "question": "Who do you currently report to on the Atlas project?",
+    "expected_answer": "Henri Bouchard, the interim lead, following Sonia Park's departure from the company.",
+    "atomic_facts": [
+      "Current reporting line on Atlas project is to Henri Bouchard.",
+      "Henri Bouchard is the interim lead.",
+      "Previous reporting line was to Sonia Park, who has left the company."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-interference-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant with multiple client engagements",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The Talbott Inc. engagement kicks off officially on April 1st. That's the agreed start date in the SOW."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Talbott Inc. engagement official start date is April 1st per the SOW."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-25",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Talbott pushed the start. They're not ready. New start date is April 22nd, confirmed in writing."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 Talbott Inc. engagement start date is now April 22nd, confirmed in writing."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Unrelated admin note: I'm invoicing Bellmore Group for work done since April 1st. That was our start date with them and I need to document it for the invoice."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 Bellmore Group invoice covers work from their April 1st start date. I'll note that separately from the Talbott engagement."
+          }
+        ]
+      }
+    ],
+    "question": "What is the current start date for the Talbott Inc. engagement?",
+    "expected_answer": "April 22nd. The original April 1st start date was pushed by Talbott because they were not ready. Note: April 1st is the start date for a different client, Bellmore Group.",
+    "atomic_facts": [
+      "Talbott Inc. original start date was April 1st.",
+      "Talbott Inc. revised start date is April 22nd.",
+      "The revision was confirmed in writing.",
+      "April 1st is the start date for Bellmore Group, not Talbott."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-interference-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator managing vendor contracts",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-02-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Meridian Logistics is our logistics vendor for Project Compass. Their point of contact is a guy named Craig Flynn."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Meridian Logistics, Project Compass logistics vendor, point of contact is Craig Flynn."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Craig Flynn left Meridian. Our new contact there is Natasha Reyes. Please update that."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 Meridian Logistics point of contact for Project Compass is now Natasha Reyes."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Just had a call with Craig Flynn \u2014 he's consulting for us now on Project Vega logistics strategy. Very different engagement, just noting it for context."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Craig Flynn is now a consultant on Project Vega logistics strategy. Separate from his former role at Meridian Logistics on Project Compass."
+          }
+        ]
+      }
+    ],
+    "question": "Who is the current point of contact at Meridian Logistics for Project Compass?",
+    "expected_answer": "Natasha Reyes. Craig Flynn was the previous contact but left Meridian Logistics. Flynn is now a consultant on a different project (Project Vega) and is no longer the Meridian contact.",
+    "atomic_facts": [
+      "Current Meridian Logistics contact for Project Compass is Natasha Reyes.",
+      "Craig Flynn was the previous Meridian Logistics contact.",
+      "Craig Flynn left Meridian Logistics.",
+      "Craig Flynn is now a consultant on Project Vega, not a Meridian contact."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-interference-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager tracking budget allocations",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-01-20",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The Q1 budget for the mobile team is $60,000."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 mobile team Q1 budget is $60,000."
+          }
+        ]
+      },
+      {
+        "date": "2026-02-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Finance revised the mobile team Q1 budget down to $52,000 due to the cost reduction initiative. Effective now."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 mobile team Q1 budget revised to $52,000 effective now, due to cost reduction initiative."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-15",
+        "turns": [
+          {
+            "role": "user",
+            "content": "For reference on the Q2 planning deck, we're using $60,000 as the mobile team benchmark \u2014 that's what we originally had for Q1 before the cuts. We're proposing to restore it."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 $60,000 is being used as the proposed Q2 restoration benchmark in the planning deck, based on the original pre-cut Q1 figure."
+          }
+        ]
+      }
+    ],
+    "question": "What is the current Q1 budget for the mobile team?",
+    "expected_answer": "$52,000. It was revised down from $60,000 due to a cost reduction initiative. The $60,000 figure mentioned later is a Q2 proposal, not the current Q1 allocation.",
+    "atomic_facts": [
+      "Original mobile team Q1 budget was $60,000.",
+      "Revised mobile team Q1 budget is $52,000.",
+      "The revision was due to a cost reduction initiative.",
+      "The $60,000 figure in the March session refers to a Q2 proposal, not the current Q1 budget."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-update-interference-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead coordinating agency relationships",
+    "type": "update/interference",
+    "sessions": [
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Our PR agency for the Cascade product line is Hartwell Communications. Been working with them since 2024."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Hartwell Communications is the PR agency for the Cascade product line."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We switched PR agencies. Cascade is now with Ember PR. Hartwell lost the pitch. Effective May 1st."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated \u2014 Cascade product line PR agency is now Ember PR, effective May 1st. Hartwell Communications is no longer the agency of record."
+          }
+        ]
+      },
+      {
+        "date": "2026-05-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Quick note: we're still using Hartwell for the Summit product line \u2014 different budget, different contract. Just don't want anyone to think we cut them entirely."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Hartwell Communications continues on the Summit product line. They were only replaced on Cascade, not across the board."
+          }
+        ]
+      }
+    ],
+    "question": "Which PR agency currently handles the Cascade product line?",
+    "expected_answer": "Ember PR, effective May 1st. Hartwell Communications was replaced on Cascade but continues to handle the Summit product line.",
+    "atomic_facts": [
+      "Current PR agency for Cascade product line is Ember PR.",
+      "Ember PR became effective May 1st.",
+      "Hartwell Communications was the previous Cascade PR agency.",
+      "Hartwell Communications still handles the Summit product line."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "high",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-adversarial-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator managing a construction project",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-04-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The Lakewood Center project is underway. The general contractor is Pinnacle Build Group. Project is scheduled through end of Q3."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Lakewood Center project, general contractor is Pinnacle Build Group, scheduled through end of Q3."
+          },
+          {
+            "role": "user",
+            "content": "The subcontractor for HVAC was supposed to be finalized this week. Still in negotiations."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 HVAC subcontractor for Lakewood Center is not yet finalized; still in negotiations as of this week."
+          }
+        ]
+      }
+    ],
+    "question": "Who is the HVAC subcontractor on the Lakewood Center project?",
+    "expected_answer": "I don't know. The HVAC subcontractor had not been finalized as of the last update \u2014 negotiations were still ongoing.",
+    "atomic_facts": [
+      "The HVAC subcontractor for Lakewood Center was not finalized as of the last recorded session.",
+      "Negotiations were still in progress."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-adversarial-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant with a new prospective client",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-05-12",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I have a discovery call with a prospective client tomorrow \u2014 a company called Aurelius Partners. Don't know much about them yet."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 discovery call with Aurelius Partners tomorrow. No details on file yet."
+          },
+          {
+            "role": "user",
+            "content": "They're in the financial advisory space. That's all I know from the intro email."
+          },
+          {
+            "role": "assistant",
+            "content": "Got it \u2014 Aurelius Partners is in financial advisory. That's the extent of what's been shared so far."
+          }
+        ]
+      }
+    ],
+    "question": "What is the proposed budget for the Aurelius Partners engagement?",
+    "expected_answer": "I don't know. No budget information for Aurelius Partners has been discussed \u2014 only that they're in financial advisory and a discovery call is scheduled.",
+    "atomic_facts": [
+      "No budget information for Aurelius Partners has been recorded.",
+      "The only known fact is that Aurelius Partners is in financial advisory."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-adversarial-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "junior developer in a large engineering organization",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-04-22",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I've been assigned to a cross-functional task force on system reliability. The task force lead is someone from the SRE team \u2014 I don't know who yet, haven't gotten the intro email."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 you're on a cross-functional system reliability task force. The SRE team lead hasn't been identified yet."
+          },
+          {
+            "role": "user",
+            "content": "The kickoff is next Thursday. I assume they'll introduce the lead then."
+          },
+          {
+            "role": "assistant",
+            "content": "Makes sense. I'll hold that detail open until after the kickoff."
+          }
+        ]
+      }
+    ],
+    "question": "Who is leading the system reliability task force?",
+    "expected_answer": "I don't know. The task force lead from the SRE team had not been identified or communicated as of the last update.",
+    "atomic_facts": [
+      "The task force lead was not identified in any recorded session.",
+      "The lead is from the SRE team.",
+      "A kickoff was scheduled for the following Thursday."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "easy",
+      "distractor_density": "low",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-adversarial-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead planning a product launch",
+    "type": "adversarial",
+    "sessions": [
+      {
+        "date": "2026-05-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We're planning the Zenith product launch. Launch window is Q4 this year. The exact date is still TBD \u2014 depends on regulatory clearance."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Zenith product launch planned for Q4, exact date TBD pending regulatory clearance."
+          },
+          {
+            "role": "user",
+            "content": "The internal code name is Project Sable. And yes, I know it's a bit dramatic for a software product."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged \u2014 Zenith launch codename is Project Sable. Q4 window, no confirmed date."
+          }
+        ]
+      }
+    ],
+    "question": "What is the confirmed launch date for Project Sable?",
+    "expected_answer": "I don't know. No confirmed launch date has been set. The Zenith product (codename Project Sable) is targeting Q4, but the exact date depends on regulatory clearance and was marked TBD.",
+    "atomic_facts": [
+      "No confirmed launch date exists for Project Sable.",
+      "The launch window is Q4.",
+      "The exact date is pending regulatory clearance and marked TBD."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": false
+    }
+  },
+  {
+    "id": "mesa-work-causal-0001",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "product manager navigating an organizational change",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We just found out that our lead data engineer, Tomasz, is leaving at the end of February. He's the only one who fully understands the data pipeline for Project Solaris."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Tomasz (lead data engineer) is leaving at end of February. He's the sole expert on the Project Solaris data pipeline."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-05",
+        "turns": [
+          {
+            "role": "user",
+            "content": "As expected, the Solaris data pipeline work has stalled. We've pushed the Q2 milestone for the analytics dashboard by six weeks. It was originally April 15th, now it's May 27th."
+          },
+          {
+            "role": "assistant",
+            "content": "Solaris analytics dashboard milestone pushed from April 15th to May 27th \u2014 six-week delay \u2014 due to the pipeline knowledge gap."
+          }
+        ]
+      }
+    ],
+    "question": "Why was the Project Solaris analytics dashboard milestone delayed, and by how much?",
+    "expected_answer": "The milestone was delayed six weeks, from April 15th to May 27th, because Tomasz \u2014 the only engineer with full knowledge of the data pipeline \u2014 left the company at the end of February, causing the pipeline work to stall.",
+    "atomic_facts": [
+      "Tomasz was the sole expert on the Project Solaris data pipeline.",
+      "Tomasz left at end of February.",
+      "The data pipeline work stalled after his departure.",
+      "The analytics dashboard milestone moved from April 15th to May 27th.",
+      "The delay is six weeks."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-causal-0002",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "project coordinator on a software rollout",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-03-18",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Big problem: we discovered that the staging environment for Project Titan was using an outdated database schema \u2014 three versions behind production. The QA team didn't catch it for two weeks."
+          },
+          {
+            "role": "assistant",
+            "content": "Logged \u2014 staging environment for Project Titan had a database schema three versions behind production. QA missed it for two weeks."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-28",
+        "turns": [
+          {
+            "role": "user",
+            "content": "The client escalated because they saw bugs in UAT that we had marked as fixed. Those bugs were fixed in production but not in the stale staging environment we gave UAT access to. The client is requesting a formal incident report."
+          },
+          {
+            "role": "assistant",
+            "content": "Root cause confirmed \u2014 UAT bugs were due to stale staging environment. Client has requested a formal incident report."
+          }
+        ]
+      }
+    ],
+    "question": "What caused the client escalation on Project Titan during UAT?",
+    "expected_answer": "The client saw bugs in UAT that had been marked as fixed. The root cause was that UAT had been given access to a staging environment running a database schema three versions behind production. Bugs fixed in production were not reflected in the stale staging environment.",
+    "atomic_facts": [
+      "The Project Titan staging environment had a database schema three versions behind production.",
+      "UAT was given access to the stale staging environment.",
+      "Bugs fixed in production were not present in the staging fix, so they appeared in UAT.",
+      "The client escalated and requested a formal incident report."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-causal-0003",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "marketing lead managing a campaign",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-04-01",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We launched the Spring Refresh email campaign today. One issue: the unsubscribe link was broken in the HTML version. The plain-text version was fine."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 Spring Refresh email launched April 1st. Unsubscribe link broken in HTML version only; plain-text version is fine."
+          }
+        ]
+      },
+      {
+        "date": "2026-04-03",
+        "turns": [
+          {
+            "role": "user",
+            "content": "We got flagged by our ESP \u2014 Klaviyo \u2014 for the broken unsubscribe link. They've put our account on a 48-hour sending hold while we fix it. We're pausing all campaigns."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood \u2014 Klaviyo has placed account on 48-hour sending hold due to broken unsubscribe link. All campaigns paused."
+          }
+        ]
+      }
+    ],
+    "question": "Why were all marketing campaigns paused in early April?",
+    "expected_answer": "The Spring Refresh email campaign launched with a broken unsubscribe link in the HTML version. Klaviyo (the email service provider) flagged the violation and placed the account on a 48-hour sending hold, pausing all campaigns.",
+    "atomic_facts": [
+      "The Spring Refresh email had a broken unsubscribe link in the HTML version.",
+      "Klaviyo is the email service provider.",
+      "Klaviyo placed the account on a 48-hour sending hold.",
+      "All campaigns were paused as a result."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "medium",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  },
+  {
+    "id": "mesa-work-causal-0004",
+    "domain": "Workplace / Professional Projects",
+    "source_profile": "freelance consultant managing a retainer agreement",
+    "type": "causal",
+    "sessions": [
+      {
+        "date": "2026-02-25",
+        "turns": [
+          {
+            "role": "user",
+            "content": "I overstated my hourly rate in the initial proposal to Decker Group \u2014 quoted $195/hr when the agreed rate from our prior conversation was $175/hr. Sent them an amended proposal."
+          },
+          {
+            "role": "assistant",
+            "content": "Noted \u2014 original Decker Group proposal had incorrect rate of $195/hr; amended to correct $175/hr rate."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-10",
+        "turns": [
+          {
+            "role": "user",
+            "content": "Decker Group came back and asked for an additional 5% discount given the confusion around the pricing. I agreed and we settled on $166.25/hr. Signed and done."
+          },
+          {
+            "role": "assistant",
+            "content": "Final agreed rate with Decker Group is $166.25/hr \u2014 $175/hr minus 5% discount as goodwill following the proposal pricing error. Signed and contracted."
+          }
+        ]
+      }
+    ],
+    "question": "What is the agreed hourly rate with Decker Group, and how did it end up there?",
+    "expected_answer": "The agreed rate is $166.25/hr. It originated from a $175/hr base rate (itself corrected from an initial proposal error of $195/hr), with a 5% goodwill discount applied by the client due to the pricing confusion.",
+    "atomic_facts": [
+      "The agreed Decker Group hourly rate is $166.25/hr.",
+      "The base rate was $175/hr.",
+      "An initial proposal incorrectly listed $195/hr.",
+      "Decker Group requested a 5% discount due to the pricing confusion.",
+      "The 5% discount on $175 yields $166.25/hr."
+    ],
+    "metadata": {
+      "review_status": "draft",
+      "difficulty": "hard",
+      "distractor_density": "medium",
+      "multi_session": true
+    }
+  }
+]
