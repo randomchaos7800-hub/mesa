@@ -4,7 +4,49 @@ This file is the home for benchmark baselines under the official v2 reporting co
 
 ## Full gold set — v2 baselines (2026-05-25)
 
-Run against the full curated gold set. No LLM judge (scoring: EM + ROUGE-1).
+### v0.7.0 — 361 items (current)
+
+Run against the full 361-item gold set. No LLM judge (scoring: EM + ROUGE-1).
+
+- dataset: `dataset/mesa_v2.json`
+- dataset version: `0.7.0`
+- split: `full_gold_public`
+- n_items: 361 (109 reviewed + 252 provisional)
+- public results: `public_results/`
+
+| System | Correct | Grounded | Abstention | Storage recall | Notes |
+|---|---:|---:|---:|---:|---|
+| **Mike (relay)** | **0.249** | **0.136** | **0.000** | **0.119** | Production memory agent; full relay pipeline; run 2026-05-25 |
+| **Hermes (AIAgent)** | **0.235** | **0.303** | **0.105** | **0.098** | Hermes framework + Genesis local model; long-context mode; run 2026-05-25 |
+
+**Reading the table:**
+
+- Both systems dropped from the 94-item v0.5.0 numbers — the 252 new synthetic items are harder (no real accumulated memory backing them, more diverse domains).
+- Mike edges Hermes on overall correct (0.249 vs 0.235) but Hermes leads on grounding (0.303 vs 0.136) — Mike answers more questions but with less retrievable support.
+- Hermes is the only system with non-zero adversarial abstention (0.105); Mike still scores 0.000 on adversarial — never refuses.
+- Mike domain gap: old curated items (personal, infra, ops) score 30–83%; new synthetic domains score 0–19%. Mike's relay benefits from real accumulated memory on familiar topics.
+
+**By-type breakdown — Mike vs Hermes (361-item v0.7.0):**
+
+| Type | n | Mike | Hermes | Mike−Hermes |
+|---|---:|---:|---:|---:|
+| recall/constraint | 39 | 0.546 | 0.636 | −0.09 |
+| recall/preference | 39 | 0.364 | 0.545 | −0.18 |
+| recall/single | 40 | 0.450 | 0.400 | +0.05 |
+| synthesis/multi | 40 | 0.417 | 0.333 | +0.08 |
+| temporal | 43 | 0.333 | 0.267 | +0.07 |
+| update/interference | 39 | 0.256 | 0.103 | +0.15 |
+| causal | 42 | 0.214 | 0.071 | +0.14 |
+| update | 41 | 0.098 | 0.146 | −0.05 |
+| adversarial | 38 | 0.000 | 0.105 | −0.11 |
+
+Hermes wins on recall/* (LLM reasoning extracts facts better). Mike wins on synthesis/multi, update/interference, temporal, causal — areas where accumulated real memory and active tool use help.
+
+---
+
+### v0.5.0 — 94 items (archived)
+
+Run against the earlier 94-item curated gold set. No LLM judge (scoring: EM + ROUGE-1).
 
 - dataset: `dataset/mesa_v2.json`
 - dataset version: `0.5.0`
@@ -19,14 +61,6 @@ Run against the full curated gold set. No LLM judge (scoring: EM + ROUGE-1).
 | `EchoAdapter` | 0.224 | 0.908 | 0.125 | 0.265 | Long-context floor: raw text in, raw text out |
 | `DictAdapter` | 0.158 | 0.605 | 0.875 | 0.118 | Naive "X is Y" pattern matching |
 | `NullAdapter` | 0.105 | 1.000 | 1.000 | 0.000 | Refusal floor: always "I don't have that" |
-
-**Reading the table:**
-
-- Hermes leads at 0.351 correct — 9 points above Mike and 13 above EchoAdapter. Both run conversation history injection; Hermes wins because it can reason across the context and apply LLM understanding rather than raw text matching.
-- Hermes' abstention rate (0.375) is the highest of the real systems — it correctly refuses on adversarial items at a rate Mike doesn't (Mike: 0.000).
-- Mike scores 0.263 and is the only system with active write/recall memory — scores above are on the 94-item v0.5.0 dataset except Mike which ran on the earlier 76-item v0.4.0 set. Mike needs a rerun on v0.5.0 to be directly comparable.
-- EchoAdapter's `grounded` score (0.908) looks great but is trivially earned — it retrieves everything, so everything is "grounded." Hermes grounded at 0.319 means it's being selective and still correct.
-- NullAdapter scores 0.105 (not 0.0) because adversarial items reward correct refusal.
 
 **By-type breakdown — Hermes vs Mike vs EchoAdapter (94-item set):**
 
@@ -43,8 +77,6 @@ Run against the full curated gold set. No LLM judge (scoring: EM + ROUGE-1).
 | temporal | 13 | 0.15 | 0.08 | 0.31 | −0.16 |
 
 *Mike scores from 76-item v0.4.0 run; direct comparison only valid for types present in both datasets.
-
-Hermes' biggest wins over EchoAdapter: recall/* items (0.50 vs 0.00) where raw-text retrieval fails but LLM reasoning can extract the correct fact. Temporal is the weak spot for both — temporal items reward exact date recall which requires faithful memory, not reasoning.
 
 ## Dev split reference baselines
 
