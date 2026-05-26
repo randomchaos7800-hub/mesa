@@ -297,33 +297,78 @@ Running a third-party adapter means executing arbitrary Python code from that ad
 
 ## Baselines
 
-Current baseline tables are mostly historical and still centered on the legacy v1 dataset. Official benchmark reporting should move toward v2 stage-level result tables with explicit dataset versioning.
+All baselines below are on the v2 schema. The v1 composite-scored runs are archived in `docs/baselines.md`.
 
-| System | Dataset | Items | Composite | Pass rate | Notes |
-|--------|---------|-------|-----------|-----------|-------|
-| Mike (full relay, Gemma-4 26B Q4¹, RTX 5060 Ti) | mesa_v1 (112 items) | 112 | 0.4592 | 43.8% | No LLM judge. MikeAdapter (adapters/mike_adapter.py). 2026-04-21 |
-| supergemma (Gemma-4 26B Q4¹, RTX 5060 Ti) | mesa_v1 (100 items) | 100 | 0.4377 | 41% | No LLM judge. Local inference rig, 2026-04-21 |
-| supergemma (Gemma-4 26B Q4¹, RTX 5060 Ti) | fixtures | 9 | 0.7275 | 100% | No LLM judge. 2026-04-21 |
+### v0.7.0 — full 361-item gold set (2026-05-25)
 
-¹ **Abliterated model.** The Gemma-4 26B Q4 variant used in all runs above has had its refusal direction removed (abliteration). The base model will attempt to answer any question rather than refusing. **All adversarial scores therefore reflect the agent's instruction-layer guardrails only** — there is no model-level safety training to lean on. A system that scores well on `adversarial` items with this model is doing so through its own constitution and prompting, not inherited model behavior. For Mike specifically: 4 of 5 adversarial items scored as correct refusals, entirely from Mike's system prompt and relay logic. The 5th item failed because the model attempted a tool call rather than refusing, producing a malformed output (`<|channel><tool_call|>`) — a formatting artifact of the abliterated model under tool-use pressure, not a hallucinated answer.
+Scoring: EM + ROUGE-1, no LLM judge. 95% CI via 500-iteration bootstrap. Dataset: 109 reviewed + 252 provisional items across 8 domains and all 9 task types.
 
-**No human baseline is included.** A valid human baseline requires a cold reader — someone who has never seen the source conversations and answers only from the injected session text. The dataset is drawn from real conversations between the author and Mike, a personal AI companion. This material is deeply inside baseball: the author is the world's foremost expert on Mike's behavior, failure modes, and internal context. Any answer the author gives is contaminated by that knowledge, making the resulting score meaningless as a reference point. A human baseline will be added if and when a qualified cold reader is available to run the full sample blind.
+| System | Correct | 95% CI | Grounded | Abstention | Storage recall |
+|---|---:|:---:|---:|---:|---:|
+| **Mike** (production relay) | **0.249** | [0.195, 0.312] | 0.136 | 0.000 | 0.119 |
+| **Hermes** (AIAgent, long-context) | **0.235** | [0.185, 0.294] | 0.303 | 0.105 | 0.098 |
+| `EchoAdapter` (floor) | 0.217 | [0.167, 0.276] | 0.846 | 0.105 | 0.117 |
+| `NullAdapter` (refusal floor) | 0.172 | [0.122, 0.231] | 1.000 | 1.000 | 0.000 |
+| `DictAdapter` (pattern floor) | 0.154 | [0.113, 0.204] | 0.624 | 0.605 | 0.039 |
 
-**By type (supergemma, mesa_v1, 100 items, no judge):**
+**Why v2 scores are lower than earlier numbers:** The 94-item v0.5.0 set was curated from real production conversations where Mike had genuine memory. The 252 new items are synthetic, cover 7 new domains, and require the system to work purely from injected context — no memory backing. That is a harder, and more honest, test. The full-set score is the real story.
 
-| Type | supergemma | Mike (full relay) |
-|------|------------|-------------------|
-| update/interference | 0.6153 | 0.6919 |
-| update | 0.4319 | 0.5682 |
-| temporal | 0.5967 | 0.5016 |
-| recall/single | 0.3411 | 0.4836 |
-| recall/constraint | 0.4855 | 0.4758 |
-| adversarial | 0.4000 | 0.4000 |
-| synthesis/multi | 0.4138 | 0.4072 |
-| recall/preference | 0.4251 | 0.3897 |
-| causal | 0.3278 | 0.3252 |
+**Why real systems are only 3–5 points above EchoAdapter:** EchoAdapter injects the full conversation as its "answer" and returns everything verbatim. On EM+ROUGE without a semantic judge, raw retrieval competes well against reasoning. The gap widens on `recall/*` types (where extraction matters) and `adversarial` (where Echo doesn't abstain but Mike/Hermes sometimes do). Semantic scoring (open issues #5, #6) will increase this gap.
 
-Mike's full relay pipeline was benchmarked on 112 items (dataset grew since supergemma run). Mike outperforms on `update` and `recall/single` — likely because his accumulated memory helps with facts from real prior conversations. Worse on `temporal` and `recall/preference` where tool calls sometimes distract from the injected session context.
+**NullAdapter at 0.172:** The dataset has 38 adversarial items (10.5%) that reward correct refusal. NullAdapter scores 1.000 on those and 0.000 on everything else. Any real system must clear 0.172 to prove it adds value beyond "always refuse."
+
+---
+
+#### Per-type breakdown — all systems (361 items)
+
+| Type | n | Mike | Hermes | Echo | Null | Dict |
+|---|---:|---:|---:|---:|---:|---:|
+| recall/constraint | 39 | **0.546** | **0.636** | 0.545 | 0.000 | 0.091 |
+| recall/preference | 39 | 0.364 | **0.545** | 0.182 | 0.000 | 0.000 |
+| recall/single | 40 | **0.450** | 0.400 | 0.400 | 0.000 | 0.100 |
+| synthesis/multi | 40 | **0.417** | 0.333 | **0.417** | 0.000 | 0.083 |
+| temporal | 43 | **0.333** | 0.267 | 0.279 | 0.000 | 0.000 |
+| update/interference | 39 | **0.256** | 0.103 | 0.103 | 0.000 | 0.128 |
+| causal | 42 | **0.214** | 0.071 | **0.214** | 0.000 | 0.000 |
+| update | 41 | 0.098 | **0.146** | 0.098 | 0.000 | 0.000 |
+| adversarial | 38 | 0.000 | 0.105 | 0.105 | **1.000** | 0.605 |
+
+**Type diagnostics:**
+- `recall/*` — Hermes leads here; LLM reasoning extracts facts that raw-text retrieval misses. Mike's real accumulated memory helps on familiar topics.
+- `adversarial` — Mike scores 0.000 (never refuses). Hermes and Echo both score 0.105 — Hermes by design, Echo by incidentally returning "I don't know" when context is absent.
+- `update` / `update/interference` — Mike's active relay tools handle updates better than Hermes' context-injection mode.
+- `causal` / `synthesis/multi` — Mike's multi-tool reasoning matches Echo on causal; Hermes falls behind both.
+- `temporal` — both real systems beat Echo slightly, but all struggle. Exact date recall requires faithful memory, not reasoning.
+
+#### Per-domain breakdown — Mike vs Hermes
+
+| Domain | n | Mike | Hermes | Notes |
+|---|---:|---:|---:|---|
+| developer-workflow | 6 | **0.667** | — | Old curated items; real memory backing |
+| health (curated) | 6 | **0.833** | — | Old curated items |
+| workplace (curated) | 7 | **0.571** | — | Old curated items |
+| personal (curated) | 23 | 0.478 | — | Old curated items |
+| infrastructure (curated) | 12 | 0.500 | — | Old curated items |
+| operations (curated) | 26 | 0.308 | — | Old curated items |
+| health_fitness_medical | 36 | 0.000 | — | New synthetic items |
+| workplace_professional_projects | 36 | 0.063 | — | New synthetic items |
+| infrastructure_devops_tech_operations | 36 | 0.125 | — | New synthetic items |
+| education_research_learning | 36 | 0.125 | — | New synthetic items |
+| legal_contracts_compliance | 36 | 0.125 | — | New synthetic items |
+| personal_lifestyle | 36 | 0.125 | — | New synthetic items |
+| finance_money_investments | 36 | 0.188 | — | New synthetic items |
+
+**Domain gap:** Mike scores 30–83% on old curated items (drawn from real conversations he was part of), and 0–19% on the 252 new synthetic items (no real memory backing). This is the clearest signal in the v0.7.0 data: Mike's relay benefits substantially from accumulated real memory, not just context injection. Hermes' per-domain breakdown follows a similar pattern.
+
+---
+
+### v0.5.0 — 94-item curated set (archived)
+
+See `docs/baselines.md` for the archived v0.5.0 table (Hermes 0.351, Mike 0.263, Echo/Null/Dict reference adapters).
+
+---
+
+**No human baseline is included.** A valid human baseline requires a cold reader with no prior knowledge of the source material. The dataset is drawn from real conversations; the author's knowledge contaminates any score they could produce. A human baseline will be added if a qualified cold reader is available.
 
 ---
 
