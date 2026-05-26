@@ -368,3 +368,39 @@ MESA is closer to a standard benchmark when:
 | causal | 2 | 0.0 | 0.0 |
 
 **Scorer issues identified (see gap analysis below)**
+
+---
+
+## Mike v2 Full Run — 2026-05-25 (Official Baseline)
+
+**Run:** `results/run_v2_2026-05-25_14-08.json`
+**Dataset:** mesa_v2.json, 76 items, all task types
+**Adapter:** MikeAdapter (full relay + session store pipeline)
+
+| Metric | 14-item pilot | 76-item baseline |
+|---|---|---|
+| Answer correct | 0.50 | **0.26** |
+| Answer grounded | 0.14 | **0.16** |
+| Storage fact recall | 0.77 | **0.31** |
+| Storage forbidden hits | — | **0.34** |
+
+**By type:**
+| Type | n | Correct | Grounded |
+|---|---|---|---|
+| update/interference | 10 | 0.90 | 0.70 |
+| update | 11 | 0.45 | 0.09 |
+| synthesis/multi | 7 | 0.29 | 0.00 |
+| recall/preference | 5 | 0.20 | 0.00 |
+| causal | 12 | 0.17 | 0.08 |
+| temporal | 13 | 0.08 | 0.15 |
+| adversarial | 8 | 0.00 | 0.00 |
+| recall/single | 5 | 0.00 | 0.00 |
+| recall/constraint | 5 | 0.00 | 0.00 |
+
+**Key findings:**
+- update/interference is Mike's dominant skill — tracks superseded vs current state well
+- Storage recall collapsed (0.77 → 0.31) on complex multi-session items — real architectural gap
+- Adversarial 0/8 — Mike's refusal phrasing never matches `_REFUSAL_PATTERNS` (known scorer bug)
+- recall/single, recall/constraint at 0.0 — scorer AND/OR bug (mesa #1) inflating false negatives
+- 14-item pilot was optimistic; skewed toward Mike's strengths
+- **0.26 is the honest floor. Target for next Mike eval: ≥0.40 after scorer fixes land.**
