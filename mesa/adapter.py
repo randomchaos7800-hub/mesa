@@ -115,3 +115,24 @@ class MemoryAdapter(ABC):
         Returns None by default (diagnostics not available).
         """
         return None
+
+    # --- Scope / contamination contract (Improvement #2) ---
+    # Adapters declare what "memory" they are allowed to use beyond the current
+    # benchmark item's injected sessions. This is critical for real production
+    # systems (Mike, Hermes in full mode) that have persistent state + tools.
+    #
+    # Valid values:
+    #   "pure_injection"   — only facts from the sessions passed to this run's
+    #                        inject()/inject_session(). No prior memory, no tools
+    #                        that can reach outside the harness.
+    #   "full_production"  — the system under test may use its normal persistent
+    #                        memory, knowledge graph, tools, lighthouse, etc.
+    #                        (default for real companion relays)
+    #
+    # The runner rejects official runs when scope is not pure.
+
+    scope: str = "full_production"
+
+    def get_scope(self) -> str:
+        """Return the declared memory scope for this adapter instance."""
+        return getattr(self, "scope", "full_production")

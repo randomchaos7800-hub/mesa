@@ -342,6 +342,14 @@ def run_benchmark_v2(
     if not dataset:
         raise ValueError(f"Dataset is empty or all items filtered out (path={dataset_path})")
 
+    # Scope / contamination contract enforcement (Improvement #2)
+    adapter_scope = adapter.get_scope() if hasattr(adapter, "get_scope") else getattr(adapter, "scope", "full_production")
+    if official_run and adapter_scope != "pure_injection":
+        raise ValueError(
+            f"Official v2 runs require scope='pure_injection'; adapter reports '{adapter_scope}'. "
+            "Use a properly isolated adapter for official baselines."
+        )
+
     results = []
     for idx, item in enumerate(dataset):
         if item.get("version") != "2":
@@ -381,6 +389,9 @@ def run_benchmark_v2(
         if not retrieval_trace_available:
             failures.append("retrieval_trace_missing")
 
+        # Record adapter scope on every item for downstream analysis.
+        result_scope = adapter_scope
+
         results.append(
             {
                 "id": item_id,
@@ -390,6 +401,7 @@ def run_benchmark_v2(
                 "metadata": item.get("metadata", {}),
                 "session_format": "multi" if len(sessions) > 1 else "single",
                 "session_count": len(sessions) if sessions else 0,
+                "adapter_scope": result_scope,
                 "observable": observable,
                 "write_trace_available": write_trace_available,
                 "retrieval_trace_available": retrieval_trace_available,
@@ -422,6 +434,7 @@ def run_benchmark_v2(
         "n_items": len(results),
         "trace_required": effective_trace_required,
         "official_run": official_run,
+        "adapter_scope": adapter_scope,
         "observable_rate": _average_metric([r["observable"] for r in results]),
         "summary": _summarize_v2_results(results),
         "results": results,
@@ -573,6 +586,86 @@ def run_benchmark(
     }
 
 
+# ------------------------------------------------------------------
+# Improvement #3 — Probe battery helpers (KISS, file-based, loud)
+# These live here so they are defined before main() uses them.
+# ------------------------------------------------------------------
+
+def print_probe_taxonomy(summary: dict) -> None:
+    """Print a compact one-page failure taxonomy when running the probes set.
+    Designed for fast morning debugging loops against the tower.
+    """
+    print("\n" + "=" * 64)
+    print("  MESA PROBE TAXONOMY (fast deterministic view)")
+    print("=" * 64)
+    print(f"  Items: {summary.get('n_items', 0)}   Scope: {summary.get('adapter_scope', 'n/a')}")
+    print()
+
+    failures_count = {}
+    for r in summary.get("results", []):
+        for f in r.get("failures", []):
+            failures_count[f] = failures_count.get(f, 0) + 1
+
+    if failures_count:
+        print("  Top failure modes (count):")
+        for f, c in sorted(failures_count.items(), key=lambda x: -x[1])[:6]:
+            print(f"    {f:<35} {c}")
+    else:
+        print("  No explicit failures recorded.")
+
+    print()
+    print("  By type (answer.correct):")
+    for t, data in summary.get("summary", {}).get("by_type", {}).items():
+        cr = data.get("correct_rate") if isinstance(data, dict) else None
+        if cr is not None:
+            print(f"    {t:<25} correct_rate={cr:.2f}")
+
+    print("\n  Quick diagnosis tips:")
+    print("  - scope=full_production   → prior memory / tools may influence outcomes")
+    print("  - retrieval_trace_missing → implement ask_with_trace on the adapter")
+    print("  - missing_required_*      → extraction or storage layer dropped facts")
+    print("  - unsupported_answer_claim → grounding failure (hallucination)")
+    print("=" * 64 + "\n")
+
+
+def compare_probe_runs(path_a: str, path_b: str, label_a: str = "A", label_b: str = "B") -> dict:
+    """Diff two probe run JSONs by failure type. Pure file-based, no LLM.
+    Returns a simple delta report you can print or save.
+    """
+    with open(path_a) as f:
+        a = json.load(f)
+    with open(path_b) as f:
+        b = json.load(f)
+
+    fa = {}
+    for r in a.get("results", []):
+        for f in r.get("failures", []):
+            fa[f] = fa.get(f, 0) + 1
+
+    fb = {}
+    for r in b.get("results", []):
+        for f in r.get("failures", []):
+            fb[f] = fb.get(f, 0) + 1
+
+    all_failures = sorted(set(fa) | set(fb))
+    deltas = {}
+    for f in all_failures:
+        deltas[f] = fa.get(f, 0) - fb.get(f, 0)
+
+    report = {
+        "a": path_a,
+        "b": path_b,
+        "n_a": a.get("n_items"),
+        "n_b": b.get("n_items"),
+        "adapter_scope_a": a.get("adapter_scope"),
+        "adapter_scope_b": b.get("adapter_scope"),
+        "failure_deltas": deltas,
+        "only_in_a": [f for f in fa if f not in fb],
+        "only_in_b": [f for f in fb if f not in fa],
+    }
+    return report
+
+
 def _load_adapter(dotted_path: str) -> MemoryAdapter:
     """Import and instantiate an adapter from a dotted module path.
 
@@ -593,7 +686,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="MESA benchmark runner")
     parser.add_argument("--adapter", required=True, help="Dotted path to MemoryAdapter class, e.g. examples.simple_adapter.EchoAdapter")
-    parser.add_argument("--dataset", default=str(DEFAULT_DATASET_V2), help="Path to dataset JSON")
+    parser.add_argument("--dataset", default=str(DEFAULT_DATASET_V2), help="Path to dataset JSON (use dataset/mesa_probes.json for fast daily failure probes)")
     parser.add_argument("--schema-version", choices=["1", "2"], default="2", help="Dataset/runner schema version")
     parser.add_argument("--trace-required", action="store_true", help="Require observable trace hooks for schema v2 runs")
     parser.add_argument("--official-run", action="store_true", help="Enforce official v2 observability and manifest requirements")
@@ -630,10 +723,17 @@ def main():
         print(f"  Items : {summary['n_items']}")
         print(f"  Split : {summary['dataset_split']}")
         print(f"  Trace : {'required' if summary['trace_required'] else 'preferred'}")
+        print(f"  Scope : {summary.get('adapter_scope', 'unknown')}")
         print(f"  Answer correct : {summary['summary']['answer']['correct_rate']}")
         print(f"  Answer grounded: {summary['summary']['answer']['grounded_rate']}")
         print(f"{'='*60}")
         print(f"Results → {out_path}")
+
+        # Auto-print compact taxonomy for probe-style datasets (Improvement #3)
+        dataset_stem = Path(args.dataset).stem.lower()
+        if "probe" in dataset_stem or "sample" in dataset_stem:
+            print_probe_taxonomy(summary)
+
         return
 
     judge_client = None

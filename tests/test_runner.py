@@ -36,6 +36,26 @@ class _TrackingAdapter(MemoryAdapter):
         return ""
 
 
+class _NonPureTraceAdapter(MemoryAdapter):
+    scope = "full_production"
+
+    def reset(self):
+        pass
+
+    def inject(self, turns):
+        pass
+
+    def ask(self, question):
+        return "answer"
+
+    def ask_with_trace(self, question):
+        return AnswerTrace(
+            answer="answer",
+            retrieved=[RetrievedMemory(memory_id="x", text="fact")],
+            metadata={}
+        )
+
+
 SINGLE_SESSION = [
     {"role": "user", "content": "Hello"},
     {"role": "assistant", "content": "Hi"},
@@ -401,6 +421,8 @@ class _ConstraintDistractorAdapter(MemoryAdapter):
 
 
 class _LegacyOnlyAdapter(MemoryAdapter):
+    scope = "pure_injection"
+
     def __init__(self):
         self.injected = []
 
@@ -495,6 +517,16 @@ class TestRunBenchmarkV2:
     def test_official_run_rejects_missing_retrieval_trace(self):
         adapter = _LegacyOnlyAdapter()
         with pytest.raises(ValueError, match="Official v2 runs require retrieval trace support"):
+            run_benchmark_v2(
+                adapter=adapter,
+                quiet=True,
+                limit=1,
+                official_run=True,
+            )
+
+    def test_official_run_rejects_non_pure_scope(self):
+        adapter = _NonPureTraceAdapter()
+        with pytest.raises(ValueError, match="scope='pure_injection'"):
             run_benchmark_v2(
                 adapter=adapter,
                 quiet=True,

@@ -137,6 +137,30 @@ mesa-benchmark \
   --official-run
 ```
 
+**Daily fast probes (Improvement #3)**
+
+For quick iteration loops against local inference (tower:8010):
+
+```bash
+mesa-benchmark \
+  --adapter adapters.mike_adapter.MikeAdapter \
+  --dataset dataset/mesa_probes.json \
+  --schema-version 2
+```
+
+This prints a one-page failure taxonomy + explicit `adapter_scope` tagging.
+It is a fast diagnostic path, not an official baseline. `mesa_probes.json` has
+no dataset manifest, and Mike in production mode is intentionally treated as
+non-isolated / non-official.
+
+Compare two probe runs (pure Python, file-based):
+
+```python
+from mesa.runner import compare_probe_runs
+delta = compare_probe_runs("results/run_v2_...json", "results/run_v2_...json")
+print(delta["failure_deltas"])
+```
+
 **3. Legacy v1 quickstart, for backwards comparison only:**
 
 ```python
