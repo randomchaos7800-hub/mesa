@@ -25,8 +25,8 @@ It evaluates three observable stages:
 
 The official benchmark should be run with:
 
-- [dataset/mesa_v2.json](/home/dino/mesa-benchmark/dataset/mesa_v2.json:1)
-- [dataset/schema_v2.json](/home/dino/mesa-benchmark/dataset/schema_v2.json:1)
+- [dataset/mesa_v2.json](dataset/mesa_v2.json)
+- [dataset/schema_v2.json](dataset/schema_v2.json)
 - `run_benchmark_v2()`
 
 ### Official v2 pipeline
@@ -130,9 +130,9 @@ MESA runs, but it is not the official benchmark definition.
 
 It uses:
 
-- [dataset/mesa_v1.json](/home/dino/mesa-benchmark/dataset/mesa_v1.json:1)
+- [dataset/mesa_v1.json](dataset/mesa_v1.json)
 - `run_benchmark()`
-- composite scoring from [mesa/scorer.py](/home/dino/mesa-benchmark/mesa/scorer.py:1)
+- composite scoring from [mesa/scorer.py](mesa/scorer.py)
 
 ### Legacy v1 composite scoring
 

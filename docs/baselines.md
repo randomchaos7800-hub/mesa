@@ -105,5 +105,5 @@ These are the earlier reference numbers on the 27-item dev split:
 
 See:
 
-- [docs/baseline_reporting_template.md](/home/dino/mesa-benchmark/docs/baseline_reporting_template.md:1)
-- [docs/result_reporting.md](/home/dino/mesa-benchmark/docs/result_reporting.md:1)
+- [docs/baseline_reporting_template.md](../docs/baseline_reporting_template.md)
+- [docs/result_reporting.md](../docs/result_reporting.md)

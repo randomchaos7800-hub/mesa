@@ -40,12 +40,12 @@ The official task taxonomy is:
 
 Official runs must use `schema v2` items validated against:
 
-- [dataset/schema_v2.json](/home/dino/mesa-benchmark/dataset/schema_v2.json:1)
+- [dataset/schema_v2.json](../dataset/schema_v2.json)
 
 Official gold data currently lives in:
 
-- [dataset/mesa_v2.json](/home/dino/mesa-benchmark/dataset/mesa_v2.json:1)
-- [dataset/version_v2.json](/home/dino/mesa-benchmark/dataset/version_v2.json:1)
+- [dataset/mesa_v2.json](../dataset/mesa_v2.json)
+- [dataset/version_v2.json](../dataset/version_v2.json)
 
 Each official item must include:
 
@@ -74,7 +74,7 @@ Optional debugging support:
 
 The contract is defined in:
 
-- [mesa/adapter.py](/home/dino/mesa-benchmark/mesa/adapter.py:1)
+- [mesa/adapter.py](../mesa/adapter.py)
 
 ## Official Metrics
 
@@ -136,7 +136,7 @@ An official run should not:
 
 The legacy path remains available for backwards compatibility:
 
-- [mesa/scorer.py](/home/dino/mesa-benchmark/mesa/scorer.py:1)
+- [mesa/scorer.py](../mesa/scorer.py)
 - `run_benchmark()`
 - `dataset/mesa_v1.json`
 

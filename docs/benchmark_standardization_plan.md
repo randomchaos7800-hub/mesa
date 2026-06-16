@@ -39,21 +39,21 @@ Goal: make the repo unambiguous about what the benchmark is.
 
 ### Code and doc changes
 
-- Update [README.md](/home/dino/mesa-benchmark/README.md:1)
+- Update [README.md](../README.md)
   - lead with `schema v2`
   - move `schema v1` into a clear legacy section
   - add links to benchmark spec, roadmap, and issue plan
-- Add [docs/benchmark_spec.md](/home/dino/mesa-benchmark/docs/benchmark_spec.md:1)
+- Add [docs/benchmark_spec.md](../docs/benchmark_spec.md)
   - official task definitions
   - official metrics
   - official run requirements
   - disclosure requirements for published results
-- Update [METHODOLOGY.md](/home/dino/mesa-benchmark/METHODOLOGY.md:1)
+- Update [METHODOLOGY.md](../METHODOLOGY.md)
   - split into `legacy v1` and `official v2`
   - de-emphasize composite scoring
-- Update [AUDIT.md](/home/dino/mesa-benchmark/AUDIT.md:1)
+- Update [AUDIT.md](../AUDIT.md)
   - point open items at this roadmap
-- Add [docs/result_reporting.md](/home/dino/mesa-benchmark/docs/result_reporting.md:1)
+- Add [docs/result_reporting.md](../docs/result_reporting.md)
   - required metadata
   - baseline report format
   - confidence interval expectations
@@ -81,14 +81,14 @@ Goal: move from a tiny curated set to a minimally serious benchmark slice.
 
 ### Code and data changes
 
-- Expand [dataset/mesa_v2.json](/home/dino/mesa-benchmark/dataset/mesa_v2.json:1)
-- Update [dataset/version_v2.json](/home/dino/mesa-benchmark/dataset/version_v2.json:1)
-- Extend [docs/annotation_guidelines.md](/home/dino/mesa-benchmark/docs/annotation_guidelines.md:1)
+- Expand [dataset/mesa_v2.json](../dataset/mesa_v2.json)
+- Update [dataset/version_v2.json](../dataset/version_v2.json)
+- Extend [docs/annotation_guidelines.md](../docs/annotation_guidelines.md)
   - review checklist
   - rejection criteria
   - distractor quality rules
-- Add [docs/dataset_review_checklist.md](/home/dino/mesa-benchmark/docs/dataset_review_checklist.md:1)
-- Update [tests/test_dataset.py](/home/dino/mesa-benchmark/tests/test_dataset.py:1)
+- Add [docs/dataset_review_checklist.md](../docs/dataset_review_checklist.md)
+- Update [tests/test_dataset.py](../tests/test_dataset.py)
   - enforce stronger type coverage thresholds
   - validate new metadata fields
 
@@ -116,16 +116,16 @@ Goal: stop looking like a benchmark over one user profile.
 
 ### Code and data changes
 
-- Extend [dataset/schema_v2.json](/home/dino/mesa-benchmark/dataset/schema_v2.json:1)
+- Extend [dataset/schema_v2.json](../dataset/schema_v2.json)
   - make `domain` required
   - add `source_profile`
   - add `annotator_id`
   - add `reviewer_id`
-- Update [mesa/dataset/validators.py](/home/dino/mesa-benchmark/mesa/dataset/validators.py:1)
+- Update [mesa/dataset/validators.py](../mesa/dataset/validators.py)
   - validate domain/source-profile metadata
-- Update [dataset/mesa_v2_annotated.json](/home/dino/mesa-benchmark/dataset/mesa_v2_annotated.json:1)
+- Update [dataset/mesa_v2_annotated.json](../dataset/mesa_v2_annotated.json)
   - enrich source metadata
-- Update [tests/test_schema_v2.py](/home/dino/mesa-benchmark/tests/test_schema_v2.py:1)
+- Update [tests/test_schema_v2.py](../tests/test_schema_v2.py)
   - enforce new required metadata
 
 ### Acceptance criteria
@@ -146,18 +146,18 @@ Goal: make the dataset defensible outside the author.
 
 ### Code and doc changes
 
-- Expand [docs/annotation_guidelines.md](/home/dino/mesa-benchmark/docs/annotation_guidelines.md:1)
+- Expand [docs/annotation_guidelines.md](../docs/annotation_guidelines.md)
   - detailed task-specific rules
-- Add [docs/dataset_governance.md](/home/dino/mesa-benchmark/docs/dataset_governance.md:1)
+- Add [docs/dataset_governance.md](../docs/dataset_governance.md)
   - who can approve items
   - how disagreements are resolved
   - how versions are cut
-- Add [dataset/review_log_v2.json](/home/dino/mesa-benchmark/dataset/review_log_v2.json:1)
+- Add [dataset/review_log_v2.json](../dataset/review_log_v2.json)
   - item review metadata
   - adjudication notes
-- Update [mesa/dataset/manifest.py](/home/dino/mesa-benchmark/mesa/dataset/manifest.py:1)
+- Update [mesa/dataset/manifest.py](../mesa/dataset/manifest.py)
   - support richer release metadata
-- Add [docs/release_process.md](/home/dino/mesa-benchmark/docs/release_process.md:1)
+- Add [docs/release_process.md](../docs/release_process.md)
 
 ### Acceptance criteria
 
@@ -180,17 +180,17 @@ Goal: make overfitting materially harder.
 
 ### Code and data changes
 
-- Add [dataset/mesa_v2_dev.json](/home/dino/mesa-benchmark/dataset/mesa_v2_dev.json:1)
+- Add [dataset/mesa_v2_dev.json](../dataset/mesa_v2_dev.json)
 - Add hidden test manifest support
-  - [dataset/version_v2.json](/home/dino/mesa-benchmark/dataset/version_v2.json:1)
-  - [mesa/dataset/manifest.py](/home/dino/mesa-benchmark/mesa/dataset/manifest.py:1)
-- Update [mesa/runner.py](/home/dino/mesa-benchmark/mesa/runner.py:1)
+  - [dataset/version_v2.json](../dataset/version_v2.json)
+  - [mesa/dataset/manifest.py](../mesa/dataset/manifest.py)
+- Update [mesa/runner.py](../mesa/runner.py)
   - enforce official-run metadata
   - distinguish public dev vs official test mode
-- Add [docs/evaluation_protocol.md](/home/dino/mesa-benchmark/docs/evaluation_protocol.md:1)
+- Add [docs/evaluation_protocol.md](../docs/evaluation_protocol.md)
   - official submission rules
   - hidden-test policy
-- Add integration tests in [tests/test_runner.py](/home/dino/mesa-benchmark/tests/test_runner.py:1)
+- Add integration tests in [tests/test_runner.py](../tests/test_runner.py)
   - manifest handling
   - split routing
   - output metadata
@@ -218,16 +218,16 @@ Add at least one result for each class:
 
 ### Code and doc changes
 
-- Add [docs/baseline_reporting_template.md](/home/dino/mesa-benchmark/docs/baseline_reporting_template.md:1)
-- Add [docs/baselines.md](/home/dino/mesa-benchmark/docs/baselines.md:1)
-- Add [docs/benchmark_card_template.md](/home/dino/mesa-benchmark/docs/benchmark_card_template.md:1)
-- Update [mesa/runner.py](/home/dino/mesa-benchmark/mesa/runner.py:1)
+- Add [docs/baseline_reporting_template.md](../docs/baseline_reporting_template.md)
+- Add [docs/baselines.md](../docs/baselines.md)
+- Add [docs/benchmark_card_template.md](../docs/benchmark_card_template.md)
+- Update [mesa/runner.py](../mesa/runner.py)
   - include cost/latency fields where available
 - Add statistical helpers under:
-  - [mesa/scoring/stats.py](/home/dino/mesa-benchmark/mesa/scoring/stats.py:1)
+  - [mesa/scoring/stats.py](../mesa/scoring/stats.py)
 - Add tests in:
-  - [tests/test_scoring_v2.py](/home/dino/mesa-benchmark/tests/test_scoring_v2.py:1)
-  - [tests/test_runner.py](/home/dino/mesa-benchmark/tests/test_runner.py:1)
+  - [tests/test_scoring_v2.py](../tests/test_scoring_v2.py)
+  - [tests/test_runner.py](../tests/test_runner.py)
 
 ### Acceptance criteria
 
@@ -249,15 +249,15 @@ Goal: make MESA adoptable beyond this repo.
 
 ### Code and doc changes
 
-- Add [CITATION.cff](/home/dino/mesa-benchmark/CITATION.cff:1)
-- Add [docs/benchmark_card.md](/home/dino/mesa-benchmark/docs/benchmark_card.md:1)
-- Update [CHANGELOG.md](/home/dino/mesa-benchmark/CHANGELOG.md:1)
+- Add [CITATION.cff](../CITATION.cff)
+- Add [docs/benchmark_card.md](../docs/benchmark_card.md)
+- Update [CHANGELOG.md](../CHANGELOG.md)
   - benchmark release notes
 - Add leaderboard or submission docs:
-  - [docs/leaderboard.md](/home/dino/mesa-benchmark/docs/leaderboard.md:1)
+  - [docs/leaderboard.md](../docs/leaderboard.md)
 - Add packaging and release metadata in:
-  - [pyproject.toml](/home/dino/mesa-benchmark/pyproject.toml:1)
-  - [mesa/__init__.py](/home/dino/mesa-benchmark/mesa/__init__.py:1)
+  - [pyproject.toml](../pyproject.toml)
+  - [mesa/__init__.py](../mesa/__init__.py)
 
 ### Acceptance criteria
 
@@ -270,25 +270,25 @@ These items span multiple releases.
 
 ### Scoring
 
-- keep legacy `llm_judge()` advisory only in [mesa/scorer.py](/home/dino/mesa-benchmark/mesa/scorer.py:1)
+- keep legacy `llm_judge()` advisory only in [mesa/scorer.py](../mesa/scorer.py)
 - continue improving typed scoring in:
-  - [mesa/scoring/answer_types.py](/home/dino/mesa-benchmark/mesa/scoring/answer_types.py:1)
-  - [mesa/scoring/grounding.py](/home/dino/mesa-benchmark/mesa/scoring/grounding.py:1)
+  - [mesa/scoring/answer_types.py](../mesa/scoring/answer_types.py)
+  - [mesa/scoring/grounding.py](../mesa/scoring/grounding.py)
 - add confidence intervals and significance helpers in:
-  - [mesa/scoring/stats.py](/home/dino/mesa-benchmark/mesa/scoring/stats.py:1)
+  - [mesa/scoring/stats.py](../mesa/scoring/stats.py)
 
 ### Adapter contract
 
-- keep the observable contract centered in [mesa/adapter.py](/home/dino/mesa-benchmark/mesa/adapter.py:1)
+- keep the observable contract centered in [mesa/adapter.py](../mesa/adapter.py)
 - consider async support after v0.8
-- consider stricter official-run enforcement in [mesa/runner.py](/home/dino/mesa-benchmark/mesa/runner.py:1)
+- consider stricter official-run enforcement in [mesa/runner.py](../mesa/runner.py)
 
 ### Validation
 
 - keep schema and validator logic aligned across:
-  - [dataset/schema_v2.json](/home/dino/mesa-benchmark/dataset/schema_v2.json:1)
-  - [mesa/dataset/validators.py](/home/dino/mesa-benchmark/mesa/dataset/validators.py:1)
-  - [tests/test_schema_v2.py](/home/dino/mesa-benchmark/tests/test_schema_v2.py:1)
+  - [dataset/schema_v2.json](../dataset/schema_v2.json)
+  - [mesa/dataset/validators.py](../mesa/dataset/validators.py)
+  - [tests/test_schema_v2.py](../tests/test_schema_v2.py)
 
 ## Dataset Milestones
 

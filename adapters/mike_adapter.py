@@ -12,7 +12,8 @@ tools and persistent state that are not faithfully observable from this adapter.
 Scope: defaults to "full_production" (relay tools + prior memory allowed).
 Pass scope="pure_injection" only if you have a fully isolated Mike instance.
 
-Requires cha0tiktower reachable at http://100.120.50.35:8010/v1.
+Requires Mike's relay stack running locally and an OpenAI-compatible
+inference endpoint reachable (e.g. http://localhost:8010/v1).
 """
 
 import logging

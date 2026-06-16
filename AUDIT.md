@@ -1,10 +1,10 @@
-# MESA v0.3.2 — End-to-End Audit & Improvement Plan
+# MESA — Known Gaps & Roadmap
 
-This audit captures gaps and rough edges identified before the current
-standardization roadmap was added. For active execution, use:
+This is a living document capturing known gaps and improvement priorities.
+For active planning, see:
 
-- [docs/benchmark_standardization_plan.md](/home/dino/mesa-benchmark/docs/benchmark_standardization_plan.md:1)
-- [docs/github_issue_plan.md](/home/dino/mesa-benchmark/docs/github_issue_plan.md:1)
+- [docs/benchmark_standardization_plan.md](docs/benchmark_standardization_plan.md)
+- [docs/github_issue_plan.md](docs/github_issue_plan.md)
 
 ## 1. GAP ANALYSIS
 
@@ -69,34 +69,21 @@ standardization roadmap was added. For active execution, use:
 
 ### 1.4 Pytest Coverage
 
-**Test files:**
-- `test_scorer.py` — 31 tests, 2 FAILING (rouge), 29 passing
-- `test_dataset.py` — 17 tests, all passing
-- `test_adapters.py` — 20 tests, 4 SKIPPED (optional deps), 16 passing
-- `test_runner.py` — 10 tests, all passing
+**Current state: 154 passing, 9 skipped** (skips are optional-dep adapters: Chroma, Mem0).
 
-**Total: 78 tests, 2 failing, 4 skipped, 72 passing**
-
-**Coverage gaps:**
-- No integration tests (end-to-end run with EchoAdapter or NullAdapter)
-- No test for `run_benchmark()` with a real dataset subset
+**Remaining coverage gaps:**
 - No test for JSON output format (does it match the documented schema?)
-- No test for the `mesa` CLI entry point
+- No test for the `mesa-benchmark` CLI entry point via subprocess
 - No test for `is_refusal()` edge cases (empty string, very long response, mixed language)
 - No test for temporal date normalization with international formats
-- No test for the `composite()` function with edge cases (NaN, None, out-of-range)
 
 ### 1.5 Documentation Gaps
 
-**Missing or incomplete:**
-- No `CONTRIBUTING.md` — how to add new dataset items, submit adapters
-- No `CHANGELOG.md` — version history for the benchmark
-- No scoring methodology document — why these weights, how to interpret results
+**Resolved:** CONTRIBUTING.md, CHANGELOG.md, METHODOLOGY.md, CITATION.cff, adapter guide, version consistency.
+
+**Remaining:**
+- No performance benchmark: how long does a full run take on reference hardware?
 - No `EXAMPLES.md` — `examples/simple_adapter.py` exists but `examples/` is not mentioned in README
-- No adapter implementation guide — no document explaining how to build a new adapter
-- `__init__.py` exports `__version__ = "0.1.0"` but `pyproject.toml` says `0.3.2` — inconsistent
-- No citation format (no BibTeX, no DOI)
-- No performance benchmark: how long does a full run take?
 
 ## 2. RANKED IMPROVEMENTS
 
@@ -358,5 +345,3 @@ To make MESA a benchmark others would actually cite:
 6. **Open a call for adapters** — The easier it is to plug in a new memory system, the more people will use it. The current adapter interface is clean — just needs documentation.
 
 7. **Publish a short paper or blog post** — Even a 3-page arXiv preprint explaining the design, types, and initial results. This is how benchmarks get cited.
-
-8. **Fix the two failing tests before anything else** — No one will trust a benchmark with broken tests.

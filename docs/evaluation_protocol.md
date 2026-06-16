@@ -12,11 +12,11 @@ MESA is moving toward two tracks:
 
 The public repo includes a dev split:
 
-- [dataset/mesa_v2_dev.json](/home/dino/mesa-benchmark/dataset/mesa_v2_dev.json:1)
+- [dataset/mesa_v2_dev.json](../dataset/mesa_v2_dev.json)
 
 The hidden-test manifest is represented publicly only as a template:
 
-- [dataset/version_v2_test_hidden.template.json](/home/dino/mesa-benchmark/dataset/version_v2_test_hidden.template.json:1)
+- [dataset/version_v2_test_hidden.template.json](../dataset/version_v2_test_hidden.template.json)
 
 The actual hidden test dataset should not be committed to the public repo.
 

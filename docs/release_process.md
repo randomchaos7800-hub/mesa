@@ -16,7 +16,7 @@ MESA releases can change one or more of:
 
 Every benchmark-affecting release should update:
 
-- [CHANGELOG.md](/home/dino/mesa-benchmark/CHANGELOG.md:1)
+- [CHANGELOG.md](../CHANGELOG.md)
 - the relevant dataset manifest
 - tests that enforce new dataset or reporting expectations
 

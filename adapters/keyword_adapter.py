@@ -15,7 +15,7 @@ Usage:
     from openai import OpenAI
     from adapters.keyword_adapter import KeywordAdapter
 
-    client = OpenAI(base_url="http://100.120.50.35:8010/v1", api_key="none")
+    client = OpenAI(base_url="http://localhost:8010/v1", api_key="none")
     adapter = KeywordAdapter(client=client, model="local")
     results = run_benchmark(adapter=adapter, no_llm_judge=True)
 """

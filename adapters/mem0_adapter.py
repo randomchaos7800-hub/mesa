@@ -17,7 +17,7 @@ Usage:
     from openai import OpenAI
     from adapters.mem0_adapter import Mem0Adapter
 
-    llm_client = OpenAI(base_url="http://100.120.50.35:8010/v1", api_key="none")
+    llm_client = OpenAI(base_url="http://localhost:8010/v1", api_key="none")
     adapter = Mem0Adapter(llm_client=llm_client, model="local")
     results = run_benchmark(adapter=adapter, no_llm_judge=True)
 

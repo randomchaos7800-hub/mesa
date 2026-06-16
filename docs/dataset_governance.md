@@ -55,7 +55,7 @@ silently disappearing.
 
 Curated review provenance lives in:
 
-- [dataset/review_log_v2.json](/home/dino/mesa-benchmark/dataset/review_log_v2.json:1)
+- [dataset/review_log_v2.json](../dataset/review_log_v2.json)
 
 ## Release rule
 

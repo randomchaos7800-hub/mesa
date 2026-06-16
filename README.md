@@ -130,28 +130,27 @@ print(results["summary"])
 Official v2 CLI:
 
 ```bash
-mesa-benchmark \
+mesa-benchmark run \
   --adapter examples.simple_adapter.EchoAdapter \
   --dataset dataset/mesa_v2.json \
   --schema-version 2 \
   --official-run
 ```
 
-**Daily fast probes (Improvement #3)**
+**Daily fast probes**
 
-For quick iteration loops against local inference (tower:8010):
+For quick iteration loops against a local inference endpoint:
 
 ```bash
-mesa-benchmark \
-  --adapter adapters.mike_adapter.MikeAdapter \
+mesa-benchmark run \
+  --adapter adapters.keyword_adapter.KeywordAdapter \
   --dataset dataset/mesa_probes.json \
   --schema-version 2
 ```
 
 This prints a one-page failure taxonomy + explicit `adapter_scope` tagging.
 It is a fast diagnostic path, not an official baseline. `mesa_probes.json` has
-no dataset manifest, and Mike in production mode is intentionally treated as
-non-isolated / non-official.
+no dataset manifest.
 
 Compare two probe runs (pure Python, file-based):
 
@@ -179,26 +178,26 @@ print(f"Pass rate:     {results['pass_rate_50pct']:.1%}")
 Legacy CLI:
 
 ```bash
-mesa-benchmark --adapter my_package.MyAdapter --schema-version 1 --dataset dataset/mesa_v1.json --no-llm-judge
+mesa-benchmark run --adapter my_package.MyAdapter --schema-version 1 --dataset dataset/mesa_v1.json --no-llm-judge
 ```
 
 **4. Try the example or reference adapters:**
 
 ```bash
 # EchoAdapter: returns the raw injected context (smoke test)
-python -m mesa.runner \
+mesa-benchmark run \
     --adapter examples.simple_adapter.EchoAdapter \
     --dataset dataset/fixtures/sample.json \
     --no-llm-judge
 
 # NullAdapter: always refuses (adversarial baseline)
-python -m mesa.runner \
+mesa-benchmark run \
     --adapter examples.simple_adapter.NullAdapter \
     --dataset dataset/fixtures/sample.json \
     --no-llm-judge
 
 # KeywordAdapter: LLM extraction + TF-IDF retrieval (no vector DB required)
-python -m mesa.runner \
+mesa-benchmark run \
     --adapter adapters.keyword_adapter.KeywordAdapter \
     --dataset dataset/fixtures/sample.json \
     --no-llm-judge

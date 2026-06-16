@@ -50,5 +50,5 @@ Current curated public gold set:
 
 Use the reporting rules in:
 
-- [docs/result_reporting.md](/home/dino/mesa-benchmark/docs/result_reporting.md:1)
-- [docs/evaluation_protocol.md](/home/dino/mesa-benchmark/docs/evaluation_protocol.md:1)
+- [docs/result_reporting.md](../docs/result_reporting.md)
+- [docs/evaluation_protocol.md](../docs/evaluation_protocol.md)

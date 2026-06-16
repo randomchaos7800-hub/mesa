@@ -13,9 +13,9 @@ High-value contributions are:
 
 For v2 dataset work:
 
-1. Follow [docs/annotation_guidelines.md](/home/dino/mesa-benchmark/docs/annotation_guidelines.md:1).
-2. Use [docs/dataset_review_checklist.md](/home/dino/mesa-benchmark/docs/dataset_review_checklist.md:1) before promoting items.
-3. Respect [docs/dataset_governance.md](/home/dino/mesa-benchmark/docs/dataset_governance.md:1).
+1. Follow [docs/annotation_guidelines.md](docs/annotation_guidelines.md).
+2. Use [docs/dataset_review_checklist.md](docs/dataset_review_checklist.md) before promoting items.
+3. Respect [docs/dataset_governance.md](docs/dataset_governance.md).
 4. Keep required metadata fields populated:
    - `domain`
    - `source_profile`
@@ -44,11 +44,11 @@ For v2 dataset work:
 Run:
 
 ```bash
-/home/dino/mesa/.venv/bin/pytest tests -q
+pytest tests/ -q
 ```
 
 For v2 dataset or runner changes, also smoke test:
 
 ```bash
-python3 -m mesa.runner --adapter examples.simple_adapter.NullAdapter --schema-version 2 --limit 1
+mesa-benchmark run --adapter examples.simple_adapter.NullAdapter --schema-version 2 --limit 1
 ```
