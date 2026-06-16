@@ -28,6 +28,9 @@ from typing import Optional
 from mesa.adapter import MemoryAdapter
 from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 
+# KeywordAdapter is a pure reference implementation with no external state.
+scope = "pure_injection"
+
 _EXTRACT_PROMPT = """Extract all discrete facts from this conversation as a bullet-point list.
 Each bullet should be one self-contained fact (entity, value, preference, rule, or event).
 Be specific. Do not summarize. Do not invent facts not stated.
@@ -179,3 +182,6 @@ class KeywordAdapter(MemoryAdapter):
 
     def stored_facts(self) -> list[str] | None:
         return list(self._facts)
+
+    def get_scope(self) -> str:
+        return "pure_injection"

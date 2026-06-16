@@ -119,7 +119,7 @@ class MemoryAdapter(ABC):
     # --- Scope / contamination contract (Improvement #2) ---
     # Adapters declare what "memory" they are allowed to use beyond the current
     # benchmark item's injected sessions. This is critical for real production
-    # systems (Mike, Hermes in full mode) that have persistent state + tools.
+    # systems (Mike, etc in full mode) that have persistent state + tools.
     #
     # Valid values:
     #   "pure_injection"   — only facts from the sessions passed to this run's

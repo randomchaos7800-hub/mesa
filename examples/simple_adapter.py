@@ -18,7 +18,10 @@ class EchoAdapter(MemoryAdapter):
     Useful for verifying your dataset items are correctly formed:
     if the answer IS in the injected text, EchoAdapter should score well on
     recall/single. If it scores poorly there, the item may be malformed.
+
+    Declares pure_injection scope because it has no external state or tools.
     """
+    scope = "pure_injection"
 
     def __init__(self):
         self._context = ""
@@ -54,7 +57,10 @@ class NullAdapter(MemoryAdapter):
 
     Expected behavior: adversarial items pass (correct refusal),
     all other types fail (no memory retrieval).
+
+    Declares pure_injection scope.
     """
+    scope = "pure_injection"
 
     def reset(self):
         pass
@@ -78,7 +84,10 @@ class DictAdapter(MemoryAdapter):
     Illustrates what a minimal memory system looks like.
     Will score reasonably on simple recall/single items and fail on
     anything requiring reasoning.
+
+    Declares pure_injection scope.
     """
+    scope = "pure_injection"
 
     def __init__(self):
         self._facts: dict[str, str] = {}

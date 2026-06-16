@@ -1,0 +1,130 @@
+[
+  {
+    "id": "probe-recall-single-0001",
+    "version": "2",
+    "task_type": "recall/single",
+    "answer_format": "single_fact",
+    "question": "What is the user's primary home server called and what is its VPN IP?",
+    "sessions": [
+      {
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "My main home server is homebase. Its VPN IP is 10.0.0.10."},
+          {"role": "assistant", "content": "Got it — homebase at 10.0.0.10."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "The user's primary home server is homebase.", "status": "active", "source_sessions": ["s1"]},
+        {"fact_id": "f2", "text": "The VPN IP of homebase is 10.0.0.10.", "status": "active", "source_sessions": ["s1"]}
+      ],
+      "required_fact_ids": ["f1", "f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["homebase, 10.0.0.10"],
+      "must_include": ["homebase", "10.0.0.10"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {"domain": "infrastructure", "difficulty": "easy", "notes": "Basic single-fact recall probe"}
+  },
+  {
+    "id": "probe-adversarial-0001",
+    "version": "2",
+    "task_type": "adversarial",
+    "answer_format": "abstention",
+    "question": "What color is the user's secret personal safe?",
+    "sessions": [],
+    "gold_memory": {"atomic_facts": [], "required_fact_ids": [], "forbidden_fact_ids": []},
+    "gold_answer": {
+      "canonical_answers": [],
+      "must_include": [],
+      "must_not_include": [],
+      "abstention_expected": true
+    },
+    "metadata": {"domain": "security", "difficulty": "easy", "notes": "Pure refusal probe — nothing was ever stated"}
+  },
+  {
+    "id": "probe-temporal-0001",
+    "version": "2",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "When did the user switch their morning drink from coffee to tea?",
+    "sessions": [
+      {"date": "2026-02-01", "turns": [{"role": "user", "content": "I drink coffee every morning."}]},
+      {"date": "2026-02-14", "turns": [{"role": "user", "content": "Switched to tea. Coffee is done."}]}
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "t1", "text": "User drank coffee every morning until February 2026.", "status": "superseded"},
+        {"fact_id": "t2", "text": "User switched to tea on 2026-02-14.", "status": "active"}
+      ],
+      "required_fact_ids": ["t2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["2026-02-14", "February 14 2026"],
+      "must_include": ["14", "February"],
+      "must_not_include": ["coffee"],
+      "abstention_expected": false
+    },
+    "metadata": {"domain": "personal", "difficulty": "medium", "notes": "Multi-session temporal probe"}
+  },
+  {
+    "id": "probe-update-interference-0001",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "update_current",
+    "question": "What is the current monthly budget cap the user set for cloud services?",
+    "sessions": [
+      {"date": "2026-03-01", "turns": [{"role": "user", "content": "Set a hard cap: never spend more than $40/month on any cloud services."}]},
+      {"date": "2026-03-10", "turns": [{"role": "user", "content": "Bump the cloud budget — $60 is fine now for the new project."}]},
+      {"date": "2026-03-12", "turns": [{"role": "user", "content": "Actually the side project got cancelled. Go back to the original strict limit."}]}
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "u1", "text": "Original hard cap was $40/month on cloud.", "status": "superseded"},
+        {"fact_id": "u2", "text": "Temporary increase to $60 for a project that was cancelled.", "status": "superseded"},
+        {"fact_id": "u3", "text": "Current hard cap is back to the original strict $40/month.", "status": "active"}
+      ],
+      "required_fact_ids": ["u3"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["$40", "forty dollars", "the original $40 cap"],
+      "must_include": ["40"],
+      "must_not_include": ["60"],
+      "abstention_expected": false
+    },
+    "metadata": {"domain": "finance", "difficulty": "hard", "notes": "Interference + explicit revert probe"}
+  },
+  {
+    "id": "probe-causal-0001",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "What caused the server outage and what was the direct impact on the user's schedule?",
+    "sessions": [
+      {"date": "2026-03-02", "turns": [{"role": "user", "content": "I scheduled a kernel update for the production server tomorrow morning."}]},
+      {"date": "2026-03-03", "turns": [{"role": "user", "content": "The kernel update failed and took the server down for four hours. My deployment got pushed back two days."}]}
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "c1", "text": "Kernel update was scheduled for March 3rd.", "status": "active"},
+        {"fact_id": "c2", "text": "The kernel update failed and caused a four-hour server outage.", "status": "active"},
+        {"fact_id": "c3", "text": "The outage pushed the user's deployment back by two days.", "status": "active"}
+      ],
+      "required_fact_ids": ["c2", "c3"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Failed kernel update caused 4-hour outage and pushed deployment back 2 days"],
+      "must_include": ["kernel", "outage", "deployment"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {"domain": "infrastructure", "difficulty": "medium", "notes": "Multi-hop causal across two sessions"}
+  }
+]
