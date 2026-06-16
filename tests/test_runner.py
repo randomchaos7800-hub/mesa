@@ -1,5 +1,6 @@
 """Tests for runner._inject dispatch (single-session vs multi-session)."""
 
+import json
 import sys
 from pathlib import Path
 from unittest.mock import MagicMock, call
@@ -9,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import pytest
 from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
 from mesa.runner import _is_multi_session, _inject
-from mesa.runner import run_benchmark_v2
+from mesa.runner import run_benchmark_v2, doctor, score_results
 from mesa.adapter import MemoryAdapter
 
 
@@ -690,3 +691,151 @@ class TestRunBenchmarkV2:
         assert summary["dataset_version"] == manifest["dataset_version"]
         assert "by_domain" in summary["summary"]
         assert "confidence_intervals" in summary["summary"]
+
+
+# ---------------------------------------------------------------------------
+# n_runs variance tracking
+# ---------------------------------------------------------------------------
+
+class TestNRuns:
+    DATASET_V2 = Path(__file__).parent.parent / "dataset" / "fixtures" / "sample_v2.json"
+
+    def test_n_runs_1_is_unchanged(self):
+        adapter = _CorrectSingleFactAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, limit=1, n_runs=1
+        )
+        result = summary["results"][0]
+        assert result["n_runs"] == 1
+        assert result["answer"]["metrics"]["correct"] is True
+        assert "correct_mean" not in result["answer"]["metrics"]
+        assert "correct_std" not in result["answer"]["metrics"]
+
+    def test_n_runs_3_adds_variance_fields(self):
+        adapter = _CorrectSingleFactAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, limit=1, n_runs=3
+        )
+        result = summary["results"][0]
+        assert result["n_runs"] == 3
+        m = result["answer"]["metrics"]
+        assert "correct_mean" in m
+        assert "correct_std" in m
+        assert m["correct_mean"] == 1.0
+        assert m["correct_std"] == 0.0
+        assert m["correct"] is True
+
+    def test_n_runs_majority_vote(self):
+        # Adapter always returns the right answer → mean=1.0, correct=True
+        adapter = _CorrectSingleFactAdapter()
+        summary = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, limit=1, n_runs=5
+        )
+        result = summary["results"][0]
+        assert result["answer"]["metrics"]["correct"] is True
+        assert result["answer"]["metrics"]["correct_mean"] == 1.0
+
+
+# ---------------------------------------------------------------------------
+# dry-run
+# ---------------------------------------------------------------------------
+
+class TestDryRun:
+    DATASET_V2 = Path(__file__).parent.parent / "dataset" / "fixtures" / "sample_v2.json"
+
+    def test_dry_run_returns_without_running(self):
+        adapter = _OpaqueAdapter()
+        result = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, dry_run=True
+        )
+        assert result.get("dry_run") is True
+        assert result.get("run_id") == "dry-run"
+        assert "results" not in result
+
+    def test_dry_run_adapter_not_invoked(self):
+        class _NeverCallAdapter(MemoryAdapter):
+            def reset(self): raise AssertionError("should not be called")
+            def inject(self, turns): raise AssertionError("should not be called")
+            def ask(self, question): raise AssertionError("should not be called")
+
+        result = run_benchmark_v2(
+            adapter=_NeverCallAdapter(), dataset_path=self.DATASET_V2, quiet=True, dry_run=True
+        )
+        assert result.get("dry_run") is True
+
+
+# ---------------------------------------------------------------------------
+# doctor
+# ---------------------------------------------------------------------------
+
+class TestDoctor:
+    DATASET_V2 = Path(__file__).parent.parent / "dataset" / "fixtures" / "sample_v2.json"
+
+    def test_passes_with_valid_inputs(self, capsys):
+        ok = doctor(
+            adapter_path="examples.simple_adapter.EchoAdapter",
+            dataset_path=self.DATASET_V2,
+        )
+        assert ok is True
+        assert "PASS" in capsys.readouterr().out
+
+    def test_fails_with_bad_adapter(self, capsys):
+        ok = doctor(
+            adapter_path="nonexistent.module.BadAdapter",
+            dataset_path=self.DATASET_V2,
+        )
+        assert ok is False
+        assert "FAIL" in capsys.readouterr().out
+
+    def test_fails_with_missing_dataset(self, capsys):
+        ok = doctor(dataset_path=Path("/nonexistent/dataset.json"))
+        assert ok is False
+
+    def test_no_adapter_still_checks_dataset(self, capsys):
+        ok = doctor(dataset_path=self.DATASET_V2)
+        assert ok is True
+
+
+# ---------------------------------------------------------------------------
+# score_results
+# ---------------------------------------------------------------------------
+
+class TestScoreResults:
+    DATASET_V2 = Path(__file__).parent.parent / "dataset" / "fixtures" / "sample_v2.json"
+
+    def test_rescore_preserves_n_items(self, tmp_path):
+        adapter = _CorrectSingleFactAdapter()
+        original = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, limit=3
+        )
+        results_file = tmp_path / "results.json"
+        results_file.write_text(json.dumps(original))
+
+        rescored = score_results(str(results_file), dataset_path=self.DATASET_V2)
+        assert len(rescored["results"]) == len(original["results"])
+        assert "_rescored" in rescored["run_id"]
+
+    def test_rescore_updates_summary(self, tmp_path):
+        adapter = _CorrectSingleFactAdapter()
+        original = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, limit=1
+        )
+        results_file = tmp_path / "results.json"
+        results_file.write_text(json.dumps(original))
+
+        rescored = score_results(str(results_file), dataset_path=self.DATASET_V2)
+        assert "answer" in rescored["summary"]
+        assert rescored["summary"]["answer"]["correct_rate"] is not None
+
+    def test_rescore_recomputes_failures(self, tmp_path):
+        adapter = _StaleUpdateAdapter()
+        original = run_benchmark_v2(
+            adapter=adapter, dataset_path=self.DATASET_V2, quiet=True, limit=4
+        )
+        results_file = tmp_path / "results.json"
+        results_file.write_text(json.dumps(original))
+
+        rescored = score_results(str(results_file), dataset_path=self.DATASET_V2)
+        # stale update adapter returns the superseded value — should still flag incorrect
+        r = rescored["results"][3]
+        assert "incorrect_answer" in r["failures"]

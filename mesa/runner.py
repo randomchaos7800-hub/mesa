@@ -22,8 +22,10 @@ import argparse
 import importlib
 import json
 import logging
+import statistics
 import sys
 import time
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
@@ -314,6 +316,57 @@ def _summarize_v2_results(results: list[dict]) -> dict:
     }
 
 
+def _run_item_once(
+    adapter: "MemoryAdapter",
+    item: dict,
+    sessions: list,
+    question: str,
+    item_id: str,
+    effective_trace_required: bool,
+    official_run: bool,
+) -> dict:
+    """One inject+score cycle. Raises ValueError on trace violations."""
+    adapter.reset()
+    _inject(adapter, sessions)
+    writes = _collect_writes(adapter)
+
+    t0 = time.time()
+    try:
+        answer_trace, _has_trace = _collect_answer_trace(adapter, question)
+    except Exception as e:
+        logger.warning(f"  Adapter error for {item_id}: {e}")
+        answer_trace = {"answer": "", "retrieved": None, "metadata": {"error": str(e)}}
+    elapsed = round(time.time() - t0, 2)
+
+    write_trace_available = writes is not None
+    retrieval_trace_available = answer_trace["retrieved"] is not None
+    observable = write_trace_available or retrieval_trace_available
+
+    if effective_trace_required and not observable:
+        raise ValueError(f"Adapter does not expose trace hooks required for v2 run: {item_id}")
+    if official_run and not retrieval_trace_available:
+        raise ValueError(f"Official v2 runs require retrieval trace support: {item_id}")
+
+    storage_metrics, retrieval_metrics, answer_metrics, failures = _score_item_v2(item, writes, answer_trace)
+    retrieval_metrics["trace_available"] = retrieval_trace_available
+    storage_metrics["trace_available"] = write_trace_available
+    if not retrieval_trace_available:
+        failures = list(failures) + ["retrieval_trace_missing"]
+
+    return {
+        "writes": writes,
+        "answer_trace": answer_trace,
+        "elapsed": elapsed,
+        "storage_metrics": storage_metrics,
+        "retrieval_metrics": retrieval_metrics,
+        "answer_metrics": answer_metrics,
+        "failures": failures,
+        "write_trace_available": write_trace_available,
+        "retrieval_trace_available": retrieval_trace_available,
+        "observable": observable,
+    }
+
+
 def run_benchmark_v2(
     adapter: MemoryAdapter,
     dataset_path: Optional[Path] = None,
@@ -321,6 +374,8 @@ def run_benchmark_v2(
     limit: Optional[int] = None,
     quiet: bool = False,
     official_run: bool = False,
+    n_runs: int = 1,
+    dry_run: bool = False,
 ) -> dict:
     """Run the v2 benchmark scaffolding with structured traces.
 
@@ -350,6 +405,21 @@ def run_benchmark_v2(
             "Use a properly isolated adapter for official baselines."
         )
 
+    if dry_run:
+        by_type: dict[str, int] = {}
+        for raw in dataset:
+            t = raw.get("task_type", raw.get("type", "unknown"))
+            by_type[t] = by_type.get(t, 0) + 1
+        total = len(dataset) * n_runs
+        print(f"\nmesa dry-run: {len(dataset)} items × {n_runs} run(s) = {total} total")
+        print(f"  Dataset : {dataset_path}")
+        print(f"  Adapter : {adapter.__class__.__name__}")
+        print(f"  Schema  : v2")
+        print(f"\n  Type breakdown:")
+        for t, n in sorted(by_type.items()):
+            print(f"    {t:<30} {n}")
+        return {"run_id": "dry-run", "n_items": len(dataset), "dry_run": True}
+
     results = []
     for idx, item in enumerate(dataset):
         if item.get("version") != "2":
@@ -362,35 +432,26 @@ def run_benchmark_v2(
         if not quiet:
             logger.info(f"[v2 {idx+1}/{len(dataset)}] {item_id} ({item.get('task_type', 'unknown')})")
 
-        adapter.reset()
-        _inject(adapter, sessions)
-        writes = _collect_writes(adapter)
+        run_corrects: list[float] = []
+        first: dict = {}
+        for _ in range(max(1, n_runs)):
+            run = _run_item_once(
+                adapter, item, sessions, question, item_id,
+                effective_trace_required, official_run,
+            )
+            if not first:
+                first = run
+            c = run["answer_metrics"].get("correct")
+            if c is not None:
+                run_corrects.append(float(c))
 
-        t0 = time.time()
-        try:
-            answer_trace, has_trace = _collect_answer_trace(adapter, question)
-        except Exception as e:
-            logger.warning(f"  Adapter error for {item_id}: {e}")
-            answer_trace = {"answer": "", "retrieved": None, "metadata": {"error": str(e)}}
-            has_trace = False
-        elapsed = round(time.time() - t0, 2)
-
-        write_trace_available = writes is not None
-        retrieval_trace_available = answer_trace["retrieved"] is not None
-        observable = write_trace_available or retrieval_trace_available
-        if effective_trace_required and not observable:
-            raise ValueError(f"Adapter does not expose trace hooks required for v2 run: {item_id}")
-        if official_run and not retrieval_trace_available:
-            raise ValueError(f"Official v2 runs require retrieval trace support: {item_id}")
-
-        storage_metrics, retrieval_metrics, answer_metrics, failures = _score_item_v2(item, writes, answer_trace)
-        retrieval_metrics["trace_available"] = retrieval_trace_available
-        storage_metrics["trace_available"] = write_trace_available
-        if not retrieval_trace_available:
-            failures.append("retrieval_trace_missing")
-
-        # Record adapter scope on every item for downstream analysis.
-        result_scope = adapter_scope
+        answer_metrics = dict(first["answer_metrics"])
+        if n_runs > 1 and run_corrects:
+            correct_mean = round(sum(run_corrects) / len(run_corrects), 4)
+            correct_std = round(statistics.stdev(run_corrects), 4) if len(run_corrects) > 1 else 0.0
+            answer_metrics["correct"] = correct_mean >= 0.5
+            answer_metrics["correct_mean"] = correct_mean
+            answer_metrics["correct_std"] = correct_std
 
         results.append(
             {
@@ -401,25 +462,26 @@ def run_benchmark_v2(
                 "metadata": item.get("metadata", {}),
                 "session_format": "multi" if len(sessions) > 1 else "single",
                 "session_count": len(sessions) if sessions else 0,
-                "adapter_scope": result_scope,
-                "observable": observable,
-                "write_trace_available": write_trace_available,
-                "retrieval_trace_available": retrieval_trace_available,
+                "adapter_scope": adapter_scope,
+                "observable": first["observable"],
+                "write_trace_available": first["write_trace_available"],
+                "retrieval_trace_available": first["retrieval_trace_available"],
+                "n_runs": n_runs,
                 "storage": {
-                    "writes": writes,
-                    "metrics": storage_metrics,
+                    "writes": first["writes"],
+                    "metrics": first["storage_metrics"],
                 },
                 "retrieval": {
-                    "retrieved": answer_trace["retrieved"],
-                    "metrics": retrieval_metrics,
+                    "retrieved": first["answer_trace"]["retrieved"],
+                    "metrics": first["retrieval_metrics"],
                 },
                 "answer": {
-                    "text": answer_trace["answer"],
-                    "metadata": answer_trace["metadata"],
+                    "text": first["answer_trace"]["answer"],
+                    "metadata": first["answer_trace"]["metadata"],
                     "metrics": answer_metrics,
                 },
-                "failures": failures,
-                "elapsed_s": elapsed,
+                "failures": first["failures"],
+                "elapsed_s": first["elapsed"],
             }
         )
 
@@ -666,6 +728,127 @@ def compare_probe_runs(path_a: str, path_b: str, label_a: str = "A", label_b: st
     return report
 
 
+def doctor(
+    adapter_path: Optional[str] = None,
+    dataset_path: Optional[Path] = None,
+    judge_url: Optional[str] = None,
+) -> bool:
+    """Pre-flight checks: adapter importable, dataset valid, judge reachable."""
+    checks: list[tuple[str, Optional[bool], str]] = []
+
+    if adapter_path:
+        try:
+            a = _load_adapter(adapter_path)
+            a.reset()
+            checks.append(("adapter importable", True, a.__class__.__name__))
+        except Exception as e:
+            checks.append(("adapter importable", False, str(e)))
+    else:
+        checks.append(("adapter", None, "not specified"))
+
+    dp = dataset_path or DEFAULT_DATASET_V2
+    try:
+        with open(dp) as f:
+            data = json.load(f)
+        checks.append(("dataset valid JSON", True, f"{len(data)} items — {dp.name}"))
+    except Exception as e:
+        checks.append(("dataset valid JSON", False, str(e)))
+
+    if judge_url:
+        try:
+            urllib.request.urlopen(f"{judge_url.rstrip('/')}/models", timeout=5)
+            checks.append(("judge endpoint reachable", True, judge_url))
+        except Exception as e:
+            checks.append(("judge endpoint reachable", False, f"{judge_url}: {e}"))
+    else:
+        checks.append(("judge endpoint", None, "not configured — LLM judge disabled"))
+
+    print("\n" + "=" * 58)
+    print("  MESA DOCTOR")
+    print("=" * 58)
+    all_pass = True
+    for name, status, detail in checks:
+        if status is True:
+            icon = "✓"
+        elif status is False:
+            icon = "✗"
+            all_pass = False
+        else:
+            icon = "·"
+        print(f"  {icon} {name:<32} {detail}")
+    print("=" * 58)
+    print(f"  {'PASS — ready to run' if all_pass else 'FAIL — fix issues above'}")
+    print("=" * 58 + "\n")
+    return all_pass
+
+
+def score_results(results_path: str, dataset_path: Optional[Path] = None) -> dict:
+    """Re-score an existing results JSON without re-running the adapter.
+
+    Useful when the scorer changes and you want to apply new metrics to old runs.
+    Writes are preserved from the original run; only the metric computation is repeated.
+    """
+    with open(results_path) as f:
+        existing = json.load(f)
+
+    if dataset_path is None and existing.get("dataset"):
+        candidate = Path(existing["dataset"])
+        dataset_path = candidate if candidate.exists() else DEFAULT_DATASET_V2
+    if dataset_path is None:
+        dataset_path = DEFAULT_DATASET_V2
+
+    with open(dataset_path) as f:
+        raw_dataset = json.load(f)
+
+    item_lookup: dict[str, dict] = {}
+    for raw in raw_dataset:
+        item = raw if raw.get("version") == "2" else upgrade_v1_item(raw)
+        if "id" in item:
+            item_lookup[item["id"]] = item
+
+    rescored = []
+    for r in existing.get("results", []):
+        item_id = r["id"]
+        item = item_lookup.get(item_id)
+        if item is None:
+            logger.warning(f"score: item {item_id!r} not in dataset — keeping original scores")
+            rescored.append(r)
+            continue
+
+        raw_writes = r.get("storage", {}).get("writes") or []
+        writes: Optional[list[dict]] = [
+            {"memory_id": w.get("memory_id"), "text": w["text"], "metadata": w.get("metadata", {})}
+            for w in raw_writes
+        ] if raw_writes else None
+        answer_trace = {
+            "answer": r.get("answer", {}).get("text", ""),
+            "retrieved": r.get("retrieval", {}).get("retrieved"),
+            "metadata": r.get("answer", {}).get("metadata", {}),
+        }
+        storage_metrics, retrieval_metrics, answer_metrics, failures = _score_item_v2(item, writes, answer_trace)
+        retrieval_metrics["trace_available"] = r.get("retrieval_trace_available", False)
+        storage_metrics["trace_available"] = r.get("write_trace_available", False)
+        rescored.append({
+            **r,
+            "storage": {**r.get("storage", {}), "metrics": storage_metrics},
+            "retrieval": {**r.get("retrieval", {}), "metrics": retrieval_metrics},
+            "answer": {**r.get("answer", {}), "metrics": answer_metrics},
+            "failures": failures,
+        })
+
+    manifest = load_dataset_manifest(dataset_path)
+    new_summary = _summarize_v2_results(rescored) if rescored else {}
+    return {
+        **existing,
+        "run_id": existing.get("run_id", "") + "_rescored",
+        "dataset": str(dataset_path),
+        "dataset_name": manifest.get("dataset_name") if manifest else dataset_path.stem,
+        "dataset_version": manifest.get("dataset_version") if manifest else None,
+        "summary": new_summary,
+        "results": rescored,
+    }
+
+
 def _load_adapter(dotted_path: str) -> MemoryAdapter:
     """Import and instantiate an adapter from a dotted module path.
 
@@ -677,6 +860,27 @@ def _load_adapter(dotted_path: str) -> MemoryAdapter:
     return cls()
 
 
+def _add_run_args(p: argparse.ArgumentParser) -> None:
+    """Shared arguments for the 'run' subcommand."""
+    p.add_argument("--adapter", required=True, help="Dotted path to MemoryAdapter, e.g. examples.simple_adapter.EchoAdapter")
+    p.add_argument("--dataset", default=str(DEFAULT_DATASET_V2), help="Path to dataset JSON")
+    p.add_argument("--schema-version", choices=["1", "2"], default="2")
+    p.add_argument("--trace-required", action="store_true")
+    p.add_argument("--official-run", action="store_true")
+    p.add_argument("--no-llm-judge", action="store_true", default=True)
+    p.add_argument("--llm-judge", dest="no_llm_judge", action="store_false")
+    p.add_argument("--judge-url", default=None)
+    p.add_argument("--judge-model", default="local")
+    p.add_argument("--filter", dest="type_filter", default=None)
+    p.add_argument("--limit", type=int, default=None)
+    p.add_argument("--output", default="results")
+    p.add_argument("--quiet", action="store_true")
+    p.add_argument("--n-runs", type=int, default=1, metavar="N",
+                   help="Run each item N times and report variance (default: 1)")
+    p.add_argument("--dry-run", action="store_true",
+                   help="Print run plan without executing")
+
+
 def main():
     logging.basicConfig(
         level=logging.INFO,
@@ -684,21 +888,60 @@ def main():
         handlers=[logging.StreamHandler(sys.stdout)],
     )
 
-    parser = argparse.ArgumentParser(description="MESA benchmark runner")
-    parser.add_argument("--adapter", required=True, help="Dotted path to MemoryAdapter class, e.g. examples.simple_adapter.EchoAdapter")
-    parser.add_argument("--dataset", default=str(DEFAULT_DATASET_V2), help="Path to dataset JSON (use dataset/mesa_probes.json for fast daily failure probes)")
-    parser.add_argument("--schema-version", choices=["1", "2"], default="2", help="Dataset/runner schema version")
-    parser.add_argument("--trace-required", action="store_true", help="Require observable trace hooks for schema v2 runs")
-    parser.add_argument("--official-run", action="store_true", help="Enforce official v2 observability and manifest requirements")
-    parser.add_argument("--no-llm-judge", action="store_true", default=True, help="Skip LLM judge (default: on)")
-    parser.add_argument("--llm-judge", dest="no_llm_judge", action="store_false", help="Enable LLM judge")
-    parser.add_argument("--judge-url", default=None, help="OpenAI-compatible base URL for LLM judge")
-    parser.add_argument("--judge-model", default="local", help="Model name for LLM judge")
-    parser.add_argument("--filter", dest="type_filter", default=None)
-    parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--output", default="results", help="Results directory")
-    parser.add_argument("--quiet", action="store_true")
+    parser = argparse.ArgumentParser(description="MESA benchmark")
+    sub = parser.add_subparsers(dest="command")
+
+    # ── run ───────────────────────────────────────────────────────────────────
+    run_p = sub.add_parser("run", help="Run the benchmark")
+    _add_run_args(run_p)
+
+    # ── doctor ────────────────────────────────────────────────────────────────
+    doc_p = sub.add_parser("doctor", help="Pre-flight checks before a run")
+    doc_p.add_argument("--adapter", default=None, help="Dotted path to adapter (optional)")
+    doc_p.add_argument("--dataset", default=str(DEFAULT_DATASET_V2))
+    doc_p.add_argument("--judge-url", default=None)
+
+    # ── score ─────────────────────────────────────────────────────────────────
+    score_p = sub.add_parser("score", help="Re-score an existing results JSON")
+    score_p.add_argument("results", help="Path to results JSON from a prior run")
+    score_p.add_argument("--dataset", default=None, help="Dataset path (defaults to path stored in results)")
+    score_p.add_argument("--output", default="results")
+
     args = parser.parse_args()
+
+    # ── doctor ────────────────────────────────────────────────────────────────
+    if args.command == "doctor":
+        ok = doctor(
+            adapter_path=args.adapter,
+            dataset_path=Path(args.dataset) if args.dataset else None,
+            judge_url=args.judge_url,
+        )
+        sys.exit(0 if ok else 1)
+
+    # ── score ─────────────────────────────────────────────────────────────────
+    if args.command == "score":
+        dataset_path = Path(args.dataset) if args.dataset else None
+        rescored = score_results(args.results, dataset_path=dataset_path)
+        out_dir = Path(args.output)
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"run_v2_{rescored['run_id']}.json"
+        with open(out_path, "w") as f:
+            json.dump(rescored, f, indent=2)
+        n = rescored.get("n_items", len(rescored.get("results", [])))
+        cr = rescored.get("summary", {}).get("answer", {}).get("correct_rate", "n/a")
+        print(f"\nmesa score: {n} items rescored")
+        print(f"  correct_rate: {cr}")
+        print(f"Results → {out_path}")
+        return
+
+    # ── run (default) ─────────────────────────────────────────────────────────
+    if args.command not in ("run", None):
+        parser.print_help()
+        sys.exit(1)
+
+    # Resolve adapter — required for run
+    if not hasattr(args, "adapter") or args.adapter is None:
+        parser.error("--adapter is required for 'run'")
 
     adapter = _load_adapter(args.adapter)
 
@@ -711,31 +954,37 @@ def main():
             limit=args.limit,
             quiet=args.quiet,
             official_run=args.official_run,
+            n_runs=args.n_runs,
+            dry_run=args.dry_run,
         )
+
+        if summary.get("dry_run"):
+            return
+
         out_dir = Path(args.output)
         out_dir.mkdir(parents=True, exist_ok=True)
         out_path = out_dir / f"run_v2_{summary['run_id']}.json"
         with open(out_path, "w") as f:
             json.dump(summary, f, indent=2)
 
+        n_runs_label = f" × {args.n_runs} runs" if args.n_runs > 1 else ""
         print(f"\n{'='*60}")
-        print(f"  Schema: v2")
-        print(f"  Items : {summary['n_items']}")
-        print(f"  Split : {summary['dataset_split']}")
-        print(f"  Trace : {'required' if summary['trace_required'] else 'preferred'}")
-        print(f"  Scope : {summary.get('adapter_scope', 'unknown')}")
-        print(f"  Answer correct : {summary['summary']['answer']['correct_rate']}")
-        print(f"  Answer grounded: {summary['summary']['answer']['grounded_rate']}")
+        print(f"  Schema : v2{n_runs_label}")
+        print(f"  Items  : {summary['n_items']}")
+        print(f"  Split  : {summary['dataset_split']}")
+        print(f"  Trace  : {'required' if summary['trace_required'] else 'preferred'}")
+        print(f"  Scope  : {summary.get('adapter_scope', 'unknown')}")
+        print(f"  Correct: {summary['summary']['answer']['correct_rate']}")
+        print(f"  Grounded: {summary['summary']['answer']['grounded_rate']}")
         print(f"{'='*60}")
         print(f"Results → {out_path}")
 
-        # Auto-print compact taxonomy for probe-style datasets (Improvement #3)
         dataset_stem = Path(args.dataset).stem.lower()
         if "probe" in dataset_stem or "sample" in dataset_stem:
             print_probe_taxonomy(summary)
-
         return
 
+    # v1 legacy path
     judge_client = None
     if not args.no_llm_judge:
         from openai import OpenAI
