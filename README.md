@@ -57,18 +57,7 @@ Nine question types, each targeting a distinct failure mode:
 
 ## Install
 
-```bash
-pip install rouge-score openai  # runtime deps
-pip install pytest jsonschema   # for tests
-```
-
-Published package name:
-
-```bash
-pip install mesa-memory-eval
-```
-
-Or clone and install in editable mode:
+Clone and install in editable mode:
 
 ```bash
 git clone https://github.com/randomchaos7800-hub/mesa

@@ -12,7 +12,7 @@ Run against the full 361-item gold set. No LLM judge (scoring: EM + ROUGE-1).
 - dataset version: `0.7.0`
 - split: `full_gold_public`
 - n_items: 361 (109 reviewed + 252 provisional)
-- public results: `public_results/`
+- raw run output: not included in this repo
 
 | System | Correct | Grounded | Abstention | Storage recall | Notes |
 |---|---:|---:|---:|---:|---|
@@ -52,7 +52,7 @@ Run against the earlier 94-item curated gold set. No LLM judge (scoring: EM + RO
 - dataset version: `0.5.0`
 - split: `full_gold_public`
 - n_items: 94
-- public results: `public_results/`
+- raw run output: not included in this repo
 
 | System | Correct | Grounded | Abstention | Storage recall | Notes |
 |---|---:|---:|---:|---:|---|
