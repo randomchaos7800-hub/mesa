@@ -258,6 +258,11 @@ Official dataset:
 - [dataset/version_v2_dev.json](dataset/version_v2_dev.json) — public dev manifest
 - [dataset/fixtures/sample_v2.json](dataset/fixtures/sample_v2.json) — small v2 smoke-test fixture set
 
+Real world tests:
+
+- [dataset/mesa_realworld.json](dataset/mesa_realworld.json) — operational scenario sets (see below)
+- [dataset/version_realworld.json](dataset/version_realworld.json) — manifest
+
 Legacy dataset:
 
 - [dataset/mesa_v1.json](dataset/mesa_v1.json) — legacy v1 dataset used for composite-scored historical runs
@@ -300,6 +305,53 @@ Legacy v1 item shape:
 The runner calls `adapter.inject_session(turns, session_date)` once per session in order. The default `MemoryAdapter.inject_session()` delegates to `inject()`, ignoring the date. Override it if your system stores per-session timestamps.
 
 `dataset/fixtures/sample.json` — legacy smoke-test dataset for the v1 path.
+
+## Real world tests
+
+Most of the gold set injects personal-companion conversations. The **real world tests**
+split injects *operational* state — the kind that mutates while an agent is on shift —
+and asks whether the memory system kept up. Same schema v2, same runner, same 9 task
+types; what changes is the failure surface being probed.
+
+**Set 1 — delivery-stop routing** (`mesa-rw-delivery-*`, 12 items, all 9 task types).
+A small courier dispatch domain where a route's state changes during the day:
+
+- **Stop reordering under revision** — the stop order is stated, then revised *twice in
+  a single turn* including a retracted intermediate proposal ("swap 2 and 5 — actually
+  no, Marlow's has to be first"). Systems that store the first revision report a stale
+  route (`update`).
+- **Near-identical stop interference** — Chen at 1420 Sycamore *Avenue* vs Cheng
+  Consulting at 1420 Sycamore *Court*, added later on a different route
+  (`update/interference`).
+- **Jointly-binding time windows** — a refrigerated-before-11:00 rule and a
+  receives-only-after-10:30 customer, stated in separate sessions, force a stop
+  ordering that neither fact implies alone (`synthesis/multi`).
+- **Double-superseded delivery windows** — 2–4 PM → 3–5 PM → canceled outright; the
+  scorer's `must_not_include` list punishes reporting either stale window (`update`).
+- **Equipment-fault causal chain** — broken liftgate + pallets-need-liftgate rule +
+  pallet job → stop reassigned; three sessions, three facts, one why (`causal`).
+- **Hallucination bait** — a gate code exists for one stop; the question asks for a
+  different stop's code that was never stated (`adversarial`).
+
+Run it:
+
+```bash
+mesa-benchmark run \
+  --adapter examples.simple_adapter.EchoAdapter \
+  --dataset dataset/mesa_realworld.json \
+  --schema-version 2 \
+  --official-run
+```
+
+Reference-adapter floors on this set (v2, EM+ROUGE, 2026-07-09): `EchoAdapter` 0.250
+correct — it takes the trivial recall items but scores **0.0 on update,
+update/interference, temporal, and adversarial**, which is the point: raw retrieval
+cannot track mutating route state. `NullAdapter` 0.083 (the one adversarial item). A
+real memory system should separate from Echo here far more than on the recall-heavy
+main set.
+
+Future sets planned under this split: appointment scheduling (window/priority churn)
+and inventory state (stock counts under concurrent updates).
 
 ## Security note
 

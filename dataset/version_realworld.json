@@ -1,0 +1,22 @@
+{
+  "dataset_name": "mesa_realworld",
+  "dataset_path": "dataset/mesa_realworld.json",
+  "schema_version": "2",
+  "dataset_version": "0.1.0",
+  "benchmark_release": "v0.9-prep",
+  "split": "realworld_public",
+  "item_count": 12,
+  "created_at": "2026-07-09",
+  "notes": "Real world tests — set 1: delivery-stop routing. Operational scenarios from a small courier dispatch domain where route state mutates during the day: stop reordering with retracted intermediate proposals, near-identical address interference, time-window constraints that jointly force an ordering, double-superseded delivery windows ending in cancellation, and equipment-fault causal chains. All 9 task types represented across 12 items.",
+  "task_types": [
+    "adversarial",
+    "causal",
+    "recall/constraint",
+    "recall/preference",
+    "recall/single",
+    "synthesis/multi",
+    "temporal",
+    "update",
+    "update/interference"
+  ]
+}

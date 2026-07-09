@@ -383,6 +383,7 @@ def run_benchmark_v2(
     """
     if dataset_path is None:
         dataset_path = DEFAULT_DATASET_V2
+    dataset_path = Path(dataset_path)
 
     manifest = load_dataset_manifest(dataset_path)
     if official_run and manifest is None:

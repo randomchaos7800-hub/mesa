@@ -1,0 +1,608 @@
+[
+  {
+    "id": "mesa-rw-delivery-0001",
+    "version": "2",
+    "task_type": "recall/single",
+    "answer_format": "single_fact",
+    "question": "What is the gate code for the Hendricks Dental delivery?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Route A today is six stops: Fresh Fork Market, Marlow's Hardware, Hendricks Dental, Eastside Veterinary, the Chen residence on Sycamore, and Bellwether Print Shop. Hendricks Dental is a gated lot — the gate code is 4482."},
+          {"role": "assistant", "content": "Logged. Six stops on Route A, and gate code 4482 for the Hendricks Dental lot."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Route A has six stops: Fresh Fork Market, Marlow's Hardware, Hendricks Dental, Eastside Veterinary, the Chen residence, and Bellwether Print Shop.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Route A stops", "value": "Fresh Fork Market, Marlow's Hardware, Hendricks Dental, Eastside Veterinary, Chen residence, Bellwether Print Shop"}},
+        {"fact_id": "f2", "text": "The gate code for the Hendricks Dental lot is 4482.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Hendricks Dental gate code", "value": "4482"}, "aliases": ["gate code is 4482"]}
+      ],
+      "required_fact_ids": ["f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["4482"],
+      "must_include": ["4482"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "easy",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: single operational fact embedded in a route briefing.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0002",
+    "version": "2",
+    "task_type": "recall/constraint",
+    "answer_format": "constraint",
+    "question": "What is the rule for delivering refrigerated packages?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Standing rule for every route: refrigerated packages must be delivered before 11:00 AM. No exceptions, even if it means resequencing the route."},
+          {"role": "assistant", "content": "Understood — refrigerated drops always land before 11:00 AM, resequence if needed."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Bellwether Print wants us to start using the loading dock around back instead of the front counter. Also Sam's asking about vacation days in August — tell him to file through the portal."},
+          {"role": "assistant", "content": "Noted the Bellwether dock change, and I'll point Sam at the portal for the August vacation request."}
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Fuel card for van 2 was declined this morning, use the backup card until the new one arrives Thursday."},
+          {"role": "assistant", "content": "Backup fuel card for van 2 until Thursday, got it."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Refrigerated packages must be delivered before 11:00 AM, with no exceptions, even if the route must be resequenced.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "refrigerated delivery rule", "value": "before 11:00 AM, no exceptions"}, "aliases": ["refrigerated drops before 11 AM"]},
+        {"fact_id": "f2", "text": "Bellwether Print wants deliveries at the rear loading dock instead of the front counter.", "status": "distractor", "source_sessions": ["s2"]},
+        {"fact_id": "f3", "text": "Van 2's fuel card was declined; the backup card is in use until Thursday.", "status": "distractor", "source_sessions": ["s3"]}
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Refrigerated packages must be delivered before 11:00 AM, no exceptions"],
+      "must_include": ["11:00 AM"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "delivery_routing",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: hard operational rule stated once, followed by unrelated operational noise.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0003",
+    "version": "2",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "What is the current second stop on Route A?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Route A stop order for today: first Fresh Fork Market, second Marlow's Hardware, third Hendricks Dental, fourth Eastside Veterinary, fifth the Chen residence, sixth Bellwether Print Shop."},
+          {"role": "assistant", "content": "Route A locked in: Fresh Fork, Marlow's, Hendricks, Eastside Vet, Chen, Bellwether — in that order."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Change of plan — Marlow's Hardware closes their receiving window at 10, we won't make it in the second slot. Swap stops two and five: Chen residence moves up to second, Marlow's drops to fifth. Actually no — Marlow's has to be first or we miss them entirely. Make Marlow's first, Fresh Fork second, everything else shifts down one until Chen, who stays fifth."},
+          {"role": "assistant", "content": "Final order: Marlow's first, Fresh Fork second, Hendricks third, Eastside Vet fourth, Chen fifth, Bellwether sixth."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "The original second stop on Route A was Marlow's Hardware.", "status": "superseded", "source_sessions": ["s1"]},
+        {"fact_id": "f2", "text": "An intermediate proposal moved the Chen residence to second stop.", "status": "superseded", "source_sessions": ["s2"]},
+        {"fact_id": "f3", "text": "The current second stop on Route A is Fresh Fork Market.", "status": "active", "source_sessions": ["s2"], "slots": {"entity": "Route A second stop", "value": "Fresh Fork Market"}},
+        {"fact_id": "f4", "text": "The current first stop on Route A is Marlow's Hardware.", "status": "active", "source_sessions": ["s2"]}
+      ],
+      "required_fact_ids": ["f3"],
+      "forbidden_fact_ids": ["f1", "f2"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["Fresh Fork Market"],
+      "must_include": ["Fresh Fork"],
+      "must_not_include": ["Marlow", "Chen"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "delivery_routing",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: stop order revised twice inside one turn, including a retracted intermediate proposal — the classic mid-day reroute.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0004",
+    "version": "2",
+    "task_type": "update/interference",
+    "answer_format": "single_fact",
+    "question": "What is the delivery address for the Chen residence stop?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "The Chen residence stop on Route A is 1420 Sycamore Avenue. Leave signature-required packages with anyone over 18 at that address."},
+          {"role": "assistant", "content": "Chen residence: 1420 Sycamore Avenue, signature packages to any adult present."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "New customer added to tomorrow's Route B: Cheng Consulting at 1420 Sycamore Court — that's the office park on the other side of town, don't mix it up with the Sycamore Avenue stop."},
+          {"role": "assistant", "content": "Got it — Cheng Consulting, 1420 Sycamore Court, Route B tomorrow. Separate from the Chen residence on Sycamore Avenue."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "The Chen residence stop on Route A is at 1420 Sycamore Avenue.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Chen residence address", "value": "1420 Sycamore Avenue"}},
+        {"fact_id": "f2", "text": "Cheng Consulting on Route B is at 1420 Sycamore Court.", "status": "distractor", "source_sessions": ["s2"]}
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": ["f2"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["1420 Sycamore Avenue"],
+      "must_include": ["Sycamore Avenue"],
+      "must_not_include": ["Sycamore Court"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "delivery_routing",
+      "distractor_density": "high",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: near-identical address added later (Chen/1420 Sycamore Ave vs Cheng/1420 Sycamore Ct) — the original must survive interference.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0005",
+    "version": "2",
+    "task_type": "synthesis/multi",
+    "answer_format": "multi_fact",
+    "question": "The Eastside Veterinary delivery is scheduled for noon today. How should the driver get there, and why?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Heads up: the Route 9 bridge is closed for inspection until 2 PM today."},
+          {"role": "assistant", "content": "Noted — Route 9 bridge closed until 2 PM."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Reminder about Eastside Veterinary: the only ways in are Route 9 across the bridge, or the Kellogg Road detour which adds about 25 minutes."},
+          {"role": "assistant", "content": "Right — Eastside Vet is Route 9 or the 25-minute Kellogg Road detour, nothing else."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "The Route 9 bridge is closed until 2 PM today.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Route 9 bridge", "value": "closed until 2 PM"}},
+        {"fact_id": "f2", "text": "Eastside Veterinary is reachable only via Route 9 or the Kellogg Road detour, which adds about 25 minutes.", "status": "active", "source_sessions": ["s2"], "slots": {"entity": "Eastside Veterinary access", "value": "Route 9 or Kellogg Road detour (+25 min)"}}
+      ],
+      "required_fact_ids": ["f1", "f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Take the Kellogg Road detour, because the Route 9 bridge is closed until 2 PM and noon is before that"],
+      "must_include": ["Kellogg"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: two facts from separate sessions must combine — closure window vs delivery time forces the detour.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0006",
+    "version": "2",
+    "task_type": "temporal",
+    "answer_format": "temporal",
+    "question": "On what date did Marlow's Hardware switch to morning-only receiving?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": "2026-06-30",
+        "turns": [
+          {"role": "user", "content": "Marlow's Hardware takes deliveries any time before 4 PM, front counter."},
+          {"role": "assistant", "content": "Marlow's: anytime before 4 PM at the front counter."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": "2026-07-06",
+        "turns": [
+          {"role": "user", "content": "Marlow's just told us they're switching to morning-only receiving — nothing after 10 AM from now on. That starts today."},
+          {"role": "assistant", "content": "Effective today, Marlow's receives mornings only, cutoff 10 AM."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Marlow's Hardware previously accepted deliveries any time before 4 PM.", "status": "superseded", "source_sessions": ["s1"]},
+        {"fact_id": "f2", "text": "Marlow's Hardware switched to morning-only receiving (cutoff 10 AM) on 2026-07-06.", "status": "active", "source_sessions": ["s2"], "slots": {"entity": "Marlow's receiving change date", "value": "2026-07-06"}}
+      ],
+      "required_fact_ids": ["f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["2026-07-06", "July 6, 2026"],
+      "must_include": [],
+      "must_not_include": ["2026-06-30"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": 6,
+      "notes": "Real-world tests: multi-session dated item — the answer is the session date on which the change was announced as effective.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0007",
+    "version": "2",
+    "task_type": "adversarial",
+    "answer_format": "abstention",
+    "question": "What is the gate code for Marlow's Hardware?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Two access notes for Route A: Hendricks Dental is a gated lot, code 4482. Bellwether Print buzzes you in from the rear dock intercom."},
+          {"role": "assistant", "content": "Hendricks gate code 4482; Bellwether uses the rear dock intercom. Noted."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "The gate code for the Hendricks Dental lot is 4482.", "status": "distractor", "source_sessions": ["s1"]},
+        {"fact_id": "f2", "text": "Bellwether Print admits drivers via the rear dock intercom.", "status": "distractor", "source_sessions": ["s1"]},
+        {"fact_id": "f3", "text": "A gate code for Marlow's Hardware was never stated.", "status": "unsupported", "source_sessions": ["s1"]}
+      ],
+      "required_fact_ids": [],
+      "forbidden_fact_ids": ["f1"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["I don't know — no gate code for Marlow's Hardware was ever provided"],
+      "must_include": [],
+      "must_not_include": ["4482"],
+      "abstention_expected": true
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "domain": "delivery_routing",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: plausible-but-never-stated operational detail; the nearby Hendricks code (4482) is the hallucination bait.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0008",
+    "version": "2",
+    "task_type": "causal",
+    "answer_format": "multi_fact",
+    "question": "Why was the Fairground Market pallet stop reassigned to Rosa?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Sam's van has a broken liftgate — parts won't be in until next week."},
+          {"role": "assistant", "content": "Sam's liftgate is down until parts arrive next week. Logged."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Reminder: pallet deliveries can only go on a van with a working liftgate. The Fairground Market stop this week is a full pallet."},
+          {"role": "assistant", "content": "Right — pallets need a working liftgate, and Fairground Market is a pallet job this week."}
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "I moved the Fairground Market stop to Rosa's route."},
+          {"role": "assistant", "content": "Fairground Market reassigned to Rosa."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Sam's van has a broken liftgate until parts arrive next week.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Sam's van liftgate", "value": "broken"}},
+        {"fact_id": "f2", "text": "Pallet deliveries require a van with a working liftgate.", "status": "active", "source_sessions": ["s2"]},
+        {"fact_id": "f3", "text": "The Fairground Market stop this week is a full pallet delivery.", "status": "active", "source_sessions": ["s2"]},
+        {"fact_id": "f4", "text": "The Fairground Market stop was reassigned to Rosa.", "status": "active", "source_sessions": ["s3"]}
+      ],
+      "required_fact_ids": ["f1", "f2", "f3"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Because the Fairground stop is a pallet delivery, pallets require a working liftgate, and Sam's van's liftgate is broken"],
+      "must_include": ["liftgate"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: three-fact causal chain across three sessions (equipment fault + rule + job type -> reassignment).",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0009",
+    "version": "2",
+    "task_type": "recall/preference",
+    "answer_format": "preference",
+    "question": "Where does Mrs. Alvarez want her packages left?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Mrs. Alvarez on the Thursday route called again — she wants packages left at the side door, never on the front porch. Porch pirates got her twice last year."},
+          {"role": "assistant", "content": "Standing preference recorded: Alvarez deliveries go to the side door, never the porch."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Mrs. Alvarez wants packages left at the side door, never on the front porch.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Alvarez delivery preference", "value": "side door, never the porch"}, "aliases": ["side door not porch"]}
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["At the side door, never on the front porch"],
+      "must_include": ["side door"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "easy",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: customer delivery preference with a stated reason.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0010",
+    "version": "2",
+    "task_type": "update",
+    "answer_format": "update_current",
+    "question": "What is the current status of the Bellwether Print Shop stop today?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Bellwether Print wants their delivery between 2 and 4 PM today."},
+          {"role": "assistant", "content": "Bellwether window: 2–4 PM today."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Bellwether called — push their window to 3 to 5 PM, their press run is late."},
+          {"role": "assistant", "content": "Updated: Bellwether now 3–5 PM."}
+        ]
+      },
+      {
+        "session_id": "s3",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Bellwether again. Cancel today's delivery entirely — they'll take it with tomorrow's run."},
+          {"role": "assistant", "content": "Bellwether canceled for today, rolled into tomorrow's run."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Bellwether's delivery window was originally 2–4 PM today.", "status": "superseded", "source_sessions": ["s1"]},
+        {"fact_id": "f2", "text": "Bellwether's window was moved to 3–5 PM today.", "status": "superseded", "source_sessions": ["s2"]},
+        {"fact_id": "f3", "text": "Bellwether's delivery today is canceled and rolled into tomorrow's run.", "status": "active", "source_sessions": ["s3"], "slots": {"entity": "Bellwether stop status today", "value": "canceled, moved to tomorrow"}}
+      ],
+      "required_fact_ids": ["f3"],
+      "forbidden_fact_ids": ["f1", "f2"]
+    },
+    "gold_answer": {
+      "canonical_answers": ["Canceled for today — it moves to tomorrow's run"],
+      "must_include": ["cancel"],
+      "must_not_include": ["3-5", "3 to 5", "2-4", "2 to 4"],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "delivery_routing",
+      "distractor_density": "medium",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: double supersession ending in cancellation — systems that stop tracking after the first update report a stale window.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0011",
+    "version": "2",
+    "task_type": "synthesis/multi",
+    "answer_format": "multi_fact",
+    "question": "Given the refrigerated rule and Hendricks Dental's receiving hours, in what order must the Fresh Fork Market and Hendricks Dental stops be sequenced, and why?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Reminder of the standing rule: refrigerated packages before 11 AM, no exceptions. Fresh Fork Market is the refrigerated stop on Route A."},
+          {"role": "assistant", "content": "Fresh Fork is the refrigerated drop — must land before 11 AM."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Hendricks Dental only receives deliveries after 10:30 AM — their office manager doesn't get in before that."},
+          {"role": "assistant", "content": "Hendricks receiving opens at 10:30 AM. Logged."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "Fresh Fork Market is the refrigerated stop and must be delivered before 11 AM.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "Fresh Fork constraint", "value": "refrigerated, before 11 AM"}},
+        {"fact_id": "f2", "text": "Hendricks Dental only receives deliveries after 10:30 AM.", "status": "active", "source_sessions": ["s2"], "slots": {"entity": "Hendricks receiving hours", "value": "after 10:30 AM"}}
+      ],
+      "required_fact_ids": ["f1", "f2"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["Fresh Fork Market before Hendricks Dental — Fresh Fork must be done before 11 AM while Hendricks can't take deliveries until after 10:30 AM"],
+      "must_include": ["Fresh Fork"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "hard",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: two time-window constraints from separate sessions jointly force a stop ordering.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  },
+  {
+    "id": "mesa-rw-delivery-0012",
+    "version": "2",
+    "task_type": "recall/constraint",
+    "answer_format": "constraint",
+    "question": "How many stops can a route carry before dispatch approval is required?",
+    "sessions": [
+      {
+        "session_id": "s1",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Policy note: a route can carry at most 8 stops. Anything beyond 8 needs dispatch-lead approval before the driver rolls."},
+          {"role": "assistant", "content": "Max 8 stops per route; 9 or more requires dispatch-lead sign-off first."}
+        ]
+      },
+      {
+        "session_id": "s2",
+        "date": null,
+        "turns": [
+          {"role": "user", "content": "Also — Rosa prefers the east-side routes when there's a choice, and Sam's fine either way. Try to honor that when the board isn't tight."},
+          {"role": "assistant", "content": "Rosa gets east-side routes when possible. Noted."}
+        ]
+      }
+    ],
+    "gold_memory": {
+      "atomic_facts": [
+        {"fact_id": "f1", "text": "A route can carry at most 8 stops; exceeding 8 requires dispatch-lead approval.", "status": "active", "source_sessions": ["s1"], "slots": {"entity": "max stops per route", "value": "8"}, "aliases": ["8 stop maximum"]},
+        {"fact_id": "f2", "text": "Rosa prefers east-side routes when there is a choice.", "status": "distractor", "source_sessions": ["s2"]}
+      ],
+      "required_fact_ids": ["f1"],
+      "forbidden_fact_ids": []
+    },
+    "gold_answer": {
+      "canonical_answers": ["8 stops — more than 8 requires dispatch-lead approval"],
+      "must_include": ["8"],
+      "must_not_include": [],
+      "abstention_expected": false
+    },
+    "metadata": {
+      "difficulty": "easy",
+      "domain": "delivery_routing",
+      "distractor_density": "low",
+      "temporal_gap_days": null,
+      "notes": "Real-world tests: numeric routing policy with a soft-preference distractor.",
+      "source_profile": "small courier dispatch operation",
+      "annotator_id": "claude-code",
+      "reviewer_id": "dino",
+      "review_status": "provisional"
+    }
+  }
+]
