@@ -22,48 +22,16 @@ import json
 import logging
 import re
 
+from mesa.scoring.deterministic import normalize_dates as _normalize_dates
+
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Text normalization
 # ---------------------------------------------------------------------------
-
-_MONTH_MAP = {
-    "january": "01", "february": "02", "march": "03", "april": "04",
-    "may": "05", "june": "06", "july": "07", "august": "08",
-    "september": "09", "october": "10", "november": "11", "december": "12",
-    "jan": "01", "feb": "02", "mar": "03", "apr": "04",
-    "jun": "06", "jul": "07", "aug": "08", "sep": "09", "oct": "10",
-    "nov": "11", "dec": "12",
-}
-
-
-def _normalize_dates(text: str) -> str:
-    """Convert common date formats to ISO 8601 (YYYY-MM-DD) for comparison.
-
-    Handles:
-      "March 1, 2026" → "2026-03-01"
-      "Mar 1 2026"    → "2026-03-01"
-      "2026/03/01"    → "2026-03-01"
-      "03/01/2026"    → "2026-03-01"
-    """
-    # "Month D, YYYY" or "Month D YYYY"
-    text = re.sub(
-        r'\b(january|february|march|april|may|june|july|august|september|october|november|december'
-        r'|jan|feb|mar|apr|jun|jul|aug|sep|oct|nov|dec)\b\.?\s+(\d{1,2}),?\s+(\d{4})',
-        lambda m: f"{m.group(3)}-{_MONTH_MAP[m.group(1).lower()]}-{int(m.group(2)):02d}",
-        text,
-        flags=re.IGNORECASE,
-    )
-    # YYYY/MM/DD → YYYY-MM-DD
-    text = re.sub(r'\b(\d{4})/(\d{2})/(\d{2})\b', r'\1-\2-\3', text)
-    # MM/DD/YYYY → YYYY-MM-DD
-    text = re.sub(
-        r'\b(\d{1,2})/(\d{1,2})/(\d{4})\b',
-        lambda m: f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}",
-        text,
-    )
-    return text
+# Date normalization (_normalize_dates) lives in mesa.scoring.deterministic —
+# the v1 legacy scorer and the v2 scoring path shared byte-identical
+# implementations of it, so this module now imports the one copy.
 
 
 def _normalize(text: str) -> str:
