@@ -26,7 +26,7 @@ def main():
     logger.info("Initializing MikeAdapter...")
     adapter = MikeAdapter()
 
-    logger.info(f"Running MESA v1 (100 items, no LLM judge)...")
+    logger.info("Running MESA v1 (100 items, no LLM judge)...")
     summary = run_benchmark(
         adapter=adapter,
         dataset_path=DATASET,
@@ -39,15 +39,15 @@ def main():
     out.write_text(json.dumps(summary, indent=2))
 
     print(f"\n{'='*60}")
-    print(f"  Mike — MESA v1 Results")
+    print("  Mike — MESA v1 Results")
     print(f"  Items : {summary['n_items']}")
     print(f"  Avg   : {summary['avg_composite']:.4f}")
     print(f"  Pass  : {summary['pass_rate_50pct']:.1%}")
-    print(f"\n  By type:")
+    print("\n  By type:")
     for t, s in sorted(summary["by_type"].items(), key=lambda x: -x[1]):
         bar = "█" * int(s * 20)
         print(f"    {t:<25} {s:.4f}  {bar}")
-    print(f"\n  By session format:")
+    print("\n  By session format:")
     for fmt, s in sorted(summary["by_session_format"].items()):
         print(f"    {fmt:<10} n={s['n']:3d}  avg={s['avg_composite']:.4f}  pass={s['pass_rate']:.1%}")
     print(f"{'='*60}")

@@ -28,11 +28,11 @@ import time
 import urllib.request
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 from mesa.adapter import MemoryAdapter
 from mesa.dataset.manifest import load_dataset_manifest
 from mesa.dataset.migrators import upgrade_v1_item
+from mesa.scorer import composite, exact_match, is_refusal, llm_judge, rouge1_f1
 from mesa.scoring.answer_types import (
     score_abstention_answer,
     score_causal_answer,
@@ -41,12 +41,11 @@ from mesa.scoring.answer_types import (
     score_preference_answer,
     score_single_fact_answer,
     score_temporal_answer,
-    score_update_interference_answer,
     score_update_current_answer,
+    score_update_interference_answer,
 )
 from mesa.scoring.deterministic import match_fact_ids
 from mesa.scoring.stats import bootstrap_mean_ci
-from mesa.scorer import exact_match, rouge1_f1, composite, is_refusal, llm_judge
 
 logger = logging.getLogger(__name__)
 
@@ -369,9 +368,9 @@ def _run_item_once(
 
 def run_benchmark_v2(
     adapter: MemoryAdapter,
-    dataset_path: Optional[Path] = None,
+    dataset_path: Path | None = None,
     trace_required: bool = False,
-    limit: Optional[int] = None,
+    limit: int | None = None,
     quiet: bool = False,
     official_run: bool = False,
     n_runs: int = 1,
@@ -415,8 +414,8 @@ def run_benchmark_v2(
         print(f"\nmesa dry-run: {len(dataset)} items × {n_runs} run(s) = {total} total")
         print(f"  Dataset : {dataset_path}")
         print(f"  Adapter : {adapter.__class__.__name__}")
-        print(f"  Schema  : v2")
-        print(f"\n  Type breakdown:")
+        print("  Schema  : v2")
+        print("\n  Type breakdown:")
         for t, n in sorted(by_type.items()):
             print(f"    {t:<30} {n}")
         return {"run_id": "dry-run", "n_items": len(dataset), "dry_run": True}
@@ -506,12 +505,12 @@ def run_benchmark_v2(
 
 def run_benchmark(
     adapter: MemoryAdapter,
-    dataset_path: Optional[Path] = None,
+    dataset_path: Path | None = None,
     no_llm_judge: bool = True,
     judge_client=None,
     judge_model: str = "local",
-    type_filter: Optional[str] = None,
-    limit: Optional[int] = None,
+    type_filter: str | None = None,
+    limit: int | None = None,
     quiet: bool = False,
 ) -> dict:
     """Run the full benchmark and return a summary dict.
@@ -730,12 +729,12 @@ def compare_probe_runs(path_a: str, path_b: str, label_a: str = "A", label_b: st
 
 
 def doctor(
-    adapter_path: Optional[str] = None,
-    dataset_path: Optional[Path] = None,
-    judge_url: Optional[str] = None,
+    adapter_path: str | None = None,
+    dataset_path: Path | None = None,
+    judge_url: str | None = None,
 ) -> bool:
     """Pre-flight checks: adapter importable, dataset valid, judge reachable."""
-    checks: list[tuple[str, Optional[bool], str]] = []
+    checks: list[tuple[str, bool | None, str]] = []
 
     if adapter_path:
         try:
@@ -783,7 +782,7 @@ def doctor(
     return all_pass
 
 
-def score_results(results_path: str, dataset_path: Optional[Path] = None) -> dict:
+def score_results(results_path: str, dataset_path: Path | None = None) -> dict:
     """Re-score an existing results JSON without re-running the adapter.
 
     Useful when the scorer changes and you want to apply new metrics to old runs.
@@ -817,7 +816,7 @@ def score_results(results_path: str, dataset_path: Optional[Path] = None) -> dic
             continue
 
         raw_writes = r.get("storage", {}).get("writes") or []
-        writes: Optional[list[dict]] = [
+        writes: list[dict] | None = [
             {"memory_id": w.get("memory_id"), "text": w["text"], "metadata": w.get("metadata", {})}
             for w in raw_writes
         ] if raw_writes else None
@@ -1014,10 +1013,10 @@ def main():
     print(f"  Items : {summary['n_items']}")
     print(f"  Avg   : {summary['avg_composite']:.4f}")
     print(f"  Pass  : {summary['pass_rate_50pct']:.1%}")
-    print(f"  By type:")
+    print("  By type:")
     for t, s in sorted(summary["by_type"].items()):
         print(f"    {t:<25} {s:.4f}")
-    print(f"  By session format:")
+    print("  By session format:")
     for fmt, s in sorted(summary["by_session_format"].items()):
         print(f"    {fmt:<10} n={s['n']:3d}  avg={s['avg_composite']:.4f}  pass={s['pass_rate']:.1%}")
     print(f"{'='*60}")

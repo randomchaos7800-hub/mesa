@@ -25,11 +25,13 @@ Note: Mem0 can be configured with its own LLM and embedder. By default this
 adapter uses the same OpenAI-compatible client for both Mem0's internals and
 the final answer generation. See Mem0 docs for custom config options.
 """
+import logging
 import uuid
-from typing import Optional
 
 from mesa.adapter import MemoryAdapter
 from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
+
+logger = logging.getLogger(__name__)
 
 _ANSWER_PROMPT = """You are a memory-backed assistant. Answer the question using ONLY the provided memory.
 If the answer is not in the memory, say "I don't have that information."
@@ -73,8 +75,8 @@ class Mem0Adapter(MemoryAdapter):
         self,
         llm_client,
         model: str = "local",
-        mem0_config: Optional[dict] = None,
-        user_id: Optional[str] = None,
+        mem0_config: dict | None = None,
+        user_id: str | None = None,
         top_k: int = 5,
         max_answer_tokens: int = 256,
     ):
@@ -106,8 +108,8 @@ class Mem0Adapter(MemoryAdapter):
         # Delete all memories for this user then reinitialise
         try:
             self._memory.delete_all(user_id=self._user_id)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"Failed to delete Mem0 memories for user {self._user_id!r}: {e}")
         self._init_memory()
 
     def inject(self, sessions: list[dict]) -> None:
@@ -120,10 +122,9 @@ class Mem0Adapter(MemoryAdapter):
         try:
             self._memory.add(messages, user_id=self._user_id)
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Mem0 add failed: {e}")
+            logger.warning(f"Mem0 add failed: {e}")
 
-    def inject_session(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+    def inject_session(self, turns: list[dict], session_date: str | None = None) -> None:
         self.inject(_apply_session_date(turns, session_date))
 
     def ask(self, question: str) -> str:
@@ -138,8 +139,7 @@ class Mem0Adapter(MemoryAdapter):
                 for m in memories
             )
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Mem0 search failed: {e}")
+            logger.warning(f"Mem0 search failed: {e}")
             self._last_retrieved = []
             return "I don't have that information."
 
@@ -152,8 +152,7 @@ class Mem0Adapter(MemoryAdapter):
             )
             return (resp.choices[0].message.content or "").strip()
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Answer generation failed: {e}")
+            logger.warning(f"Answer generation failed: {e}")
             return "I don't have that information."
 
     def stored_facts(self) -> list[str] | None:

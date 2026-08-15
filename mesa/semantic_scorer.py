@@ -55,8 +55,8 @@ def _simple_stem(word: str) -> str:
 
 def _word_overlap_score(expected: str, actual: str) -> float:
     """Jaccard similarity on stemmed tokens."""
-    exp_tokens = set(_simple_stem(t) for t in _tokenize(expected))
-    act_tokens = set(_simple_stem(t) for t in _tokenize(actual))
+    exp_tokens = {_simple_stem(t) for t in _tokenize(expected)}
+    act_tokens = {_simple_stem(t) for t in _tokenize(actual)}
     if not exp_tokens or not act_tokens:
         return 0.0
     intersection = exp_tokens & act_tokens

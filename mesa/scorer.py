@@ -21,7 +21,6 @@ import html
 import json
 import logging
 import re
-from typing import Optional
 
 logger = logging.getLogger(__name__)
 
@@ -328,7 +327,7 @@ def llm_judge(
 def composite(
     exact: float,
     rouge: float,
-    judge: Optional[float],
+    judge: float | None,
     use_llm_judge: bool = True,
 ) -> float:
     """Weighted composite score.

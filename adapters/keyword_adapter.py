@@ -23,7 +23,6 @@ Usage:
 import re
 from collections import Counter
 from math import log
-from typing import Optional
 
 from mesa.adapter import MemoryAdapter
 from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory

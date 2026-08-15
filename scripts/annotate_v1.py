@@ -169,7 +169,6 @@ def annotate_update_interference(item):
 
 
 def annotate_adversarial(item):
-    answer = item.get("expected_answer", "").strip()
     # No atomic facts to recall — abstention expected
     must_not_include = []
     # If expected says "I don't know" keep forbidden list empty;

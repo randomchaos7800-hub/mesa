@@ -20,7 +20,6 @@ import logging
 import sqlite3
 import sys
 from pathlib import Path
-from typing import Optional
 
 # Add Mike to Python path
 MIKE_ROOT = Path.home() / "mike"
@@ -29,6 +28,7 @@ if str(MIKE_ROOT) not in sys.path:
 
 # Load Mike's secrets so the relay can authenticate
 from dotenv import load_dotenv
+
 _secrets = MIKE_ROOT / "config" / "secrets.env"
 if _secrets.exists():
     load_dotenv(_secrets, override=True)
@@ -69,7 +69,7 @@ class MikeAdapter(MemoryAdapter):
         except Exception as e:
             logger.warning(f"reset: DB clear failed: {e}")
 
-    def _record_turns(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+    def _record_turns(self, turns: list[dict], session_date: str | None = None) -> None:
         for turn in turns:
             role = turn.get("role", "user")
             content = (turn.get("content") or "").strip()
@@ -80,7 +80,7 @@ class MikeAdapter(MemoryAdapter):
     def inject(self, turns: list[dict]) -> None:
         self._record_turns(turns, session_date=None)
 
-    def inject_session(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+    def inject_session(self, turns: list[dict], session_date: str | None = None) -> None:
         if session_date:
             logger.debug(f"inject_session: date={session_date} ({len(turns)} turns)")
         self._record_turns(turns, session_date=session_date)
@@ -118,7 +118,7 @@ class MikeAdapter(MemoryAdapter):
         retrieval trace. Returning a synthetic trace would make official v2 runs
         look observable when they are not.
         """
-        return None
+        return
 
     def stored_facts(self) -> list[str] | None:
         return [f"{t['role'].upper()}: {t['content'][:120]}" for t in self._injected]

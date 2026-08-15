@@ -4,7 +4,6 @@ from mesa.scoring.deterministic import (
     contains_all_required,
     contains_forbidden,
     matches_expected,
-    normalize_text,
 )
 from mesa.scoring.grounding import find_unsupported_claims, is_clean_abstention
 

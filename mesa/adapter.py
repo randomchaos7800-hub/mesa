@@ -1,7 +1,6 @@
 """MemoryAdapter interface — plug your memory system in here."""
 
 from abc import ABC, abstractmethod
-from typing import Optional
 
 from mesa.core.types import AnswerTrace, MemoryWrite
 
@@ -50,7 +49,7 @@ class MemoryAdapter(ABC):
         once per session in order (multi-session items via inject_session()).
         """
 
-    def inject_session(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+    def inject_session(self, turns: list[dict], session_date: str | None = None) -> None:
         """Inject one session of a multi-session item.
 
         Args:

@@ -27,12 +27,13 @@ Custom embedding function (e.g. OpenAI embeddings):
     adapter = ChromaAdapter(client=client, model="local", embedding_fn=emb_fn)
 """
 
+import logging
 import uuid
-import re
-from typing import Optional
 
 from mesa.adapter import MemoryAdapter
 from mesa.core.types import AnswerTrace, MemoryWrite, RetrievedMemory
+
+logger = logging.getLogger(__name__)
 
 _EXTRACT_PROMPT = """Extract all discrete facts from this conversation as a bullet-point list.
 Each bullet should be one self-contained fact. Be specific. Do not invent.
@@ -126,8 +127,8 @@ class ChromaAdapter(MemoryAdapter):
         # Drop the old collection and create a fresh one
         try:
             self._chroma_client.delete_collection(self._collection.name)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"Failed to delete Chroma collection {self._collection.name!r}: {e}")
         self._init_collection()
 
     def inject(self, sessions: list[dict]) -> None:
@@ -147,8 +148,7 @@ class ChromaAdapter(MemoryAdapter):
             )
             raw = resp.choices[0].message.content or ""
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Extraction failed: {e}")
+            logger.warning(f"Extraction failed: {e}")
             return
 
         facts = []
@@ -166,7 +166,7 @@ class ChromaAdapter(MemoryAdapter):
             ids=[f"fact_{i}" for i in range(len(facts))],
         )
 
-    def inject_session(self, turns: list[dict], session_date: Optional[str] = None) -> None:
+    def inject_session(self, turns: list[dict], session_date: str | None = None) -> None:
         self.inject(_apply_session_date(turns, session_date))
 
     def ask(self, question: str) -> str:
@@ -182,8 +182,7 @@ class ChromaAdapter(MemoryAdapter):
             )
             retrieved = results["documents"][0] if results["documents"] else []
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Chroma query failed: {e}")
+            logger.warning(f"Chroma query failed: {e}")
             retrieved = self._facts[: self._top_k]
         self._last_retrieved = list(retrieved)
 
@@ -200,8 +199,7 @@ class ChromaAdapter(MemoryAdapter):
             )
             return (resp.choices[0].message.content or "").strip()
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Answer generation failed: {e}")
+            logger.warning(f"Answer generation failed: {e}")
             return "I don't have that information."
 
     def get_writes(self) -> list[MemoryWrite] | None:
